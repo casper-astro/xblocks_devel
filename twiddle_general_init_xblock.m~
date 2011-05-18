@@ -1,0 +1,216 @@
+function twiddle_general_init_xblock(twiddle_type, varargin)
+%% inports
+a = xInport('a');
+b = xInport('b');
+sync = xInport('sync');
+
+%% outports
+a_re_out = xOutport('a_re');
+a_im_out = xOutport('a_im');
+bw_re_out = xOutport('bw_re');
+bw_im_out = xOutport('bw_im');
+sync_out = xOutport('sync_out');
+
+%% Get varargin parameters
+defaults = {'Coeffs', [0, j], ...
+    'StepPeriod', 0, ...
+    'input_bit_width', 18, ...
+    'coeff_bit_width', 18,...
+    'add_latency', 1, ...
+    'mult_latency', 2, ...
+    'conv_latency', 1, ...
+    'bram_latency', 2, ...
+    'arch', 'Virtex5', ...
+    'coeffs_bram', 'off', ...
+    'use_hdl', 'off', ...
+    'use_embedded', 'off', ...
+    'quantization', 'Round  (unbiased: +/- Inf)', ...
+    'overflow', 'Wrap', ...
+};
+
+Coeffs = get_var('Coeffs', 'defaults', defaults, varargin{:});
+StepPeriod = get_var('StepPeriod', 'defaults', defaults, varargin{:});
+input_bit_width = get_var('input_bit_width', 'defaults', defaults, varargin{:});
+coeff_bit_width = get_var('coeff_bit_width', 'defaults', defaults, varargin{:});
+add_latency = get_var('add_latency', 'defaults', defaults, varargin{:});
+mult_latency = get_var('mult_latency', 'defaults', defaults, varargin{:});
+bram_latency = get_var('bram_latency', 'defaults', defaults, varargin{:});
+conv_latency = get_var('conv_latency', 'defaults', defaults, varargin{:});
+arch = get_var('arch', 'defaults', defaults, varargin{:});
+coeffs_bram = get_var('coeffs_bram', 'defaults', defaults, varargin{:});
+use_hdl = get_var('use_hdl', 'defaults', defaults, varargin{:});
+use_embedded = get_var('use_embedded', 'defaults', defaults, varargin{:});
+quantization = get_var('quantization', 'defaults', defaults, varargin{:});
+overflow = get_var('overflow', 'defaults', defaults, varargin{:});
+
+
+%% Module Drawing
+% convert 'a' input to real/imag
+a_re = xSignal;
+a_im = xSignal;
+c_to_ri_a = xBlock(struct('source', str2func('c_to_ri_init_xblock'), 'name', 'c_to_ri_a'), ...
+    {input_bit_width, input_bit_width-1}, {a}, {a_re, a_im});
+
+% convert 'b' input to real/imag
+b_re = xSignal;
+b_im = xSignal;
+c_to_ri_b = xBlock(struct('source', str2func('c_to_ri_init_xblock'), 'name', 'c_to_ri_b'), ...
+    {input_bit_width, input_bit_width-1}, {b}, {b_re, b_im});
+
+% delay inputs by input_latency length
+pipe_a_re = xBlock( struct('source'), str2func('pipeline_init_xblock'), 'name', 'pipe_a_re') ...
+    {input_latency}, {a_re}, {_re_del});
+    
+
+switch twiddle_type
+    case 'twiddle_pass_through'
+        % pipeline delay of input_latency length
+        
+       
+        xlsub2_sync_out.assign(xlsub2_sync);   
+    
+    case 'twiddle_coeff_0'
+        
+        defaults = {'FFTSize', 4, 'input_bit_width', 18, ...
+            'add_latency', 1, 'mult_latency', 2, ...
+            'conv_latency', 1, 'bram_latency', 2, ...
+            'opt_target','logic'};
+        FFTSize = get_var('FFTSize', 'defaults', defaults, varargin{:});
+        input_bit_width = get_var('input_bit_width', 'defaults', defaults, varargin{:});
+        add_latency = get_var('add_latency', 'defaults', defaults, varargin{:});
+        mult_latency = get_var('mult_latency', 'defaults', defaults, varargin{:});
+        bram_latency = get_var('bram_latency', 'defaults', defaults, varargin{:});
+        conv_latency = get_var('conv_latency', 'defaults', defaults, varargin{:});
+        opt_target = get_var('opt_target', 'defaults', defaults, varargin{:});
+        
+        twiddle_coeff_0_config.source=str2func('twiddle_coeff_0_init_xblock');
+        twiddle_coeff_0_config.name = 'twiddle_coeff_0_xblock';
+        twiddle_coeff_0_sub = xBlock(twiddle_coeff_0_config,{FFTSize,input_bit_width,add_latency,mult_latency, bram_latency, conv_latency, opt_target});
+        twiddle_coeff_0_sub.bindPort({a,b,sync},{a_re,a_im,bw_re,bw_im,sync_out});
+        
+        disp('twiddle_coeff_0_xblock');
+        
+        
+        
+    case 'twiddle_coeff_1'
+        
+        defaults = {'FFTSize', 4, 'input_bit_width', 18, ...
+            'add_latency', 1, 'mult_latency', 2, ...
+            'conv_latency', 1, 'bram_latency', 2, ...
+            'opt_target','logic'};
+        FFTSize = get_var('FFTSize', 'defaults', defaults, varargin{:});
+        input_bit_width = get_var('input_bit_width', 'defaults', defaults, varargin{:});
+        add_latency = get_var('add_latency', 'defaults', defaults, varargin{:});
+        mult_latency = get_var('mult_latency', 'defaults', defaults, varargin{:});
+        bram_latency = get_var('bram_latency', 'defaults', defaults, varargin{:});
+        conv_latency = get_var('conv_latency', 'defaults', defaults, varargin{:});
+        opt_target = get_var('opt_target', 'defaults', defaults, varargin{:});
+        
+        twiddle_coeff_1_config.source=str2func('twiddle_coeff_1_init_xblock');
+        twiddle_coeff_1_config.name = 'twiddle_coeff_1_xblock';
+        twiddle_coeff_1_sub = xBlock(twiddle_coeff_1_config,{FFTSize,input_bit_width,add_latency,mult_latency, bram_latency, conv_latency, opt_target});
+        twiddle_coeff_1_sub.bindPort({a,b,sync},{a_re,a_im,bw_re,bw_im,sync_out});
+        disp('twiddle_coeff_1_xblock');
+        
+    case 'twiddle_general_3mult'
+        
+        
+        
+        defaults = {'Coeffs', [0, j], 'StepPeriod', 0, 'input_bit_width', 18, ...
+            'coeff_bit_width', 18,'add_latency', 1, 'mult_latency', 2, ...
+            'conv_latency', 1, 'bram_latency', 2, 'arch', 'Virtex5', ...
+            'coeffs_bram', 'off', 'use_hdl', 'off', 'use_embedded', 'off', ...
+            'quantization', 'Round  (unbiased: +/- Inf)', 'overflow', 'Wrap'};
+        Coeffs = get_var('Coeffs', 'defaults', defaults, varargin{:});
+        StepPeriod = get_var('StepPeriod', 'defaults', defaults, varargin{:});
+        input_bit_width = get_var('input_bit_width', 'defaults', defaults, varargin{:});
+        coeff_bit_width = get_var('coeff_bit_width', 'defaults', defaults, varargin{:});
+        add_latency = get_var('add_latency', 'defaults', defaults, varargin{:});
+        mult_latency = get_var('mult_latency', 'defaults', defaults, varargin{:});
+        bram_latency = get_var('bram_latency', 'defaults', defaults, varargin{:});
+        conv_latency = get_var('conv_latency', 'defaults', defaults, varargin{:});
+        arch = get_var('arch', 'defaults', defaults, varargin{:});
+        coeffs_bram = get_var('coeffs_bram', 'defaults', defaults, varargin{:});
+        use_hdl = get_var('use_hdl', 'defaults', defaults, varargin{:});
+        use_embedded = get_var('use_embedded', 'defaults', defaults, varargin{:});
+        quantization = get_var('quantization', 'defaults', defaults, varargin{:});
+        overflow = get_var('overflow', 'defaults', defaults, varargin{:});
+        
+        twiddle_general_3mult_config.source=str2func('twiddle_general_3mult_init_xblock');
+        twiddle_general_3mult_config.name = 'twiddle_general_3mult_xblock';
+        twiddle_general_3mult_sub = xBlock(twiddle_general_3mult_config,{Coeffs, StepPeriod, coeffs_bram, coeff_bit_width, input_bit_width, add_latency, mult_latency, bram_latency, conv_latency, arch, use_hdl, use_embedded, quantization, overflow});
+        twiddle_general_3mult_sub.bindPort({a,b,sync},{a_re,a_im,bw_re,bw_im,sync_out});
+        disp('twiddle_general_3mult_xblock');
+        
+        
+    case 'twiddle_general_4mult'
+        
+
+        
+        twiddle_general_4mult_config.source=str2func('twiddle_general_4mult_init_xblock');
+        twiddle_general_4mult_config.name = 'twiddle_general_4mult_xblock';
+        twiddle_general_4mult_sub = xBlock(twiddle_general_4mult_config,{Coeffs, StepPeriod, coeffs_bram, coeff_bit_width, input_bit_width, add_latency, mult_latency, bram_latency, conv_latency, arch, use_hdl, use_embedded, quantization, overflow});
+        twiddle_general_4mult_sub.bindPort({a,b,sync},{a_re,a_im,bw_re,bw_im,sync_out});
+        disp('twiddle_general_4mult_xblock');
+        
+        
+        
+        
+    case 'twiddle_general_dsp48e'
+        
+        defaults = { ...
+            'Coeffs', [0, j], ...
+            'StepPeriod', 0, ...
+            'input_bit_width', 18, ...
+            'coeff_bit_width', 18, ...
+            'bram_latency', 2, ...
+            'conv_latency', 1, ...
+            'arch', 'Virtex5', ...
+            'quantization', 'Round  (unbiased: +/- Inf)', ...
+            'overflow', 'Wrap', ...
+            'coeffs_bram', 'off', ...
+            };
+        Coeffs = get_var('Coeffs', 'defaults', defaults, varargin{:});
+        StepPeriod = get_var('StepPeriod', 'defaults', defaults, varargin{:});
+        input_bit_width = get_var('input_bit_width', 'defaults', defaults, varargin{:});
+        coeff_bit_width = get_var('coeff_bit_width', 'defaults', defaults, varargin{:});
+        bram_latency = get_var('bram_latency', 'defaults', defaults, varargin{:});
+        conv_latency = get_var('conv_latency', 'defaults', defaults, varargin{:});
+        arch = get_var('arch', 'defaults', defaults, varargin{:});
+        quantization = get_var('quantization', 'defaults', defaults, varargin{:});
+        overflow = get_var('overflow', 'defaults', defaults, varargin{:});
+        coeffs_bram = get_var('coeffs_bram', 'defaults', defaults, varargin{:});
+        twiddle_general_dsp48e_config.source=str2func('twiddle_general_dsp48e_init_xblock');
+        twiddle_general_dsp48e_config.name = 'twiddle_general_dsp48e_xblock';
+        twiddle_general_dsp48e_sub = xBlock(twiddle_general_dsp48e_config,{Coeffs, StepPeriod, coeff_bit_width, input_bit_width, bram_latency, conv_latency, quantization, overflow, arch, coeffs_bram});
+        twiddle_general_dsp48e_sub.bindPort({a,b,sync},{a_re,a_im,bw_re,bw_im,sync_out});
+        
+        
+        disp('twiddle_general_dsp48e_xblock');
+        
+        
+
+        
+    case 'twiddle_stage_2'
+        
+        defaults = {'FFTSize', 4, 'input_bit_width', 18, ...
+            'add_latency', 1, 'mult_latency', 2, ...
+            'conv_latency', 1, 'bram_latency', 2, ...
+            'opt_target','logic'};
+        FFTSize = get_var('FFTSize', 'defaults', defaults, varargin{:});
+        input_bit_width = get_var('input_bit_width', 'defaults', defaults, varargin{:});
+        add_latency = get_var('add_latency', 'defaults', defaults, varargin{:});
+        mult_latency = get_var('mult_latency', 'defaults', defaults, varargin{:});
+        bram_latency = get_var('bram_latency', 'defaults', defaults, varargin{:});
+        conv_latency = get_var('conv_latency', 'defaults', defaults, varargin{:});
+        opt_target = get_var('opt_target', 'defaults', defaults, varargin{:});
+        twiddle_stage_2_config.source=str2func('twiddle_stage_2_init_xblock');
+        twiddle_stage_2_config.name = 'twiddle_stage_2_xblock';
+        twiddle_stage_2_sub = xBlock(twiddle_stage_2_config,{FFTSize,input_bit_width,add_latency,mult_latency, bram_latency, conv_latency, opt_target});
+        twiddle_stage_2_sub.bindPort({a,b,sync},{a_re,a_im,bw_re,bw_im,sync_out});
+        disp('twiddle_stage_2_xblock')
+        
+    otherwise
+        disp('Error! This twiddle type is not supported');
+end
+end
