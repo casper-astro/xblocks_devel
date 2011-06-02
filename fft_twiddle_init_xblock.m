@@ -1,3 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                             %
+%   Center for Astronomy Signal Processing and Electronics Research           %
+%   http://casper.berkeley.edu                                                %      
+%   Copyright (C) 2011 Suraj Gowda    Hong Chen                               %
+%                                                                             %
+%   This program is free software; you can redistribute it and/or modify      %
+%   it under the terms of the GNU General Public License as published by      %
+%   the Free Software Foundation; either version 2 of the License, or         %
+%   (at your option) any later version.                                       %
+%                                                                             %
+%   This program is distributed in the hope that it will be useful,           %
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of            %
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             %
+%   GNU General Public License for more details.                              %
+%                                                                             %
+%   You should have received a copy of the GNU General Public License along   %
+%   with this program; if not, write to the Free Software Foundation, Inc.,   %
+%   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.               %
+%                                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function fft_twiddle_init_xblock(varargin)
 %% inports
 a = xInport('a');
@@ -12,7 +33,7 @@ bw_im_out = xOutport('bw_im');
 sync_out = xOutport('sync_out');
 
 %% Get varargin parameters
-defaults = {'Coeffs', [0, j], ...
+defaults = {'Coeffs', [0 1], ...
     'StepPeriod', 0, ...
     'input_bit_width', 18, ...
     'coeff_bit_width', 18,...
@@ -34,6 +55,7 @@ defaults = {'Coeffs', [0, j], ...
 
 FFTSize = get_var('FFTSize', 'defaults', defaults, varargin{:});
 Coeffs = get_var('Coeffs', 'defaults', defaults, varargin{:});
+ActualCoeffs = get_var('ActualCoeffs', 'defaults', defaults, varargin{:});
 StepPeriod = get_var('StepPeriod', 'defaults', defaults, varargin{:});
 input_bit_width = get_var('input_bit_width', 'defaults', defaults, varargin{:});
 coeff_bit_width = get_var('coeff_bit_width', 'defaults', defaults, varargin{:});
@@ -57,7 +79,7 @@ use_dsp48_mults = get_var('use_dsp48_mults', 'defaults', defaults, varargin{:});
 biplex = get_var('biplex', 'defaults', defaults, varargin{:});
 
 use_embedded = strcmp('on', use_embedded);
-twiddle_type = get_twiddle_type(Coeffs, biplex, opt_target, use_embedded);
+twiddle_type = get_twiddle_type(Coeffs, biplex, opt_target, use_embedded,StepPeriod,FFTSize);
 
 
 
@@ -74,25 +96,29 @@ b_im = xSignal;
 c_to_ri_b = xBlock(struct('source', str2func('c_to_ri_init_xblock'), 'name', 'c_to_ri_b'), ...
     {input_bit_width, input_bit_width-1}, {b}, {b_re, b_im});
 
-% delay inputs by input_latency length
-a_re_del = xSignal;
-a_im_del = xSignal;
-b_re_del = xSignal;
-b_im_del = xSignal;
-sync_del = xSignal;
-pipe_a_re = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_a_re'), ...
-    {input_latency}, {a_re}, {a_re_del});
-pipe_a_im = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_a_im'), ...
-    {input_latency}, {a_im}, {a_im_del});
-pipe_b_re = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_b_re'), ...
-    {input_latency}, {b_re}, {b_re_del});
-pipe_b_im = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_b_im'), ...
-    {input_latency}, {b_im}, {b_im_del});
-pipe_sync = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_sync'), ...
-    {input_latency}, {sync}, {sync_del});
+if strcmp(twiddle_type, 'twiddle_pass_through') || strcmp(twiddle_type, 'twiddle_stage_2')...
+        || strcmp(twiddle_type,'twiddle_general_dsp48e') || strcmp(twiddle_type, 'twiddle_coeff_0')
+    % delay inputs by input_latency length
+    a_re_del = xSignal;
+    a_im_del = xSignal;
+    b_re_del = xSignal;
+    b_im_del = xSignal;
+    sync_del = xSignal;
+    pipe_a_re = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_a_re'), ...
+        {input_latency}, {a_re}, {a_re_del});
+    pipe_a_im = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_a_im'), ...
+        {input_latency}, {a_im}, {a_im_del});
+    pipe_b_re = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_b_re'), ...
+        {input_latency}, {b_re}, {b_re_del});
+    pipe_b_im = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_b_im'), ...
+        {input_latency}, {b_im}, {b_im_del});
+    pipe_sync = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_sync'), ...
+        {input_latency}, {sync}, {sync_del});
+end
 
 switch twiddle_type
     case 'twiddle_pass_through'
+        disp('twiddle_pass_through');
         % bind ports to outports for pass through
         a_re_out.assign(a_re_del);
         a_im_out.assign(a_im_del);
@@ -101,49 +127,58 @@ switch twiddle_type
         sync_out.assign(sync_del);
         
     case 'twiddle_stage_2'
+        disp('twiddle_stage_2');
 	    twiddle_stage_2_draw(a_re_del, a_im_del, b_re_del, b_im_del, sync_del, ...
 	    	a_re_out, a_im_out, bw_re_out, bw_im_out, sync_out, ...
 	    	FFTSize, input_bit_width, mux_latency, bram_latency, conv_latency, use_dsp48_mults);
 	    	
     case 'twiddle_general_dsp48e'
+        disp('twiddle_general_dsp48e');
         twiddle_general_dsp48e_draw(a_re_del, a_im_del, b_re_del, b_im_del, sync_del, ...
             a_re_out, a_im_out, bw_re_out, bw_im_out, sync_out, ...
-            Coeffs, StepPeriod, coeff_bit_width, input_bit_width, bram_latency,...
+            ActualCoeffs, StepPeriod, coeff_bit_width, input_bit_width, bram_latency,...
             conv_latency, quantization, overflow, arch, coeffs_bram, FFTSize);
             
     case 'twiddle_coeff_0'
+        disp('twiddle_coeff_0');
         total_latency = add_latency + mult_latency + bram_latency + conv_latency;
         a_re_delay2 = xBlock(struct('source', 'Delay', 'name', 'a_re_del'), ...
                             struct('latency', total_latency), {a_re_del}, {a_re_out} );
         a_im_delay2 = xBlock(struct('source', 'Delay', 'name', 'a_im_del'), ...
                             struct('latency', total_latency), {a_im_del}, {a_im_out} );
         b_re_delay2 = xBlock(struct('source', 'Delay', 'name', 'b_re_del'), ...
-                            struct('latency', total_latency), {b_re_del}, {b_re_out} );
+                            struct('latency', total_latency), {b_re_del}, {bw_re_out} );
         b_im_delay2 = xBlock(struct('source', 'Delay', 'name', 'b_im_del'), ...
-                            struct('latency', total_latency), {b_im_del}, {b_im_out} );
+                            struct('latency', total_latency), {b_im_del}, {bw_im_out} );
         sync_delay2 = xBlock(struct('source', 'Delay', 'name', 'sync_del'), ...
                             struct('latency', total_latency), {sync_del}, {sync_out} );
                             
     case 'twiddle_coeff_1'
-        twiddle_stage_2_init_xblock(a_re, a_im, b_re, b_im, sync, ...
+        disp('twiddle_coeff_1');
+        twiddle_coeff_1_draw(a_re, a_im, b_re, b_im, sync, ...
             a_re_out, a_im_out, bw_re_out, bw_im_out, sync_out, ...
             FFTSize, input_bit_width, negate_latency);
             
     case 'twiddle_general_4mult' 
-		twiddle_general_4mult_init_xblock(a_re, a_im, b_re, b_im, sync, ...
+        disp('twiddle_general_4mult');
+		twiddle_general_4mult_init_xblock_draw(a_re, a_im, b_re, b_im, sync, ...
 			a_re_out, a_im_out, bw_re_out, bw_im_out, sync_out, ...
-			Coeffs, StepPeriod, coeffs_bram, coeff_bit_width, input_bit_width, ...
+			ActualCoeffs, StepPeriod, coeffs_bram, coeff_bit_width, input_bit_width, ...
 			add_latency, mult_latency, bram_latency, conv_latency, arch, use_hdl, ... 
 			use_embedded, quantization, overflow);
 			
     case 'twiddle_general_3mult' 
+        disp('twiddle_general_3mult');
 		twiddle_general_3mult_init_xblock_draw(a_re, a_im, b_re, b_im, sync, ...
 	    	a_re_out, a_im_out, bw_re_out, bw_im_out, sync_out, ...
-	    	Coeffs, StepPeriod, coeffs_bram, coeff_bit_width, input_bit_width, ...
+	    	ActualCoeffs, StepPeriod, coeffs_bram, coeff_bit_width, input_bit_width, ...
 	    	add_latency, mult_latency, bram_latency, conv_latency, arch, use_hdl, ...
 	    	use_embedded, quantization, overflow);
 	    	
     otherwise
         disp('Error! This twiddle type is not supported');
 end
+
+
 end
+

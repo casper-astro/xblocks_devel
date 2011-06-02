@@ -26,6 +26,11 @@ function twiddle_general_3mult_init_xblock_draw(a_re, a_im, b_re, b_im, sync, ..
 	    	use_embedded, quantization, overflow)
 
 
+
+%depends =
+%{'coeff_gen_init_xblock','c_to_ri_init_xblock'}
+
+
 %% diagram
 total_latency = mult_latency + 2*add_latency + bram_latency + conv_latency;
 % delay sync by total_latency 
@@ -57,8 +62,8 @@ coeff_gen_sub = xBlock(struct('source', str2func('coeff_gen_init_xblock'), 'name
 
 % split w into real/imag
 c_to_ri_w = xBlock(struct('source', str2func('c_to_ri_init_xblock'), 'name', 'c_to_ri_w'), ...
-                            {coeff_bit_width, ...
-                            coeff_bit_width-1}, ...
+                            {coeff_bit_width-1, ...
+                            coeff_bit_width-3}, ... % note the number of bits
                          {w}, {w_re, w_im});
                          
                          

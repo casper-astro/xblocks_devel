@@ -1,42 +1,31 @@
-function fft_unscrambler(varargin)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                             %
+%   Center for Astronomy Signal Processing and Electronics Research           %
+%   http://casper.berkeley.edu                                                %      
+%   Copyright (C) 2011   Hong Chen                                            %
+%                                                                             %
+%   This program is free software; you can redistribute it and/or modify      %
+%   it under the terms of the GNU General Public License as published by      %
+%   the Free Software Foundation; either version 2 of the License, or         %
+%   (at your option) any later version.                                       %
+%                                                                             %
+%   This program is distributed in the hope that it will be useful,           %
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of            %
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             %
+%   GNU General Public License for more details.                              %
+%                                                                             %
+%   You should have received a copy of the GNU General Public License along   %
+%   with this program; if not, write to the Free Software Foundation, Inc.,   %
+%   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.               %
+%                                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function fft_unscrambler_init_xblock(FFTSize, n_inputs, bram_latency)
 
-% Set default vararg values.
-defaults = { ...
-    'FFTSize', 5, ...
-    'n_inputs', 2, ...
-    'bram_latency', 2, ...
-};
 
-% Retrieve values from mask fields.
-FFTSize = get_var('FFTSize', 'defaults', defaults, varargin{:});
-n_inputs = get_var('n_inputs', 'defaults', defaults, varargin{:});
-bram_latency = get_var('bram_latency', 'defaults', defaults, varargin{:});
-
-% Validate input fields.
-
-if (n_inputs >= FFTSize - 2),
+if n_inputs >= FFTSize - 2,
     errordlg('FFT Unscrambler: 2^n_inputs must be < 2^(FFT size-2).');
+    return;
 end
-
-%% inports
-sync = xInport('sync');
-In1 = xInport('In1');
-In2 = xInport('In2');
-
-%% outports
-sync_out = xOutport('sync_out');
-Out1 = xOutport('Out1');
-Out2 = xOutport('Out2');
-
-
-
-
-for i=1:2^n_inputs,
-    reuse_block(blk, ['In',num2str(i)], 'built-in/inport', 'Position', [30 20*i+60 60 20*i+74], 'Port', num2str(i+1));
-    reuse_block(blk, ['Out',num2str(i)], 'built-in/outport', 'Position', [500 55*i+40 530 55*i+54], 'Port', num2str(i+1));
-end
-
-%% diagram
 part_mat = [0:2^(FFTSize-2*n_inputs)-1]*2^(n_inputs);
 map_mat = [];
 for i=0:2^n_inputs-1,
@@ -45,42 +34,60 @@ end
 map_str = tostring(map_mat);
 
 
-% Add static blocks
-reuse_block(blk, 'square_transposer', 'casper_library_reorder/square_transposer', ...
-    'Position', [85 30 170 2^n_inputs*20+80], ...
-    'n_inputs', num2str(n_inputs));
-reuse_block(blk, 'reorder', 'casper_library_reorder/reorder', ...
-    'Position', [265 37 360 93], ...
-    'map', map_str, ...
-    'n_inputs', num2str(2^n_inputs), ...
-    'bram_latency', num2str(bram_latency), ...
-    'map_latency', num2str(1), ...
-    'double_buffer', '0');
-reuse_block(blk, 'const', 'xbsIndex_r4/Constant', ...
-    'Position', [225 57 250 73], ...
-    'arith_type', 'Boolean', ...
-    'explicit_period', 'on');
 
-% Add static lines
-add_line(blk, 'sync/1', 'square_transposer/1');
-add_line(blk, 'square_transposer/1', 'reorder/1');
-add_line(blk, 'reorder/1', 'sync_out/1');
-add_line(blk, 'const/1', 'reorder/2');
-
-% Add dynamic lines
-for i=1:2^n_inputs,
-    in_name = ['In',num2str(i)];
-    out_name = ['Out',num2str(i)];
-    add_line(blk, [in_name,'/1'], ['square_transposer/',num2str(i+1)]);
-    add_line(blk, ['square_transposer/',num2str(i+1)], ['reorder/',num2str(i+2)]);
-    add_line(blk, ['reorder/',num2str(i+2)], [out_name,'/1']);
+%% inports
+xlsub2_sync = xInport('sync');
+xlsub2_In = cell(1,2^n_inputs);
+for i = 1:2^n_inputs,
+    xlsub2_In{i} = xInport(['In',num2str(i)]);
 end
 
-clean_blocks(blk);
+%% outports
+xlsub2_sync_out = xOutport('sync_out');
+xlsub2_Out = cell(1,2^n_inputs);
+for i = 1:2^n_inputs,
+    xlsub2_Out{i} = xOutport(['Out',num2str(i)]);
+end
 
-fmtstr = sprintf('FFTSize=%d, n_inputs=%d', FFTSize, n_inputs);
-set_param(blk, 'AttributesFormatString', fmtstr);
-save_state(blk, 'defaults', defaults, varargin{:});
+%% diagram
+
+% block: untitled/fft_unscrambler/const
+xlsub2_const_out1 = xSignal;
+xlsub2_const = xBlock(struct('source', 'Constant', 'name', 'const'), ...
+                      struct('arith_type', 'Boolean', ...
+                             'n_bits', 1, ...
+                             'bin_pt', 0, ...
+                             'explicit_period', 'on'), ...
+                      {}, ...
+                      {xlsub2_const_out1});
+
+                  
+% Add dynamic lines
+xlsub2_reorder_In= cell(1,2^n_inputs);
+xlsub2_reorder_Out = cell(1,2^n_inputs);
+xlsub2_square_transposer_Out = cell(1,2^n_inputs);
+xlsub2_square_transposer_In = cell(1,2^n_inputs);
+for i=1:2^n_inputs,
+    xlsub2_square_transposer_In{i} = xlsub2_In{i};
+    xlsub2_reorder_In{i} = xSignal(['xlsub2_reorder_In',num2str(i)]);
+    xlsub2_square_transposer_Out{i} = xlsub2_reorder_In{i};
+    xlsub2_reorder_Out{i+1} = xlsub2_Out{i};
+end
+
+% block: untitled/fft_unscrambler/reorder1
+xlsub2_square_transposer1_out1 = xSignal;
+xlsub2_reorder1_sub = xBlock(struct('source', str2func('reorder_init_xblock'), 'name', 'reorder1'), ...
+                         {gcb,'map',map_mat,'n_inputs', 2^n_inputs, 'bram_latency',bram_latency, 'map_latency',1, 'double_buffer',0}, ...
+                         [{xlsub2_square_transposer1_out1}, {xlsub2_const_out1}, xlsub2_reorder_In], ...
+                         [{xlsub2_sync_out}, xlsub2_reorder_Out]);
+
+% block: untitled/fft_unscrambler/square_transposer1
+xlsub2_square_transposer1_sub = xBlock(struct('source', str2func('square_transposer_init_xblock'), 'name', 'square_transposer1'), ...
+                                   {n_inputs}, ...
+                                   [{xlsub2_sync}, xlsub2_square_transposer_In], ...
+                                   [{xlsub2_square_transposer1_out1}, xlsub2_square_transposer_Out]);
+
+
 
 
 

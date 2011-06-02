@@ -1,45 +1,26 @@
-function ri_to_c01()
-% This is a generated function based on subsystem:
-%     untitled/butterfly_direct/ri_to_c01
-% Though there are limitations about the generated script, 
-% the main purpose of this utility is to make learning
-% Sysgen Script easier.
-% 
-% To test it, run the following commands from MATLAB console:
-% cfg.source = str2func('ri_to_c01');
-% cfg.toplevel = 'untitled/butterfly_direct/ri_to_c01';
-% args = {};
-% xBlock(cfg, args);
-% 
-% You can edit ri_to_c01.m to debug your script.
-% 
-% You can also replace the MaskInitialization code with the 
-% following commands so the subsystem will be generated 
-% according to the values of mask parameters.
-% cfg.source = str2func('ri_to_c01');
-% cfg.toplevel = gcb;
-% args = {};
-% xBlock(cfg, args);
-% 
-% To configure the xBlock call in debug mode, in which mode,
-% autolayout will be performed every time a block is added,
-% run the following commands:
-% cfg.source = str2func('ri_to_c01');
-% cfg.toplevel = gcb;
-% cfg.debug = 1;
-% args = {};
-% xBlock(cfg, args);
-% 
-% To make the xBlock smart so it won't re-generate the
-% subsystem if neither the arguments nor the scripts are
-% changes, use as the following:
-% cfg.source = str2func('ri_to_c01');
-% cfg.toplevel = gcb;
-% cfg.depend = {'ri_to_c01'};
-% args = {};
-% xBlock(cfg, args);
-% 
-% See also xBlock, xInport, xOutport, xSignal, xlsub2script.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                             %
+%   Center for Astronomy Signal Processing and Electronics Research           %
+%   http://casper.berkeley.edu                                                %      
+%   Copyright (C) 2011 Suraj Gowda    Hong Chen                               %
+%                                                                             %
+%   This program is free software; you can redistribute it and/or modify      %
+%   it under the terms of the GNU General Public License as published by      %
+%   the Free Software Foundation; either version 2 of the License, or         %
+%   (at your option) any later version.                                       %
+%                                                                             %
+%   This program is distributed in the hope that it will be useful,           %
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of            %
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             %
+%   GNU General Public License for more details.                              %
+%                                                                             %
+%   You should have received a copy of the GNU General Public License along   %
+%   with this program; if not, write to the Free Software Foundation, Inc.,   %
+%   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.               %
+%                                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function ri_to_c_init_xblock()
+
 
 
 %% inports

@@ -1,5 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                             %
+%   Center for Astronomy Signal Processing and Electronics Research           %
+%   http://casper.berkeley.edu                                                %      
+%   Copyright (C) 2011 Suraj Gowda    Hong Chen                               %
+%                                                                             %
+%   This program is free software; you can redistribute it and/or modify      %
+%   it under the terms of the GNU General Public License as published by      %
+%   the Free Software Foundation; either version 2 of the License, or         %
+%   (at your option) any later version.                                       %
+%                                                                             %
+%   This program is distributed in the hope that it will be useful,           %
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of            %
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             %
+%   GNU General Public License for more details.                              %
+%                                                                             %
+%   You should have received a copy of the GNU General Public License along   %
+%   with this program; if not, write to the Free Software Foundation, Inc.,   %
+%   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.               %
+%                                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function fft_wideband_real_init_xblock(varargin)
-
+%depends  =
+%{'pipeline_init_xblock','fft_biplex_real_4x_init_xblock','fft_direct_init_xblock','fft_unscrambler_init_xblock'}   
+% todo 
 
 % Set default vararg values.
 defaults = { ...
@@ -25,16 +48,17 @@ defaults = { ...
     'shift_schedule', [1 1 1 1 1], ...
     'dsp48_adders', 'on', ...
     'unscramble', 'on', ...
+    'bit_growth_chart', [0 0 0 0 0], ...
 };
 
 FFTSize = get_var('FFTSize', 'defaults', defaults, varargin{:});
 n_inputs = get_var('n_inputs', 'defaults', defaults, varargin{:});
 input_bit_width = get_var('input_bit_width', 'defaults', defaults, varargin{:});
 coeff_bit_width = get_var('coeff_bit_width', 'defaults', defaults, varargin{:});
-add_latency = get_var('add_latency', 'defaults', defaults, varargin{:})
-mult_latency = get_var('mult_latency', 'defaults', defaults, varargin{:})
-bram_latency = get_var('bram_latency', 'defaults', defaults, varargin{:})
-conv_latency = get_var('conv_latency', 'defaults', defaults, varargin{:})
+add_latency = get_var('add_latency', 'defaults', defaults, varargin{:});
+mult_latency = get_var('mult_latency', 'defaults', defaults, varargin{:});
+bram_latency = get_var('bram_latency', 'defaults', defaults, varargin{:});
+conv_latency = get_var('conv_latency', 'defaults', defaults, varargin{:});
 input_latency = get_var('input_latency', 'defaults', defaults, varargin{:});
 biplex_direct_latency = get_var('biplex_direct_latency', 'defaults', defaults, varargin{:});
 quantization = get_var('quantization', 'defaults', defaults, varargin{:});
@@ -49,6 +73,7 @@ hardcode_shifts = get_var('hardcode_shifts', 'defaults', defaults, varargin{:});
 shift_schedule = get_var('shift_schedule', 'defaults', defaults, varargin{:});
 dsp48_adders = get_var('dsp48_adders', 'defaults', defaults, varargin{:});
 unscramble = get_var('unscramble', 'defaults', defaults, varargin{:});
+bit_growth_chart = get_var('bit_growth_chart', 'defaults', defaults, varargin{:});
 
 % split up multiplier specification
 mults_biplex = 2.*ones(1, FFTSize-n_inputs);
@@ -104,7 +129,6 @@ for k = 1:n_biplexes
 	
 	sync_del = xSignal;
 
-		
 	% delay input ports & sync by 'input_latency'
 	xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', ['in_del_sync_4x', num2str(k-1)]), ...
 			{input_latency}, {sync}, {sync_del} );
@@ -142,6 +166,7 @@ for k = 1:n_biplexes
 			'hardcode_shifts', hardcode_shifts, ...
 			'shift_schedule', shifts_biplex, ...
 			'dsp48_adders', dsp48_adders , ...
+            'bit_growth_chart', bit_growth_chart, ...
 	        }, ...
 	        biplex_in_ports, ...
 	        {biplex_sync_out, biplex_pol1_out, biplex_pol2_out, biplex_pol3_out, biplex_pol4_out, biplex_of_out});
@@ -174,7 +199,7 @@ direct_outports = {direct_sync_out};
 for m = 1:2^(n_inputs)+1
 	direct_outports{m+1} = xSignal;
 end
-   
+
 xBlock( struct('name', 'fft_direct', 'source', str2func('fft_direct_init_xblock') ), ...
 		{'FFTSize', n_inputs, ...
 		'input_bit_width', input_bit_width, ...
@@ -209,8 +234,8 @@ for n = 1:2^(n_inputs-1)
 end
 
 if strcmp(unscramble, 'on'),
-    xBlock( struct('name', 'fft_unscrambler', 'source', 'casper_library_ffts/fft_unscrambler'), ...
-        {'FFTSize', FFTSize-1, 'n_inputs', n_inputs-1, 'bram_latency', bram_latency}, ...
+    xBlock( struct('name', 'fft_unscrambler', 'source', str2func('fft_unscrambler_init_xblock')), ...
+        {FFTSize-1,n_inputs-1, bram_latency}, ...
         {direct_outports{1:1+2^(n_inputs-1)}}, fft_outports);
 end
 

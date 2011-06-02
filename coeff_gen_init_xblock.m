@@ -1,3 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                             %
+%   Center for Astronomy Signal Processing and Electronics Research           %
+%   http://casper.berkeley.edu                                                %      
+%   Copyright (C) 2011 Suraj Gowda                                            %
+%                                                                             %
+%   This program is free software; you can redistribute it and/or modify      %
+%   it under the terms of the GNU General Public License as published by      %
+%   the Free Software Foundation; either version 2 of the License, or         %
+%   (at your option) any later version.                                       %
+%                                                                             %
+%   This program is distributed in the hope that it will be useful,           %
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of            %
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             %
+%   GNU General Public License for more details.                              %
+%                                                                             %
+%   You should have received a copy of the GNU General Public License along   %
+%   with this program; if not, write to the Free Software Foundation, Inc.,   %
+%   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.               %
+%                                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function coeff_gen_init_xblock(Coeffs, coeff_bit_width, StepPeriod, bram_latency, coeffs_bram)
 
 %% initialization scripts
@@ -33,6 +54,9 @@ if length(Coeffs) == 1,
     %constant blocks
     real_coeff = round(real(Coeffs(1)) * 2^(coeff_bit_width-2)) / 2^(coeff_bit_width-2);
     imag_coeff = round(imag(Coeffs(1)) * 2^(coeff_bit_width-2)) / 2^(coeff_bit_width-2);
+    Coeffs
+    real_coeff
+    imag_coeff
     
     % block: untitled/coeff_gen/Constant
     Constant_out1 = xSignal;

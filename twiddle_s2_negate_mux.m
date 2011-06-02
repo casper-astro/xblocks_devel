@@ -1,45 +1,26 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                             %
+%   Center for Astronomy Signal Processing and Electronics Research           %
+%   http://casper.berkeley.edu                                                %      
+%   Copyright (C) 2011 Suraj Gowda                                            %
+%                                                                             %
+%   This program is free software; you can redistribute it and/or modify      %
+%   it under the terms of the GNU General Public License as published by      %
+%   the Free Software Foundation; either version 2 of the License, or         %
+%   (at your option) any later version.                                       %
+%                                                                             %
+%   This program is distributed in the hope that it will be useful,           %
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of            %
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             %
+%   GNU General Public License for more details.                              %
+%                                                                             %
+%   You should have received a copy of the GNU General Public License along   %
+%   with this program; if not, write to the Free Software Foundation, Inc.,   %
+%   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.               %
+%                                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function twiddle_s2_negate_mux(mux_latency, input_bit_width, input_bin_pt)
-% This is a generated function based on subsystem:
-%     twiddle_stage_2_test/twiddle_stage_1/twiddle_s2_negate_mux
-% Though there are limitations about the generated script, 
-% the main purpose of this utility is to make learning
-% Sysgen Script easier.
-% 
-% To test it, run the following commands from MATLAB console:
-% cfg.source = str2func('twiddle_s2_negate_mux');
-% cfg.toplevel = 'twiddle_stage_2_test/twiddle_stage_1/twiddle_s2_negate_mux';
-% args = {my_mux_latency, my_input_bit_width, my_input_bin_pt};
-% xBlock(cfg, args);
-% 
-% You can edit twiddle_s2_negate_mux.m to debug your script.
-% 
-% You can also replace the MaskInitialization code with the 
-% following commands so the subsystem will be generated 
-% according to the values of mask parameters.
-% cfg.source = str2func('twiddle_s2_negate_mux');
-% cfg.toplevel = gcb;
-% args = {mux_latency, input_bit_width, input_bin_pt};
-% xBlock(cfg, args);
-% 
-% To configure the xBlock call in debug mode, in which mode,
-% autolayout will be performed every time a block is added,
-% run the following commands:
-% cfg.source = str2func('twiddle_s2_negate_mux');
-% cfg.toplevel = gcb;
-% cfg.debug = 1;
-% args = {mux_latency, input_bit_width, input_bin_pt};
-% xBlock(cfg, args);
-% 
-% To make the xBlock smart so it won't re-generate the
-% subsystem if neither the arguments nor the scripts are
-% changes, use as the following:
-% cfg.source = str2func('twiddle_s2_negate_mux');
-% cfg.toplevel = gcb;
-% cfg.depend = {'twiddle_s2_negate_mux'};
-% args = {mux_latency, input_bit_width, input_bin_pt};
-% xBlock(cfg, args);
-% 
-% See also xBlock, xInport, xOutport, xSignal, xlsub2script.
+% no depends
 
 
 %% inports
