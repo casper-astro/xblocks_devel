@@ -254,6 +254,10 @@ if strcmp(unscramble, 'on'),
     xBlock( struct('name', 'fft_unscrambler', 'source', str2func('fft_unscrambler_init_xblock')), ...
         {[blk,'/fft_unscrambler'], FFTSize-1,n_inputs-1, bram_latency}, ...
         {direct_outports{1:1+2^(n_inputs-1)}}, fft_outports);
+else
+    for i =1:length(fft_outports)
+        fft_outports{i}.bind(direct_outports{i});
+    end
 end
 
 % generate output overflow 

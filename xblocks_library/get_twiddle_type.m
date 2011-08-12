@@ -21,7 +21,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function twiddle_type = get_twiddle_type(Coeffs, biplex, opt_target, use_embedded,StepPeriod,FFTSize)
 
-opt_target
 
 opt_logic = strcmp(opt_target, 'logic');
 use_embedded = strcmp(use_embedded,'on');
