@@ -113,7 +113,7 @@ shift = xInport('shift');
 direct_shift = xSignal;
 % slice off shift bits for fft_direct
 xBlock( struct('name', 'shift_slice', 'source', 'Slice'), ...
-		struct('bit0', FFTSize-n_inputs, 'nbits', n_inputs ), {shift}, {direct_shift} );
+		struct('mode', 'Lower Bit Location + Width','bit0', FFTSize-n_inputs, 'nbits', n_inputs ), {shift}, {direct_shift} );
 
 if n_inputs < 2
 	error('fft_wideband_real: Must have at least 2^2 inputs!')
@@ -264,7 +264,7 @@ end
 of_outputs = { biplex_of_outputs{:}, direct_outports{end} };
 of = xOutport('of');
 xBlock(struct('source', 'Logical', 'name', 'of_det'), ...
-				struct('logical_function', 'OR', 'inputs', n_biplexes+1), of_outputs, {of});
+				struct('logical_function', 'OR', 'inputs', n_biplexes+1,'latency', 1), of_outputs, {of});
 
 
 if ~isempty(blk) && ~strcmp(blk(1),'/')

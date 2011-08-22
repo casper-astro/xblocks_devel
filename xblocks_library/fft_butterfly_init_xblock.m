@@ -66,7 +66,7 @@ mult_latency = get_var('mult_latency', 'defaults', defaults, varargin{:});
 bram_latency = get_var('bram_latency', 'defaults', defaults, varargin{:});
 conv_latency = get_var('conv_latency', 'defaults', defaults, varargin{:});
 input_latency = get_var('input_latency', 'defaults', defaults, varargin{:});
-mux_latency = get_var('mux_latency', 'defaults', defaults, varargin{:});
+mux_latency = get_var('mux_latency', 'defaults', defaults, varargin{:});  % really need this?
 negate_latency = get_var('negate_latency', 'defaults', defaults, varargin{:});
 
 arch = get_var('arch', 'defaults', defaults, varargin{:});

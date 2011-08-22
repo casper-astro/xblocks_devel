@@ -140,7 +140,8 @@ switch twiddle_type
         disp('twiddle_stage_2');
 	    twiddle_stage_2_draw_init_xblock(a_re_del, a_im_del, b_re_del, b_im_del, sync_del, ...
 	    	a_re_out, a_im_out, bw_re_out, bw_im_out, sync_out, ...
-	    	FFTSize, input_bit_width, mux_latency, bram_latency, conv_latency, use_dsp48_mults);
+	    	FFTSize, input_bit_width, add_latency, mult_latency, bram_latency, conv_latency,...
+            use_dsp48_mults, opt_target);
 	    	
     case 'twiddle_general_dsp48e'
         disp('twiddle_general_dsp48e');

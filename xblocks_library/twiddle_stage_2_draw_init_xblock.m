@@ -21,9 +21,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function twiddle_stage_2_draw_init_xblock(a_re, a_im, b_re, b_im, sync, ...
     a_re_out, a_im_out, bw_re_out, bw_im_out, sync_out, ...
-    FFTSize, input_bit_width, mux_latency, negate_latency, conv_latency, use_dsp48e)
+    FFTSize, input_bit_width, add_latency, mult_latency, bram_latency, conv_latency, use_dsp48e, opt_target)
 % no depends
 
+negate_latency = bram_latency;
+
+% set the delays
+if(strcmp(opt_target, 'logic')), 
+    lat = add_latency;
+    lat_str = 'add_latency';
+else
+    lat = add_latency*2;
+    lat_str = 'add_latency*2';
+end
 
 
 %% diagram
@@ -44,7 +54,7 @@ function twiddle_stage_2_draw_init_xblock(a_re, a_im, b_re, b_im, sync, ...
 	counter_rst = xSignal;
 	
     
-    if negate_latency<0 || mux_latency <1 
+    if negate_latency<0  %|| mux_latency <1 
         disp('Check value of negate_latency and mux_latency');
     end
     
@@ -54,7 +64,7 @@ function twiddle_stage_2_draw_init_xblock(a_re, a_im, b_re, b_im, sync, ...
 	
 	% delay counter_rst by mux_latency for output sync                       
 	sync_delay = xBlock(struct('source', 'Delay', 'name', 'sync_delay'), ...
-						   struct('latency', mux_latency, 'reg_retiming', 'on'), {counter_rst}, {sync_out});
+						   struct('latency', mult_latency+conv_latency+lat, 'reg_retiming', 'on'), {counter_rst}, {sync_out});
 	
 	% Counter for select signal 
 	counter = xBlock(struct('source', 'Counter', 'name', 'counter'), ...
@@ -65,15 +75,15 @@ function twiddle_stage_2_draw_init_xblock(a_re, a_im, b_re, b_im, sync, ...
 	
 	% delay a_re by total delay 
 	a_re_del = xBlock(struct('source', 'Delay', 'name', 'a_re_del'), ...
-						   struct('latency', negate_latency+mux_latency, 'reg_retiming', 'on'), {a_re}, {a_re_out});
+						   struct('latency', bram_latency+mult_latency+conv_latency+lat, 'reg_retiming', 'on'), {a_re}, {a_re_out});
 	
 	% delay a_im by total delay
 	a_im_del = xBlock(struct('source', 'Delay', 'name', 'a_im_del'), ...
-						   struct('latency', negate_latency+mux_latency, 'reg_retiming', 'on'), {a_im}, {a_im_out});
+						   struct('latency', bram_latency+mult_latency+conv_latency+lat, 'reg_retiming', 'on'), {a_im}, {a_im_out});
 	
 	% delay 'select' for im select mux
 	im_sel_del = xBlock(struct('source', 'Delay', 'name', 'im_sel_del'), ...
-						   struct('latency', mux_latency-1, 'reg_retiming', 'on'), ...
+						   struct('latency', mult_latency+conv_latency+lat-1, 'reg_retiming', 'on'), ...
 						   {sel}, {im_sel});
 
 	% delay b_re by bram_delay 
@@ -92,11 +102,11 @@ function twiddle_stage_2_draw_init_xblock(a_re, a_im, b_re, b_im, sync, ...
 	else
 		% block: twiddles_collections/twiddle_stage_2/delay3
 		delay3 = xBlock(struct('source', 'Delay', 'name', 'delay3'), ...
-							   struct('latency', mux_latency-1, 'reg_retiming', 'on'), {b_im_bram_del}, {delay3_out1});
+							   struct('latency', mult_latency+conv_latency+lat-1, 'reg_retiming', 'on'), {b_im_bram_del}, {delay3_out1});
 		
 		% block: twiddles_collections/twiddle_stage_2/delay4
 		delay4 = xBlock(struct('source', 'Delay', 'name', 'delay4'), ...
-					struct('latency', mux_latency-1, 'reg_retiming', 'on'), {convert_out1}, {delay4_out1});
+					struct('latency', bram_latency+mult_latency+lat-2, 'reg_retiming', 'on'), {convert_out1}, {delay4_out1});
 				
 		% bw_im = sel ? Imag(b*-j) : Imag(b) 
 		mux1 = xBlock(struct('source', 'Mux', 'name', 'mux1'), ...
@@ -117,7 +127,7 @@ function twiddle_stage_2_draw_init_xblock(a_re, a_im, b_re, b_im, sync, ...
 						   
 	% bw_re = sel ? Real(b*-j) : Real(b) 
 	mux0 = xBlock(struct('source', 'Mux', 'name', 'mux0'), ...
-						 struct('latency', mux_latency), {sel, b_re_bram_del, b_im_bram_del}, {bw_re_out});
+						 struct('latency', mult_latency+conv_latency+lat), {sel, b_re_bram_del, b_im_bram_del}, {bw_re_out});
 						 
 		 
 end
