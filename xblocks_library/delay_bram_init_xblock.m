@@ -2,7 +2,7 @@
 %                                                                             %
 %   Center for Astronomy Signal Processing and Electronics Research           %
 %   http://casper.berkeley.edu                                                %      
-%   Copyright (C) 2011 Hong Chen                               %
+%   Copyright (C) 2011 Hong Chen                                              %
 %                                                                             %
 %   This program is free software; you can redistribute it and/or modify      %
 %   it under the terms of the GNU General Public License as published by      %
@@ -21,23 +21,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function delay_bram_init_xblock(varargin)
 defaults = { ...
-    'delay_len', 7, ...
+    'latency', 7, ...
     'bram_latency', 4, ...
-    'use_dsp48', 0};
-delay_len = get_var('delay_len', 'defaults', defaults, varargin{:});
+    'count_using_dsp48', 0};
+latency = get_var('latency', 'defaults', defaults, varargin{:});
 bram_latency = get_var('bram_latency', 'defaults', defaults, varargin{:});
-use_dsp48 = get_var('use_dsp48', 'defaults', defaults, varargin{:});
+count_using_dsp48 = get_var('count_using_dsp48', 'defaults', defaults, varargin{:});
 
-if (delay_len <= bram_latency)
+if (latency <= bram_latency)
 	errordlg('delay value must be greater than BRAM Latency');
 end
 
 
-bit_width = max(ceil(log2(delay_len)), 2);
-if strcmp(use_dsp48, 'on'),
-    use_dsp48_im='DSP48';
+bit_width = max(ceil(log2(latency)), 2);
+if strcmp(count_using_dsp48, 'on'),
+    count_using_dsp48_im='DSP48';
 else
-    use_dsp48_im='Fabric';
+    count_using_dsp48_im='Fabric';
 end
 
 %% inports
@@ -60,13 +60,13 @@ Constant2 = xBlock(struct('source', 'Constant', 'name', 'Constant2'), ...
 
 % block: delay_7/delay_bram/Counter
 addr = xSignal;
-if delay_len > (bram_latency + 1)
+if latency > (bram_latency + 1)
     Counter = xBlock(struct('source', 'Counter', 'name', 'Counter'), ...
                             struct('cnt_type', 'Count Limited', ...
-                                   'cnt_to', delay_len - bram_latency - 1, ...
+                                   'cnt_to', latency - bram_latency - 1, ...
                                    'n_bits', bit_width, ...
-                                   'use_rpm', use_dsp48, ...
-                                   'implementation', use_dsp48_im), ...
+                                   'use_rpm', count_using_dsp48, ...
+                                   'implementation', count_using_dsp48_im), ...
                             {}, ...
                             {addr});
 else
