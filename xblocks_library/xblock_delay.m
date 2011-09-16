@@ -4,7 +4,7 @@ if length(din) ~= length(dout)
 	error('delaying unequal buses')
 end
 
-[M,N] = size(din)
+[M,N] = size(din);
 
 for m = 1:M
     for n =1:N
