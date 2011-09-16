@@ -4,9 +4,13 @@ if length(din) ~= length(dout)
 	error('delaying unequal buses')
 end
 
-for k = 1:length(din)
-	xBlock( struct('source', 'Delay', 'name', [name, 'delay_', num2str(k)]), ...
-		struct('latency', latency), {din{k}}, {dout{k}});
+[M,N] = size(din)
+
+for m = 1:M
+    for n =1:N
+	    xBlock( struct('source', 'Delay', 'name', [name, '_delay_', num2str(m), '_', num2str(n)]), ...
+	    	struct('latency', latency), {din{m,n}}, {dout{m,n}});
+    end
 end
 
 end

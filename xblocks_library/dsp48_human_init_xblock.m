@@ -31,7 +31,7 @@ bin_pt_out = get_var('bin_pt_out', 'defaults', defaults, varargin{:});
 %% inports
 din1 = xInport('din1');
 din2 = xInport('din2');
-if opmode_val == ''
+if isempty(opmode_val)
 	opmode = xInport('opmode');
 else
 	opmode = xSignal;
@@ -41,7 +41,7 @@ else
 end
 
 % create alumode
-if alumode_val == ''
+if isempty(alumode_val)
 	alumode = xInport('alumode');
 else
 	alumode = xSignal;
@@ -51,7 +51,7 @@ else
 end
 
 % create carryin
-if carryin_val == ''
+if isempty(carryin_val)
 	carryin = xInport('carryin');
 else
 	carryin = xSignal;
@@ -61,7 +61,7 @@ else
 end
 
 % create carryinsel
-if carryinsel_val == ''
+if isempty(carryinsel_val)
 	carryinsel = xInport('carryinsel');
 else
 	carryinsel = xSignal;
@@ -102,7 +102,8 @@ carryinsel_out1 = xSignal;
 DSP48E_out1 = xSignal;
 DSP48E = xBlock(struct('source', 'DSP48E', 'name', 'DSP48E'), ...
                        struct('use_creg', 'on'), ...
-                       {reinterp_a_out1, reinterp_b_out1, Convert2_out1, In3, alumode_out1, carryin_out1, carryinsel_out1}, ...
+                       {reinterp_a_out1, reinterp_b_out1, Convert2_out1, ...
+                       	opmode, alumode, carryin, carryinsel}, ...
                        {DSP48E_out1});
 
 % block: untitled/Subsystem/dsp48_human_init_xblock/a
@@ -132,7 +133,7 @@ conv_dsp_out = xBlock(struct('source', 'Convert', 'name', 'conv_dsp_out'), ...
                                     'n_bits', 32, ...
                                     'bin_pt', 0), ...
                              {reinterp_dsp_out_out1}, ...
-                             {Out1});
+                             {dout});
 
 % block: untitled/Subsystem/dsp48_human_init_xblock/reinterp_a
 reinterp_a = xBlock(struct('source', 'Reinterpret', 'name', 'reinterp_a'), ...
