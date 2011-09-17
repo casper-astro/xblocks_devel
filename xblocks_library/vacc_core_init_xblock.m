@@ -43,7 +43,7 @@ add_en_config.source = str2func('add_en_init_xblock');
 add_en_config.name = 'adder_with_enable';
 add_en_params = {'bin_pt_din0', bin_pt_in, 'bin_pt_din1', bin_pt_in, ...
 	'bit_width_out', bit_width_out, 'arith_type', arith_type, ...
-	'use_dsp48', use_dsp48, 'latency', add_latency};
+	'use_dsp48', use_dsp48, 'add_latency', add_latency, 'mux_latency', mux_latency};
 xBlock( add_en_config, add_en_params, {din, acc_en, din_del}, {del_bram_in} );
 
 % memory
