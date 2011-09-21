@@ -55,7 +55,7 @@ actual_veclen = 2^veclen;
 
 if register_din,
     reg_retiming = 'on';
-else,
+else
     reg_retiming = 'off';
 end
 
