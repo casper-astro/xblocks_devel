@@ -44,12 +44,13 @@ add_en_config.name = 'adder_with_enable';
 add_en_params = {'bin_pt_din0', bin_pt_in, 'bin_pt_din1', bin_pt_in, ...
 	'bit_width_out', bit_width_out, 'arith_type', arith_type, ...
 	'use_dsp48', use_dsp48, 'add_latency', add_latency, 'mux_latency', mux_latency};
-xBlock( add_en_config, add_en_params, {din, acc_en, din_del}, {del_bram_in} );
+xBlock( add_en_config, add_en_params, {din, din_del, acc_en}, {del_bram_in} );
 
 % memory
 delay_bram_config.source = str2func('delay_bram_init_xblock');
 delay_bram_config.name = 'acc_mem';
-delay_bram_params = {'latency', veclen, 'bram_latency', bram_latency};
+bram_delay = veclen-add_latency-mux_latency;
+delay_bram_params = {'latency', bram_delay, 'bram_latency', bram_latency};
 xBlock( delay_bram_config, delay_bram_params, {del_bram_in}, {din_del} );
 dout.bind( del_bram_in );
 
