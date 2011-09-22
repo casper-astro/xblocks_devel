@@ -280,7 +280,7 @@ sync_out.bind( bf_syncs{FFTSize+1, 1} );
 
 if ~isempty(blk) && ~strcmp(blk(1),'/')
     clean_blocks(blk);
-    fmtstr = sprintf('%s\nstages [%s] of %d\n[%d,%d]\n%s\n%s', arch, num2str([StartStage:1:StartStage+FFTSize-1]), ...
+    fmtstr = sprintf('%s\nstages [%s] of %d\n[%d,%d]\n%s\n%s\n%s', arch, num2str([StartStage:1:StartStage+FFTSize-1],num2str(bit_growth_chart,'%d ')), ...
         actual_fft_size,  input_bit_width, coeff_bit_width, quantization, overflow);
     set_param(blk, 'AttributesFormatString', fmtstr);
 end

@@ -68,6 +68,7 @@ bit_growth_chart = get_var('bit_growth_chart', 'defaults', defaults, varargin{:}
 
 % deal with bit growth
 bit_growth_biplex = 0;
+bit_growth_chart =[reshape(bit_growth_chart, 1, []) zeros(1,FFTSize)]; % make sure the array is long enough
 for i=1:FFTSize
     bit_growth_biplex = bit_growth_biplex + bit_growth_chart(i);
 end
@@ -94,8 +95,8 @@ of = xOutport('of');
 
 
 if (strcmp(specify_mult, 'on') && (length(mult_spec) ~= FFTSize)),
-    error('fft_biplex_real_4x_init.m: Multiplier use specification for stages does not match FFT size');
-    clog('fft_biplex_real_4x_init.m: Multiplier use specification for stages does not match FFT size','error');
+    disp('fft_biplex_real_4x_init.m: Multiplier use specification for stages does not match FFT size');
+    %clog('fft_biplex_real_4x_init.m: Multiplier use specification for stages does not match FFT size','error');
     return;
 end
 
@@ -172,8 +173,8 @@ if ~isempty(blk) && ~strcmp(blk(1),'/')
     %%%%%%%%%%%%%%%%%%%
 
     % Set attribute format string (block annotation).
-    fmtstr = sprintf('%s\n%d stages\n[%d,%d]\n%s\n%s', ...
-        arch, FFTSize, input_bit_width, coeff_bit_width, quantization, overflow);
+    fmtstr = sprintf('%s\n%d stages\n[%d,%d]\n%s\n%s\n%s', ...
+        arch, FFTSize, input_bit_width, coeff_bit_width, quantization, overflow,num2str(bit_growth_chart,'%d '));
     set_param(blk, 'AttributesFormatString', fmtstr);
 end
 
