@@ -15,9 +15,9 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "chenhong"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Aug 12 17:30:32 2011"
-  RTWModifiedTimeStamp	  235071021
-  ModelVersionFormat	  "1.%<AutoIncrement:11>"
+  LastModifiedDate	  "Thu Sep 29 04:39:50 2011"
+  RTWModifiedTimeStamp	  239171717
+  ModelVersionFormat	  "1.%<AutoIncrement:13>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -634,7 +634,518 @@ Library {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    659
+    SIDHighWatermark	    728
+    Block {
+      BlockType		      SubSystem
+      Name		      "Down Sampler"
+      SID		      660
+      Ports		      [5, 5]
+      Position		      [785, 22, 905, 168]
+      BackgroundColor	      "lightBlue"
+      AttributesFormatString  "Decimation Rate = 3"
+      UserDataPersistent      on
+      UserData		      "DataTag0"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Parallel Downconverter (xBlock)"
+      MaskDescription	      "Parallely downconvert."
+      MaskPromptString	      "number of inputs|Decimation rate"
+      MaskStyleString	      "edit,edit"
+      MaskTunableValueString  "on,on"
+      MaskCallbackString      "|"
+      MaskEnableString	      "on,on"
+      MaskVisibilityString    "on,on"
+      MaskToolTipString	      "on,on"
+      MaskVariables	      "n_inputs=@1;dec_rate=@2;"
+      MaskInitialization      "config.source=str2func('parallel_downsampler_init_xblock');\nconfig.depend=get_dependli"
+      "st('parallel_downsampler');\nconfig.toplevel=gcb;\nset_param(gcb,'LinkStatus','inactive');\nxBlock(config, {conf"
+      "ig.toplevel,...\n    'n_inputs', n_inputs, ...\n    'dec_rate', dec_rate});"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "4|3"
+      System {
+	Name			"Down Sampler"
+	Location		[5, 77, 1275, 706]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "sync_in"
+	  SID			  661
+	  Position		  [15, 395, 35, 415]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "In1"
+	  SID			  662
+	  Position		  [15, 310, 35, 330]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "In2"
+	  SID			  663
+	  Position		  [15, 220, 35, 240]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "In3"
+	  SID			  664
+	  Position		  [15, 135, 35, 155]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "In4"
+	  SID			  665
+	  Position		  [15, 50, 35, 70]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Down_sample1"
+	  SID			  721
+	  Ports			  [1, 1]
+	  Position		  [150, 292, 210, 348]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Down Sample"
+	  SourceType		  "Xilinx Down Sampler Block"
+	  infoedit		  "Hardware notes: Sample and Latency controls determine the hardware implementation.  The cost in hardwa"
+	  "re of different implementations varies considerably; press Help for details."
+	  sample_ratio		  "3"
+	  sample_phase		  "Last Value of Frame  (most efficient)"
+	  en			  off
+	  latency		  "1"
+	  dbl_ovrd		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "dsamp"
+	  block_version		  "11.4"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,cf1ab3bd,right,"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
+	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
+	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
+	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
+	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
+	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}3\\newlinez^{-1}','texmode','on');\nfprintf('"
+	  "','COMMENT: end icon text');\n"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Down_sample2"
+	  SID			  723
+	  Ports			  [1, 1]
+	  Position		  [150, 202, 210, 258]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Down Sample"
+	  SourceType		  "Xilinx Down Sampler Block"
+	  infoedit		  "Hardware notes: Sample and Latency controls determine the hardware implementation.  The cost in hardwa"
+	  "re of different implementations varies considerably; press Help for details."
+	  sample_ratio		  "3"
+	  sample_phase		  "Last Value of Frame  (most efficient)"
+	  en			  off
+	  latency		  "1"
+	  dbl_ovrd		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "dsamp"
+	  block_version		  "11.4"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,cf1ab3bd,right,"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
+	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
+	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
+	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
+	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
+	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}3\\newlinez^{-1}','texmode','on');\nfprintf('"
+	  "','COMMENT: end icon text');\n"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Down_sample3"
+	  SID			  725
+	  Ports			  [1, 1]
+	  Position		  [150, 117, 210, 173]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Down Sample"
+	  SourceType		  "Xilinx Down Sampler Block"
+	  infoedit		  "Hardware notes: Sample and Latency controls determine the hardware implementation.  The cost in hardwa"
+	  "re of different implementations varies considerably; press Help for details."
+	  sample_ratio		  "3"
+	  sample_phase		  "Last Value of Frame  (most efficient)"
+	  en			  off
+	  latency		  "1"
+	  dbl_ovrd		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "dsamp"
+	  block_version		  "11.4"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,cf1ab3bd,right,"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
+	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
+	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
+	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
+	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
+	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}3\\newlinez^{-1}','texmode','on');\nfprintf('"
+	  "','COMMENT: end icon text');\n"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Down_sample4"
+	  SID			  727
+	  Ports			  [1, 1]
+	  Position		  [150, 32, 210, 88]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Down Sample"
+	  SourceType		  "Xilinx Down Sampler Block"
+	  infoedit		  "Hardware notes: Sample and Latency controls determine the hardware implementation.  The cost in hardwa"
+	  "re of different implementations varies considerably; press Help for details."
+	  sample_ratio		  "3"
+	  sample_phase		  "Last Value of Frame  (most efficient)"
+	  en			  off
+	  latency		  "1"
+	  dbl_ovrd		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "dsamp"
+	  block_version		  "11.4"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,cf1ab3bd,right,"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
+	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
+	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
+	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
+	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
+	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}3\\newlinez^{-1}','texmode','on');\nfprintf('"
+	  "','COMMENT: end icon text');\n"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "delay1"
+	  SID			  720
+	  Ports			  [1, 1]
+	  Position		  [60, 292, 120, 348]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Delay"
+	  SourceType		  "Xilinx Delay Block"
+	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
+	  en			  off
+	  latency		  "2"
+	  dbl_ovrd		  off
+	  reg_retiming		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "delay"
+	  block_version		  "11.4"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,85ce9542,right,"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
+	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
+	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
+	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
+	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
+	  "xt');\ncolor('black');disp('z^{-2}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+	  Port {
+	    PortNumber		    1
+	    Name		    "dO1"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "delay2"
+	  SID			  722
+	  Ports			  [1, 1]
+	  Position		  [60, 202, 120, 258]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Delay"
+	  SourceType		  "Xilinx Delay Block"
+	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
+	  en			  off
+	  latency		  "0"
+	  dbl_ovrd		  off
+	  reg_retiming		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "delay"
+	  block_version		  "11.4"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,24450e6f,right,"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
+	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
+	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
+	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
+	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
+	  "xt');\ncolor('black');disp('z^{-0}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+	  Port {
+	    PortNumber		    1
+	    Name		    "dO2"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "delay3"
+	  SID			  724
+	  Ports			  [1, 1]
+	  Position		  [60, 117, 120, 173]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Delay"
+	  SourceType		  "Xilinx Delay Block"
+	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
+	  en			  off
+	  latency		  "1"
+	  dbl_ovrd		  off
+	  reg_retiming		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "delay"
+	  block_version		  "11.4"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,07b98262,right,"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
+	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
+	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
+	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
+	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
+	  "xt');\ncolor('black');disp('z^{-1}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+	  Port {
+	    PortNumber		    1
+	    Name		    "dO3"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "delay4"
+	  SID			  726
+	  Ports			  [1, 1]
+	  Position		  [60, 32, 120, 88]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Delay"
+	  SourceType		  "Xilinx Delay Block"
+	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
+	  en			  off
+	  latency		  "2"
+	  dbl_ovrd		  off
+	  reg_retiming		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "delay"
+	  block_version		  "11.4"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,85ce9542,right,"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
+	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
+	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
+	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
+	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
+	  "xt');\ncolor('black');disp('z^{-2}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+	  Port {
+	    PortNumber		    1
+	    Name		    "dO4"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "sync_delay"
+	  SID			  728
+	  Ports			  [1, 1]
+	  Position		  [60, 377, 120, 433]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Delay"
+	  SourceType		  "Xilinx Delay Block"
+	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
+	  en			  off
+	  latency		  "1"
+	  dbl_ovrd		  off
+	  reg_retiming		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "delay"
+	  block_version		  "11.4"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,07b98262,right,"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
+	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
+	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
+	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
+	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
+	  "xt');\ncolor('black');disp('z^{-1}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "sync_out"
+	  SID			  677
+	  Position		  [170, 395, 190, 415]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  678
+	  Position		  [245, 310, 265, 330]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out2"
+	  SID			  679
+	  Position		  [245, 50, 265, 70]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out3"
+	  SID			  680
+	  Position		  [245, 135, 265, 155]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out4"
+	  SID			  681
+	  Position		  [245, 220, 265, 240]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "sync_delay"
+	  SrcPort		  1
+	  DstBlock		  "sync_out"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "sync_in"
+	  SrcPort		  1
+	  DstBlock		  "sync_delay"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Down_sample4"
+	  SrcPort		  1
+	  DstBlock		  "Out2"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "dO4"
+	  Labels		  [0, 0]
+	  SrcBlock		  "delay4"
+	  SrcPort		  1
+	  DstBlock		  "Down_sample4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "In4"
+	  SrcPort		  1
+	  DstBlock		  "delay4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Down_sample3"
+	  SrcPort		  1
+	  DstBlock		  "Out3"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "dO3"
+	  Labels		  [0, 0]
+	  SrcBlock		  "delay3"
+	  SrcPort		  1
+	  DstBlock		  "Down_sample3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "In3"
+	  SrcPort		  1
+	  DstBlock		  "delay3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Down_sample2"
+	  SrcPort		  1
+	  DstBlock		  "Out4"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "dO2"
+	  Labels		  [0, 0]
+	  SrcBlock		  "delay2"
+	  SrcPort		  1
+	  DstBlock		  "Down_sample2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "In2"
+	  SrcPort		  1
+	  DstBlock		  "delay2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Down_sample1"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "dO1"
+	  Labels		  [0, 0]
+	  SrcBlock		  "delay1"
+	  SrcPort		  1
+	  DstBlock		  "Down_sample1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "In1"
+	  SrcPort		  1
+	  DstBlock		  "delay1"
+	  DstPort		  1
+	}
+      }
+    }
     Block {
       BlockType		      SubSystem
       Name		      "dec_fir_xblock"
@@ -644,7 +1155,7 @@ Library {
       BackgroundColor	      "[0.380000, 0.900000, 0.990000]"
       AttributesFormatString  "4 taps\n4_3 r/i"
       UserDataPersistent      on
-      UserData		      "DataTag0"
+      UserData		      "DataTag1"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -761,9 +1272,9 @@ Library {
 	  quantization		  "Truncate"
 	  overflow		  "Wrap"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  pipeline		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  pipeline		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -794,9 +1305,9 @@ Library {
 	  quantization		  "Truncate"
 	  overflow		  "Wrap"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  pipeline		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  pipeline		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -821,11 +1332,11 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
+	  en			  "off"
 	  latency		  "4"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  reg_retiming		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -947,7 +1458,7 @@ Library {
 	      const		      "1"
 	      n_bits		      "16"
 	      bin_pt		      "14"
-	      explicit_period	      on
+	      explicit_period	      "on"
 	      period		      "1"
 	      dsp48_infoedit	      "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	      equ		      "P=C"
@@ -956,7 +1467,7 @@ Library {
 	      opr		      "+"
 	      inp1		      "P"
 	      carry		      "CIN"
-	      dbl_ovrd		      off
+	      dbl_ovrd		      "off"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
 	      block_type	      "constant"
@@ -989,7 +1500,7 @@ Library {
 	      const		      "1"
 	      n_bits		      "16"
 	      bin_pt		      "14"
-	      explicit_period	      on
+	      explicit_period	      "on"
 	      period		      "1"
 	      dsp48_infoedit	      "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	      equ		      "P=C"
@@ -998,7 +1509,7 @@ Library {
 	      opr		      "+"
 	      inp1		      "P"
 	      carry		      "CIN"
-	      dbl_ovrd		      off
+	      dbl_ovrd		      "off"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
 	      block_type	      "constant"
@@ -1098,9 +1609,9 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/AddSub"
 		  SourceType		  "Xilinx Adder/Subtracter Block"
 		  mode			  "Addition"
-		  use_carryin		  off
-		  use_carryout		  off
-		  en			  off
+		  use_carryin		  "off"
+		  use_carryout		  "off"
+		  en			  "off"
 		  latency		  "2"
 		  precision		  "Full"
 		  arith_type		  "Unsigned"
@@ -1108,11 +1619,11 @@ Library {
 		  bin_pt		  "14"
 		  quantization		  "Truncate"
 		  overflow		  "Wrap"
-		  dbl_ovrd		  off
-		  use_behavioral_HDL	  off
+		  dbl_ovrd		  "off"
+		  use_behavioral_HDL	  "off"
 		  hw_selection		  "Fabric"
-		  pipelined		  on
-		  xl_use_area		  off
+		  pipelined		  "on"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  use_rpm		  "on"
 		  has_advanced_control	  "0"
@@ -1145,11 +1656,11 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/Delay"
 		  SourceType		  "Xilinx Delay Block"
 		  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-		  en			  off
+		  en			  "off"
 		  latency		  "2"
-		  dbl_ovrd		  off
-		  reg_retiming		  on
-		  xl_use_area		  off
+		  dbl_ovrd		  "off"
+		  reg_retiming		  "on"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
@@ -1282,9 +1793,9 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/AddSub"
 		  SourceType		  "Xilinx Adder/Subtracter Block"
 		  mode			  "Addition"
-		  use_carryin		  off
-		  use_carryout		  off
-		  en			  off
+		  use_carryin		  "off"
+		  use_carryout		  "off"
+		  en			  "off"
 		  latency		  "2"
 		  precision		  "Full"
 		  arith_type		  "Unsigned"
@@ -1292,11 +1803,11 @@ Library {
 		  bin_pt		  "14"
 		  quantization		  "Truncate"
 		  overflow		  "Wrap"
-		  dbl_ovrd		  off
-		  use_behavioral_HDL	  off
+		  dbl_ovrd		  "off"
+		  use_behavioral_HDL	  "off"
 		  hw_selection		  "Fabric"
-		  pipelined		  on
-		  xl_use_area		  off
+		  pipelined		  "on"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  use_rpm		  "on"
 		  has_advanced_control	  "0"
@@ -1329,11 +1840,11 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/Delay"
 		  SourceType		  "Xilinx Delay Block"
 		  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-		  en			  off
+		  en			  "off"
 		  latency		  "2"
-		  dbl_ovrd		  off
-		  reg_retiming		  on
-		  xl_use_area		  off
+		  dbl_ovrd		  "off"
+		  reg_retiming		  "on"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
@@ -1466,7 +1977,7 @@ Library {
 		  const			  "2"
 		  n_bits		  "25"
 		  bin_pt		  "24"
-		  explicit_period	  on
+		  explicit_period	  "on"
 		  period		  "1"
 		  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 		  equ			  "P=C"
@@ -1475,7 +1986,7 @@ Library {
 		  opr			  "+"
 		  inp1			  "P"
 		  carry			  "CIN"
-		  dbl_ovrd		  off
+		  dbl_ovrd		  "off"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
 		  block_type		  "constant"
@@ -1508,14 +2019,14 @@ Library {
 		  bin_pt		  "17"
 		  quantization		  "Truncate"
 		  overflow		  "Wrap"
-		  en			  off
+		  en			  "off"
 		  latency		  "1"
-		  dbl_ovrd		  off
-		  use_behavioral_HDL	  on
+		  dbl_ovrd		  "off"
+		  use_behavioral_HDL	  "on"
 		  opt			  "Speed"
-		  use_embedded		  on
-		  optimum_pipeline	  off
-		  xl_use_area		  off
+		  use_embedded		  "on"
+		  optimum_pipeline	  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  pipeline		  "on"
 		  use_rpm		  "off"
@@ -1553,14 +2064,14 @@ Library {
 		  bin_pt		  "17"
 		  quantization		  "Truncate"
 		  overflow		  "Wrap"
-		  en			  off
+		  en			  "off"
 		  latency		  "1"
-		  dbl_ovrd		  off
-		  use_behavioral_HDL	  on
+		  dbl_ovrd		  "off"
+		  use_behavioral_HDL	  "on"
 		  opt			  "Speed"
-		  use_embedded		  on
-		  optimum_pipeline	  off
-		  xl_use_area		  off
+		  use_embedded		  "on"
+		  optimum_pipeline	  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  pipeline		  "on"
 		  use_rpm		  "off"
@@ -1589,10 +2100,10 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/Register"
 		  SourceType		  "Xilinx Register Block"
 		  init			  "0"
-		  rst			  off
-		  en			  off
-		  dbl_ovrd		  off
-		  xl_use_area		  off
+		  rst			  "off"
+		  en			  "off"
+		  dbl_ovrd		  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
@@ -1617,10 +2128,10 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/Register"
 		  SourceType		  "Xilinx Register Block"
 		  init			  "0"
-		  rst			  off
-		  en			  off
-		  dbl_ovrd		  off
-		  xl_use_area		  off
+		  rst			  "off"
+		  en			  "off"
+		  dbl_ovrd		  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
@@ -1726,7 +2237,6 @@ Library {
 		Line {
 		  SrcBlock		  "Mult1"
 		  SrcPort		  1
-		  Points		  [15, 0]
 		  DstBlock		  "real"
 		  DstPort		  1
 		}
@@ -1806,7 +2316,7 @@ Library {
 		  const			  "1"
 		  n_bits		  "25"
 		  bin_pt		  "24"
-		  explicit_period	  on
+		  explicit_period	  "on"
 		  period		  "1"
 		  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 		  equ			  "P=C"
@@ -1815,7 +2325,7 @@ Library {
 		  opr			  "+"
 		  inp1			  "P"
 		  carry			  "CIN"
-		  dbl_ovrd		  off
+		  dbl_ovrd		  "off"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
 		  block_type		  "constant"
@@ -1848,14 +2358,14 @@ Library {
 		  bin_pt		  "17"
 		  quantization		  "Truncate"
 		  overflow		  "Wrap"
-		  en			  off
+		  en			  "off"
 		  latency		  "1"
-		  dbl_ovrd		  off
-		  use_behavioral_HDL	  on
+		  dbl_ovrd		  "off"
+		  use_behavioral_HDL	  "on"
 		  opt			  "Speed"
-		  use_embedded		  on
-		  optimum_pipeline	  off
-		  xl_use_area		  off
+		  use_embedded		  "on"
+		  optimum_pipeline	  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  pipeline		  "on"
 		  use_rpm		  "off"
@@ -1893,14 +2403,14 @@ Library {
 		  bin_pt		  "17"
 		  quantization		  "Truncate"
 		  overflow		  "Wrap"
-		  en			  off
+		  en			  "off"
 		  latency		  "1"
-		  dbl_ovrd		  off
-		  use_behavioral_HDL	  on
+		  dbl_ovrd		  "off"
+		  use_behavioral_HDL	  "on"
 		  opt			  "Speed"
-		  use_embedded		  on
-		  optimum_pipeline	  off
-		  xl_use_area		  off
+		  use_embedded		  "on"
+		  optimum_pipeline	  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  pipeline		  "on"
 		  use_rpm		  "off"
@@ -1929,10 +2439,10 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/Register"
 		  SourceType		  "Xilinx Register Block"
 		  init			  "0"
-		  rst			  off
-		  en			  off
-		  dbl_ovrd		  off
-		  xl_use_area		  off
+		  rst			  "off"
+		  en			  "off"
+		  dbl_ovrd		  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
@@ -1957,10 +2467,10 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/Register"
 		  SourceType		  "Xilinx Register Block"
 		  init			  "0"
-		  rst			  off
-		  en			  off
-		  dbl_ovrd		  off
-		  xl_use_area		  off
+		  rst			  "off"
+		  en			  "off"
+		  dbl_ovrd		  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
@@ -2066,7 +2576,6 @@ Library {
 		Line {
 		  SrcBlock		  "Mult1"
 		  SrcPort		  1
-		  Points		  [15, 0]
 		  DstBlock		  "real"
 		  DstPort		  1
 		}
@@ -2350,7 +2859,7 @@ Library {
 	      const		      "1"
 	      n_bits		      "16"
 	      bin_pt		      "14"
-	      explicit_period	      on
+	      explicit_period	      "on"
 	      period		      "1"
 	      dsp48_infoedit	      "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	      equ		      "P=C"
@@ -2359,7 +2868,7 @@ Library {
 	      opr		      "+"
 	      inp1		      "P"
 	      carry		      "CIN"
-	      dbl_ovrd		      off
+	      dbl_ovrd		      "off"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
 	      block_type	      "constant"
@@ -2392,7 +2901,7 @@ Library {
 	      const		      "1"
 	      n_bits		      "16"
 	      bin_pt		      "14"
-	      explicit_period	      on
+	      explicit_period	      "on"
 	      period		      "1"
 	      dsp48_infoedit	      "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	      equ		      "P=C"
@@ -2401,7 +2910,7 @@ Library {
 	      opr		      "+"
 	      inp1		      "P"
 	      carry		      "CIN"
-	      dbl_ovrd		      off
+	      dbl_ovrd		      "off"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
 	      block_type	      "constant"
@@ -2501,9 +3010,9 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/AddSub"
 		  SourceType		  "Xilinx Adder/Subtracter Block"
 		  mode			  "Addition"
-		  use_carryin		  off
-		  use_carryout		  off
-		  en			  off
+		  use_carryin		  "off"
+		  use_carryout		  "off"
+		  en			  "off"
 		  latency		  "2"
 		  precision		  "Full"
 		  arith_type		  "Unsigned"
@@ -2511,11 +3020,11 @@ Library {
 		  bin_pt		  "14"
 		  quantization		  "Truncate"
 		  overflow		  "Wrap"
-		  dbl_ovrd		  off
-		  use_behavioral_HDL	  off
+		  dbl_ovrd		  "off"
+		  use_behavioral_HDL	  "off"
 		  hw_selection		  "Fabric"
-		  pipelined		  on
-		  xl_use_area		  off
+		  pipelined		  "on"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  use_rpm		  "on"
 		  has_advanced_control	  "0"
@@ -2548,11 +3057,11 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/Delay"
 		  SourceType		  "Xilinx Delay Block"
 		  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-		  en			  off
+		  en			  "off"
 		  latency		  "2"
-		  dbl_ovrd		  off
-		  reg_retiming		  on
-		  xl_use_area		  off
+		  dbl_ovrd		  "off"
+		  reg_retiming		  "on"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
@@ -2685,9 +3194,9 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/AddSub"
 		  SourceType		  "Xilinx Adder/Subtracter Block"
 		  mode			  "Addition"
-		  use_carryin		  off
-		  use_carryout		  off
-		  en			  off
+		  use_carryin		  "off"
+		  use_carryout		  "off"
+		  en			  "off"
 		  latency		  "2"
 		  precision		  "Full"
 		  arith_type		  "Unsigned"
@@ -2695,11 +3204,11 @@ Library {
 		  bin_pt		  "14"
 		  quantization		  "Truncate"
 		  overflow		  "Wrap"
-		  dbl_ovrd		  off
-		  use_behavioral_HDL	  off
+		  dbl_ovrd		  "off"
+		  use_behavioral_HDL	  "off"
 		  hw_selection		  "Fabric"
-		  pipelined		  on
-		  xl_use_area		  off
+		  pipelined		  "on"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  use_rpm		  "on"
 		  has_advanced_control	  "0"
@@ -2732,11 +3241,11 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/Delay"
 		  SourceType		  "Xilinx Delay Block"
 		  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-		  en			  off
+		  en			  "off"
 		  latency		  "2"
-		  dbl_ovrd		  off
-		  reg_retiming		  on
-		  xl_use_area		  off
+		  dbl_ovrd		  "off"
+		  reg_retiming		  "on"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
@@ -2869,7 +3378,7 @@ Library {
 		  const			  "4"
 		  n_bits		  "25"
 		  bin_pt		  "24"
-		  explicit_period	  on
+		  explicit_period	  "on"
 		  period		  "1"
 		  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 		  equ			  "P=C"
@@ -2878,7 +3387,7 @@ Library {
 		  opr			  "+"
 		  inp1			  "P"
 		  carry			  "CIN"
-		  dbl_ovrd		  off
+		  dbl_ovrd		  "off"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
 		  block_type		  "constant"
@@ -2911,14 +3420,14 @@ Library {
 		  bin_pt		  "17"
 		  quantization		  "Truncate"
 		  overflow		  "Wrap"
-		  en			  off
+		  en			  "off"
 		  latency		  "1"
-		  dbl_ovrd		  off
-		  use_behavioral_HDL	  on
+		  dbl_ovrd		  "off"
+		  use_behavioral_HDL	  "on"
 		  opt			  "Speed"
-		  use_embedded		  on
-		  optimum_pipeline	  off
-		  xl_use_area		  off
+		  use_embedded		  "on"
+		  optimum_pipeline	  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  pipeline		  "on"
 		  use_rpm		  "off"
@@ -2956,14 +3465,14 @@ Library {
 		  bin_pt		  "17"
 		  quantization		  "Truncate"
 		  overflow		  "Wrap"
-		  en			  off
+		  en			  "off"
 		  latency		  "1"
-		  dbl_ovrd		  off
-		  use_behavioral_HDL	  on
+		  dbl_ovrd		  "off"
+		  use_behavioral_HDL	  "on"
 		  opt			  "Speed"
-		  use_embedded		  on
-		  optimum_pipeline	  off
-		  xl_use_area		  off
+		  use_embedded		  "on"
+		  optimum_pipeline	  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  pipeline		  "on"
 		  use_rpm		  "off"
@@ -2992,10 +3501,10 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/Register"
 		  SourceType		  "Xilinx Register Block"
 		  init			  "0"
-		  rst			  off
-		  en			  off
-		  dbl_ovrd		  off
-		  xl_use_area		  off
+		  rst			  "off"
+		  en			  "off"
+		  dbl_ovrd		  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
@@ -3020,10 +3529,10 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/Register"
 		  SourceType		  "Xilinx Register Block"
 		  init			  "0"
-		  rst			  off
-		  en			  off
-		  dbl_ovrd		  off
-		  xl_use_area		  off
+		  rst			  "off"
+		  en			  "off"
+		  dbl_ovrd		  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
@@ -3129,7 +3638,6 @@ Library {
 		Line {
 		  SrcBlock		  "Mult1"
 		  SrcPort		  1
-		  Points		  [15, 0]
 		  DstBlock		  "real"
 		  DstPort		  1
 		}
@@ -3209,7 +3717,7 @@ Library {
 		  const			  "3"
 		  n_bits		  "25"
 		  bin_pt		  "24"
-		  explicit_period	  on
+		  explicit_period	  "on"
 		  period		  "1"
 		  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 		  equ			  "P=C"
@@ -3218,7 +3726,7 @@ Library {
 		  opr			  "+"
 		  inp1			  "P"
 		  carry			  "CIN"
-		  dbl_ovrd		  off
+		  dbl_ovrd		  "off"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
 		  block_type		  "constant"
@@ -3251,14 +3759,14 @@ Library {
 		  bin_pt		  "17"
 		  quantization		  "Truncate"
 		  overflow		  "Wrap"
-		  en			  off
+		  en			  "off"
 		  latency		  "1"
-		  dbl_ovrd		  off
-		  use_behavioral_HDL	  on
+		  dbl_ovrd		  "off"
+		  use_behavioral_HDL	  "on"
 		  opt			  "Speed"
-		  use_embedded		  on
-		  optimum_pipeline	  off
-		  xl_use_area		  off
+		  use_embedded		  "on"
+		  optimum_pipeline	  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  pipeline		  "on"
 		  use_rpm		  "off"
@@ -3296,14 +3804,14 @@ Library {
 		  bin_pt		  "17"
 		  quantization		  "Truncate"
 		  overflow		  "Wrap"
-		  en			  off
+		  en			  "off"
 		  latency		  "1"
-		  dbl_ovrd		  off
-		  use_behavioral_HDL	  on
+		  dbl_ovrd		  "off"
+		  use_behavioral_HDL	  "on"
 		  opt			  "Speed"
-		  use_embedded		  on
-		  optimum_pipeline	  off
-		  xl_use_area		  off
+		  use_embedded		  "on"
+		  optimum_pipeline	  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  pipeline		  "on"
 		  use_rpm		  "off"
@@ -3332,10 +3840,10 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/Register"
 		  SourceType		  "Xilinx Register Block"
 		  init			  "0"
-		  rst			  off
-		  en			  off
-		  dbl_ovrd		  off
-		  xl_use_area		  off
+		  rst			  "off"
+		  en			  "off"
+		  dbl_ovrd		  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
@@ -3360,10 +3868,10 @@ Library {
 		  SourceBlock		  "xbsIndex_r4/Register"
 		  SourceType		  "Xilinx Register Block"
 		  init			  "0"
-		  rst			  off
-		  en			  off
-		  dbl_ovrd		  off
-		  xl_use_area		  off
+		  rst			  "off"
+		  en			  "off"
+		  dbl_ovrd		  "off"
+		  xl_use_area		  "off"
 		  xl_area		  "[0,0,0,0,0,0,0]"
 		  has_advanced_control	  "0"
 		  sggui_pos		  "-1,-1,-1,-1"
@@ -3469,7 +3977,6 @@ Library {
 		Line {
 		  SrcBlock		  "Mult1"
 		  SrcPort		  1
-		  Points		  [15, 0]
 		  DstBlock		  "real"
 		  DstPort		  1
 		}
@@ -3731,9 +4238,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -3741,11 +4248,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      off
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "off"
 	      hw_selection	      "Fabric"
-	      pipelined		      on
-	      xl_use_area	      off
+	      pipelined		      "on"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      use_rpm		      "on"
 	      has_advanced_control    "0"
@@ -3779,11 +4286,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      on
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "on"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3911,9 +4418,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -3921,11 +4428,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      off
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "off"
 	      hw_selection	      "Fabric"
-	      pipelined		      on
-	      xl_use_area	      off
+	      pipelined		      "on"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      use_rpm		      "on"
 	      has_advanced_control    "0"
@@ -3959,11 +4466,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      on
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "on"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -4084,7 +4591,7 @@ Library {
 	      infoedit		      "Concatenates two or more inputs.  Output will be cast to an unsigned value with the binary poi"
 	      "nt at zero."
 	      num_inputs	      "2"
-	      dbl_ovrd		      off
+	      dbl_ovrd		      "off"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
 	      block_type	      "concat"
@@ -4112,9 +4619,9 @@ Library {
 	      "nothing.<br><br>Example:  Suppose the input is 6 bits wide, signed, with 2 fractional bits, and the output is f"
 	      "orced to unsigned with 0 fractional bits.  Then an input of -2.0 (1110.00 in binary 2's complement) becomes an "
 	      "output of 56 (111000 in binary)."
-	      force_arith_type	      on
+	      force_arith_type	      "on"
 	      arith_type	      "Unsigned"
-	      force_bin_pt	      on
+	      force_bin_pt	      "on"
 	      bin_pt		      "0"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -4142,9 +4649,9 @@ Library {
 	      "nothing.<br><br>Example:  Suppose the input is 6 bits wide, signed, with 2 fractional bits, and the output is f"
 	      "orced to unsigned with 0 fractional bits.  Then an input of -2.0 (1110.00 in binary 2's complement) becomes an "
 	      "output of 56 (111000 in binary)."
-	      force_arith_type	      on
+	      force_arith_type	      "on"
 	      arith_type	      "Unsigned"
-	      force_bin_pt	      on
+	      force_bin_pt	      "on"
 	      bin_pt		      "0"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -4211,7 +4718,7 @@ Library {
 	  infoedit		  "Hardware notes: In hardware this block costs nothing if full output precision is used."
 	  shift_dir		  "Left"
 	  shift_bits		  "1"
-	  en			  off
+	  en			  "off"
 	  latency		  "0"
 	  precision		  "Full"
 	  arith_type		  "Signed  (2's comp)"
@@ -4219,8 +4726,8 @@ Library {
 	  bin_pt		  "14"
 	  quantization		  "Truncate"
 	  overflow		  "Wrap"
-	  dbl_ovrd		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -4247,7 +4754,7 @@ Library {
 	  infoedit		  "Hardware notes: In hardware this block costs nothing if full output precision is used."
 	  shift_dir		  "Left"
 	  shift_bits		  "1"
-	  en			  off
+	  en			  "off"
 	  latency		  "0"
 	  precision		  "Full"
 	  arith_type		  "Signed  (2's comp)"
@@ -4255,8 +4762,8 @@ Library {
 	  bin_pt		  "14"
 	  quantization		  "Truncate"
 	  overflow		  "Wrap"
-	  dbl_ovrd		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -4332,7 +4839,6 @@ Library {
 	Line {
 	  SrcBlock		  "ri_to_c"
 	  SrcPort		  1
-	  Points		  [15, 0]
 	  DstBlock		  "dout"
 	  DstPort		  1
 	}
@@ -4473,7 +4979,7 @@ Library {
       Position		      [495, 224, 595, 356]
       BackgroundColor	      "[0.192000, 0.374336, 0.500000]"
       UserDataPersistent      on
-      UserData		      "DataTag1"
+      UserData		      "DataTag2"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -4565,7 +5071,7 @@ Library {
 	  const			  "1"
 	  n_bits		  "16"
 	  bin_pt		  "14"
-	  explicit_period	  on
+	  explicit_period	  "on"
 	  period		  "1"
 	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	  equ			  "P=C"
@@ -4574,7 +5080,7 @@ Library {
 	  opr			  "+"
 	  inp1			  "P"
 	  carry			  "CIN"
-	  dbl_ovrd		  off
+	  dbl_ovrd		  "off"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
@@ -4607,7 +5113,7 @@ Library {
 	  const			  "1"
 	  n_bits		  "16"
 	  bin_pt		  "14"
-	  explicit_period	  on
+	  explicit_period	  "on"
 	  period		  "1"
 	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	  equ			  "P=C"
@@ -4616,7 +5122,7 @@ Library {
 	  opr			  "+"
 	  inp1			  "P"
 	  carry			  "CIN"
-	  dbl_ovrd		  off
+	  dbl_ovrd		  "off"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
@@ -4716,9 +5222,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -4726,11 +5232,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      off
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "off"
 	      hw_selection	      "Fabric"
-	      pipelined		      on
-	      xl_use_area	      off
+	      pipelined		      "on"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      use_rpm		      "on"
 	      has_advanced_control    "0"
@@ -4764,11 +5270,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      on
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "on"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -4902,9 +5408,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -4912,11 +5418,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      off
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "off"
 	      hw_selection	      "Fabric"
-	      pipelined		      on
-	      xl_use_area	      off
+	      pipelined		      "on"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      use_rpm		      "on"
 	      has_advanced_control    "0"
@@ -4950,11 +5456,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      on
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "on"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -5088,7 +5594,7 @@ Library {
 	      const		      "2"
 	      n_bits		      "25"
 	      bin_pt		      "24"
-	      explicit_period	      on
+	      explicit_period	      "on"
 	      period		      "1"
 	      dsp48_infoedit	      "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	      equ		      "P=C"
@@ -5097,7 +5603,7 @@ Library {
 	      opr		      "+"
 	      inp1		      "P"
 	      carry		      "CIN"
-	      dbl_ovrd		      off
+	      dbl_ovrd		      "off"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
 	      block_type	      "constant"
@@ -5130,14 +5636,14 @@ Library {
 	      bin_pt		      "17"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      en		      off
+	      en		      "off"
 	      latency		      "2"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      opt		      "Speed"
-	      use_embedded	      on
-	      optimum_pipeline	      off
-	      xl_use_area	      off
+	      use_embedded	      "on"
+	      optimum_pipeline	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      pipeline		      "on"
 	      use_rpm		      "off"
@@ -5175,14 +5681,14 @@ Library {
 	      bin_pt		      "17"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      en		      off
+	      en		      "off"
 	      latency		      "2"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      opt		      "Speed"
-	      use_embedded	      on
-	      optimum_pipeline	      off
-	      xl_use_area	      off
+	      use_embedded	      "on"
+	      optimum_pipeline	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      pipeline		      "on"
 	      use_rpm		      "off"
@@ -5211,10 +5717,10 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/Register"
 	      SourceType	      "Xilinx Register Block"
 	      init		      "0"
-	      rst		      off
-	      en		      off
-	      dbl_ovrd		      off
-	      xl_use_area	      off
+	      rst		      "off"
+	      en		      "off"
+	      dbl_ovrd		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -5239,10 +5745,10 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/Register"
 	      SourceType	      "Xilinx Register Block"
 	      init		      "0"
-	      rst		      off
-	      en		      off
-	      dbl_ovrd		      off
-	      xl_use_area	      off
+	      rst		      "off"
+	      en		      "off"
+	      dbl_ovrd		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -5348,7 +5854,6 @@ Library {
 	    Line {
 	      SrcBlock		      "Mult1"
 	      SrcPort		      1
-	      Points		      [15, 0]
 	      DstBlock		      "real"
 	      DstPort		      1
 	    }
@@ -5428,7 +5933,7 @@ Library {
 	      const		      "3"
 	      n_bits		      "25"
 	      bin_pt		      "24"
-	      explicit_period	      on
+	      explicit_period	      "on"
 	      period		      "1"
 	      dsp48_infoedit	      "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	      equ		      "P=C"
@@ -5437,7 +5942,7 @@ Library {
 	      opr		      "+"
 	      inp1		      "P"
 	      carry		      "CIN"
-	      dbl_ovrd		      off
+	      dbl_ovrd		      "off"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
 	      block_type	      "constant"
@@ -5470,14 +5975,14 @@ Library {
 	      bin_pt		      "17"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      en		      off
+	      en		      "off"
 	      latency		      "2"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      opt		      "Speed"
-	      use_embedded	      on
-	      optimum_pipeline	      off
-	      xl_use_area	      off
+	      use_embedded	      "on"
+	      optimum_pipeline	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      pipeline		      "on"
 	      use_rpm		      "off"
@@ -5515,14 +6020,14 @@ Library {
 	      bin_pt		      "17"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      en		      off
+	      en		      "off"
 	      latency		      "2"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      opt		      "Speed"
-	      use_embedded	      on
-	      optimum_pipeline	      off
-	      xl_use_area	      off
+	      use_embedded	      "on"
+	      optimum_pipeline	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      pipeline		      "on"
 	      use_rpm		      "off"
@@ -5551,10 +6056,10 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/Register"
 	      SourceType	      "Xilinx Register Block"
 	      init		      "0"
-	      rst		      off
-	      en		      off
-	      dbl_ovrd		      off
-	      xl_use_area	      off
+	      rst		      "off"
+	      en		      "off"
+	      dbl_ovrd		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -5579,10 +6084,10 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/Register"
 	      SourceType	      "Xilinx Register Block"
 	      init		      "0"
-	      rst		      off
-	      en		      off
-	      dbl_ovrd		      off
-	      xl_use_area	      off
+	      rst		      "off"
+	      en		      "off"
+	      dbl_ovrd		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -5688,7 +6193,6 @@ Library {
 	    Line {
 	      SrcBlock		      "Mult1"
 	      SrcPort		      1
-	      Points		      [15, 0]
 	      DstBlock		      "real"
 	      DstPort		      1
 	    }
@@ -5895,7 +6399,7 @@ Library {
       Position		      [625, 223, 760, 382]
       BackgroundColor	      "[0.192000, 0.374336, 0.500000]"
       UserDataPersistent      on
-      UserData		      "DataTag2"
+      UserData		      "DataTag3"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -6019,7 +6523,7 @@ Library {
 	  const			  "1"
 	  n_bits		  "16"
 	  bin_pt		  "14"
-	  explicit_period	  on
+	  explicit_period	  "on"
 	  period		  "1"
 	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	  equ			  "P=C"
@@ -6028,7 +6532,7 @@ Library {
 	  opr			  "+"
 	  inp1			  "P"
 	  carry			  "CIN"
-	  dbl_ovrd		  off
+	  dbl_ovrd		  "off"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
@@ -6061,7 +6565,7 @@ Library {
 	  const			  "1"
 	  n_bits		  "16"
 	  bin_pt		  "14"
-	  explicit_period	  on
+	  explicit_period	  "on"
 	  period		  "1"
 	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	  equ			  "P=C"
@@ -6070,7 +6574,7 @@ Library {
 	  opr			  "+"
 	  inp1			  "P"
 	  carry			  "CIN"
-	  dbl_ovrd		  off
+	  dbl_ovrd		  "off"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
@@ -6170,9 +6674,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -6180,11 +6684,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      off
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "off"
 	      hw_selection	      "Fabric"
-	      pipelined		      on
-	      xl_use_area	      off
+	      pipelined		      "on"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      use_rpm		      "on"
 	      has_advanced_control    "0"
@@ -6218,11 +6722,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      on
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "on"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -6356,9 +6860,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -6366,11 +6870,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      off
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "off"
 	      hw_selection	      "Fabric"
-	      pipelined		      on
-	      xl_use_area	      off
+	      pipelined		      "on"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      use_rpm		      "on"
 	      has_advanced_control    "0"
@@ -6404,11 +6908,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      on
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "on"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -6555,9 +7059,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Signed  (2's comp)"
@@ -6565,11 +7069,11 @@ Library {
 	      bin_pt		      "16"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      use_rpm		      "on"
 	      has_advanced_control    "0"
@@ -6596,9 +7100,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Signed  (2's comp)"
@@ -6606,11 +7110,11 @@ Library {
 	      bin_pt		      "16"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      use_rpm		      "on"
 	      has_advanced_control    "0"
@@ -6646,14 +7150,14 @@ Library {
 	      bin_pt		      "17"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      en		      off
+	      en		      "off"
 	      latency		      "2"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      opt		      "Speed"
-	      use_embedded	      on
-	      optimum_pipeline	      off
-	      xl_use_area	      off
+	      use_embedded	      "on"
+	      optimum_pipeline	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      pipeline		      "on"
 	      use_rpm		      "off"
@@ -6691,14 +7195,14 @@ Library {
 	      bin_pt		      "17"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      en		      off
+	      en		      "off"
 	      latency		      "2"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      opt		      "Speed"
-	      use_embedded	      on
-	      optimum_pipeline	      off
-	      xl_use_area	      off
+	      use_embedded	      "on"
+	      optimum_pipeline	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      pipeline		      "on"
 	      use_rpm		      "off"
@@ -6727,10 +7231,10 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/Register"
 	      SourceType	      "Xilinx Register Block"
 	      init		      "0"
-	      rst		      off
-	      en		      off
-	      dbl_ovrd		      off
-	      xl_use_area	      off
+	      rst		      "off"
+	      en		      "off"
+	      dbl_ovrd		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -6755,10 +7259,10 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/Register"
 	      SourceType	      "Xilinx Register Block"
 	      init		      "0"
-	      rst		      off
-	      en		      off
-	      dbl_ovrd		      off
-	      xl_use_area	      off
+	      rst		      "off"
+	      en		      "off"
+	      dbl_ovrd		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -6783,10 +7287,10 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/Register"
 	      SourceType	      "Xilinx Register Block"
 	      init		      "0"
-	      rst		      off
-	      en		      off
-	      dbl_ovrd		      off
-	      xl_use_area	      off
+	      rst		      "off"
+	      en		      "off"
+	      dbl_ovrd		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -6811,10 +7315,10 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/Register"
 	      SourceType	      "Xilinx Register Block"
 	      init		      "0"
-	      rst		      off
-	      en		      off
-	      dbl_ovrd		      off
-	      xl_use_area	      off
+	      rst		      "off"
+	      en		      "off"
+	      dbl_ovrd		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -6842,7 +7346,7 @@ Library {
 	      const		      "0.1"
 	      n_bits		      "25"
 	      bin_pt		      "24"
-	      explicit_period	      on
+	      explicit_period	      "on"
 	      period		      "1"
 	      dsp48_infoedit	      "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	      equ		      "P=C"
@@ -6851,7 +7355,7 @@ Library {
 	      opr		      "+"
 	      inp1		      "P"
 	      carry		      "CIN"
-	      dbl_ovrd		      off
+	      dbl_ovrd		      "off"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
 	      block_type	      "constant"
@@ -7121,9 +7625,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Signed  (2's comp)"
@@ -7131,11 +7635,11 @@ Library {
 	      bin_pt		      "16"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      use_rpm		      "on"
 	      has_advanced_control    "0"
@@ -7162,9 +7666,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Signed  (2's comp)"
@@ -7172,11 +7676,11 @@ Library {
 	      bin_pt		      "16"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      use_rpm		      "on"
 	      has_advanced_control    "0"
@@ -7212,14 +7716,14 @@ Library {
 	      bin_pt		      "17"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      en		      off
+	      en		      "off"
 	      latency		      "2"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      opt		      "Speed"
-	      use_embedded	      on
-	      optimum_pipeline	      off
-	      xl_use_area	      off
+	      use_embedded	      "on"
+	      optimum_pipeline	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      pipeline		      "on"
 	      use_rpm		      "off"
@@ -7257,14 +7761,14 @@ Library {
 	      bin_pt		      "17"
 	      quantization	      "Truncate"
 	      overflow		      "Wrap"
-	      en		      off
+	      en		      "off"
 	      latency		      "2"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      opt		      "Speed"
-	      use_embedded	      on
-	      optimum_pipeline	      off
-	      xl_use_area	      off
+	      use_embedded	      "on"
+	      optimum_pipeline	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      pipeline		      "on"
 	      use_rpm		      "off"
@@ -7293,10 +7797,10 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/Register"
 	      SourceType	      "Xilinx Register Block"
 	      init		      "0"
-	      rst		      off
-	      en		      off
-	      dbl_ovrd		      off
-	      xl_use_area	      off
+	      rst		      "off"
+	      en		      "off"
+	      dbl_ovrd		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -7321,10 +7825,10 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/Register"
 	      SourceType	      "Xilinx Register Block"
 	      init		      "0"
-	      rst		      off
-	      en		      off
-	      dbl_ovrd		      off
-	      xl_use_area	      off
+	      rst		      "off"
+	      en		      "off"
+	      dbl_ovrd		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -7349,10 +7853,10 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/Register"
 	      SourceType	      "Xilinx Register Block"
 	      init		      "0"
-	      rst		      off
-	      en		      off
-	      dbl_ovrd		      off
-	      xl_use_area	      off
+	      rst		      "off"
+	      en		      "off"
+	      dbl_ovrd		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -7377,10 +7881,10 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/Register"
 	      SourceType	      "Xilinx Register Block"
 	      init		      "0"
-	      rst		      off
-	      en		      off
-	      dbl_ovrd		      off
-	      xl_use_area	      off
+	      rst		      "off"
+	      en		      "off"
+	      dbl_ovrd		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -7408,7 +7912,7 @@ Library {
 	      const		      "0.2"
 	      n_bits		      "25"
 	      bin_pt		      "24"
-	      explicit_period	      on
+	      explicit_period	      "on"
 	      period		      "1"
 	      dsp48_infoedit	      "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	      equ		      "P=C"
@@ -7417,7 +7921,7 @@ Library {
 	      opr		      "+"
 	      inp1		      "P"
 	      carry		      "CIN"
-	      dbl_ovrd		      off
+	      dbl_ovrd		      "off"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
 	      block_type	      "constant"
@@ -7891,7 +8395,7 @@ Library {
       Position		      [410, 227, 460, 318]
       BackgroundColor	      "[0.192000, 0.374336, 0.500000]"
       UserDataPersistent      on
-      UserData		      "DataTag3"
+      UserData		      "DataTag4"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -7986,9 +8490,9 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/AddSub"
 	  SourceType		  "Xilinx Adder/Subtracter Block"
 	  mode			  "Addition"
-	  use_carryin		  off
-	  use_carryout		  off
-	  en			  off
+	  use_carryin		  "off"
+	  use_carryout		  "off"
+	  en			  "off"
 	  latency		  "1"
 	  precision		  "Full"
 	  arith_type		  "Signed  (2's comp)"
@@ -7996,11 +8500,11 @@ Library {
 	  bin_pt		  "16"
 	  quantization		  "Truncate"
 	  overflow		  "Wrap"
-	  dbl_ovrd		  off
-	  use_behavioral_HDL	  on
+	  dbl_ovrd		  "off"
+	  use_behavioral_HDL	  "on"
 	  hw_selection		  "Fabric"
-	  pipelined		  off
-	  xl_use_area		  off
+	  pipelined		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  use_rpm		  "on"
 	  has_advanced_control	  "0"
@@ -8027,9 +8531,9 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/AddSub"
 	  SourceType		  "Xilinx Adder/Subtracter Block"
 	  mode			  "Addition"
-	  use_carryin		  off
-	  use_carryout		  off
-	  en			  off
+	  use_carryin		  "off"
+	  use_carryout		  "off"
+	  en			  "off"
 	  latency		  "1"
 	  precision		  "Full"
 	  arith_type		  "Signed  (2's comp)"
@@ -8037,11 +8541,11 @@ Library {
 	  bin_pt		  "16"
 	  quantization		  "Truncate"
 	  overflow		  "Wrap"
-	  dbl_ovrd		  off
-	  use_behavioral_HDL	  on
+	  dbl_ovrd		  "off"
+	  use_behavioral_HDL	  "on"
 	  hw_selection		  "Fabric"
-	  pipelined		  off
-	  xl_use_area		  off
+	  pipelined		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  use_rpm		  "on"
 	  has_advanced_control	  "0"
@@ -8077,14 +8581,14 @@ Library {
 	  bin_pt		  "17"
 	  quantization		  "Truncate"
 	  overflow		  "Wrap"
-	  en			  off
+	  en			  "off"
 	  latency		  "2"
-	  dbl_ovrd		  off
-	  use_behavioral_HDL	  on
+	  dbl_ovrd		  "off"
+	  use_behavioral_HDL	  "on"
 	  opt			  "Speed"
-	  use_embedded		  on
-	  optimum_pipeline	  off
-	  xl_use_area		  off
+	  use_embedded		  "on"
+	  optimum_pipeline	  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  pipeline		  "on"
 	  use_rpm		  "off"
@@ -8122,14 +8626,14 @@ Library {
 	  bin_pt		  "17"
 	  quantization		  "Truncate"
 	  overflow		  "Wrap"
-	  en			  off
+	  en			  "off"
 	  latency		  "2"
-	  dbl_ovrd		  off
-	  use_behavioral_HDL	  on
+	  dbl_ovrd		  "off"
+	  use_behavioral_HDL	  "on"
 	  opt			  "Speed"
-	  use_embedded		  on
-	  optimum_pipeline	  off
-	  xl_use_area		  off
+	  use_embedded		  "on"
+	  optimum_pipeline	  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  pipeline		  "on"
 	  use_rpm		  "off"
@@ -8158,10 +8662,10 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
 	  init			  "0"
-	  rst			  off
-	  en			  off
-	  dbl_ovrd		  off
-	  xl_use_area		  off
+	  rst			  "off"
+	  en			  "off"
+	  dbl_ovrd		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -8186,10 +8690,10 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
 	  init			  "0"
-	  rst			  off
-	  en			  off
-	  dbl_ovrd		  off
-	  xl_use_area		  off
+	  rst			  "off"
+	  en			  "off"
+	  dbl_ovrd		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -8214,10 +8718,10 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
 	  init			  "0"
-	  rst			  off
-	  en			  off
-	  dbl_ovrd		  off
-	  xl_use_area		  off
+	  rst			  "off"
+	  en			  "off"
+	  dbl_ovrd		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -8242,10 +8746,10 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
 	  init			  "0"
-	  rst			  off
-	  en			  off
-	  dbl_ovrd		  off
-	  xl_use_area		  off
+	  rst			  "off"
+	  en			  "off"
+	  dbl_ovrd		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -8273,7 +8777,7 @@ Library {
 	  const			  "0.073384"
 	  n_bits		  "18"
 	  bin_pt		  "17"
-	  explicit_period	  on
+	  explicit_period	  "on"
 	  period		  "1"
 	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	  equ			  "P=C"
@@ -8282,7 +8786,7 @@ Library {
 	  opr			  "+"
 	  inp1			  "P"
 	  carry			  "CIN"
-	  dbl_ovrd		  off
+	  dbl_ovrd		  "off"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
@@ -8492,7 +8996,7 @@ Library {
       Position		      [325, 227, 375, 288]
       BackgroundColor	      "[0.192000, 0.374336, 0.500000]"
       UserDataPersistent      on
-      UserData		      "DataTag4"
+      UserData		      "DataTag5"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -8569,7 +9073,7 @@ Library {
 	  const			  "1"
 	  n_bits		  "25"
 	  bin_pt		  "24"
-	  explicit_period	  on
+	  explicit_period	  "on"
 	  period		  "1"
 	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	  equ			  "P=C"
@@ -8578,7 +9082,7 @@ Library {
 	  opr			  "+"
 	  inp1			  "P"
 	  carry			  "CIN"
-	  dbl_ovrd		  off
+	  dbl_ovrd		  "off"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
@@ -8611,14 +9115,14 @@ Library {
 	  bin_pt		  "17"
 	  quantization		  "Truncate"
 	  overflow		  "Wrap"
-	  en			  off
+	  en			  "off"
 	  latency		  "2"
-	  dbl_ovrd		  off
-	  use_behavioral_HDL	  on
+	  dbl_ovrd		  "off"
+	  use_behavioral_HDL	  "on"
 	  opt			  "Speed"
-	  use_embedded		  on
-	  optimum_pipeline	  off
-	  xl_use_area		  off
+	  use_embedded		  "on"
+	  optimum_pipeline	  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  pipeline		  "on"
 	  use_rpm		  "off"
@@ -8656,14 +9160,14 @@ Library {
 	  bin_pt		  "17"
 	  quantization		  "Truncate"
 	  overflow		  "Wrap"
-	  en			  off
+	  en			  "off"
 	  latency		  "2"
-	  dbl_ovrd		  off
-	  use_behavioral_HDL	  on
+	  dbl_ovrd		  "off"
+	  use_behavioral_HDL	  "on"
 	  opt			  "Speed"
-	  use_embedded		  on
-	  optimum_pipeline	  off
-	  xl_use_area		  off
+	  use_embedded		  "on"
+	  optimum_pipeline	  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  pipeline		  "on"
 	  use_rpm		  "off"
@@ -8692,10 +9196,10 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
 	  init			  "0"
-	  rst			  off
-	  en			  off
-	  dbl_ovrd		  off
-	  xl_use_area		  off
+	  rst			  "off"
+	  en			  "off"
+	  dbl_ovrd		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -8720,10 +9224,10 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
 	  init			  "0"
-	  rst			  off
-	  en			  off
-	  dbl_ovrd		  off
-	  xl_use_area		  off
+	  rst			  "off"
+	  en			  "off"
+	  dbl_ovrd		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -8837,7 +9341,6 @@ Library {
 	Line {
 	  SrcBlock		  "Mult1"
 	  SrcPort		  1
-	  Points		  [15, 0]
 	  DstBlock		  "real"
 	  DstPort		  1
 	}
@@ -8852,21 +9355,21 @@ Library {
   }
 }
 MatData {
-  NumRecords		  5
+  NumRecords		  6
   DataRecord {
-    Tag			    DataTag4
+    Tag			    DataTag5
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
     "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    9#@R,#DU968P,SDS,SAD93"
     " U.#0U,&5C9#%C,# R-S$"
   }
   DataRecord {
-    Tag			    DataTag3
+    Tag			    DataTag4
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
     "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    9&5E-6(T-3<W83 U-V1C8C"
     "@T-V1A,S%D93,Q-V8Q-3<"
   }
   DataRecord {
-    Tag			    DataTag2
+    Tag			    DataTag3
     Data		    "  %)30     .    P 0   8    (     @         %    \"     $    !     0         %  0 \"P    $    A    <W1A="
     "&4       !P87)A;65T97)S &AA<VA?8V]D90            X    P    !@    @    -          4    (     0    $    !          8"
     " ! \"77QD##@   ,@#   &    \"     (         !0    @    !     0    $         !0 $ !     !    @    &1E9F%U;'1S       "
@@ -8884,7 +9387,7 @@ MatData {
     "     0   \"     !         !     @    -&-C8C-A9#-B-C U,C8W,V,X939D935C9&8V96,V.64"
   }
   DataRecord {
-    Tag			    DataTag1
+    Tag			    DataTag2
     Data		    "  %)30     .    L 0   8    (     @         %    \"     $    !     0         %  0 \"P    $    A    <W1A="
     "&4       !P87)A;65T97)S &AA<VA?8V]D90            X    P    !@    @    -          4    (     0    $    !          8"
     " !  JB78$#@   +@#   &    \"     (         !0    @    !     0    $         !0 $ !     !    @    &1E9F%U;'1S        "
@@ -8902,9 +9405,15 @@ MatData {
     "     $    \"    !F.&9F8V$X9C!C-SDW8V9A,C)E8CDS8C,X,C(Y-C R.0"
   }
   DataRecord {
-    Tag			    DataTag0
+    Tag			    DataTag1
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
     "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    .31F,V4R,38W,#0X,#%A96"
     ")D-6-D9C@X9F1B.64V-#$"
+  }
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    .&5E,64U,F(T.#(U.60Q-3"
+    "(X.&4U93AA,C@Q.#DY,60"
   }
 }
