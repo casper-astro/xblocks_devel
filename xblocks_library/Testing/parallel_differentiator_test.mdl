@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.41"
+    ComputedModelVersion    "1.42"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -25,9 +25,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "chenhong"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Sep 28 21:40:22 2011"
-  RTWModifiedTimeStamp	  239146811
-  ModelVersionFormat	  "1.%<AutoIncrement:41>"
+  LastModifiedDate	  "Fri Sep 30 01:52:08 2011"
+  RTWModifiedTimeStamp	  239248326
+  ModelVersionFormat	  "1.%<AutoIncrement:42>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -708,7 +708,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    24
+    SIDHighWatermark	    25
     Block {
       BlockType		      Reference
       Name		      " System Generator"
@@ -923,7 +923,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	739
+	SIDHighWatermark	750
 	SIDPrevWatermark	651
 	Block {
 	  BlockType		  Inport
@@ -975,7 +975,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay1"
-	  SID			  731
+	  SID			  742
 	  Ports			  [1, 1]
 	  Position		  [430, 77, 490, 133]
 	  LibraryVersion	  "1.2"
@@ -1009,7 +1009,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay2"
-	  SID			  732
+	  SID			  743
 	  Ports			  [1, 1]
 	  Position		  [245, 297, 305, 353]
 	  LibraryVersion	  "1.2"
@@ -1043,7 +1043,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay3"
-	  SID			  733
+	  SID			  744
 	  Ports			  [1, 1]
 	  Position		  [60, 127, 120, 183]
 	  LibraryVersion	  "1.2"
@@ -1077,7 +1077,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay4"
-	  SID			  729
+	  SID			  740
 	  Ports			  [1, 1]
 	  Position		  [335, 197, 395, 253]
 	  LibraryVersion	  "1.2"
@@ -1111,7 +1111,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay5"
-	  SID			  730
+	  SID			  741
 	  Ports			  [1, 1]
 	  Position		  [150, 217, 210, 273]
 	  LibraryVersion	  "1.2"
@@ -1145,7 +1145,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "sub_blk1"
-	  SID			  734
+	  SID			  745
 	  Ports			  [2, 1]
 	  Position		  [430, 170, 490, 230]
 	  LibraryVersion	  "1.2"
@@ -1185,7 +1185,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "sub_blk2"
-	  SID			  735
+	  SID			  746
 	  Ports			  [2, 1]
 	  Position		  [245, 160, 305, 220]
 	  LibraryVersion	  "1.2"
@@ -1225,7 +1225,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "sub_blk3"
-	  SID			  736
+	  SID			  747
 	  Ports			  [2, 1]
 	  Position		  [520, 40, 580, 100]
 	  LibraryVersion	  "1.2"
@@ -1265,7 +1265,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "sub_blk4"
-	  SID			  737
+	  SID			  748
 	  Ports			  [2, 1]
 	  Position		  [335, 280, 395, 340]
 	  LibraryVersion	  "1.2"
@@ -1305,7 +1305,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "sub_blk5"
-	  SID			  738
+	  SID			  749
 	  Ports			  [2, 1]
 	  Position		  [150, 76, 210, 134]
 	  LibraryVersion	  "1.2"
@@ -1345,7 +1345,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "sync_delay"
-	  SID			  739
+	  SID			  750
 	  Ports			  [1, 1]
 	  Position		  [60, 282, 120, 338]
 	  LibraryVersion	  "1.2"
@@ -1548,7 +1548,7 @@ Model {
 	Line {
 	  SrcBlock		  "sub_blk2"
 	  SrcPort		  1
-	  Points		  [30, 0]
+	  Points		  [15, 0; 0, -35]
 	  DstBlock		  "out2"
 	  DstPort		  1
 	}
@@ -1633,7 +1633,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	129
+	SIDHighWatermark	136
 	SIDPrevWatermark	122
 	Block {
 	  BlockType		  Inport
@@ -1677,7 +1677,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out1"
-	  SID			  124
+	  SID			  131
 	  Ports			  [1, 1]
 	  Position		  [60, 90, 120, 110]
 	  LibraryVersion	  "1.2"
@@ -1713,7 +1713,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out2"
-	  SID			  125
+	  SID			  132
 	  Ports			  [1, 1]
 	  Position		  [60, 140, 120, 160]
 	  LibraryVersion	  "1.2"
@@ -1749,7 +1749,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out3"
-	  SID			  126
+	  SID			  133
 	  Ports			  [1, 1]
 	  Position		  [60, 190, 120, 210]
 	  LibraryVersion	  "1.2"
@@ -1785,7 +1785,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out4"
-	  SID			  127
+	  SID			  134
 	  Ports			  [1, 1]
 	  Position		  [60, 235, 120, 255]
 	  LibraryVersion	  "1.2"
@@ -1821,7 +1821,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out5"
-	  SID			  128
+	  SID			  135
 	  Ports			  [1, 1]
 	  Position		  [60, 285, 120, 305]
 	  LibraryVersion	  "1.2"
@@ -1857,7 +1857,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "sel"
-	  SID			  123
+	  SID			  130
 	  Ports			  [0, 1]
 	  Position		  [75, 29, 105, 61]
 	  LibraryVersion	  "1.762"
@@ -1883,7 +1883,7 @@ Model {
 	Block {
 	  BlockType		  MultiPortSwitch
 	  Name			  "switch"
-	  SID			  129
+	  SID			  136
 	  Ports			  [6, 1]
 	  Position		  [150, 149, 185, 196]
 	  Inputs		  "5"
@@ -2047,7 +2047,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	171
+	SIDHighWatermark	178
 	SIDPrevWatermark	157
 	Block {
 	  BlockType		  Inport
@@ -2091,7 +2091,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out1"
-	  SID			  166
+	  SID			  173
 	  Ports			  [1, 1]
 	  Position		  [60, 90, 120, 110]
 	  LibraryVersion	  "1.2"
@@ -2127,7 +2127,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out2"
-	  SID			  167
+	  SID			  174
 	  Ports			  [1, 1]
 	  Position		  [60, 140, 120, 160]
 	  LibraryVersion	  "1.2"
@@ -2163,7 +2163,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out3"
-	  SID			  168
+	  SID			  175
 	  Ports			  [1, 1]
 	  Position		  [60, 190, 120, 210]
 	  LibraryVersion	  "1.2"
@@ -2199,7 +2199,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out4"
-	  SID			  169
+	  SID			  176
 	  Ports			  [1, 1]
 	  Position		  [60, 235, 120, 255]
 	  LibraryVersion	  "1.2"
@@ -2235,7 +2235,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out5"
-	  SID			  170
+	  SID			  177
 	  Ports			  [1, 1]
 	  Position		  [60, 285, 120, 305]
 	  LibraryVersion	  "1.2"
@@ -2271,7 +2271,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "sel"
-	  SID			  165
+	  SID			  172
 	  Ports			  [0, 1]
 	  Position		  [75, 29, 105, 61]
 	  LibraryVersion	  "1.762"
@@ -2297,7 +2297,7 @@ Model {
 	Block {
 	  BlockType		  MultiPortSwitch
 	  Name			  "switch"
-	  SID			  171
+	  SID			  178
 	  Ports			  [6, 1]
 	  Position		  [150, 149, 185, 196]
 	  Inputs		  "5"
@@ -2408,14 +2408,14 @@ Model {
     }
     Block {
       BlockType		      SubSystem
-      Name		      "Parallelizer"
-      SID		      21
+      Name		      "Parallelizer1"
+      SID		      25
       Ports		      [1, 5]
-      Position		      [100, 126, 165, 244]
+      Position		      [100, 127, 160, 243]
       BackgroundColor	      "lightBlue"
       AttributesFormatString  "Sample Period = 1"
-      AncestorBlock	      "To_be_added_to_xBlocks_devels/Parallelizer"
-      LibraryVersion	      "*1.4"
+      AncestorBlock	      "xblocks_library_misc/Parallelizer"
+      LibraryVersion	      "*1.49"
       UserDataPersistent      on
       UserData		      "DataTag4"
       MinAlgLoopOccurrences   off
@@ -2426,8 +2426,9 @@ Model {
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Parallelizer"
-      MaskDescription	      "Parallelizer takes in a single stream and convert it into\nparallel outputs"
-      MaskPromptString	      "n_outputs|sample_period"
+      MaskDescription	      "Parallelizer takes in a single stream and convert it into\nparallel outputs. \nOutput sam"
+      "ple rate is input_sample_rate/n_outputs."
+      MaskPromptString	      "n_outputs|sample_period (Input)"
       MaskStyleString	      "edit,edit"
       MaskTunableValueString  "on,on"
       MaskCallbackString      "|"
@@ -2445,7 +2446,7 @@ Model {
       MaskIconUnits	      "autoscale"
       MaskValueString	      "5|1"
       System {
-	Name			"Parallelizer"
+	Name			"Parallelizer1"
 	Location		[70, 200, 806, 645]
 	Open			off
 	ModelBrowserVisibility	off
@@ -2459,19 +2460,19 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	142
-	SIDPrevWatermark	133
+	SIDHighWatermark	622
+	SIDPrevWatermark	613
 	Block {
 	  BlockType		  Inport
 	  Name			  "in"
-	  SID			  28
+	  SID			  585
 	  Position		  [15, 90, 35, 110]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample1"
-	  SID			  138
+	  SID			  618
 	  Ports			  [1, 1]
 	  Position		  [60, 32, 120, 88]
 	  LibraryVersion	  "1.2"
@@ -2502,7 +2503,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample2"
-	  SID			  139
+	  SID			  619
 	  Ports			  [1, 1]
 	  Position		  [150, 107, 210, 163]
 	  LibraryVersion	  "1.2"
@@ -2533,7 +2534,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample3"
-	  SID			  140
+	  SID			  620
 	  Ports			  [1, 1]
 	  Position		  [245, 187, 305, 243]
 	  LibraryVersion	  "1.2"
@@ -2564,7 +2565,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample4"
-	  SID			  141
+	  SID			  621
 	  Ports			  [1, 1]
 	  Position		  [335, 262, 395, 318]
 	  LibraryVersion	  "1.2"
@@ -2595,7 +2596,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample5"
-	  SID			  142
+	  SID			  622
 	  Ports			  [1, 1]
 	  Position		  [430, 347, 490, 403]
 	  LibraryVersion	  "1.2"
@@ -2626,7 +2627,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay_blk1"
-	  SID			  134
+	  SID			  614
 	  Ports			  [1, 1]
 	  Position		  [60, 117, 120, 173]
 	  LibraryVersion	  "1.2"
@@ -2660,7 +2661,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay_blk2"
-	  SID			  135
+	  SID			  615
 	  Ports			  [1, 1]
 	  Position		  [150, 192, 210, 248]
 	  LibraryVersion	  "1.2"
@@ -2694,7 +2695,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay_blk3"
-	  SID			  136
+	  SID			  616
 	  Ports			  [1, 1]
 	  Position		  [245, 272, 305, 328]
 	  LibraryVersion	  "1.2"
@@ -2728,7 +2729,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay_blk4"
-	  SID			  137
+	  SID			  617
 	  Ports			  [1, 1]
 	  Position		  [335, 347, 395, 403]
 	  LibraryVersion	  "1.2"
@@ -2762,14 +2763,14 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "out1"
-	  SID			  44
+	  SID			  593
 	  Position		  [520, 365, 540, 385]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "out2"
-	  SID			  45
+	  SID			  594
 	  Position		  [450, 280, 470, 300]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -2777,7 +2778,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "out3"
-	  SID			  46
+	  SID			  595
 	  Position		  [355, 205, 375, 225]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -2785,7 +2786,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "out4"
-	  SID			  47
+	  SID			  596
 	  Position		  [265, 125, 285, 145]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
@@ -2793,7 +2794,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "out5"
-	  SID			  124
+	  SID			  604
 	  Position		  [170, 50, 190, 70]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
@@ -2946,19 +2947,19 @@ Model {
       SrcPort		      1
       Points		      [15, 0]
       Branch {
-	DstBlock		"Parallelizer"
-	DstPort			1
-      }
-      Branch {
 	Points			[0, 105]
 	DstBlock		"Gateway Out1"
 	DstPort			1
       }
+      Branch {
+	DstBlock		"Parallelizer1"
+	DstPort			1
+      }
     }
     Line {
-      SrcBlock		      "Parallelizer"
+      SrcBlock		      "Parallelizer1"
       SrcPort		      1
-      Points		      [70, 0]
+      Points		      [75, 0]
       Branch {
 	Points			[0, 0]
 	Branch {
@@ -2978,9 +2979,9 @@ Model {
       }
     }
     Line {
-      SrcBlock		      "Parallelizer"
+      SrcBlock		      "Parallelizer1"
       SrcPort		      2
-      Points		      [60, 0]
+      Points		      [65, 0]
       Branch {
 	Points			[0, 175]
 	DstBlock		"Parallel_scope"
@@ -2992,9 +2993,9 @@ Model {
       }
     }
     Line {
-      SrcBlock		      "Parallelizer"
+      SrcBlock		      "Parallelizer1"
       SrcPort		      3
-      Points		      [50, 0]
+      Points		      [55, 0]
       Branch {
 	Points			[0, 170]
 	DstBlock		"Parallel_scope"
@@ -3006,9 +3007,9 @@ Model {
       }
     }
     Line {
-      SrcBlock		      "Parallelizer"
+      SrcBlock		      "Parallelizer1"
       SrcPort		      4
-      Points		      [35, 0]
+      Points		      [40, 0]
       Branch {
 	Points			[0, 165]
 	DstBlock		"Parallel_scope"
@@ -3073,9 +3074,9 @@ Model {
       DstPort		      3
     }
     Line {
-      SrcBlock		      "Parallelizer"
+      SrcBlock		      "Parallelizer1"
       SrcPort		      5
-      Points		      [20, 0]
+      Points		      [25, 0]
       Branch {
 	Points			[0, 160]
 	DstBlock		"Parallel_scope"
@@ -3099,26 +3100,26 @@ MatData {
   DataRecord {
     Tag			    DataTag4
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    ,3,S86,R,3$Q,S0S8S(S-3"
-    "5E86$T,6(Q-C-C9F4R-3("
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    .64T8C(T.6,R,F8P.&,S8F"
+    ",R-&$U-S1A.6(U,F0T,68"
   }
   DataRecord {
     Tag			    DataTag3
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    9F(W,C$V,30X8S-E.&9F8C"
-    "4W9F$Y-6)A,61E8V(W-#4"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    -V1A8F)F,F0R.3EC.3(R,#"
+    "$T.#,Q-#<S83AB.#)F,S8"
   }
   DataRecord {
     Tag			    DataTag2
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    -&(P8C(Y-C@Q,&5A,F9B86"
-    "4W,#(R,#9F-#(R8S P,V$"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    8V%B,#8V9F5F839A93$R-&"
+    "8S.#$V96,V8S8Q.#AE,C<"
   }
   DataRecord {
     Tag			    DataTag1
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    -#%F9C0T-F8P8F(P-&%A,3"
-    "4X.&1F,61E-3@Q,CEF8S8"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    -V)D8C T,38T-#0Q,&,U,#"
+    "<U.&8T830V,#5F.&9C86("
   }
   DataRecord {
     Tag			    DataTag0

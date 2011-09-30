@@ -15,9 +15,9 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "chenhong"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Sep 29 03:52:18 2011"
-  RTWModifiedTimeStamp	  239169136
-  ModelVersionFormat	  "1.%<AutoIncrement:6>"
+  LastModifiedDate	  "Fri Sep 30 03:07:59 2011"
+  RTWModifiedTimeStamp	  239252877
+  ModelVersionFormat	  "1.%<AutoIncrement:7>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -617,7 +617,7 @@ Library {
   }
   System {
     Name		    "xblocks_library_accumulators"
-    Location		    [475, 77, 1206, 531]
+    Location		    [470, 53, 1201, 507]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -631,7 +631,7 @@ Library {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    1543
+    SIDHighWatermark	    1706
     Block {
       BlockType		      SubSystem
       Name		      "Accumulator"
@@ -651,7 +651,7 @@ Library {
       MaskHideContents	      off
       MaskType		      "Parallel Accumulator (xBlock)"
       MaskDescription	      "Parallely accumulate for a given length."
-      MaskPromptString	      "number of inputs|Accumulation Lenght|Add Latency"
+      MaskPromptString	      "number of inputs|Accumulation Length|Add Latency"
       MaskStyleString	      "edit,edit,edit"
       MaskTunableValueString  "on,on,on"
       MaskCallbackString      "||"
@@ -853,9 +853,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -863,11 +863,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -893,9 +893,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -903,11 +903,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -933,9 +933,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -943,11 +943,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -973,9 +973,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -983,11 +983,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1013,9 +1013,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1023,11 +1023,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1053,9 +1053,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1063,11 +1063,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1093,9 +1093,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1103,11 +1103,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1133,9 +1133,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1143,11 +1143,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1173,9 +1173,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1183,11 +1183,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1214,11 +1214,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      off
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1244,11 +1244,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      off
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1274,11 +1274,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "4"
-	      dbl_ovrd		      off
-	      reg_retiming	      off
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1596,9 +1596,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1606,11 +1606,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1636,9 +1636,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1646,11 +1646,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1676,9 +1676,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1686,11 +1686,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1716,9 +1716,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1726,11 +1726,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1756,9 +1756,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1766,11 +1766,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1796,9 +1796,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1806,11 +1806,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1836,9 +1836,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1846,11 +1846,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1876,9 +1876,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1886,11 +1886,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1916,9 +1916,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -1926,11 +1926,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1957,11 +1957,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      off
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -1987,11 +1987,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      off
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -2017,11 +2017,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "4"
-	      dbl_ovrd		      off
-	      reg_retiming	      off
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -2339,9 +2339,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -2349,11 +2349,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -2379,9 +2379,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -2389,11 +2389,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -2419,9 +2419,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -2429,11 +2429,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -2459,9 +2459,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -2469,11 +2469,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -2499,9 +2499,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -2509,11 +2509,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -2539,9 +2539,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -2549,11 +2549,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -2579,9 +2579,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -2589,11 +2589,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -2619,9 +2619,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -2629,11 +2629,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -2659,9 +2659,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -2669,11 +2669,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -2700,11 +2700,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      off
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -2730,11 +2730,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      off
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -2760,11 +2760,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "4"
-	      dbl_ovrd		      off
-	      reg_retiming	      off
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3082,9 +3082,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -3092,11 +3092,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3122,9 +3122,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -3132,11 +3132,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3162,9 +3162,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -3172,11 +3172,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3202,9 +3202,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -3212,11 +3212,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3242,9 +3242,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -3252,11 +3252,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3282,9 +3282,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -3292,11 +3292,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3322,9 +3322,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -3332,11 +3332,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3362,9 +3362,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -3372,11 +3372,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3402,9 +3402,9 @@ Library {
 	      SourceBlock	      "xbsIndex_r4/AddSub"
 	      SourceType	      "Xilinx Adder/Subtracter Block"
 	      mode		      "Addition"
-	      use_carryin	      off
-	      use_carryout	      off
-	      en		      off
+	      use_carryin	      "off"
+	      use_carryout	      "off"
+	      en		      "off"
 	      latency		      "1"
 	      precision		      "Full"
 	      arith_type	      "Unsigned"
@@ -3412,11 +3412,11 @@ Library {
 	      bin_pt		      "14"
 	      quantization	      "Round  (unbiased: +/- Inf)"
 	      overflow		      "Saturate"
-	      dbl_ovrd		      off
-	      use_behavioral_HDL      on
+	      dbl_ovrd		      "off"
+	      use_behavioral_HDL      "on"
 	      hw_selection	      "Fabric"
-	      pipelined		      off
-	      xl_use_area	      off
+	      pipelined		      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3443,11 +3443,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      off
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3473,11 +3473,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "1"
-	      dbl_ovrd		      off
-	      reg_retiming	      off
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3503,11 +3503,11 @@ Library {
 	      SourceType	      "Xilinx Delay Block"
 	      infoedit		      "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flo"
 	      "p."
-	      en		      off
+	      en		      "off"
 	      latency		      "4"
-	      dbl_ovrd		      off
-	      reg_retiming	      off
-	      xl_use_area	      off
+	      dbl_ovrd		      "off"
+	      reg_retiming	      "off"
+	      xl_use_area	      "off"
 	      xl_area		      "[0,0,0,0,0,0,0]"
 	      has_advanced_control    "0"
 	      sggui_pos		      "-1,-1,-1,-1"
@@ -3704,11 +3704,11 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
+	  en			  "off"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  reg_retiming		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -3738,11 +3738,11 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
+	  en			  "off"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  reg_retiming		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -3772,11 +3772,11 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
+	  en			  "off"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  reg_retiming		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -3806,11 +3806,11 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
+	  en			  "off"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  reg_retiming		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -3840,11 +3840,11 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
+	  en			  "off"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  reg_retiming		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -3874,11 +3874,11 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
+	  en			  "off"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  reg_retiming		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -3908,11 +3908,11 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
+	  en			  "off"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  reg_retiming		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -3942,11 +3942,11 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
+	  en			  "off"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  reg_retiming		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -3976,11 +3976,11 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
+	  en			  "off"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  reg_retiming		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -4575,7 +4575,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "AND"
-	  SID			  1261
+	  SID			  1548
 	  Ports			  [2, 1]
 	  Position		  [435, 60, 490, 120]
 	  LibraryVersion	  "1.2"
@@ -4609,7 +4609,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "AccEnCompare"
-	  SID			  1262
+	  SID			  1549
 	  Ports			  [2, 1]
 	  Position		  [345, 422, 400, 478]
 	  LibraryVersion	  "1.2"
@@ -4638,7 +4638,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Counter"
-	  SID			  1263
+	  SID			  1550
 	  Ports			  [1, 1]
 	  Position		  [160, 75, 220, 135]
 	  LibraryVersion	  "1.2"
@@ -4680,7 +4680,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "OR"
-	  SID			  1264
+	  SID			  1551
 	  Ports			  [2, 1]
 	  Position		  [75, 30, 130, 90]
 	  LibraryVersion	  "1.2"
@@ -4714,7 +4714,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Slice"
-	  SID			  1265
+	  SID			  1552
 	  Ports			  [1, 1]
 	  Position		  [250, 379, 310, 411]
 	  LibraryVersion	  "1.2"
@@ -4746,7 +4746,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "SliceLow"
-	  SID			  1266
+	  SID			  1553
 	  Ports			  [1, 1]
 	  Position		  [250, 74, 310, 106]
 	  LibraryVersion	  "1.2"
@@ -4778,7 +4778,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "SyncCompare"
-	  SID			  1267
+	  SID			  1554
 	  Ports			  [2, 1]
 	  Position		  [345, 77, 400, 133]
 	  LibraryVersion	  "1.2"
@@ -4807,7 +4807,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "SyncConst"
-	  SID			  1268
+	  SID			  1555
 	  Ports			  [0, 1]
 	  Position		  [250, 137, 305, 163]
 	  LibraryVersion	  "1.2"
@@ -4843,7 +4843,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "ValidCompare"
-	  SID			  1269
+	  SID			  1556
 	  Ports			  [2, 1]
 	  Position		  [345, 162, 400, 218]
 	  LibraryVersion	  "1.2"
@@ -4872,7 +4872,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "ValidDelay"
-	  SID			  1270
+	  SID			  1557
 	  Ports			  [1, 1]
 	  Position		  [435, 162, 495, 218]
 	  LibraryVersion	  "1.2"
@@ -4900,7 +4900,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Zero"
-	  SID			  1271
+	  SID			  1558
 	  Ports			  [0, 1]
 	  Position		  [250, 452, 305, 478]
 	  LibraryVersion	  "1.2"
@@ -4936,7 +4936,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "din_delay_1_1"
-	  SID			  1257
+	  SID			  1544
 	  Ports			  [1, 1]
 	  Position		  [340, 247, 400, 303]
 	  LibraryVersion	  "1.2"
@@ -4964,7 +4964,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "din_delay_2_1"
-	  SID			  1258
+	  SID			  1545
 	  Ports			  [1, 1]
 	  Position		  [340, 337, 400, 393]
 	  LibraryVersion	  "1.2"
@@ -4992,7 +4992,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "din_delay_3_1"
-	  SID			  1259
+	  SID			  1546
 	  Ports			  [1, 1]
 	  Position		  [340, 507, 400, 563]
 	  LibraryVersion	  "1.2"
@@ -5020,7 +5020,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "din_delay_4_1"
-	  SID			  1260
+	  SID			  1547
 	  Ports			  [1, 1]
 	  Position		  [340, 597, 400, 653]
 	  LibraryVersion	  "1.2"
@@ -5048,7 +5048,7 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "vacc_core_1"
-	  SID			  1272
+	  SID			  1559
 	  Ports			  [2, 1]
 	  Position		  [440, 295, 490, 350]
 	  MinAlgLoopOccurrences	  off
@@ -5076,14 +5076,14 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "din"
-	      SID		      1273
+	      SID		      1560
 	      Position		      [15, 65, 35, 85]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "acc_en"
-	      SID		      1274
+	      SID		      1561
 	      Position		      [15, 115, 35, 135]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -5091,7 +5091,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "acc_mem"
-	      SID		      1303
+	      SID		      1590
 	      Ports		      [1, 1]
 	      Position		      [140, 80, 190, 120]
 	      MinAlgLoopOccurrences   off
@@ -5119,14 +5119,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din"
-		  SID			  1304
+		  SID			  1591
 		  Position		  [30, 120, 50, 140]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Reference
 		  Name			  "Constant2"
-		  SID			  1306
+		  SID			  1593
 		  Ports			  [0, 1]
 		  Position		  [15, 167, 70, 193]
 		  LibraryVersion	  "1.2"
@@ -5162,7 +5162,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Counter"
-		  SID			  1307
+		  SID			  1594
 		  Ports			  [0, 1]
 		  Position		  [15, 30, 75, 90]
 		  LibraryVersion	  "1.2"
@@ -5204,7 +5204,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Single Port RAM"
-		  SID			  1308
+		  SID			  1595
 		  Ports			  [3, 1]
 		  Position		  [100, 102, 160, 158]
 		  LibraryVersion	  "1.2"
@@ -5240,7 +5240,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
-		  SID			  1305
+		  SID			  1592
 		  Position		  [190, 120, 210, 140]
 		  IconDisplay		  "Port number"
 		}
@@ -5276,7 +5276,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "adder_with_enable"
-	      SID		      1276
+	      SID		      1563
 	      Ports		      [3, 1]
 	      Position		      [60, 64, 110, 136]
 	      MinAlgLoopOccurrences   off
@@ -5304,14 +5304,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din0"
-		  SID			  1277
+		  SID			  1564
 		  Position		  [115, 30, 135, 50]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "din1"
-		  SID			  1278
+		  SID			  1565
 		  Position		  [115, 80, 135, 100]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -5319,7 +5319,7 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "en"
-		  SID			  1279
+		  SID			  1566
 		  Position		  [30, 150, 50, 170]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -5327,7 +5327,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Concat"
-		  SID			  1281
+		  SID			  1568
 		  Ports			  [4, 1]
 		  Position		  [95, 131, 155, 194]
 		  LibraryVersion	  "1.2"
@@ -5353,7 +5353,7 @@ Library {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "dynamic_adder"
-		  SID			  1284
+		  SID			  1571
 		  Ports			  [3, 1]
 		  Position		  [190, 55, 240, 125]
 		  MinAlgLoopOccurrences	  off
@@ -5381,14 +5381,14 @@ Library {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din1"
-		    SID			    1285
+		    SID			    1572
 		    Position		    [15, 70, 35, 90]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din2"
-		    SID			    1286
+		    SID			    1573
 		    Position		    [155, 160, 175, 180]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -5396,7 +5396,7 @@ Library {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "opmode"
-		    SID			    1287
+		    SID			    1574
 		    Position		    [325, 215, 345, 235]
 		    Port		    "3"
 		    IconDisplay		    "Port number"
@@ -5404,7 +5404,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert"
-		    SID			    1292
+		    SID			    1579
 		    Ports		    [1, 1]
 		    Position		    [140, 65, 185, 95]
 		    LibraryVersion	    "1.2"
@@ -5437,7 +5437,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert2"
-		    SID			    1293
+		    SID			    1580
 		    Ports		    [1, 1]
 		    Position		    [315, 155, 360, 185]
 		    LibraryVersion	    "1.2"
@@ -5470,7 +5470,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "DSP48E"
-		    SID			    1294
+		    SID			    1581
 		    Ports		    [7, 1]
 		    Position		    [395, 157, 470, 293]
 		    LibraryVersion	    "1.2"
@@ -5555,7 +5555,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "a"
-		    SID			    1295
+		    SID			    1582
 		    Ports		    [1, 1]
 		    Position		    [215, 34, 275, 66]
 		    LibraryVersion	    "1.2"
@@ -5587,7 +5587,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "alumode"
-		    SID			    1288
+		    SID			    1575
 		    Ports		    [0, 1]
 		    Position		    [310, 262, 365, 288]
 		    LibraryVersion	    "1.2"
@@ -5623,7 +5623,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "b"
-		    SID			    1296
+		    SID			    1583
 		    Ports		    [1, 1]
 		    Position		    [215, 94, 275, 126]
 		    LibraryVersion	    "1.2"
@@ -5655,7 +5655,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryin"
-		    SID			    1289
+		    SID			    1576
 		    Ports		    [0, 1]
 		    Position		    [310, 317, 365, 343]
 		    LibraryVersion	    "1.2"
@@ -5691,7 +5691,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryinsel"
-		    SID			    1290
+		    SID			    1577
 		    Ports		    [0, 1]
 		    Position		    [310, 372, 365, 398]
 		    LibraryVersion	    "1.2"
@@ -5727,7 +5727,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "conv_dsp_out"
-		    SID			    1297
+		    SID			    1584
 		    Ports		    [1, 1]
 		    Position		    [580, 209, 625, 241]
 		    LibraryVersion	    "1.2"
@@ -5761,7 +5761,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_a"
-		    SID			    1298
+		    SID			    1585
 		    Ports		    [1, 1]
 		    Position		    [310, 29, 360, 61]
 		    LibraryVersion	    "1.2"
@@ -5791,7 +5791,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_b"
-		    SID			    1299
+		    SID			    1586
 		    Ports		    [1, 1]
 		    Position		    [310, 94, 360, 126]
 		    LibraryVersion	    "1.2"
@@ -5821,7 +5821,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_din1"
-		    SID			    1301
+		    SID			    1588
 		    Ports		    [1, 1]
 		    Position		    [60, 64, 110, 96]
 		    LibraryVersion	    "1.2"
@@ -5851,7 +5851,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_din2"
-		    SID			    1300
+		    SID			    1587
 		    Ports		    [1, 1]
 		    Position		    [225, 154, 270, 186]
 		    LibraryVersion	    "1.2"
@@ -5882,7 +5882,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_dsp_out"
-		    SID			    1302
+		    SID			    1589
 		    Ports		    [1, 1]
 		    Position		    [500, 209, 550, 241]
 		    LibraryVersion	    "1.2"
@@ -5912,7 +5912,7 @@ Library {
 		    Block {
 		    BlockType		    Outport
 		    Name		    "dout"
-		    SID			    1291
+		    SID			    1578
 		    Position		    [655, 215, 675, 235]
 		    IconDisplay		    "Port number"
 		    }
@@ -6039,7 +6039,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_x"
-		  SID			  1282
+		  SID			  1569
 		  Ports			  [0, 1]
 		  Position		  [15, 197, 70, 223]
 		  LibraryVersion	  "1.2"
@@ -6075,7 +6075,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_z"
-		  SID			  1283
+		  SID			  1570
 		  Ports			  [0, 1]
 		  Position		  [15, 97, 70, 123]
 		  LibraryVersion	  "1.2"
@@ -6111,7 +6111,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
-		  SID			  1280
+		  SID			  1567
 		  Position		  [270, 80, 290, 100]
 		  IconDisplay		  "Port number"
 		}
@@ -6175,7 +6175,7 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "dout"
-	      SID		      1275
+	      SID		      1562
 	      Position		      [155, 30, 175, 50]
 	      IconDisplay	      "Port number"
 	    }
@@ -6217,7 +6217,7 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "vacc_core_2"
-	  SID			  1309
+	  SID			  1596
 	  Ports			  [2, 1]
 	  Position		  [440, 395, 490, 450]
 	  MinAlgLoopOccurrences	  off
@@ -6245,14 +6245,14 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "din"
-	      SID		      1310
+	      SID		      1597
 	      Position		      [15, 65, 35, 85]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "acc_en"
-	      SID		      1311
+	      SID		      1598
 	      Position		      [15, 115, 35, 135]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -6260,7 +6260,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "acc_mem"
-	      SID		      1340
+	      SID		      1627
 	      Ports		      [1, 1]
 	      Position		      [140, 80, 190, 120]
 	      MinAlgLoopOccurrences   off
@@ -6288,14 +6288,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din"
-		  SID			  1341
+		  SID			  1628
 		  Position		  [30, 120, 50, 140]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Reference
 		  Name			  "Constant2"
-		  SID			  1343
+		  SID			  1630
 		  Ports			  [0, 1]
 		  Position		  [15, 167, 70, 193]
 		  LibraryVersion	  "1.2"
@@ -6331,7 +6331,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Counter"
-		  SID			  1344
+		  SID			  1631
 		  Ports			  [0, 1]
 		  Position		  [15, 30, 75, 90]
 		  LibraryVersion	  "1.2"
@@ -6373,7 +6373,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Single Port RAM"
-		  SID			  1345
+		  SID			  1632
 		  Ports			  [3, 1]
 		  Position		  [100, 102, 160, 158]
 		  LibraryVersion	  "1.2"
@@ -6409,7 +6409,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
-		  SID			  1342
+		  SID			  1629
 		  Position		  [190, 120, 210, 140]
 		  IconDisplay		  "Port number"
 		}
@@ -6445,7 +6445,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "adder_with_enable"
-	      SID		      1313
+	      SID		      1600
 	      Ports		      [3, 1]
 	      Position		      [60, 64, 110, 136]
 	      MinAlgLoopOccurrences   off
@@ -6473,14 +6473,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din0"
-		  SID			  1314
+		  SID			  1601
 		  Position		  [115, 30, 135, 50]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "din1"
-		  SID			  1315
+		  SID			  1602
 		  Position		  [115, 80, 135, 100]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -6488,7 +6488,7 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "en"
-		  SID			  1316
+		  SID			  1603
 		  Position		  [30, 150, 50, 170]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -6496,7 +6496,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Concat"
-		  SID			  1318
+		  SID			  1605
 		  Ports			  [4, 1]
 		  Position		  [95, 131, 155, 194]
 		  LibraryVersion	  "1.2"
@@ -6522,7 +6522,7 @@ Library {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "dynamic_adder"
-		  SID			  1321
+		  SID			  1608
 		  Ports			  [3, 1]
 		  Position		  [190, 55, 240, 125]
 		  MinAlgLoopOccurrences	  off
@@ -6550,14 +6550,14 @@ Library {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din1"
-		    SID			    1322
+		    SID			    1609
 		    Position		    [15, 70, 35, 90]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din2"
-		    SID			    1323
+		    SID			    1610
 		    Position		    [155, 160, 175, 180]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -6565,7 +6565,7 @@ Library {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "opmode"
-		    SID			    1324
+		    SID			    1611
 		    Position		    [325, 215, 345, 235]
 		    Port		    "3"
 		    IconDisplay		    "Port number"
@@ -6573,7 +6573,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert"
-		    SID			    1329
+		    SID			    1616
 		    Ports		    [1, 1]
 		    Position		    [140, 65, 185, 95]
 		    LibraryVersion	    "1.2"
@@ -6606,7 +6606,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert2"
-		    SID			    1330
+		    SID			    1617
 		    Ports		    [1, 1]
 		    Position		    [315, 155, 360, 185]
 		    LibraryVersion	    "1.2"
@@ -6639,7 +6639,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "DSP48E"
-		    SID			    1331
+		    SID			    1618
 		    Ports		    [7, 1]
 		    Position		    [395, 157, 470, 293]
 		    LibraryVersion	    "1.2"
@@ -6724,7 +6724,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "a"
-		    SID			    1332
+		    SID			    1619
 		    Ports		    [1, 1]
 		    Position		    [215, 34, 275, 66]
 		    LibraryVersion	    "1.2"
@@ -6756,7 +6756,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "alumode"
-		    SID			    1325
+		    SID			    1612
 		    Ports		    [0, 1]
 		    Position		    [310, 262, 365, 288]
 		    LibraryVersion	    "1.2"
@@ -6792,7 +6792,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "b"
-		    SID			    1333
+		    SID			    1620
 		    Ports		    [1, 1]
 		    Position		    [215, 94, 275, 126]
 		    LibraryVersion	    "1.2"
@@ -6824,7 +6824,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryin"
-		    SID			    1326
+		    SID			    1613
 		    Ports		    [0, 1]
 		    Position		    [310, 317, 365, 343]
 		    LibraryVersion	    "1.2"
@@ -6860,7 +6860,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryinsel"
-		    SID			    1327
+		    SID			    1614
 		    Ports		    [0, 1]
 		    Position		    [310, 372, 365, 398]
 		    LibraryVersion	    "1.2"
@@ -6896,7 +6896,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "conv_dsp_out"
-		    SID			    1334
+		    SID			    1621
 		    Ports		    [1, 1]
 		    Position		    [580, 209, 625, 241]
 		    LibraryVersion	    "1.2"
@@ -6930,7 +6930,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_a"
-		    SID			    1335
+		    SID			    1622
 		    Ports		    [1, 1]
 		    Position		    [310, 29, 360, 61]
 		    LibraryVersion	    "1.2"
@@ -6960,7 +6960,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_b"
-		    SID			    1336
+		    SID			    1623
 		    Ports		    [1, 1]
 		    Position		    [310, 94, 360, 126]
 		    LibraryVersion	    "1.2"
@@ -6990,7 +6990,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_din1"
-		    SID			    1338
+		    SID			    1625
 		    Ports		    [1, 1]
 		    Position		    [60, 64, 110, 96]
 		    LibraryVersion	    "1.2"
@@ -7020,7 +7020,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_din2"
-		    SID			    1337
+		    SID			    1624
 		    Ports		    [1, 1]
 		    Position		    [225, 154, 270, 186]
 		    LibraryVersion	    "1.2"
@@ -7051,7 +7051,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_dsp_out"
-		    SID			    1339
+		    SID			    1626
 		    Ports		    [1, 1]
 		    Position		    [500, 209, 550, 241]
 		    LibraryVersion	    "1.2"
@@ -7081,7 +7081,7 @@ Library {
 		    Block {
 		    BlockType		    Outport
 		    Name		    "dout"
-		    SID			    1328
+		    SID			    1615
 		    Position		    [655, 215, 675, 235]
 		    IconDisplay		    "Port number"
 		    }
@@ -7208,7 +7208,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_x"
-		  SID			  1319
+		  SID			  1606
 		  Ports			  [0, 1]
 		  Position		  [15, 197, 70, 223]
 		  LibraryVersion	  "1.2"
@@ -7244,7 +7244,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_z"
-		  SID			  1320
+		  SID			  1607
 		  Ports			  [0, 1]
 		  Position		  [15, 97, 70, 123]
 		  LibraryVersion	  "1.2"
@@ -7280,7 +7280,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
-		  SID			  1317
+		  SID			  1604
 		  Position		  [270, 80, 290, 100]
 		  IconDisplay		  "Port number"
 		}
@@ -7344,7 +7344,7 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "dout"
-	      SID		      1312
+	      SID		      1599
 	      Position		      [155, 30, 175, 50]
 	      IconDisplay	      "Port number"
 	    }
@@ -7386,7 +7386,7 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "vacc_core_3"
-	  SID			  1346
+	  SID			  1633
 	  Ports			  [2, 1]
 	  Position		  [440, 490, 490, 545]
 	  MinAlgLoopOccurrences	  off
@@ -7414,14 +7414,14 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "din"
-	      SID		      1347
+	      SID		      1634
 	      Position		      [15, 65, 35, 85]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "acc_en"
-	      SID		      1348
+	      SID		      1635
 	      Position		      [15, 115, 35, 135]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -7429,7 +7429,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "acc_mem"
-	      SID		      1377
+	      SID		      1664
 	      Ports		      [1, 1]
 	      Position		      [140, 80, 190, 120]
 	      MinAlgLoopOccurrences   off
@@ -7457,14 +7457,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din"
-		  SID			  1378
+		  SID			  1665
 		  Position		  [30, 120, 50, 140]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Reference
 		  Name			  "Constant2"
-		  SID			  1380
+		  SID			  1667
 		  Ports			  [0, 1]
 		  Position		  [15, 167, 70, 193]
 		  LibraryVersion	  "1.2"
@@ -7500,7 +7500,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Counter"
-		  SID			  1381
+		  SID			  1668
 		  Ports			  [0, 1]
 		  Position		  [15, 30, 75, 90]
 		  LibraryVersion	  "1.2"
@@ -7542,7 +7542,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Single Port RAM"
-		  SID			  1382
+		  SID			  1669
 		  Ports			  [3, 1]
 		  Position		  [100, 102, 160, 158]
 		  LibraryVersion	  "1.2"
@@ -7578,7 +7578,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
-		  SID			  1379
+		  SID			  1666
 		  Position		  [190, 120, 210, 140]
 		  IconDisplay		  "Port number"
 		}
@@ -7614,7 +7614,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "adder_with_enable"
-	      SID		      1350
+	      SID		      1637
 	      Ports		      [3, 1]
 	      Position		      [60, 64, 110, 136]
 	      MinAlgLoopOccurrences   off
@@ -7642,14 +7642,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din0"
-		  SID			  1351
+		  SID			  1638
 		  Position		  [115, 30, 135, 50]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "din1"
-		  SID			  1352
+		  SID			  1639
 		  Position		  [115, 80, 135, 100]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -7657,7 +7657,7 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "en"
-		  SID			  1353
+		  SID			  1640
 		  Position		  [30, 150, 50, 170]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -7665,7 +7665,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Concat"
-		  SID			  1355
+		  SID			  1642
 		  Ports			  [4, 1]
 		  Position		  [95, 131, 155, 194]
 		  LibraryVersion	  "1.2"
@@ -7691,7 +7691,7 @@ Library {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "dynamic_adder"
-		  SID			  1358
+		  SID			  1645
 		  Ports			  [3, 1]
 		  Position		  [190, 55, 240, 125]
 		  MinAlgLoopOccurrences	  off
@@ -7719,14 +7719,14 @@ Library {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din1"
-		    SID			    1359
+		    SID			    1646
 		    Position		    [15, 70, 35, 90]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din2"
-		    SID			    1360
+		    SID			    1647
 		    Position		    [155, 160, 175, 180]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -7734,7 +7734,7 @@ Library {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "opmode"
-		    SID			    1361
+		    SID			    1648
 		    Position		    [325, 215, 345, 235]
 		    Port		    "3"
 		    IconDisplay		    "Port number"
@@ -7742,7 +7742,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert"
-		    SID			    1366
+		    SID			    1653
 		    Ports		    [1, 1]
 		    Position		    [140, 65, 185, 95]
 		    LibraryVersion	    "1.2"
@@ -7775,7 +7775,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert2"
-		    SID			    1367
+		    SID			    1654
 		    Ports		    [1, 1]
 		    Position		    [315, 155, 360, 185]
 		    LibraryVersion	    "1.2"
@@ -7808,7 +7808,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "DSP48E"
-		    SID			    1368
+		    SID			    1655
 		    Ports		    [7, 1]
 		    Position		    [395, 157, 470, 293]
 		    LibraryVersion	    "1.2"
@@ -7893,7 +7893,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "a"
-		    SID			    1369
+		    SID			    1656
 		    Ports		    [1, 1]
 		    Position		    [215, 34, 275, 66]
 		    LibraryVersion	    "1.2"
@@ -7925,7 +7925,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "alumode"
-		    SID			    1362
+		    SID			    1649
 		    Ports		    [0, 1]
 		    Position		    [310, 262, 365, 288]
 		    LibraryVersion	    "1.2"
@@ -7961,7 +7961,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "b"
-		    SID			    1370
+		    SID			    1657
 		    Ports		    [1, 1]
 		    Position		    [215, 94, 275, 126]
 		    LibraryVersion	    "1.2"
@@ -7993,7 +7993,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryin"
-		    SID			    1363
+		    SID			    1650
 		    Ports		    [0, 1]
 		    Position		    [310, 317, 365, 343]
 		    LibraryVersion	    "1.2"
@@ -8029,7 +8029,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryinsel"
-		    SID			    1364
+		    SID			    1651
 		    Ports		    [0, 1]
 		    Position		    [310, 372, 365, 398]
 		    LibraryVersion	    "1.2"
@@ -8065,7 +8065,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "conv_dsp_out"
-		    SID			    1371
+		    SID			    1658
 		    Ports		    [1, 1]
 		    Position		    [580, 209, 625, 241]
 		    LibraryVersion	    "1.2"
@@ -8099,7 +8099,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_a"
-		    SID			    1372
+		    SID			    1659
 		    Ports		    [1, 1]
 		    Position		    [310, 29, 360, 61]
 		    LibraryVersion	    "1.2"
@@ -8129,7 +8129,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_b"
-		    SID			    1373
+		    SID			    1660
 		    Ports		    [1, 1]
 		    Position		    [310, 94, 360, 126]
 		    LibraryVersion	    "1.2"
@@ -8159,7 +8159,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_din1"
-		    SID			    1375
+		    SID			    1662
 		    Ports		    [1, 1]
 		    Position		    [60, 64, 110, 96]
 		    LibraryVersion	    "1.2"
@@ -8189,7 +8189,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_din2"
-		    SID			    1374
+		    SID			    1661
 		    Ports		    [1, 1]
 		    Position		    [225, 154, 270, 186]
 		    LibraryVersion	    "1.2"
@@ -8220,7 +8220,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_dsp_out"
-		    SID			    1376
+		    SID			    1663
 		    Ports		    [1, 1]
 		    Position		    [500, 209, 550, 241]
 		    LibraryVersion	    "1.2"
@@ -8250,7 +8250,7 @@ Library {
 		    Block {
 		    BlockType		    Outport
 		    Name		    "dout"
-		    SID			    1365
+		    SID			    1652
 		    Position		    [655, 215, 675, 235]
 		    IconDisplay		    "Port number"
 		    }
@@ -8377,7 +8377,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_x"
-		  SID			  1356
+		  SID			  1643
 		  Ports			  [0, 1]
 		  Position		  [15, 197, 70, 223]
 		  LibraryVersion	  "1.2"
@@ -8413,7 +8413,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_z"
-		  SID			  1357
+		  SID			  1644
 		  Ports			  [0, 1]
 		  Position		  [15, 97, 70, 123]
 		  LibraryVersion	  "1.2"
@@ -8449,7 +8449,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
-		  SID			  1354
+		  SID			  1641
 		  Position		  [270, 80, 290, 100]
 		  IconDisplay		  "Port number"
 		}
@@ -8513,7 +8513,7 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "dout"
-	      SID		      1349
+	      SID		      1636
 	      Position		      [155, 30, 175, 50]
 	      IconDisplay	      "Port number"
 	    }
@@ -8555,7 +8555,7 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "vacc_core_4"
-	  SID			  1383
+	  SID			  1670
 	  Ports			  [2, 1]
 	  Position		  [440, 585, 490, 640]
 	  MinAlgLoopOccurrences	  off
@@ -8583,14 +8583,14 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "din"
-	      SID		      1384
+	      SID		      1671
 	      Position		      [15, 65, 35, 85]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "acc_en"
-	      SID		      1385
+	      SID		      1672
 	      Position		      [15, 115, 35, 135]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -8598,7 +8598,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "acc_mem"
-	      SID		      1414
+	      SID		      1701
 	      Ports		      [1, 1]
 	      Position		      [140, 80, 190, 120]
 	      MinAlgLoopOccurrences   off
@@ -8626,14 +8626,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din"
-		  SID			  1415
+		  SID			  1702
 		  Position		  [30, 120, 50, 140]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Reference
 		  Name			  "Constant2"
-		  SID			  1417
+		  SID			  1704
 		  Ports			  [0, 1]
 		  Position		  [15, 167, 70, 193]
 		  LibraryVersion	  "1.2"
@@ -8669,7 +8669,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Counter"
-		  SID			  1418
+		  SID			  1705
 		  Ports			  [0, 1]
 		  Position		  [15, 30, 75, 90]
 		  LibraryVersion	  "1.2"
@@ -8711,7 +8711,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Single Port RAM"
-		  SID			  1419
+		  SID			  1706
 		  Ports			  [3, 1]
 		  Position		  [100, 102, 160, 158]
 		  LibraryVersion	  "1.2"
@@ -8747,7 +8747,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
-		  SID			  1416
+		  SID			  1703
 		  Position		  [190, 120, 210, 140]
 		  IconDisplay		  "Port number"
 		}
@@ -8783,7 +8783,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "adder_with_enable"
-	      SID		      1387
+	      SID		      1674
 	      Ports		      [3, 1]
 	      Position		      [60, 64, 110, 136]
 	      MinAlgLoopOccurrences   off
@@ -8811,14 +8811,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din0"
-		  SID			  1388
+		  SID			  1675
 		  Position		  [115, 30, 135, 50]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "din1"
-		  SID			  1389
+		  SID			  1676
 		  Position		  [115, 80, 135, 100]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -8826,7 +8826,7 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "en"
-		  SID			  1390
+		  SID			  1677
 		  Position		  [30, 150, 50, 170]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -8834,7 +8834,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Concat"
-		  SID			  1392
+		  SID			  1679
 		  Ports			  [4, 1]
 		  Position		  [95, 131, 155, 194]
 		  LibraryVersion	  "1.2"
@@ -8860,7 +8860,7 @@ Library {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "dynamic_adder"
-		  SID			  1395
+		  SID			  1682
 		  Ports			  [3, 1]
 		  Position		  [190, 55, 240, 125]
 		  MinAlgLoopOccurrences	  off
@@ -8888,14 +8888,14 @@ Library {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din1"
-		    SID			    1396
+		    SID			    1683
 		    Position		    [15, 70, 35, 90]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din2"
-		    SID			    1397
+		    SID			    1684
 		    Position		    [155, 160, 175, 180]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -8903,7 +8903,7 @@ Library {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "opmode"
-		    SID			    1398
+		    SID			    1685
 		    Position		    [325, 215, 345, 235]
 		    Port		    "3"
 		    IconDisplay		    "Port number"
@@ -8911,7 +8911,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert"
-		    SID			    1403
+		    SID			    1690
 		    Ports		    [1, 1]
 		    Position		    [140, 65, 185, 95]
 		    LibraryVersion	    "1.2"
@@ -8944,7 +8944,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert2"
-		    SID			    1404
+		    SID			    1691
 		    Ports		    [1, 1]
 		    Position		    [315, 155, 360, 185]
 		    LibraryVersion	    "1.2"
@@ -8977,7 +8977,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "DSP48E"
-		    SID			    1405
+		    SID			    1692
 		    Ports		    [7, 1]
 		    Position		    [395, 157, 470, 293]
 		    LibraryVersion	    "1.2"
@@ -9062,7 +9062,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "a"
-		    SID			    1406
+		    SID			    1693
 		    Ports		    [1, 1]
 		    Position		    [215, 34, 275, 66]
 		    LibraryVersion	    "1.2"
@@ -9094,7 +9094,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "alumode"
-		    SID			    1399
+		    SID			    1686
 		    Ports		    [0, 1]
 		    Position		    [310, 262, 365, 288]
 		    LibraryVersion	    "1.2"
@@ -9130,7 +9130,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "b"
-		    SID			    1407
+		    SID			    1694
 		    Ports		    [1, 1]
 		    Position		    [215, 94, 275, 126]
 		    LibraryVersion	    "1.2"
@@ -9162,7 +9162,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryin"
-		    SID			    1400
+		    SID			    1687
 		    Ports		    [0, 1]
 		    Position		    [310, 317, 365, 343]
 		    LibraryVersion	    "1.2"
@@ -9198,7 +9198,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryinsel"
-		    SID			    1401
+		    SID			    1688
 		    Ports		    [0, 1]
 		    Position		    [310, 372, 365, 398]
 		    LibraryVersion	    "1.2"
@@ -9234,7 +9234,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "conv_dsp_out"
-		    SID			    1408
+		    SID			    1695
 		    Ports		    [1, 1]
 		    Position		    [580, 209, 625, 241]
 		    LibraryVersion	    "1.2"
@@ -9268,7 +9268,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_a"
-		    SID			    1409
+		    SID			    1696
 		    Ports		    [1, 1]
 		    Position		    [310, 29, 360, 61]
 		    LibraryVersion	    "1.2"
@@ -9298,7 +9298,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_b"
-		    SID			    1410
+		    SID			    1697
 		    Ports		    [1, 1]
 		    Position		    [310, 94, 360, 126]
 		    LibraryVersion	    "1.2"
@@ -9328,7 +9328,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_din1"
-		    SID			    1412
+		    SID			    1699
 		    Ports		    [1, 1]
 		    Position		    [60, 64, 110, 96]
 		    LibraryVersion	    "1.2"
@@ -9358,7 +9358,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_din2"
-		    SID			    1411
+		    SID			    1698
 		    Ports		    [1, 1]
 		    Position		    [225, 154, 270, 186]
 		    LibraryVersion	    "1.2"
@@ -9389,7 +9389,7 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_dsp_out"
-		    SID			    1413
+		    SID			    1700
 		    Ports		    [1, 1]
 		    Position		    [500, 209, 550, 241]
 		    LibraryVersion	    "1.2"
@@ -9419,7 +9419,7 @@ Library {
 		    Block {
 		    BlockType		    Outport
 		    Name		    "dout"
-		    SID			    1402
+		    SID			    1689
 		    Position		    [655, 215, 675, 235]
 		    IconDisplay		    "Port number"
 		    }
@@ -9546,7 +9546,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_x"
-		  SID			  1393
+		  SID			  1680
 		  Ports			  [0, 1]
 		  Position		  [15, 197, 70, 223]
 		  LibraryVersion	  "1.2"
@@ -9582,7 +9582,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_z"
-		  SID			  1394
+		  SID			  1681
 		  Ports			  [0, 1]
 		  Position		  [15, 97, 70, 123]
 		  LibraryVersion	  "1.2"
@@ -9618,7 +9618,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
-		  SID			  1391
+		  SID			  1678
 		  Position		  [270, 80, 290, 100]
 		  IconDisplay		  "Port number"
 		}
@@ -9682,7 +9682,7 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "dout"
-	      SID		      1386
+	      SID		      1673
 	      Position		      [155, 30, 175, 50]
 	      IconDisplay	      "Port number"
 	    }
