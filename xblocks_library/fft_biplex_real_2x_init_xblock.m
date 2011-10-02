@@ -67,6 +67,14 @@ dsp48_adders = get_var('dsp48_adders', 'defaults', defaults, varargin{:});
 bit_growth_chart = get_var('bit_growth_chart', 'defaults', defaults, varargin{:});
 
 
+% deal with bit growth
+bit_growth_biplex = 0;
+bit_growth_chart =[reshape(bit_growth_chart, 1, []) zeros(1,FFTSize)]; % make sure the array is long enough
+for i=1:FFTSize
+    bit_growth_biplex = bit_growth_biplex + bit_growth_chart(i);
+end
+
+
 %% inports
 sync = xInport('sync');
 shift = xInport('shift');
@@ -85,8 +93,8 @@ of = xOutport('of');
 % Validate input fields.
 
 if (strcmp(specify_mult, 'on') && (length(mult_spec) ~= FFTSize)),
-    error('fft_biplex_real_2x_init.m: Multiplier use specification for stages does not match FFT size');
-    clog('fft_biplex_real_2x_init.m: Multiplier use specification for stages does not match FFT size','error');
+    disp('fft_biplex_real_2x_init.m: Multiplier use specification for stages does not match FFT size');
+    %clog('fft_biplex_real_2x_init.m: Multiplier use specification for stages does not match FFT size','error');
     return;
 end
 
@@ -142,7 +150,7 @@ xBlock( struct('name', 'biplex_core', 'source', str2func('fft_biplex_core_init_x
 xBlock( struct('name', 'bi_real_unscr_2x', 'source', str2func('fft_bi_real_unscr_2x_init_xblock')), ...
 	{[blk,'/bi_real_unscr_2x'], ...
     'FFTSize', FFTSize, ...
-    'n_bits', input_bit_width, ...
+    'n_bits', input_bit_width + bit_growth_biplex, ...
     'dsp48_adders', dsp48_adders,...
     'add_latency', add_latency, ...
     'conv_latency', conv_latency, ...
@@ -162,8 +170,8 @@ if ~isempty(blk) && ~strcmp(blk(1),'/')
     %%%%%%%%%%%%%%%%%%%
 
     % Set attribute format string (block annotation).
-    fmtstr = sprintf('%s\n%d stages\n[%d,%d]\n%s\n%s', ...
-        arch, FFTSize, input_bit_width, coeff_bit_width, quantization, overflow);
+    fmtstr = sprintf('%s\n%d stages\n[%d,%d]\n%s\n%s\n%s', ...
+        arch, FFTSize, input_bit_width, coeff_bit_width, quantization, overflow,num2str(bit_growth_chart,'%d '));
     set_param(blk, 'AttributesFormatString', fmtstr);
 end
 

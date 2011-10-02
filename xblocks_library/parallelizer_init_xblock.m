@@ -19,58 +19,52 @@
 %   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.               %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function dsp_scope_init_xblock(blk, varargin)
+function parallelizer_init_xblock(blk, varargin)
 
 defaults = {...
-    'n_inputs',8, ...
-    'slice_width', 8, ...
-    'bin_pt', 7, ...
-    'arith_type', 1, ...
+    'n_outputs',8, ...
     'sample_period',1};
 
-n_inputs = get_var('n_inputs', 'defaults', defaults, varargin{:});
-slice_width = get_var('slice_width', 'defaults', defaults, varargin{:});
-bin_pt = get_var('bin_pt', 'defaults', defaults, varargin{:});
-arith_type = get_var('arith_type', 'defaults', defaults, varargin{:});
+n_outputs = get_var('n_outputs', 'defaults', defaults, varargin{:});
 sample_period = get_var('sample_period', 'defaults', defaults, varargin{:});
 
 
 inport = xInport('in');
-
-outport = xOutport('out');
-
-
-uncram_out = cell(1,n_inputs);
-for i =1:n_inputs
-    uncram_out{i} = xSignal(['uncram_out',num2str(i)]);
+outports = cell(1,n_outputs);
+for i =1:n_outputs
+    outports{i} = xOutport(['out',num2str(i)]);
 end
 
-% add uncram block                      
-uncram = xBlock(struct('source', str2func('uncram_init_xblock'), 'name', 'uncram'), ...
-                {[blk,'/uncram'], ...
-                        'num_slice',n_inputs, ...
-                        'slice_width', slice_width, ...
-                        'bin_pt', bin_pt, ...
-                        'arith_type', arith_type}, ...
-                        {inport}, ...
-                        uncram_out);
 
-% add parallel scope block                    
-parallel_scope = xBlock(struct('source', str2func('parallel_scope_init_xblock'), 'name', 'p_scope'), ...
-                        {[blk,'/p_scope'], ...
-                        'n_inputs', n_inputs, ...
-                        'sample_period', sample_period}, ...
-                        uncram_out, ...
-                        {outport});
+delay_ins = cell(1, n_outputs);
+delay_blks = cell(1, n_outputs-1);
+delay_ins{1} = inport;
+for i =1:n_outputs-1
+    delay_ins{i+1} = xSignal(['delay_in',num2str(i+1)]);
+    delay_blks{i} = xBlock(struct('source', 'Delay', 'name', ['delay_blk', num2str(i)]), ...
+                         {'latency', sample_period}, ...
+                         {delay_ins{i}}, ...
+                         {delay_ins{i+1}});
+end
 
+downsample_blks = cell(1, n_outputs);
+for i =1:n_outputs
+    downsample_blks{i} = xBlock(struct('source', 'xbsBasic_r4/Down Sample', 'name', ['Down_sample',num2str(i)]), ...
+                                   struct('sample_ratio',sample_period*n_outputs, ...
+                                          'sample_phase','Last Value of Frame  (most efficient)', ...
+                                          'latency', 1), ...
+                              {delay_ins{i}}, ...
+                              {outports{n_outputs-i+1}});
+end
                         
+                        
+
                         
 if ~isempty(blk) && ~strcmp(blk(1),'/')
+    fmtstr =sprintf('Sample Period = %d',sample_period);
+    set_param(blk,'AttributesFormatString',fmtstr);
     clean_blocks(blk);
-    fmtstr = sprintf('Fix_%d_%d\n%d inputs\nSample Period%d', slice_width, bin_pt, n_inputs, sample_period);
-    set_param(blk, 'AttributesFormatString', fmtstr);
 end
-
 end
 
 

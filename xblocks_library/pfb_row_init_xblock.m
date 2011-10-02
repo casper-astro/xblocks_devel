@@ -241,8 +241,8 @@ for k = 1:num_data_slices
 	adder_tree_config.name = ['adder_tree', num2str(k)];
 	adder_tree_config.depend = {'adder_tree_init_xblock.m'};
 	adder_tree_block = xBlock( adder_tree_config,...
-        {[blk, '/',adder_tree_config.name], num_adder_tree_inports, ...
-        add_latency, quantization, 'Wrap', adder_tree_impl});
+        {[blk, '/',adder_tree_config.name], 'n_inputs', num_adder_tree_inports, ...
+        'add_latency', add_latency, 'quantization', quantization, 'overflow', 'Wrap', 'mode', adder_tree_impl});
 	adder_tree_block.bindPort( adder_tree_inports, {sync_delay_out, add_tree_out} );	
 	
 	scaled_add_tree_out = xSignal;

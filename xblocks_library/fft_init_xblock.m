@@ -319,7 +319,7 @@ end
 if ~isempty(blk) && ~strcmp(blk(1), '/')
     clean_blocks(blk);
 
-    fmtstr = sprintf('%d stages\n(%d,%d)\n%s\n%s', FFTSize, input_bit_width, coeff_bit_width, quantization, overflow);
+    fmtstr = sprintf('%d stages\n(%d,%d)\n%s\n%s\n%s', FFTSize, input_bit_width, coeff_bit_width, quantization, overflow,num2str(bit_growth_chart,'%d '));
     set_param(blk, 'AttributesFormatString', fmtstr);
 end
 

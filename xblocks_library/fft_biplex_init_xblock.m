@@ -121,7 +121,7 @@ xlsub2_biplex_cplx_unscrambler_sub = xBlock(struct('source',str2func('biplex_cpl
 
 
 if ~isempty(blk) && ~strcmp(blk(1),'/')
-    fmtstr = sprintf('%d stages\n%s',FFTSize,arch);
+    fmtstr = sprintf('%d stages\n%s\n%s',FFTSize,arch,num2str(bit_growth_chart,'%d '));
     set_param(blk, 'AttributesFormatString', fmtstr);
 end
 
