@@ -52,6 +52,8 @@ defaults = {'FFTSize', 2, ...
     'mult_latency', 2, ...
     'bram_latency', 2, ...
     'conv_latency', 1, ...
+    'negate_latency', 3, ...
+    'negate_dsp48e', 1, ...
     'arch', 'Virtex5', ...
     'opt_target', 'logic', ...
     'coeffs_bit_limit', 8, ...
@@ -83,6 +85,8 @@ hardcode_shifts = get_var('hardcode_shifts', 'defaults', defaults, varargin{:});
 shift_schedule = get_var('shift_schedule', 'defaults', defaults, varargin{:});
 dsp48_adders = get_var('dsp48_adders', 'defaults', defaults, varargin{:});
 bit_growth_chart = get_var('bit_growth_chart', 'defaults', defaults, varargin{:});
+negate_latency = get_var('negate_latency', 'defaults', defaults, varargin{:});
+negate_dsp48e = get_var('negate_dsp48e', 'defaults', defaults, varargin{:});
 
 if FFTSize < 2,
     errordlg('biplex_core_init.m: Biplex FFT must have length of at least 2^2, forcing size to 2.');
@@ -119,8 +123,22 @@ of_in = xSignal;
 xBlock( struct('name', 'Constant', 'source', 'Constant'), ...
 	{'arith_type', 'Boolean', 'const', 0, 'Position', [55 82 85 98]}, {}, {of_in}	);
 
+
+
+Counter_out1 = xSignal;
+biplex_sel = xSignal;
+Counter = xBlock(struct('source', 'Counter', 'name', 'biplex_sel_counter'), ...
+	struct('n_bits', FFTSize-1+1, 'rst', 'on', 'explicit_period', 'off', ...
+		'use_rpm', 'off'), {sync}, {Counter_out1});
+
+Slice1 = xBlock(struct('source', 'Slice', 'name', 'Slice1'), ...
+	struct('bit1', -0), {Counter_out1}, {biplex_sel});	
+
+
+stage_latencies = get_biplex_stage_latencies(varargin{:})
+
 % Create/Delete Stages
-stage_inputs = {pol1, pol2, of_in, sync, shift};
+stage_inputs = {pol1, pol2, of_in, sync, shift, biplex_sel};
 for a=1:FFTSize,
 
 	%if delays occupy larger space than specified then implement in BRAM
@@ -143,12 +161,15 @@ for a=1:FFTSize,
 		if (mult_spec(a) == 2),
 			use_hdl = 'on';
 			use_embedded = 'off';
+			use_dsp48_mults = 0;
 		elseif (mult_spec(a) == 1),
 			use_hdl = 'off';
 			use_embedded = 'on';
+			use_dsp48_mults = 1;			
 		else
 			use_hdl = 'on';
 			use_embedded = 'off';
+			use_dsp48_mults = 0;			
 		end
 	end
 
@@ -166,7 +187,7 @@ for a=1:FFTSize,
 	stage_sync_out = xSignal;
 	
 	stage_outports = {stage_out1, stage_out2, stage_of, stage_sync_out};
-
+	use_dsp48_mults
 	xBlock( struct('name', stage_name, 'source', str2func('fft_stage_n_init_xblock')), ...
 		{ [blk,'/',stage_name], ...
 			'FFTSize', FFTSize, ...
@@ -178,6 +199,8 @@ for a=1:FFTSize,
 			'mult_latency', mult_latency, ...
 			'bram_latency', bram_latency, ...
 			'conv_latency', conv_latency, ...
+			'negate_latency', negate_latency, ...
+			'negate_dsp48e', negate_dsp48e, ...
 			'quantization', quantization, ...
 			'overflow', overflow, ...
 			'arch', arch, ...
@@ -188,17 +211,29 @@ for a=1:FFTSize,
 			'use_embedded', use_embedded, ...
 			'hardcode_shifts', hardcode_shifts, ...
 			'dsp48_adders', dsp48_adders, ...
+			'use_dsp48_mults', use_dsp48_mults, ...
             'bit_growth', bit_growth_chart(a)}, ...
 		stage_inputs, ...
 		stage_outports );
 	stage_inputs = stage_outports;
 	stage_inputs{5} = shift;
+	
+	if a < FFTSize
+		biplex_sel = xSignal;	
+		counter_bit = xSignal;
+		xBlock(struct('source', 'Slice', 'name', sprintf('Slice%d', a+1)), ...
+			struct('bit1', -a), {Counter_out1}, {counter_bit});
+		
+		sync_delay_config.source = 'Delay';
+		sync_delay_config.name = sprintf('del_stage_%d', a+1);
+		xBlock(sync_delay_config, {'latency', stage_latencies(a)}, {counter_bit}, ...
+			{biplex_sel});
+		stage_inputs{6} = biplex_sel;
+	end
     
     % for bit growth FFT
     input_b_w = input_b_w + bit_growth_chart(a);
-    input_b_w
-    coeff_b_w = coeff_b_w + bit_growth_chart(a);
-    coeff_b_w
+    coeff_b_w = coeff_b_w + bit_growth_chart(a);	
 end
 
 out1.bind( stage_inputs{1} );

@@ -74,8 +74,6 @@ bit_growth_chart = get_var('bit_growth_chart', 'defaults', defaults, varargin{:}
 if (strcmp(specify_mult, 'on') && (length(mult_spec) ~= FFTSize)),
     disp('fft_direct_init.m: Multiplier use specification for stages does not match FFT size');
     error('fft_direct_init.m: Multiplier use specification for stages does not match FFT size');
-else
-    disp('yelp');
 end
 
 % for bit growth FFT
@@ -103,7 +101,6 @@ node_inputs = {};
 node_outputs = {};
 bf_shifts = {};
 for stage=0:FFTSize,
-	stage
     for i=0:2^FFTSize-1,
         node_name = ['node',num2str(stage),'_',num2str(i)];
         pos = [300*stage+90 100*i+100 300*stage+120 100*i+130];
@@ -127,7 +124,7 @@ for stage=0:FFTSize,
 	% slice off shift bits for each butterfly 
     if (stage ~= FFTSize),
     	stage_shift = xSignal;
-        shift_slice_name = ['slice',num2str(stage)]
+        shift_slice_name = ['slice',num2str(stage)];
         pos = [300*stage+90 70 300*stage+120 85];
         xBlock( struct('source', 'Slice', 'name', shift_slice_name), ...
         		struct('Position', pos, 'mode', 'Lower Bit Location + Width', 'nbits', 1, ...
@@ -178,7 +175,6 @@ for stage=1:FFTSize,
 	stage_of_outputs = {};
 
     for i=0:2^(FFTSize-1)-1,
-    	stage, i
         % Implement a normal FFT or the tail end of a larger FFT
         if strcmp(map_tail, 'off'),
             coeffs = [ floor(i/2^(FFTSize-stage)) ];
@@ -215,7 +211,6 @@ for stage=1:FFTSize,
         bf_outputs = { node_inputs{stage+1, node_one_num+1}, node_inputs{stage+1, node_two_num+1}, ...
         	of_out, bf_syncs{stage+1, i+1} };        
 
-		coeffs
         xBlock( struct('source', str2func('fft_butterfly_init_xblock'), 'name', bf_name), ...
             {[blk,'/',bf_name], 'biplex', 'off', ...
             'FFTSize', actual_fft_size, ...
