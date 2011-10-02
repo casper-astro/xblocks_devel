@@ -1,12 +1,12 @@
 Model {
-  Name			  "parallel_downconverter_test"
+  Name			  "parallel_downsampler_test"
   Version		  7.4
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.40"
+    ComputedModelVersion    "1.43"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -25,9 +25,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "chenhong"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Sep 30 01:55:16 2011"
-  RTWModifiedTimeStamp	  239248513
-  ModelVersionFormat	  "1.%<AutoIncrement:40>"
+  LastModifiedDate	  "Fri Sep 30 10:37:00 2011"
+  RTWModifiedTimeStamp	  239279819
+  ModelVersionFormat	  "1.%<AutoIncrement:43>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -693,7 +693,7 @@ Model {
     }
   }
   System {
-    Name		    "parallel_downconverter_test"
+    Name		    "parallel_downsampler_test"
     Location		    [200, 89, 1218, 706]
     Open		    on
     ModelBrowserVisibility  off
@@ -811,7 +811,7 @@ Model {
       Ports		      [6, 6]
       Position		      [270, 124, 390, 271]
       BackgroundColor	      "lightBlue"
-      AttributesFormatString  "Decimation Rate = 8"
+      AttributesFormatString  "Decimation Rate = 3"
       AncestorBlock	      "xblocks_library_downconverter/Down Sampler"
       LibraryVersion	      "*1.23"
       UserDataPersistent      on
@@ -841,7 +841,7 @@ Model {
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "5|8"
+      MaskValueString	      "5|3"
       System {
 	Name			"Down Sampler"
 	Location		[5, 77, 1275, 706]
@@ -857,7 +857,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	750
+	SIDHighWatermark	794
 	SIDPrevWatermark	728
 	Block {
 	  BlockType		  Inport
@@ -909,7 +909,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample1"
-	  SID			  741
+	  SID			  785
 	  Ports			  [1, 1]
 	  Position		  [150, 377, 210, 433]
 	  LibraryVersion	  "1.2"
@@ -917,7 +917,7 @@ Model {
 	  SourceType		  "Xilinx Down Sampler Block"
 	  infoedit		  "Hardware notes: Sample and Latency controls determine the hardware implementation.  The cost in hardwa"
 	  "re of different implementations varies considerably; press Help for details."
-	  sample_ratio		  "8"
+	  sample_ratio		  "3"
 	  sample_phase		  "Last Value of Frame  (most efficient)"
 	  en			  off
 	  latency		  "1"
@@ -928,19 +928,19 @@ Model {
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "dsamp"
 	  block_version		  "11.4"
-	  sg_icon_stat		  "60,56,1,1,white,blue,0,946fb19e,right,"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,cf1ab3bd,right,"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
 	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
 	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
 	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
 	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
-	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}8\\newlinez^{-1}','texmode','on');\nfprintf('"
+	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}3\\newlinez^{-1}','texmode','on');\nfprintf('"
 	  "','COMMENT: end icon text');\n"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample2"
-	  SID			  743
+	  SID			  787
 	  Ports			  [1, 1]
 	  Position		  [150, 292, 210, 348]
 	  LibraryVersion	  "1.2"
@@ -948,7 +948,7 @@ Model {
 	  SourceType		  "Xilinx Down Sampler Block"
 	  infoedit		  "Hardware notes: Sample and Latency controls determine the hardware implementation.  The cost in hardwa"
 	  "re of different implementations varies considerably; press Help for details."
-	  sample_ratio		  "8"
+	  sample_ratio		  "3"
 	  sample_phase		  "Last Value of Frame  (most efficient)"
 	  en			  off
 	  latency		  "1"
@@ -959,19 +959,19 @@ Model {
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "dsamp"
 	  block_version		  "11.4"
-	  sg_icon_stat		  "60,56,1,1,white,blue,0,946fb19e,right,"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,cf1ab3bd,right,"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
 	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
 	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
 	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
 	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
-	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}8\\newlinez^{-1}','texmode','on');\nfprintf('"
+	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}3\\newlinez^{-1}','texmode','on');\nfprintf('"
 	  "','COMMENT: end icon text');\n"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample3"
-	  SID			  745
+	  SID			  789
 	  Ports			  [1, 1]
 	  Position		  [150, 202, 210, 258]
 	  LibraryVersion	  "1.2"
@@ -979,7 +979,7 @@ Model {
 	  SourceType		  "Xilinx Down Sampler Block"
 	  infoedit		  "Hardware notes: Sample and Latency controls determine the hardware implementation.  The cost in hardwa"
 	  "re of different implementations varies considerably; press Help for details."
-	  sample_ratio		  "8"
+	  sample_ratio		  "3"
 	  sample_phase		  "Last Value of Frame  (most efficient)"
 	  en			  off
 	  latency		  "1"
@@ -990,19 +990,19 @@ Model {
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "dsamp"
 	  block_version		  "11.4"
-	  sg_icon_stat		  "60,56,1,1,white,blue,0,946fb19e,right,"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,cf1ab3bd,right,"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
 	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
 	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
 	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
 	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
-	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}8\\newlinez^{-1}','texmode','on');\nfprintf('"
+	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}3\\newlinez^{-1}','texmode','on');\nfprintf('"
 	  "','COMMENT: end icon text');\n"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample4"
-	  SID			  747
+	  SID			  791
 	  Ports			  [1, 1]
 	  Position		  [150, 117, 210, 173]
 	  LibraryVersion	  "1.2"
@@ -1010,7 +1010,7 @@ Model {
 	  SourceType		  "Xilinx Down Sampler Block"
 	  infoedit		  "Hardware notes: Sample and Latency controls determine the hardware implementation.  The cost in hardwa"
 	  "re of different implementations varies considerably; press Help for details."
-	  sample_ratio		  "8"
+	  sample_ratio		  "3"
 	  sample_phase		  "Last Value of Frame  (most efficient)"
 	  en			  off
 	  latency		  "1"
@@ -1021,19 +1021,19 @@ Model {
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "dsamp"
 	  block_version		  "11.4"
-	  sg_icon_stat		  "60,56,1,1,white,blue,0,946fb19e,right,"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,cf1ab3bd,right,"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
 	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
 	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
 	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
 	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
-	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}8\\newlinez^{-1}','texmode','on');\nfprintf('"
+	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}3\\newlinez^{-1}','texmode','on');\nfprintf('"
 	  "','COMMENT: end icon text');\n"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample5"
-	  SID			  749
+	  SID			  793
 	  Ports			  [1, 1]
 	  Position		  [150, 32, 210, 88]
 	  LibraryVersion	  "1.2"
@@ -1041,7 +1041,7 @@ Model {
 	  SourceType		  "Xilinx Down Sampler Block"
 	  infoedit		  "Hardware notes: Sample and Latency controls determine the hardware implementation.  The cost in hardwa"
 	  "re of different implementations varies considerably; press Help for details."
-	  sample_ratio		  "8"
+	  sample_ratio		  "3"
 	  sample_phase		  "Last Value of Frame  (most efficient)"
 	  en			  off
 	  latency		  "1"
@@ -1052,19 +1052,19 @@ Model {
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "dsamp"
 	  block_version		  "11.4"
-	  sg_icon_stat		  "60,56,1,1,white,blue,0,946fb19e,right,"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,cf1ab3bd,right,"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
 	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
 	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
 	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
 	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
-	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}8\\newlinez^{-1}','texmode','on');\nfprintf('"
+	  "xt');\ncolor('black');disp('\\newline{\\fontsize{14pt}\\bf\\downarrow}3\\newlinez^{-1}','texmode','on');\nfprintf('"
 	  "','COMMENT: end icon text');\n"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay1"
-	  SID			  740
+	  SID			  784
 	  Ports			  [1, 1]
 	  Position		  [60, 377, 120, 433]
 	  LibraryVersion	  "1.2"
@@ -1072,7 +1072,7 @@ Model {
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
 	  en			  off
-	  latency		  "6"
+	  latency		  "2"
 	  dbl_ovrd		  off
 	  reg_retiming		  off
 	  xl_use_area		  off
@@ -1081,13 +1081,13 @@ Model {
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "delay"
 	  block_version		  "11.4"
-	  sg_icon_stat		  "60,56,1,1,white,blue,0,aa5bc30d,right,"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,85ce9542,right,"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
 	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
 	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
 	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
 	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
-	  "xt');\ncolor('black');disp('z^{-6}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+	  "xt');\ncolor('black');disp('z^{-2}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
 	  Port {
 	    PortNumber		    1
 	    Name		    "dO1"
@@ -1098,7 +1098,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay2"
-	  SID			  742
+	  SID			  786
 	  Ports			  [1, 1]
 	  Position		  [60, 292, 120, 348]
 	  LibraryVersion	  "1.2"
@@ -1106,7 +1106,7 @@ Model {
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
 	  en			  off
-	  latency		  "3"
+	  latency		  "1"
 	  dbl_ovrd		  off
 	  reg_retiming		  off
 	  xl_use_area		  off
@@ -1115,13 +1115,13 @@ Model {
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "delay"
 	  block_version		  "11.4"
-	  sg_icon_stat		  "60,56,1,1,white,blue,0,83e6bb61,right,"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,07b98262,right,"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
 	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
 	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
 	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
 	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
-	  "xt');\ncolor('black');disp('z^{-3}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+	  "xt');\ncolor('black');disp('z^{-1}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
 	  Port {
 	    PortNumber		    1
 	    Name		    "dO2"
@@ -1132,7 +1132,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay3"
-	  SID			  744
+	  SID			  788
 	  Ports			  [1, 1]
 	  Position		  [60, 202, 120, 258]
 	  LibraryVersion	  "1.2"
@@ -1166,43 +1166,9 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay4"
-	  SID			  746
+	  SID			  790
 	  Ports			  [1, 1]
 	  Position		  [60, 117, 120, 173]
-	  LibraryVersion	  "1.2"
-	  SourceBlock		  "xbsIndex_r4/Delay"
-	  SourceType		  "Xilinx Delay Block"
-	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
-	  latency		  "5"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
-	  xl_area		  "[0,0,0,0,0,0,0]"
-	  has_advanced_control	  "0"
-	  sggui_pos		  "-1,-1,-1,-1"
-	  block_type		  "delay"
-	  block_version		  "11.4"
-	  sg_icon_stat		  "60,56,1,1,white,blue,0,ec356abf,right,"
-	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
-	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
-	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
-	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
-	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
-	  "xt');\ncolor('black');disp('z^{-5}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
-	  Port {
-	    PortNumber		    1
-	    Name		    "dO4"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "delay5"
-	  SID			  748
-	  Ports			  [1, 1]
-	  Position		  [60, 32, 120, 88]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
@@ -1226,6 +1192,40 @@ Model {
 	  "xt');\ncolor('black');disp('z^{-2}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
 	  Port {
 	    PortNumber		    1
+	    Name		    "dO4"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "delay5"
+	  SID			  792
+	  Ports			  [1, 1]
+	  Position		  [60, 32, 120, 88]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Delay"
+	  SourceType		  "Xilinx Delay Block"
+	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
+	  en			  off
+	  latency		  "1"
+	  dbl_ovrd		  off
+	  reg_retiming		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "delay"
+	  block_version		  "11.4"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,07b98262,right,"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
+	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
+	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
+	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
+	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
+	  "xt');\ncolor('black');disp('z^{-1}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+	  Port {
+	    PortNumber		    1
 	    Name		    "dO5"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
@@ -1234,7 +1234,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "sync_delay"
-	  SID			  750
+	  SID			  794
 	  Ports			  [1, 1]
 	  Position		  [60, 462, 120, 518]
 	  LibraryVersion	  "1.2"
@@ -1483,7 +1483,7 @@ Model {
       "Also tested: 5-parallel inputs; various dec_rate"
       HorizontalTextAlignment "Center"
       LeftAlignmentValue      "0.5"
-      SourceBlockDiagram      "parallel_downconverter_test"
+      SourceBlockDiagram      "parallel_downsampler_test"
       TagMaxNumber	      "20"
     }
     Block {
@@ -1541,7 +1541,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	129
+	SIDHighWatermark	136
 	SIDPrevWatermark	108
 	Block {
 	  BlockType		  Inport
@@ -1585,7 +1585,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out1"
-	  SID			  124
+	  SID			  131
 	  Ports			  [1, 1]
 	  Position		  [60, 90, 120, 110]
 	  LibraryVersion	  "1.2"
@@ -1621,7 +1621,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out2"
-	  SID			  125
+	  SID			  132
 	  Ports			  [1, 1]
 	  Position		  [60, 140, 120, 160]
 	  LibraryVersion	  "1.2"
@@ -1657,7 +1657,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out3"
-	  SID			  126
+	  SID			  133
 	  Ports			  [1, 1]
 	  Position		  [60, 190, 120, 210]
 	  LibraryVersion	  "1.2"
@@ -1693,7 +1693,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out4"
-	  SID			  127
+	  SID			  134
 	  Ports			  [1, 1]
 	  Position		  [60, 235, 120, 255]
 	  LibraryVersion	  "1.2"
@@ -1729,7 +1729,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out5"
-	  SID			  128
+	  SID			  135
 	  Ports			  [1, 1]
 	  Position		  [60, 285, 120, 305]
 	  LibraryVersion	  "1.2"
@@ -1765,7 +1765,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "sel"
-	  SID			  123
+	  SID			  130
 	  Ports			  [0, 1]
 	  Position		  [75, 29, 105, 61]
 	  LibraryVersion	  "1.762"
@@ -1791,7 +1791,7 @@ Model {
 	Block {
 	  BlockType		  MultiPortSwitch
 	  Name			  "switch"
-	  SID			  129
+	  SID			  136
 	  Ports			  [6, 1]
 	  Position		  [150, 149, 185, 196]
 	  Inputs		  "5"
@@ -1906,7 +1906,7 @@ Model {
       SID		      44
       Ports		      [5, 1]
       Position		      [445, 145, 555, 275]
-      AttributesFormatString  "Sample Period = 40"
+      AttributesFormatString  "Sample Period = 15"
       AncestorBlock	      "To_be_added_to_xBlocks_devels/Parallel_scope"
       LibraryVersion	      "*1.9"
       UserDataPersistent      on
@@ -1939,7 +1939,7 @@ Model {
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "5|40"
+      MaskValueString	      "5|15"
       System {
 	Name			"Parallel_scope1"
 	Location		[65, 176, 645, 525]
@@ -1955,7 +1955,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	164
+	SIDHighWatermark	178
 	SIDPrevWatermark	115
 	Block {
 	  BlockType		  Inport
@@ -1999,7 +1999,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out1"
-	  SID			  159
+	  SID			  173
 	  Ports			  [1, 1]
 	  Position		  [60, 90, 120, 110]
 	  LibraryVersion	  "1.2"
@@ -2035,7 +2035,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out2"
-	  SID			  160
+	  SID			  174
 	  Ports			  [1, 1]
 	  Position		  [60, 140, 120, 160]
 	  LibraryVersion	  "1.2"
@@ -2071,7 +2071,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out3"
-	  SID			  161
+	  SID			  175
 	  Ports			  [1, 1]
 	  Position		  [60, 190, 120, 210]
 	  LibraryVersion	  "1.2"
@@ -2107,7 +2107,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out4"
-	  SID			  162
+	  SID			  176
 	  Ports			  [1, 1]
 	  Position		  [60, 235, 120, 255]
 	  LibraryVersion	  "1.2"
@@ -2143,7 +2143,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out5"
-	  SID			  163
+	  SID			  177
 	  Ports			  [1, 1]
 	  Position		  [60, 285, 120, 305]
 	  LibraryVersion	  "1.2"
@@ -2179,7 +2179,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "sel"
-	  SID			  158
+	  SID			  172
 	  Ports			  [0, 1]
 	  Position		  [75, 29, 105, 61]
 	  LibraryVersion	  "1.762"
@@ -2194,7 +2194,7 @@ Model {
 	  RTWMemSecDataInternal	  "Inherit from model"
 	  RTWMemSecDataParameters "Inherit from model"
 	  uplimit		  "4"
-	  tsamp			  "8"
+	  tsamp			  "3"
 	  Port {
 	    PortNumber		    1
 	    Name		    "sel_out"
@@ -2205,7 +2205,7 @@ Model {
 	Block {
 	  BlockType		  MultiPortSwitch
 	  Name			  "switch"
-	  SID			  164
+	  SID			  178
 	  Ports			  [6, 1]
 	  Position		  [150, 149, 185, 196]
 	  Inputs		  "5"
@@ -2368,7 +2368,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	622
+	SIDHighWatermark	631
 	SIDPrevWatermark	613
 	Block {
 	  BlockType		  Inport
@@ -2380,7 +2380,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample1"
-	  SID			  618
+	  SID			  627
 	  Ports			  [1, 1]
 	  Position		  [60, 32, 120, 88]
 	  LibraryVersion	  "1.2"
@@ -2411,7 +2411,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample2"
-	  SID			  619
+	  SID			  628
 	  Ports			  [1, 1]
 	  Position		  [150, 107, 210, 163]
 	  LibraryVersion	  "1.2"
@@ -2442,7 +2442,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample3"
-	  SID			  620
+	  SID			  629
 	  Ports			  [1, 1]
 	  Position		  [245, 187, 305, 243]
 	  LibraryVersion	  "1.2"
@@ -2473,7 +2473,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample4"
-	  SID			  621
+	  SID			  630
 	  Ports			  [1, 1]
 	  Position		  [335, 262, 395, 318]
 	  LibraryVersion	  "1.2"
@@ -2504,7 +2504,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Down_sample5"
-	  SID			  622
+	  SID			  631
 	  Ports			  [1, 1]
 	  Position		  [430, 347, 490, 403]
 	  LibraryVersion	  "1.2"
@@ -2535,7 +2535,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay_blk1"
-	  SID			  614
+	  SID			  623
 	  Ports			  [1, 1]
 	  Position		  [60, 117, 120, 173]
 	  LibraryVersion	  "1.2"
@@ -2569,7 +2569,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay_blk2"
-	  SID			  615
+	  SID			  624
 	  Ports			  [1, 1]
 	  Position		  [150, 192, 210, 248]
 	  LibraryVersion	  "1.2"
@@ -2603,7 +2603,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay_blk3"
-	  SID			  616
+	  SID			  625
 	  Ports			  [1, 1]
 	  Position		  [245, 272, 305, 328]
 	  LibraryVersion	  "1.2"
@@ -2637,7 +2637,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay_blk4"
-	  SID			  617
+	  SID			  626
 	  Ports			  [1, 1]
 	  Position		  [335, 347, 395, 403]
 	  LibraryVersion	  "1.2"
@@ -3007,26 +3007,26 @@ MatData {
   DataRecord {
     Tag			    DataTag4
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    9&(S8C8S9F4Q.&,W-C-B,&"
-    ")C.65F9&9A.#AE9#EC9#@"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    8F-C831E9&1A-F$Y86)C96"
+    "4U.6,X9&9B-3EB9C5A,&("
   }
   DataRecord {
     Tag			    DataTag3
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    -3DU,C Y,60S9C1C.&4R.6"
-    "9A,# Q,C-F-#EB.3 Y,&("
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    -V(Q-3(X-&5E,S8X.64P8F"
+    "%C,39A,F)D-F,W8C<S8F,"
   }
   DataRecord {
     Tag			    DataTag2
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    9#@R,C%B,V(Q,F$T8F9A,3"
-    "1C83 S,3$T9CDP.34Y-S,"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    ,V,S8V(T961C9F1D-C$Q9#"
+    "!C9C P-S0T,C!E838S9&$"
   }
   DataRecord {
     Tag			    DataTag1
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    ,F0R.3 R,3<T-&5D9#)B-#"
-    "1B,#=E,&,R9#<Q93=B9C8"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    9CDQ,S(U9#1D-69A-64Y9&"
+    ")B8S<S,V5D9#-D8C(U-6("
   }
   DataRecord {
     Tag			    DataTag0

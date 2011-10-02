@@ -15,9 +15,9 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "chenhong"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Sep 30 01:57:23 2011"
-  RTWModifiedTimeStamp	  239248641
-  ModelVersionFormat	  "1.%<AutoIncrement:50>"
+  LastModifiedDate	  "Fri Sep 30 17:54:19 2011"
+  RTWModifiedTimeStamp	  239306052
+  ModelVersionFormat	  "1.%<AutoIncrement:55>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -617,7 +617,7 @@ Library {
   }
   System {
     Name		    "xblocks_library_misc"
-    Location		    [14, 77, 880, 679]
+    Location		    [75, 129, 941, 731]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -704,10 +704,10 @@ Library {
 	  "re of different implementations varies considerably; press Help for details."
 	  sample_ratio		  "8"
 	  sample_phase		  "Last Value of Frame  (most efficient)"
-	  en			  off
+	  en			  "off"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -735,10 +735,10 @@ Library {
 	  "re of different implementations varies considerably; press Help for details."
 	  sample_ratio		  "8"
 	  sample_phase		  "Last Value of Frame  (most efficient)"
-	  en			  off
+	  en			  "off"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -766,10 +766,10 @@ Library {
 	  "re of different implementations varies considerably; press Help for details."
 	  sample_ratio		  "8"
 	  sample_phase		  "Last Value of Frame  (most efficient)"
-	  en			  off
+	  en			  "off"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -797,10 +797,10 @@ Library {
 	  "re of different implementations varies considerably; press Help for details."
 	  sample_ratio		  "8"
 	  sample_phase		  "Last Value of Frame  (most efficient)"
-	  en			  off
+	  en			  "off"
 	  latency		  "1"
-	  dbl_ovrd		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -825,11 +825,11 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
+	  en			  "off"
 	  latency		  "2"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  reg_retiming		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -859,11 +859,11 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
+	  en			  "off"
 	  latency		  "2"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  reg_retiming		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -893,11 +893,11 @@ Library {
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
-	  en			  off
+	  en			  "off"
 	  latency		  "2"
-	  dbl_ovrd		  off
-	  reg_retiming		  off
-	  xl_use_area		  off
+	  dbl_ovrd		  "off"
+	  reg_retiming		  "off"
+	  xl_use_area		  "off"
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -1038,7 +1038,7 @@ Library {
       Name		      "adder_tree"
       SID		      572
       Ports		      [5, 2]
-      Position		      [220, 42, 285, 158]
+      Position		      [220, 43, 285, 157]
       BackgroundColor	      "[0.380000, 0.900000, 0.990000]"
       AttributesFormatString  "latency 2"
       UserDataPersistent      on
@@ -1057,29 +1057,39 @@ Library {
       " adders: Causes the first stage of adders to be absorbed into DSP blocks if multipliers precede them (Virtex 5)."
       " Overrides Adder implementation\n\n(xBlock version 1, compatible with the adder_tree in CASPER library)"
       MaskHelp		      "eval('xlWeb(''http://casper.berkeley.edu/wiki/Adder_tree'')')"
-      MaskPromptString	      "Number of Inputs|Add Latency|Adder implementation|Use behavioural HDL for first stage of"
-      " adders"
-      MaskStyleString	      "edit,edit,popup(Behavioral|Fabric|DSP48),checkbox"
-      MaskTunableValueString  "on,on,on,on"
-      MaskCallbackString      "|||"
-      MaskEnableString	      "on,on,on,on"
-      MaskVisibilityString    "on,on,on,on"
-      MaskToolTipString	      "on,on,on,on"
-      MaskVariables	      "n_inputs=@1;latency=@2;adder_imp=&3;first_stage_hdl=&4;"
-      MaskInitialization      "config.source = str2func('adder_tree_lib_init_xblock');\nconfig.toplevel = gcb;\nconfig"
-      ".depend = get_dependlist('adder_tree_lib');\nset_param(gcb,'LinkStatus','inactive');\nxBlock(config, {config.top"
-      "level, ...\n    'n_inputs', n_inputs, ...\n    'latency', latency, ...\n    'adder_imp', adder_imp, ...\n    'fi"
-      "rst_stage_hdl', first_stage_hdl});"
+      MaskPromptString	      "Number of Inputs|Add Latency|Precision|Output type|Number of bits|Binary Point|Quantizat"
+      "ion Behavior|Overflow Behavior|Adder implementation"
+      MaskStyleString	      "edit,edit,popup(Full|User Defined),popup(Signed  (2's comp)|Unsigned),edit,edit,popup(Tru"
+      "ncate|Round  (unbiased: +/- Inf)),popup(Wrap|Saturate|Flag as error),popup(Behavioral|Fabric|DSP48)"
+      MaskTunableValueString  "on,on,on,on,on,on,on,on,on"
+      MaskCallbackString      "||precision = get_param(gcb, 'precision');\nif ~strcmp(precision, 'User Defined')\n    "
+      "set_param_state(gcb,'arith_type','off');\n    set_param_state(gcb, 'n_bits', 'off');\n    set_param_state(gcb, '"
+      "bin_pt', 'off');\n    set_param_state(gcb, 'quantization', 'off');\n    set_param_state(gcb, 'overflow', 'off');"
+      "\nelse\n    set_param_state(gcb,'arith_type','on');\n    set_param_state(gcb, 'n_bits', 'on');\n    set_param_st"
+      "ate(gcb, 'bin_pt', 'on');\n    set_param_state(gcb, 'quantization', 'on');\n    set_param_state(gcb, 'overflow',"
+      " 'on');\nend||||||"
+      MaskEnableString	      "on,on,on,off,off,off,off,off,on"
+      MaskVisibilityString    "on,on,on,on,on,on,on,on,on"
+      MaskToolTipString	      "on,on,on,on,on,on,on,on,on"
+      MaskVariables	      "n_inputs=@1;add_latency=@2;precision=&3;arith_type=&4;n_bits=@5;bin_pt=@6;quantization=&7;o"
+      "verflow=&8;mode=&9;"
+      MaskInitialization      "config.source = str2func('adder_tree_init_xblock');\nconfig.toplevel = gcb;\nconfig.dep"
+      "end = get_dependlist('adder_tree');\nset_param(gcb,'LinkStatus','inactive');\nxBlock(config, {config.toplevel, ."
+      "..\n    'n_inputs', n_inputs, ...\n    'add_latency', add_latency, ...\n    'mode', mode, ...\n    'quantization"
+      "', quantization, ...\n    'overflow', overflow, ...\n    'precision', precision, ...\n    'arith_type', arith_ty"
+      "pe, ...\n    'n_bits', n_bits, ...\n    'bin_pt', bin_pt});"
       MaskSelfModifiable      on
       MaskIconFrame	      on
       MaskIconOpaque	      on
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "4|1|Fabric|on"
+      MaskValueString	      "4|1|Full|Signed  (2's comp)|8|7|Truncate|Wrap|Fabric"
+      MaskTabNameString	      "Basic,Basic,Output Type,Output Type,Output Type,Output Type,Output Type,Output Type,Imp"
+      "lementation"
       System {
 	Name			"adder_tree"
-	Location		[366, 77, 1275, 747]
+	Location		[5, 77, 1285, 710]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1092,52 +1102,52 @@ Library {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	585
+	SIDHighWatermark	660
 	Block {
 	  BlockType		  Inport
 	  Name			  "sync"
 	  SID			  573
-	  Position		  [15, 237, 45, 253]
+	  Position		  [15, 242, 45, 258]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "din1"
-	  SID			  574
-	  Position		  [15, 32, 45, 48]
+	  Name			  "din_1"
+	  SID			  586
+	  Position		  [15, 180, 35, 200]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "din2"
-	  SID			  575
-	  Position		  [15, 77, 45, 93]
+	  Name			  "din_2"
+	  SID			  587
+	  Position		  [15, 130, 35, 150]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "din3"
-	  SID			  576
-	  Position		  [15, 130, 35, 150]
+	  Name			  "din_3"
+	  SID			  588
+	  Position		  [15, 80, 35, 100]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "din4"
-	  SID			  577
-	  Position		  [15, 180, 35, 200]
+	  Name			  "din_4"
+	  SID			  589
+	  Position		  [15, 30, 35, 50]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "addr1"
-	  SID			  583
+	  Name			  "adder_0"
+	  SID			  658
 	  Ports			  [2, 1]
-	  Position		  [75, 35, 135, 95]
+	  Position		  [75, 131, 135, 189]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/AddSub"
 	  SourceType		  "Xilinx Adder/Subtracter Block"
@@ -1148,17 +1158,56 @@ Library {
 	  latency		  "1"
 	  precision		  "Full"
 	  arith_type		  "Unsigned"
-	  n_bits		  "16"
-	  bin_pt		  "14"
+	  n_bits		  "8"
+	  bin_pt		  "7"
 	  quantization		  "Truncate"
 	  overflow		  "Wrap"
 	  dbl_ovrd		  off
-	  use_behavioral_HDL	  on
+	  use_behavioral_HDL	  off
 	  hw_selection		  "Fabric"
-	  pipelined		  on
+	  pipelined		  off
 	  xl_use_area		  off
 	  xl_area		  "[0,0,0,0,0,0,0]"
-	  use_rpm		  "on"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "addsub"
+	  block_version		  "11.4"
+	  sg_icon_stat		  "60,58,2,1,white,blue,0,8ff03b5e,right,"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
+	  "ch([0.25 0.0833333 0.316667 0.0833333 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.566667 0.333333 0"
+	  ".483333 0.683333 0.9 0.633333 0.566667 0.5 0.25 ],[0.103448 0.275862 0.517241 0.758621 0.931034 0.931034 0.862069 0"
+	  ".931034 0.931034 0.706897 0.913793 0.758621 0.517241 0.275862 0.12069 0.327586 0.103448 0.103448 0.172414 0.103448 "
+	  "0.103448 ],[0.98 0.96 0.92]);\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf"
+	  "('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'a');\ncolor('black');port_label('input',2,'b"
+	  "');\ncolor('black');port_label('output',1,'\\bf{a + b}','texmode','on');\ncolor('black');disp('\\newline\\bf{}\\new"
+	  "linez^{-1}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "adder_1"
+	  SID			  659
+	  Ports			  [2, 1]
+	  Position		  [75, 40, 135, 100]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/AddSub"
+	  SourceType		  "Xilinx Adder/Subtracter Block"
+	  mode			  "Addition"
+	  use_carryin		  off
+	  use_carryout		  off
+	  en			  off
+	  latency		  "1"
+	  precision		  "Full"
+	  arith_type		  "Unsigned"
+	  n_bits		  "8"
+	  bin_pt		  "7"
+	  quantization		  "Truncate"
+	  overflow		  "Wrap"
+	  dbl_ovrd		  off
+	  use_behavioral_HDL	  off
+	  hw_selection		  "Fabric"
+	  pipelined		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "addsub"
@@ -1172,19 +1221,13 @@ Library {
 	  "t',1,'a');\ncolor('black');port_label('input',2,'b');\ncolor('black');port_label('output',1,'\\bf{a + b}','texmode'"
 	  ",'on');\ncolor('black');disp('\\newline\\bf{}\\newlinez^{-1}','texmode','on');\nfprintf('','COMMENT: end icon text'"
 	  ");\n"
-	  Port {
-	    PortNumber		    1
-	    Name		    "adder_outs1_1"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "addr2"
-	  SID			  584
+	  Name			  "adder_2"
+	  SID			  660
 	  Ports			  [2, 1]
-	  Position		  [75, 126, 135, 184]
+	  Position		  [165, 86, 225, 144]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/AddSub"
 	  SourceType		  "Xilinx Adder/Subtracter Block"
@@ -1195,64 +1238,16 @@ Library {
 	  latency		  "1"
 	  precision		  "Full"
 	  arith_type		  "Unsigned"
-	  n_bits		  "16"
-	  bin_pt		  "14"
-	  quantization		  "Truncate"
-	  overflow		  "Wrap"
-	  dbl_ovrd		  off
-	  use_behavioral_HDL	  on
-	  hw_selection		  "Fabric"
-	  pipelined		  on
-	  xl_use_area		  off
-	  xl_area		  "[0,0,0,0,0,0,0]"
-	  use_rpm		  "on"
-	  has_advanced_control	  "0"
-	  sggui_pos		  "-1,-1,-1,-1"
-	  block_type		  "addsub"
-	  block_version		  "11.4"
-	  sg_icon_stat		  "60,58,2,1,white,blue,0,8ff03b5e,right,"
-	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
-	  "ch([0.25 0.0833333 0.316667 0.0833333 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.566667 0.333333 0"
-	  ".483333 0.683333 0.9 0.633333 0.566667 0.5 0.25 ],[0.103448 0.275862 0.517241 0.758621 0.931034 0.931034 0.862069 0"
-	  ".931034 0.931034 0.706897 0.913793 0.758621 0.517241 0.275862 0.12069 0.327586 0.103448 0.103448 0.172414 0.103448 "
-	  "0.103448 ],[0.98 0.96 0.92]);\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf"
-	  "('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'a');\ncolor('black');port_label('input',2,'b"
-	  "');\ncolor('black');port_label('output',1,'\\bf{a + b}','texmode','on');\ncolor('black');disp('\\newline\\bf{}\\new"
-	  "linez^{-1}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
-	  Port {
-	    PortNumber		    1
-	    Name		    "adder_outs1_2"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "addr3"
-	  SID			  585
-	  Ports			  [2, 1]
-	  Position		  [165, 81, 225, 139]
-	  LibraryVersion	  "1.2"
-	  SourceBlock		  "xbsIndex_r4/AddSub"
-	  SourceType		  "Xilinx Adder/Subtracter Block"
-	  mode			  "Addition"
-	  use_carryin		  off
-	  use_carryout		  off
-	  en			  off
-	  latency		  "1"
-	  precision		  "Full"
-	  arith_type		  "Unsigned"
-	  n_bits		  "16"
-	  bin_pt		  "14"
+	  n_bits		  "8"
+	  bin_pt		  "7"
 	  quantization		  "Truncate"
 	  overflow		  "Wrap"
 	  dbl_ovrd		  off
 	  use_behavioral_HDL	  off
 	  hw_selection		  "Fabric"
-	  pipelined		  on
+	  pipelined		  off
 	  xl_use_area		  off
 	  xl_area		  "[0,0,0,0,0,0,0]"
-	  use_rpm		  "on"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "addsub"
@@ -1266,19 +1261,13 @@ Library {
 	  "('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'a');\ncolor('black');port_label('input',2,'b"
 	  "');\ncolor('black');port_label('output',1,'\\bf{a + b}','texmode','on');\ncolor('black');disp('\\newline\\bf{}\\new"
 	  "linez^{-1}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
-	  Port {
-	    PortNumber		    1
-	    Name		    "adder_outs2_1"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "sync_delay"
-	  SID			  582
+	  SID			  656
 	  Ports			  [1, 1]
-	  Position		  [75, 217, 135, 273]
+	  Position		  [75, 222, 135, 278]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
@@ -1286,7 +1275,7 @@ Library {
 	  en			  off
 	  latency		  "2"
 	  dbl_ovrd		  off
-	  reg_retiming		  on
+	  reg_retiming		  off
 	  xl_use_area		  off
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
@@ -1305,68 +1294,63 @@ Library {
 	  BlockType		  Outport
 	  Name			  "sync_out"
 	  SID			  582
-	  Position		  [180, 237, 210, 253]
+	  Position		  [180, 242, 210, 258]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "dout"
 	  SID			  583
-	  Position		  [255, 102, 290, 118]
+	  Position		  [255, 107, 290, 123]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  Name			  "adder_outs2_1"
-	  Labels		  [0, 0]
-	  SrcBlock		  "addr3"
+	  SrcBlock		  "adder_2"
 	  SrcPort		  1
 	  DstBlock		  "dout"
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "adder_outs1_2"
-	  Labels		  [0, 0]
-	  SrcBlock		  "addr2"
+	  SrcBlock		  "adder_0"
 	  SrcPort		  1
 	  Points		  [5, 0; 0, -30]
-	  DstBlock		  "addr3"
+	  DstBlock		  "adder_2"
 	  DstPort		  2
 	}
 	Line {
-	  Name			  "adder_outs1_1"
-	  Labels		  [0, 0]
-	  SrcBlock		  "addr1"
+	  SrcBlock		  "adder_1"
 	  SrcPort		  1
 	  Points		  [5, 0; 0, 30]
-	  DstBlock		  "addr3"
+	  DstBlock		  "adder_2"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "din4"
+	  SrcBlock		  "din_3"
 	  SrcPort		  1
-	  Points		  [10, 0; 0, -20]
-	  DstBlock		  "addr2"
+	  Points		  [10, 0; 0, -5]
+	  DstBlock		  "adder_1"
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "din3"
+	  SrcBlock		  "din_4"
 	  SrcPort		  1
-	  DstBlock		  "addr2"
+	  Points		  [10, 0; 0, 15]
+	  DstBlock		  "adder_1"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "din2"
+	  SrcBlock		  "din_1"
 	  SrcPort		  1
-	  Points		  [5, 0; 0, -5]
-	  DstBlock		  "addr1"
+	  Points		  [10, 0; 0, -15]
+	  DstBlock		  "adder_0"
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "din1"
+	  SrcBlock		  "din_2"
 	  SrcPort		  1
-	  Points		  [5, 0; 0, 10]
-	  DstBlock		  "addr1"
+	  Points		  [10, 0; 0, 5]
+	  DstBlock		  "adder_0"
 	  DstPort		  1
 	}
 	Line {
@@ -4192,7 +4176,7 @@ MatData {
     " !          D    (             $ .    .     8    (    !@         %    \"     $    !     0         )    \"         "
     "   / _#@   #@    &    \"     0         !0    @    !    !@    $         $     8   !&86)R:6,   X    P    !@    @    "
     "$          4    (     0    (    !         !   @!O;@  #@   %     &    \"     0         !0    @    !    (     $     "
-    "    $    \"     R9C4X-64T,C<Q-68T831E,30U-#<P.3@W,3,Y.#<T, "
+    "    $    \"    !B-31D8C,Q,F$W-S4X83<S.3AD8F4W.38S.39B,SDV90"
   }
   DataRecord {
     Tag			    DataTag0

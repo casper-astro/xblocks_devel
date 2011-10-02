@@ -19,9 +19,37 @@
 %   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.               %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function adder_tree_init_xblock(blk, n_inputs, add_latency, quantization, overflow, mode)
+% n_inputs: Number of inputs
+% add_latency: Add Latency
+% quantization: Quantization Behavior
+% overflow: Overflow Behavior
+% mode: Implementation mode: DSP48E, Fabric, Behavioral
+% precision: define the precision of the result
+% n_bits: when precision is set to "User Defined", this defines the
+%           bitwidth of the output
+% bin_pt: when precision is set to "User Defined", this defines the
+%           binary point position of the output
+function adder_tree_init_xblock(blk, varargin)
+%% Still a work in progress
 
+defaults = {'n_inputs', 4, ...
+            'add_latency', 1, ...
+            'quantization', 'Truncate', ...
+            'overflow', 'Wrap', ...
+            'mode', 'DSP48E', ...
+            'precision', 'Full', ...
+            'n_bits', 18, ...
+            'bin_pt', 17};
+            
 
+n_inputs = get_var('n_inputs', 'defaults', defaults, varargin{:});
+add_latency = get_var('add_latency', 'defaults', defaults, varargin{:});
+quantization = get_var('quantization', 'defaults', defaults, varargin{:});
+overflow = get_var('overflow', 'defaults', defaults, varargin{:});
+mode = get_var('mode', 'defaults', defaults, varargin{:});
+precision = get_var('precision', 'defaults', defaults, varargin{:});
+n_bits = get_var('n_bits', 'defaults', defaults, varargin{:});
+bin_pt = get_var('bin_pt', 'defaults', defaults, varargin{:});
 	
 	% Inports
 	sync_in = xInport('sync');
@@ -133,12 +161,14 @@ elseif strcmp(mode, 'Behavioral') || strcmp(mode, 'Fabric')
 	stage_ind = 1;
     
     if strcmp(mode, 'Behavioral')
-        adder_config = struct('mode', 'Addition', 'latency', add_latency, 'precision', 'Full', ...
+        adder_config = struct('mode', 'Addition', 'latency', add_latency, 'precision', precision, ...
 								 		'quantization', quantization, 'overflow', overflow, ...
+                                        'n_bits', n_bits, 'bin_pt', bin_pt, ...
                                         'use_behavioral_HDL', 'on');
     else
-        adder_config = struct('mode', 'Addition', 'latency', add_latency, 'precision', 'Full', ...
+        adder_config = struct('mode', 'Addition', 'latency', add_latency, 'precision', precision, ...
 								 		'quantization', quantization, 'overflow', overflow, ...
+                                        'n_bits', n_bits, 'bin_pt', bin_pt, ...
                                         'use_behavioral_HDL', 'off', 'hw_selection', 'Fabric');        
     end
     
