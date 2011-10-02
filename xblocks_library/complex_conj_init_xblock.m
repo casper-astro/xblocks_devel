@@ -19,7 +19,17 @@
 %   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.               %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function complex_conj_init_xblock(blk, bitwidth, bin_pt, latency, mode)
+function complex_conj_init_xblock(blk, varargin) 
+defaults = { ...
+    'bitwidth', 18, ...
+    'bin_pt', 17, ...
+    'latency', 3, ...
+    'mode', 'dsp48e', ...
+};
+bitwidth = get_var('bitwidth', 'defaults', defaults, varargin{:});
+bin_pt = get_var('bin_pt', 'defaults', defaults, varargin{:});
+latency = get_var('latency', 'defaults', defaults, varargin{:});
+mode = get_var('mode', 'defaults', defaults, varargin{:});
 
 in = xInport('z');
 out = xOutport('z*');

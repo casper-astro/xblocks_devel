@@ -15,9 +15,15 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "chenhong"
   ModifiedDateFormat	  "%<Auto>"
+<<<<<<< HEAD
   LastModifiedDate	  "Fri Sep 30 01:48:57 2011"
   RTWModifiedTimeStamp	  239248135
   ModelVersionFormat	  "1.%<AutoIncrement:7>"
+=======
+  LastModifiedDate	  "Wed Aug 10 09:25:59 2011"
+  RTWModifiedTimeStamp	  234869155
+  ModelVersionFormat	  "1.%<AutoIncrement:5>"
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -634,7 +640,7 @@ Library {
   }
   System {
     Name		    "xblocks_library_scopes"
-    Location		    [302, 77, 838, 554]
+    Location		    [480, 85, 1016, 386]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -648,14 +654,19 @@ Library {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
+<<<<<<< HEAD
     SIDHighWatermark	    2993
+=======
+    SIDHighWatermark	    2855
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
     Block {
       BlockType		      SubSystem
-      Name		      "Parallel_scope"
-      SID		      2886
-      Ports		      [5, 1]
-      Position		      [30, 29, 85, 101]
-      AttributesFormatString  "Sample Period = 1"
+      Name		      "dsp_scope"
+      SID		      17
+      Ports		      [1, 1]
+      Position		      [130, 293, 165, 327]
+      BackgroundColor	      "lightBlue"
+      AttributesFormatString  "Fix_8_7\n4 inputs\nSample Period4"
       UserDataPersistent      on
       UserData		      "DataTag0"
       MinAlgLoopOccurrences   off
@@ -665,31 +676,35 @@ Library {
       Opaque		      off
       RequestExecContextInheritance off
       MaskHideContents	      off
-      MaskType		      "Parallel Scope"
-      MaskDescription	      "This parallel scope can handle parallel inputs \nby propagating though gateways and seria"
-      "lize into \none single stream. The output can then be connected\ndirectly to a scope or toWorkspace. \n\nThe sam"
-      "ple_period desribes the parallel inputs rate. \nFor example, for a 4-inputs stream with sample_period = 1\n(4 pa"
-      "rallel inputs per Clk),  the output stream frequency \nwould be 4/1 = 4 (Sample/Clk)"
-      MaskPromptString	      "Number of inputs|Sample Period"
-      MaskStyleString	      "edit,edit"
-      MaskTunableValueString  "on,on"
-      MaskCallbackString      "|"
-      MaskEnableString	      "on,on"
-      MaskVisibilityString    "on,on"
-      MaskToolTipString	      "on,on"
-      MaskVariables	      "n_inputs=@1;sample_period=@2;"
-      MaskInitialization      "config.source=str2func('parallel_scope_init_xblock');\nconfig.depend=get_dependlist('pa"
-      "rallel_scope');\nconfig.toplevel=gcb;\nset_param(gcb,'LinkStatus','inactive');\nxBlock(config, {config.toplevel,"
-      "...\n    'n_inputs', n_inputs, ...\n    'sample_period', sample_period});"
+      MaskType		      "dsp_scope"
+      MaskDescription	      "This block provides a convenient interface to plotting waveforms\nof blocks with serial d"
+      "ata output in parallel.  The core example\nis of the ADC, which outputs 8 samples / clock.  This scope (simulati"
+      "on only)\nsamples sufficently fast (based on the number of parallel inputs)\nto serialize the output for view in"
+      " a standard simulink scope.  \n\nThe input must be concatenated parallel data streams, and\neach data binary poi"
+      "nt must be 0.  The easiest way to do this is\nto push  all the inputs through a \"cram\" block from the\nGAVRT b"
+      "lockset.  \neasy "
+      MaskPromptString	      "Number of inputs|Width of each input|Output Binary Point|Output Arithmetic Type (0=Unsig"
+      "ned, 1 = Signed)|Sample Period"
+      MaskStyleString	      "edit,edit,edit,edit,edit"
+      MaskTunableValueString  "on,on,on,on,on"
+      MaskCallbackString      "||||"
+      MaskEnableString	      "on,on,on,on,on"
+      MaskVisibilityString    "on,on,on,on,on"
+      MaskToolTipString	      "on,on,on,on,on"
+      MaskVariables	      "n_inputs=@1;slice_width=@2;bin_pt=@3;arith_type=@4;sample_period=@5;"
+      MaskInitialization      "config.source = str2func('dsp_scope_init_xblock');\nconfig.toplevel = gcb;\nconfig.depe"
+      "nd = get_dependlist('dsp_scope');\nset_param(gcb,'LinkStatus','inactive');\nxBlock(config, {config.toplevel, ..."
+      "\n    'n_inputs', n_inputs, ...\n    'slice_width', slice_width, ...\n    'bin_pt', bin_pt, ...\n    'arith_type"
+      "', arith_type, ...\n    'sample_period', sample_period});"
       MaskIconFrame	      on
       MaskIconOpaque	      on
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "5|1"
+      MaskValueString	      "4|8|7|1|4"
       System {
-	Name			"Parallel_scope"
-	Location		[65, 176, 645, 525]
+	Name			"dsp_scope"
+	Location		[566, 276, 1014, 577]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -704,49 +719,23 @@ Library {
 	ZoomFactor		"100"
 	Block {
 	  BlockType		  Inport
-	  Name			  "in1"
-	  SID			  2887
-	  Position		  [15, 90, 35, 110]
+	  Name			  "in"
+	  SID			  18
+	  Position		  [15, 168, 45, 182]
 	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "in2"
-	  SID			  2888
-	  Position		  [15, 140, 35, 160]
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "in3"
-	  SID			  2889
-	  Position		  [15, 190, 35, 210]
-	  Port			  "3"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "in4"
-	  SID			  2890
-	  Position		  [15, 235, 35, 255]
-	  Port			  "4"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "in5"
-	  SID			  2891
-	  Position		  [15, 285, 35, 305]
-	  Port			  "5"
-	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out1"
+<<<<<<< HEAD
 	  SID			  2988
+=======
+	  SID			  2851
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [1, 1]
-	  Position		  [60, 90, 120, 110]
+	  Position		  [155, 90, 215, 110]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/Gateway Out"
 	  SourceType		  "Xilinx Gateway Out Block"
@@ -780,9 +769,13 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out2"
+<<<<<<< HEAD
 	  SID			  2989
+=======
+	  SID			  2852
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [1, 1]
-	  Position		  [60, 140, 120, 160]
+	  Position		  [155, 140, 215, 160]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/Gateway Out"
 	  SourceType		  "Xilinx Gateway Out Block"
@@ -816,9 +809,13 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out3"
+<<<<<<< HEAD
 	  SID			  2990
+=======
+	  SID			  2853
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [1, 1]
-	  Position		  [60, 190, 120, 210]
+	  Position		  [155, 190, 215, 210]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/Gateway Out"
 	  SourceType		  "Xilinx Gateway Out Block"
@@ -852,9 +849,13 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "gateway_out4"
+<<<<<<< HEAD
 	  SID			  2991
+=======
+	  SID			  2854
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [1, 1]
-	  Position		  [60, 235, 120, 255]
+	  Position		  [155, 240, 215, 260]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/Gateway Out"
 	  SourceType		  "Xilinx Gateway Out Block"
@@ -884,6 +885,7 @@ Library {
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
+<<<<<<< HEAD
 	}
 	Block {
 	  BlockType		  Reference
@@ -1450,14 +1452,58 @@ Library {
 	      DstBlock		      "gateway_out1"
 	      DstPort		      1
 	    }
+=======
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "sel"
+	  SID			  2836
+	  Ports			  [0, 1]
+	  Position		  [170, 30, 200, 60]
+	  LibraryVersion	  "1.762"
+	  SourceBlock		  "simulink/Sources/Counter\nFree-Running"
+	  SourceType		  "Counter Free-Running"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  NumBits		  "2"
+	  tsamp			  "1"
+	  Port {
+	    PortNumber		    1
+	    Name		    "sel_out"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  }
+	}
+	Block {
+	  BlockType		  MultiPortSwitch
+	  Name			  "switch"
+	  SID			  2855
+	  Ports			  [5, 1]
+	  Position		  [245, 127, 275, 173]
+	  Inputs		  "4"
+	  zeroidx		  on
+	  InputSameDT		  off
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "uncram"
+<<<<<<< HEAD
 	  SID			  2954
+=======
+	  SID			  2837
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [1, 4]
-	  Position		  [75, 32, 125, 118]
+	  Position		  [75, 132, 125, 218]
 	  AttributesFormatString  "Fix_8_7"
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
@@ -1508,14 +1554,22 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "inport"
+<<<<<<< HEAD
 	      SID		      2955
+=======
+	      SID		      2838
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Position		      [15, 130, 35, 150]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Reinterp1"
+<<<<<<< HEAD
 	      SID		      2961
+=======
+	      SID		      2844
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [1, 1]
 	      Position		      [150, 29, 200, 61]
 	      LibraryVersion	      "1.2"
@@ -1545,7 +1599,11 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Reinterp2"
+<<<<<<< HEAD
 	      SID		      2963
+=======
+	      SID		      2846
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [1, 1]
 	      Position		      [150, 94, 200, 126]
 	      LibraryVersion	      "1.2"
@@ -1575,7 +1633,11 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Reinterp3"
+<<<<<<< HEAD
 	      SID		      2965
+=======
+	      SID		      2848
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [1, 1]
 	      Position		      [150, 154, 200, 186]
 	      LibraryVersion	      "1.2"
@@ -1605,7 +1667,11 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Reinterp4"
+<<<<<<< HEAD
 	      SID		      2967
+=======
+	      SID		      2850
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [1, 1]
 	      Position		      [150, 219, 200, 251]
 	      LibraryVersion	      "1.2"
@@ -1635,7 +1701,11 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Slice1"
+<<<<<<< HEAD
 	      SID		      2960
+=======
+	      SID		      2843
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [1, 1]
 	      Position		      [60, 34, 120, 66]
 	      LibraryVersion	      "1.2"
@@ -1673,7 +1743,11 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Slice2"
+<<<<<<< HEAD
 	      SID		      2962
+=======
+	      SID		      2845
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [1, 1]
 	      Position		      [60, 95, 120, 125]
 	      LibraryVersion	      "1.2"
@@ -1711,7 +1785,11 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Slice3"
+<<<<<<< HEAD
 	      SID		      2964
+=======
+	      SID		      2847
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [1, 1]
 	      Position		      [60, 159, 120, 191]
 	      LibraryVersion	      "1.2"
@@ -1749,7 +1827,11 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Slice4"
+<<<<<<< HEAD
 	      SID		      2966
+=======
+	      SID		      2849
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [1, 1]
 	      Position		      [60, 219, 120, 251]
 	      LibraryVersion	      "1.2"
@@ -1787,14 +1869,22 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "outport1"
+<<<<<<< HEAD
 	      SID		      2956
+=======
+	      SID		      2839
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Position		      [230, 35, 250, 55]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "outport2"
+<<<<<<< HEAD
 	      SID		      2957
+=======
+	      SID		      2840
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Position		      [230, 100, 250, 120]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1802,7 +1892,11 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "outport3"
+<<<<<<< HEAD
 	      SID		      2958
+=======
+	      SID		      2841
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Position		      [230, 160, 250, 180]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -1810,7 +1904,11 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "outport4"
+<<<<<<< HEAD
 	      SID		      2959
+=======
+	      SID		      2842
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Position		      [230, 225, 250, 245]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -1904,15 +2002,59 @@ Library {
 	  BlockType		  Outport
 	  Name			  "out"
 	  SID			  22
-	  Position		  [235, 68, 265, 82]
+	  Position		  [310, 143, 340, 157]
 	  IconDisplay		  "Port number"
 	  OutDataType		  "sfix(16)"
 	  OutScaling		  "2^0"
 	}
 	Line {
-	  SrcBlock		  "p_scope"
+	  SrcBlock		  "switch"
 	  SrcPort		  1
 	  DstBlock		  "out"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "switcher_in4"
+	  Labels		  [0, 0]
+	  SrcBlock		  "gateway_out4"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  DstBlock		  "switch"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "switcher_in3"
+	  Labels		  [0, 0]
+	  SrcBlock		  "gateway_out3"
+	  SrcPort		  1
+	  Points		  [0, -40]
+	  DstBlock		  "switch"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "switcher_in2"
+	  Labels		  [0, 0]
+	  SrcBlock		  "gateway_out2"
+	  SrcPort		  1
+	  DstBlock		  "switch"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "switcher_in1"
+	  Labels		  [0, 0]
+	  SrcBlock		  "gateway_out1"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, 40]
+	  DstBlock		  "switch"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "sel_out"
+	  Labels		  [0, 0]
+	  SrcBlock		  "sel"
+	  SrcPort		  1
+	  Points		  [25, 0]
+	  DstBlock		  "switch"
 	  DstPort		  1
 	}
 	Line {
@@ -1920,31 +2062,35 @@ Library {
 	  Labels		  [0, 0]
 	  SrcBlock		  "uncram"
 	  SrcPort		  4
-	  DstBlock		  "p_scope"
-	  DstPort		  4
+	  Points		  [0, 45]
+	  DstBlock		  "gateway_out4"
+	  DstPort		  1
 	}
 	Line {
 	  Name			  "uncram_out3"
 	  Labels		  [0, 0]
 	  SrcBlock		  "uncram"
 	  SrcPort		  3
-	  DstBlock		  "p_scope"
-	  DstPort		  3
+	  Points		  [5, 0; 0, 15]
+	  DstBlock		  "gateway_out3"
+	  DstPort		  1
 	}
 	Line {
 	  Name			  "uncram_out2"
 	  Labels		  [0, 0]
 	  SrcBlock		  "uncram"
 	  SrcPort		  2
-	  DstBlock		  "p_scope"
-	  DstPort		  2
+	  Points		  [10, 0]
+	  DstBlock		  "gateway_out2"
+	  DstPort		  1
 	}
 	Line {
 	  Name			  "uncram_out1"
 	  Labels		  [0, 0]
 	  SrcBlock		  "uncram"
 	  SrcPort		  1
-	  DstBlock		  "p_scope"
+	  Points		  [0, -45]
+	  DstBlock		  "gateway_out1"
 	  DstPort		  1
 	}
 	Line {
@@ -1958,6 +2104,7 @@ Library {
   }
 }
 MatData {
+<<<<<<< HEAD
   NumRecords		  2
   DataRecord {
     Tag			    DataTag1
@@ -1970,5 +2117,13 @@ MatData {
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
     "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    -38S9C5C-C5C.&5A,3=F9#"
     "0P964T-#4Q.&9C9F1D-S0"
+=======
+  NumRecords		  1
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    .3DX8C%B.&8S,F,S.&8T,&"
+    "9E,35B8F4T-&9F9F1F,C$"
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
   }
 }

@@ -45,6 +45,7 @@ defaults = {'FFTSize', 2, ...
     'input_latency', 0, ...
     'mux_latency',  5, ...
     'negate_latency', 3, ...
+    'negate_dsp48e', 1, ...
     'arch', 'Virtex5', ...
     'coeffs_bram', 'off', ...
     'use_hdl', 'off', ...
@@ -70,6 +71,8 @@ conv_latency = get_var('conv_latency', 'defaults', defaults, varargin{:});
 input_latency = get_var('input_latency', 'defaults', defaults, varargin{:});
 mux_latency = get_var('mux_latency', 'defaults', defaults, varargin{:});
 negate_latency = get_var('negate_latency', 'defaults', defaults, varargin{:});
+negate_dsp48e = get_var('negate_dsp48e', 'defaults', defaults, varargin{:});
+
 
 arch = get_var('arch', 'defaults', defaults, varargin{:});
 coeffs_bram = get_var('coeffs_bram', 'defaults', defaults, varargin{:});
@@ -80,6 +83,7 @@ overflow = get_var('overflow', 'defaults', defaults, varargin{:});
 opt_target = get_var('opt_target', 'defaults', defaults, varargin{:});
 use_dsp48_mults = get_var('use_dsp48_mults', 'defaults', defaults, varargin{:});
 biplex = get_var('biplex', 'defaults', defaults, varargin{:});
+
 
 %use_embedded = strcmp('on', use_embedded);
 
@@ -109,21 +113,28 @@ c_to_ri_b = xBlock(struct('source', str2func('c_to_ri_init_xblock'), 'name', 'c_
 if strcmp(twiddle_type, 'twiddle_pass_through') || strcmp(twiddle_type, 'twiddle_stage_2')...
         || strcmp(twiddle_type,'twiddle_general_dsp48e') || strcmp(twiddle_type, 'twiddle_coeff_0')
     % delay inputs by input_latency length
-    a_re_del = xSignal;
-    a_im_del = xSignal;
-    b_re_del = xSignal;
-    b_im_del = xSignal;
-    sync_del = xSignal;
-    pipe_a_re = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_a_re'), ...
-        {[blk,'/pipe_a_re'],input_latency}, {a_re}, {a_re_del});
-    pipe_a_im = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_a_im'), ...
-        {[blk,'/pipe_a_im'],input_latency}, {a_im}, {a_im_del});
-    pipe_b_re = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_b_re'), ...
-        {[blk,'/pipe_b_re'],input_latency}, {b_re}, {b_re_del});
-    pipe_b_im = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_b_im'), ...
-        {[blk,'/pipe_b_im'],input_latency}, {b_im}, {b_im_del});
-    pipe_sync = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_sync'), ...
-        {[blk,'/pipe_sync'],input_latency}, {sync}, {sync_del});
+    if input_latency > 0
+		a_re_del = xSignal;
+		a_im_del = xSignal;
+		b_re_del = xSignal;
+		b_im_del = xSignal;
+		sync_del = xSignal;
+		pipe_a_re = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_a_re'), ...
+			{[blk,'/pipe_a_re'],input_latency}, {a_re}, {a_re_del});
+		pipe_a_im = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_a_im'), ...
+			{[blk,'/pipe_a_im'],input_latency}, {a_im}, {a_im_del});
+		pipe_b_re = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_b_re'), ...
+			{[blk,'/pipe_b_re'],input_latency}, {b_re}, {b_re_del});
+		pipe_b_im = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_b_im'), ...
+			{[blk,'/pipe_b_im'],input_latency}, {b_im}, {b_im_del});
+		pipe_sync = xBlock( struct('source', str2func('pipeline_init_xblock'), 'name', 'pipe_sync'), ...
+			{[blk,'/pipe_sync'],input_latency}, {sync}, {sync_del});
+	else
+		a_re_del = a_re;
+		a_im_del = a_im;
+		b_re_del = b_re;
+		b_im_del = b_im;
+		sync_del = sync;	
 end
 
 switch twiddle_type
@@ -138,10 +149,12 @@ switch twiddle_type
         
     case 'twiddle_stage_2'
         disp('twiddle_stage_2');
-	    twiddle_stage_2_draw_init_xblock(a_re_del, a_im_del, b_re_del, b_im_del, sync_del, ...
+        use_dsp48_mults
+        negate_dsp48e
+		twiddle_stage_2_draw_init_xblock(a_re_del, a_im_del, b_re_del, b_im_del, sync_del, ...
 	    	a_re_out, a_im_out, bw_re_out, bw_im_out, sync_out, ...
-	    	FFTSize, input_bit_width, add_latency, mult_latency, bram_latency, conv_latency,...
-            use_dsp48_mults, opt_target);
+	    	FFTSize, input_bit_width, add_latency, mult_latency, bram_latency, ...
+	    	conv_latency, negate_dsp48e, opt_target, mux_latency, negate_latency);
 	    	
     case 'twiddle_general_dsp48e'
         disp('twiddle_general_dsp48e');

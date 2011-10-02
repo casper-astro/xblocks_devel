@@ -151,8 +151,5 @@ xlsub2_warn_period_Relational10 = xBlock(struct('source', 'xbsReplacements_r4/Wa
                                          {});
 
 
-if ~isempty(blk) && ~strcmp(blk(1), '/')
-    clean_blocks(blk);
-end
 end
 

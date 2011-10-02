@@ -46,13 +46,10 @@ if n_inputs < 1
     error('Number of inputs cannot be less than 1.');
 end
 
-map
-n_inputs
 map_length = length(map);
 map_bits = ceil(log2(map_length));
 order = compute_order(map);
 order_bits = ceil(log2(order));
-order
 
 if (strcmp('on',bram_map))
     map_memory_type = 'Block RAM';

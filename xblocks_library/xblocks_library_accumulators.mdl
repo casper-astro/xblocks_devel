@@ -13,11 +13,17 @@ Library {
   Creator		  "mdexter"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "chenhong"
+  LastModifiedBy	  "sgowda"
   ModifiedDateFormat	  "%<Auto>"
+<<<<<<< HEAD
   LastModifiedDate	  "Fri Sep 30 03:07:59 2011"
   RTWModifiedTimeStamp	  239252877
   ModelVersionFormat	  "1.%<AutoIncrement:7>"
+=======
+  LastModifiedDate	  "Fri Sep 16 17:16:00 2011"
+  RTWModifiedTimeStamp	  238094158
+  ModelVersionFormat	  "1.%<AutoIncrement:5>"
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -617,7 +623,11 @@ Library {
   }
   System {
     Name		    "xblocks_library_accumulators"
+<<<<<<< HEAD
     Location		    [470, 53, 1201, 507]
+=======
+    Location		    [475, 77, 1011, 531]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -631,6 +641,7 @@ Library {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
+<<<<<<< HEAD
     SIDHighWatermark	    1706
     Block {
       BlockType		      SubSystem
@@ -4459,6 +4470,9 @@ Library {
 	}
       }
     }
+=======
+    SIDHighWatermark	    1256
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
     Block {
       BlockType		      SubSystem
       Name		      "vacc"
@@ -4467,7 +4481,7 @@ Library {
       Position		      [190, 102, 310, 373]
       AttributesFormatString  "vector length=32, inputs=4\nmax accumulations=2^5"
       UserDataPersistent      on
-      UserData		      "DataTag1"
+      UserData		      "DataTag0"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -4575,7 +4589,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "AND"
+<<<<<<< HEAD
 	  SID			  1548
+=======
+	  SID			  1093
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [2, 1]
 	  Position		  [435, 60, 490, 120]
 	  LibraryVersion	  "1.2"
@@ -4609,7 +4627,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "AccEnCompare"
+<<<<<<< HEAD
 	  SID			  1549
+=======
+	  SID			  1094
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [2, 1]
 	  Position		  [345, 422, 400, 478]
 	  LibraryVersion	  "1.2"
@@ -4638,7 +4660,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Counter"
+<<<<<<< HEAD
 	  SID			  1550
+=======
+	  SID			  1095
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [1, 1]
 	  Position		  [160, 75, 220, 135]
 	  LibraryVersion	  "1.2"
@@ -4680,7 +4706,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "OR"
+<<<<<<< HEAD
 	  SID			  1551
+=======
+	  SID			  1096
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [2, 1]
 	  Position		  [75, 30, 130, 90]
 	  LibraryVersion	  "1.2"
@@ -4714,7 +4744,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Slice"
+<<<<<<< HEAD
 	  SID			  1552
+=======
+	  SID			  1097
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [1, 1]
 	  Position		  [250, 379, 310, 411]
 	  LibraryVersion	  "1.2"
@@ -4746,7 +4780,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "SliceLow"
+<<<<<<< HEAD
 	  SID			  1553
+=======
+	  SID			  1098
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [1, 1]
 	  Position		  [250, 74, 310, 106]
 	  LibraryVersion	  "1.2"
@@ -4778,7 +4816,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "SyncCompare"
+<<<<<<< HEAD
 	  SID			  1554
+=======
+	  SID			  1099
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [2, 1]
 	  Position		  [345, 77, 400, 133]
 	  LibraryVersion	  "1.2"
@@ -4807,7 +4849,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "SyncConst"
+<<<<<<< HEAD
 	  SID			  1555
+=======
+	  SID			  1100
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [0, 1]
 	  Position		  [250, 137, 305, 163]
 	  LibraryVersion	  "1.2"
@@ -4843,7 +4889,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "ValidCompare"
+<<<<<<< HEAD
 	  SID			  1556
+=======
+	  SID			  1101
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [2, 1]
 	  Position		  [345, 162, 400, 218]
 	  LibraryVersion	  "1.2"
@@ -4872,7 +4922,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "ValidDelay"
+<<<<<<< HEAD
 	  SID			  1557
+=======
+	  SID			  1102
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [1, 1]
 	  Position		  [435, 162, 495, 218]
 	  LibraryVersion	  "1.2"
@@ -4900,7 +4954,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Zero"
+<<<<<<< HEAD
 	  SID			  1558
+=======
+	  SID			  1103
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [0, 1]
 	  Position		  [250, 452, 305, 478]
 	  LibraryVersion	  "1.2"
@@ -4936,7 +4994,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "din_delay_1_1"
+<<<<<<< HEAD
 	  SID			  1544
+=======
+	  SID			  1104
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [1, 1]
 	  Position		  [340, 247, 400, 303]
 	  LibraryVersion	  "1.2"
@@ -4964,7 +5026,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "din_delay_2_1"
+<<<<<<< HEAD
 	  SID			  1545
+=======
+	  SID			  1105
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [1, 1]
 	  Position		  [340, 337, 400, 393]
 	  LibraryVersion	  "1.2"
@@ -4992,7 +5058,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "din_delay_3_1"
+<<<<<<< HEAD
 	  SID			  1546
+=======
+	  SID			  1106
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [1, 1]
 	  Position		  [340, 507, 400, 563]
 	  LibraryVersion	  "1.2"
@@ -5020,7 +5090,11 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "din_delay_4_1"
+<<<<<<< HEAD
 	  SID			  1547
+=======
+	  SID			  1107
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [1, 1]
 	  Position		  [340, 597, 400, 653]
 	  LibraryVersion	  "1.2"
@@ -5048,7 +5122,11 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "vacc_core_1"
+<<<<<<< HEAD
 	  SID			  1559
+=======
+	  SID			  1108
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [2, 1]
 	  Position		  [440, 295, 490, 350]
 	  MinAlgLoopOccurrences	  off
@@ -5076,22 +5154,36 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "din"
+<<<<<<< HEAD
 	      SID		      1560
 	      Position		      [15, 65, 35, 85]
+=======
+	      SID		      1109
+	      Position		      [15, 30, 35, 50]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "acc_en"
+<<<<<<< HEAD
 	      SID		      1561
 	      Position		      [15, 115, 35, 135]
+=======
+	      SID		      1110
+	      Position		      [15, 80, 35, 100]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "acc_mem"
+<<<<<<< HEAD
 	      SID		      1590
+=======
+	      SID		      1111
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [1, 1]
 	      Position		      [140, 80, 190, 120]
 	      MinAlgLoopOccurrences   off
@@ -5119,14 +5211,22 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din"
+<<<<<<< HEAD
 		  SID			  1591
+=======
+		  SID			  1112
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [30, 120, 50, 140]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Reference
 		  Name			  "Constant2"
+<<<<<<< HEAD
 		  SID			  1593
+=======
+		  SID			  1113
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 167, 70, 193]
 		  LibraryVersion	  "1.2"
@@ -5162,7 +5262,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Counter"
+<<<<<<< HEAD
 		  SID			  1594
+=======
+		  SID			  1114
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 30, 75, 90]
 		  LibraryVersion	  "1.2"
@@ -5171,7 +5275,7 @@ Library {
 		  infoedit		  "Hardware notes: Free running counters are the least expensive in hardware.  A count limited counter i"
 		  "s implemented by combining a counter with a comparator."
 		  cnt_type		  "Count Limited"
-		  cnt_to		  "27"
+		  cnt_to		  "29"
 		  operation		  "Up"
 		  start_count		  "0"
 		  cnt_by_val		  "1"
@@ -5204,7 +5308,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Single Port RAM"
+<<<<<<< HEAD
 		  SID			  1595
+=======
+		  SID			  1115
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [3, 1]
 		  Position		  [100, 102, 160, 158]
 		  LibraryVersion	  "1.2"
@@ -5240,7 +5348,11 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
+<<<<<<< HEAD
 		  SID			  1592
+=======
+		  SID			  1116
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [190, 120, 210, 140]
 		  IconDisplay		  "Port number"
 		}
@@ -5276,9 +5388,13 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "adder_with_enable"
+<<<<<<< HEAD
 	      SID		      1563
+=======
+	      SID		      1117
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [3, 1]
-	      Position		      [60, 64, 110, 136]
+	      Position		      [60, 40, 110, 110]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
 	      RTWSystemCode	      "Auto"
@@ -5304,14 +5420,22 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din0"
+<<<<<<< HEAD
 		  SID			  1564
+=======
+		  SID			  1118
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [115, 30, 135, 50]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "din1"
+<<<<<<< HEAD
 		  SID			  1565
+=======
+		  SID			  1119
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [115, 80, 135, 100]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -5319,7 +5443,11 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "en"
+<<<<<<< HEAD
 		  SID			  1566
+=======
+		  SID			  1120
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [30, 150, 50, 170]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -5327,7 +5455,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Concat"
+<<<<<<< HEAD
 		  SID			  1568
+=======
+		  SID			  1121
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [4, 1]
 		  Position		  [95, 131, 155, 194]
 		  LibraryVersion	  "1.2"
@@ -5353,7 +5485,11 @@ Library {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "dynamic_adder"
+<<<<<<< HEAD
 		  SID			  1571
+=======
+		  SID			  1122
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [3, 1]
 		  Position		  [190, 55, 240, 125]
 		  MinAlgLoopOccurrences	  off
@@ -5381,32 +5517,50 @@ Library {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din1"
+<<<<<<< HEAD
 		    SID			    1572
+=======
+		    SID			    1123
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Position		    [15, 70, 35, 90]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din2"
+<<<<<<< HEAD
 		    SID			    1573
 		    Position		    [155, 160, 175, 180]
+=======
+		    SID			    1124
+		    Position		    [70, 160, 90, 180]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Port		    "2"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "opmode"
+<<<<<<< HEAD
 		    SID			    1574
 		    Position		    [325, 215, 345, 235]
+=======
+		    SID			    1125
+		    Position		    [245, 215, 265, 235]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Port		    "3"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert"
+<<<<<<< HEAD
 		    SID			    1579
+=======
+		    SID			    1126
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [140, 65, 185, 95]
+		    Position		    [60, 65, 105, 95]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Convert"
 		    SourceType		    "Xilinx Type Converter Block"
@@ -5437,9 +5591,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert2"
+<<<<<<< HEAD
 		    SID			    1580
+=======
+		    SID			    1127
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [315, 155, 360, 185]
+		    Position		    [235, 155, 280, 185]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Convert"
 		    SourceType		    "Xilinx Type Converter Block"
@@ -5470,9 +5628,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "DSP48E"
+<<<<<<< HEAD
 		    SID			    1581
+=======
+		    SID			    1128
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [7, 1]
-		    Position		    [395, 157, 470, 293]
+		    Position		    [315, 157, 390, 293]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/DSP48E"
 		    SourceType		    "Xilinx DSP48E Block"
@@ -5555,9 +5717,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "a"
+<<<<<<< HEAD
 		    SID			    1582
+=======
+		    SID			    1129
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [215, 34, 275, 66]
+		    Position		    [135, 34, 195, 66]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Slice"
 		    SourceType		    "Xilinx Bit Slice Extractor Block"
@@ -5587,9 +5753,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "alumode"
+<<<<<<< HEAD
 		    SID			    1575
+=======
+		    SID			    1130
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [0, 1]
-		    Position		    [310, 262, 365, 288]
+		    Position		    [230, 262, 285, 288]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Constant"
 		    SourceType		    "Xilinx Constant Block Block"
@@ -5623,9 +5793,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "b"
+<<<<<<< HEAD
 		    SID			    1583
+=======
+		    SID			    1131
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [215, 94, 275, 126]
+		    Position		    [135, 94, 195, 126]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Slice"
 		    SourceType		    "Xilinx Bit Slice Extractor Block"
@@ -5655,9 +5829,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryin"
+<<<<<<< HEAD
 		    SID			    1576
+=======
+		    SID			    1132
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [0, 1]
-		    Position		    [310, 317, 365, 343]
+		    Position		    [230, 317, 285, 343]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Constant"
 		    SourceType		    "Xilinx Constant Block Block"
@@ -5691,9 +5869,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryinsel"
+<<<<<<< HEAD
 		    SID			    1577
+=======
+		    SID			    1133
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [0, 1]
-		    Position		    [310, 372, 365, 398]
+		    Position		    [230, 372, 285, 398]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Constant"
 		    SourceType		    "Xilinx Constant Block Block"
@@ -5727,17 +5909,21 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "conv_dsp_out"
+<<<<<<< HEAD
 		    SID			    1584
+=======
+		    SID			    1134
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [580, 209, 625, 241]
+		    Position		    [500, 209, 545, 241]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Convert"
 		    SourceType		    "Xilinx Type Converter Block"
 		    infoedit		    "Hardware notes: rounding and saturating require hardware resources; truncating and wrapping do no"
 		    "t."
-		    arith_type		    "Signed  (2's comp)"
+		    arith_type		    "Unsigned"
 		    n_bits		    "32"
-		    bin_pt		    "17"
+		    bin_pt		    "0"
 		    quantization	    "Truncate"
 		    overflow		    "Wrap"
 		    latency		    "0"
@@ -5761,9 +5947,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_a"
+<<<<<<< HEAD
 		    SID			    1585
+=======
+		    SID			    1135
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [310, 29, 360, 61]
+		    Position		    [230, 29, 280, 61]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -5791,9 +5981,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_b"
+<<<<<<< HEAD
 		    SID			    1586
+=======
+		    SID			    1136
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [310, 94, 360, 126]
+		    Position		    [230, 94, 280, 126]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -5820,10 +6014,15 @@ Library {
 		    }
 		    Block {
 		    BlockType		    Reference
+<<<<<<< HEAD
 		    Name		    "reinterp_din1"
 		    SID			    1588
+=======
+		    Name		    "reinterp_ddin1"
+		    SID			    1137
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [60, 64, 110, 96]
+		    Position		    [140, 154, 190, 186]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -5850,6 +6049,7 @@ Library {
 		    }
 		    Block {
 		    BlockType		    Reference
+<<<<<<< HEAD
 		    Name		    "reinterp_din2"
 		    SID			    1587
 		    Ports		    [1, 1]
@@ -5883,8 +6083,12 @@ Library {
 		    BlockType		    Reference
 		    Name		    "reinterp_dsp_out"
 		    SID			    1589
+=======
+		    Name		    "reinterp_dsp_out"
+		    SID			    1138
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [500, 209, 550, 241]
+		    Position		    [420, 209, 470, 241]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -5895,8 +6099,8 @@ Library {
 		    " of 56 (111000 in binary)."
 		    force_arith_type	    on
 		    arith_type		    "Signed  (2's comp)"
-		    force_bin_pt	    on
-		    bin_pt		    "17"
+		    force_bin_pt	    off
+		    bin_pt		    "0"
 		    has_advanced_control    "0"
 		    sggui_pos		    "-1,-1,-1,-1"
 		    block_type		    "reinterpret"
@@ -5912,8 +6116,13 @@ Library {
 		    Block {
 		    BlockType		    Outport
 		    Name		    "dout"
+<<<<<<< HEAD
 		    SID			    1578
 		    Position		    [655, 215, 675, 235]
+=======
+		    SID			    1139
+		    Position		    [575, 215, 595, 235]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
@@ -5944,19 +6153,7 @@ Library {
 		    DstPort		    1
 		    }
 		    Line {
-		    SrcBlock		    "reinterp_din1"
-		    SrcPort		    1
-		    DstBlock		    "Convert"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "din1"
-		    SrcPort		    1
-		    DstBlock		    "reinterp_din1"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "reinterp_din2"
+		    SrcBlock		    "reinterp_ddin1"
 		    SrcPort		    1
 		    DstBlock		    "Convert2"
 		    DstPort		    1
@@ -5964,7 +6161,7 @@ Library {
 		    Line {
 		    SrcBlock		    "din2"
 		    SrcPort		    1
-		    DstBlock		    "reinterp_din2"
+		    DstBlock		    "reinterp_ddin1"
 		    DstPort		    1
 		    }
 		    Line {
@@ -6034,12 +6231,22 @@ Library {
 		    DstBlock		    "DSP48E"
 		    DstPort		    3
 		    }
+		    Line {
+		    SrcBlock		    "din1"
+		    SrcPort		    1
+		    DstBlock		    "Convert"
+		    DstPort		    1
+		    }
 		  }
 		}
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_x"
+<<<<<<< HEAD
 		  SID			  1569
+=======
+		  SID			  1140
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 197, 70, 223]
 		  LibraryVersion	  "1.2"
@@ -6075,7 +6282,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_z"
+<<<<<<< HEAD
 		  SID			  1570
+=======
+		  SID			  1141
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 97, 70, 123]
 		  LibraryVersion	  "1.2"
@@ -6111,7 +6322,11 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
+<<<<<<< HEAD
 		  SID			  1567
+=======
+		  SID			  1142
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [270, 80, 290, 100]
 		  IconDisplay		  "Port number"
 		}
@@ -6175,7 +6390,11 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "dout"
+<<<<<<< HEAD
 	      SID		      1562
+=======
+	      SID		      1143
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Position		      [155, 30, 175, 50]
 	      IconDisplay	      "Port number"
 	    }
@@ -6184,11 +6403,12 @@ Library {
 	      SrcPort		      1
 	      Points		      [0, 0]
 	      Branch {
-		Points			[10, 0; 0, -60]
+		Points			[10, 0; 0, -35]
 		DstBlock		"dout"
 		DstPort			1
 	      }
 	      Branch {
+		Points			[5, 0; 0, 25]
 		DstBlock		"acc_mem"
 		DstPort			1
 	      }
@@ -6196,19 +6416,21 @@ Library {
 	    Line {
 	      SrcBlock		      "acc_mem"
 	      SrcPort		      1
-	      Points		      [0, 45; -185, 0; 0, -45]
-	      DstBlock		      "adder_with_enable"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "acc_en"
-	      SrcPort		      1
+	      Points		      [0, 25; -150, 0]
 	      DstBlock		      "adder_with_enable"
 	      DstPort		      3
 	    }
 	    Line {
+	      SrcBlock		      "acc_en"
+	      SrcPort		      1
+	      Points		      [0, -15]
+	      DstBlock		      "adder_with_enable"
+	      DstPort		      2
+	    }
+	    Line {
 	      SrcBlock		      "din"
 	      SrcPort		      1
+	      Points		      [0, 10]
 	      DstBlock		      "adder_with_enable"
 	      DstPort		      1
 	    }
@@ -6217,7 +6439,11 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "vacc_core_2"
+<<<<<<< HEAD
 	  SID			  1596
+=======
+	  SID			  1144
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [2, 1]
 	  Position		  [440, 395, 490, 450]
 	  MinAlgLoopOccurrences	  off
@@ -6245,22 +6471,36 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "din"
+<<<<<<< HEAD
 	      SID		      1597
 	      Position		      [15, 65, 35, 85]
+=======
+	      SID		      1145
+	      Position		      [15, 30, 35, 50]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "acc_en"
+<<<<<<< HEAD
 	      SID		      1598
 	      Position		      [15, 115, 35, 135]
+=======
+	      SID		      1146
+	      Position		      [15, 80, 35, 100]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "acc_mem"
+<<<<<<< HEAD
 	      SID		      1627
+=======
+	      SID		      1147
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [1, 1]
 	      Position		      [140, 80, 190, 120]
 	      MinAlgLoopOccurrences   off
@@ -6288,14 +6528,22 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din"
+<<<<<<< HEAD
 		  SID			  1628
+=======
+		  SID			  1148
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [30, 120, 50, 140]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Reference
 		  Name			  "Constant2"
+<<<<<<< HEAD
 		  SID			  1630
+=======
+		  SID			  1149
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 167, 70, 193]
 		  LibraryVersion	  "1.2"
@@ -6331,7 +6579,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Counter"
+<<<<<<< HEAD
 		  SID			  1631
+=======
+		  SID			  1150
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 30, 75, 90]
 		  LibraryVersion	  "1.2"
@@ -6340,7 +6592,7 @@ Library {
 		  infoedit		  "Hardware notes: Free running counters are the least expensive in hardware.  A count limited counter i"
 		  "s implemented by combining a counter with a comparator."
 		  cnt_type		  "Count Limited"
-		  cnt_to		  "27"
+		  cnt_to		  "29"
 		  operation		  "Up"
 		  start_count		  "0"
 		  cnt_by_val		  "1"
@@ -6373,7 +6625,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Single Port RAM"
+<<<<<<< HEAD
 		  SID			  1632
+=======
+		  SID			  1151
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [3, 1]
 		  Position		  [100, 102, 160, 158]
 		  LibraryVersion	  "1.2"
@@ -6409,7 +6665,11 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
+<<<<<<< HEAD
 		  SID			  1629
+=======
+		  SID			  1152
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [190, 120, 210, 140]
 		  IconDisplay		  "Port number"
 		}
@@ -6445,9 +6705,13 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "adder_with_enable"
+<<<<<<< HEAD
 	      SID		      1600
+=======
+	      SID		      1153
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [3, 1]
-	      Position		      [60, 64, 110, 136]
+	      Position		      [60, 40, 110, 110]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
 	      RTWSystemCode	      "Auto"
@@ -6473,14 +6737,22 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din0"
+<<<<<<< HEAD
 		  SID			  1601
+=======
+		  SID			  1154
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [115, 30, 135, 50]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "din1"
+<<<<<<< HEAD
 		  SID			  1602
+=======
+		  SID			  1155
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [115, 80, 135, 100]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -6488,7 +6760,11 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "en"
+<<<<<<< HEAD
 		  SID			  1603
+=======
+		  SID			  1156
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [30, 150, 50, 170]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -6496,7 +6772,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Concat"
+<<<<<<< HEAD
 		  SID			  1605
+=======
+		  SID			  1157
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [4, 1]
 		  Position		  [95, 131, 155, 194]
 		  LibraryVersion	  "1.2"
@@ -6522,7 +6802,11 @@ Library {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "dynamic_adder"
+<<<<<<< HEAD
 		  SID			  1608
+=======
+		  SID			  1158
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [3, 1]
 		  Position		  [190, 55, 240, 125]
 		  MinAlgLoopOccurrences	  off
@@ -6550,32 +6834,50 @@ Library {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din1"
+<<<<<<< HEAD
 		    SID			    1609
+=======
+		    SID			    1159
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Position		    [15, 70, 35, 90]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din2"
+<<<<<<< HEAD
 		    SID			    1610
 		    Position		    [155, 160, 175, 180]
+=======
+		    SID			    1160
+		    Position		    [70, 160, 90, 180]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Port		    "2"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "opmode"
+<<<<<<< HEAD
 		    SID			    1611
 		    Position		    [325, 215, 345, 235]
+=======
+		    SID			    1161
+		    Position		    [245, 215, 265, 235]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Port		    "3"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert"
+<<<<<<< HEAD
 		    SID			    1616
+=======
+		    SID			    1162
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [140, 65, 185, 95]
+		    Position		    [60, 65, 105, 95]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Convert"
 		    SourceType		    "Xilinx Type Converter Block"
@@ -6606,9 +6908,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert2"
+<<<<<<< HEAD
 		    SID			    1617
+=======
+		    SID			    1163
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [315, 155, 360, 185]
+		    Position		    [235, 155, 280, 185]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Convert"
 		    SourceType		    "Xilinx Type Converter Block"
@@ -6639,9 +6945,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "DSP48E"
+<<<<<<< HEAD
 		    SID			    1618
+=======
+		    SID			    1164
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [7, 1]
-		    Position		    [395, 157, 470, 293]
+		    Position		    [315, 157, 390, 293]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/DSP48E"
 		    SourceType		    "Xilinx DSP48E Block"
@@ -6724,9 +7034,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "a"
+<<<<<<< HEAD
 		    SID			    1619
+=======
+		    SID			    1165
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [215, 34, 275, 66]
+		    Position		    [135, 34, 195, 66]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Slice"
 		    SourceType		    "Xilinx Bit Slice Extractor Block"
@@ -6756,9 +7070,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "alumode"
+<<<<<<< HEAD
 		    SID			    1612
+=======
+		    SID			    1166
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [0, 1]
-		    Position		    [310, 262, 365, 288]
+		    Position		    [230, 262, 285, 288]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Constant"
 		    SourceType		    "Xilinx Constant Block Block"
@@ -6792,9 +7110,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "b"
+<<<<<<< HEAD
 		    SID			    1620
+=======
+		    SID			    1167
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [215, 94, 275, 126]
+		    Position		    [135, 94, 195, 126]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Slice"
 		    SourceType		    "Xilinx Bit Slice Extractor Block"
@@ -6824,9 +7146,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryin"
+<<<<<<< HEAD
 		    SID			    1613
+=======
+		    SID			    1168
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [0, 1]
-		    Position		    [310, 317, 365, 343]
+		    Position		    [230, 317, 285, 343]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Constant"
 		    SourceType		    "Xilinx Constant Block Block"
@@ -6860,9 +7186,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryinsel"
+<<<<<<< HEAD
 		    SID			    1614
+=======
+		    SID			    1169
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [0, 1]
-		    Position		    [310, 372, 365, 398]
+		    Position		    [230, 372, 285, 398]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Constant"
 		    SourceType		    "Xilinx Constant Block Block"
@@ -6896,17 +7226,21 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "conv_dsp_out"
+<<<<<<< HEAD
 		    SID			    1621
+=======
+		    SID			    1170
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [580, 209, 625, 241]
+		    Position		    [500, 209, 545, 241]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Convert"
 		    SourceType		    "Xilinx Type Converter Block"
 		    infoedit		    "Hardware notes: rounding and saturating require hardware resources; truncating and wrapping do no"
 		    "t."
-		    arith_type		    "Signed  (2's comp)"
+		    arith_type		    "Unsigned"
 		    n_bits		    "32"
-		    bin_pt		    "17"
+		    bin_pt		    "0"
 		    quantization	    "Truncate"
 		    overflow		    "Wrap"
 		    latency		    "0"
@@ -6930,9 +7264,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_a"
+<<<<<<< HEAD
 		    SID			    1622
+=======
+		    SID			    1171
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [310, 29, 360, 61]
+		    Position		    [230, 29, 280, 61]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -6960,9 +7298,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_b"
+<<<<<<< HEAD
 		    SID			    1623
+=======
+		    SID			    1172
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [310, 94, 360, 126]
+		    Position		    [230, 94, 280, 126]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -6989,10 +7331,15 @@ Library {
 		    }
 		    Block {
 		    BlockType		    Reference
+<<<<<<< HEAD
 		    Name		    "reinterp_din1"
 		    SID			    1625
+=======
+		    Name		    "reinterp_ddin1"
+		    SID			    1173
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [60, 64, 110, 96]
+		    Position		    [140, 154, 190, 186]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -7019,6 +7366,7 @@ Library {
 		    }
 		    Block {
 		    BlockType		    Reference
+<<<<<<< HEAD
 		    Name		    "reinterp_din2"
 		    SID			    1624
 		    Ports		    [1, 1]
@@ -7052,8 +7400,12 @@ Library {
 		    BlockType		    Reference
 		    Name		    "reinterp_dsp_out"
 		    SID			    1626
+=======
+		    Name		    "reinterp_dsp_out"
+		    SID			    1174
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [500, 209, 550, 241]
+		    Position		    [420, 209, 470, 241]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -7064,8 +7416,8 @@ Library {
 		    " of 56 (111000 in binary)."
 		    force_arith_type	    on
 		    arith_type		    "Signed  (2's comp)"
-		    force_bin_pt	    on
-		    bin_pt		    "17"
+		    force_bin_pt	    off
+		    bin_pt		    "0"
 		    has_advanced_control    "0"
 		    sggui_pos		    "-1,-1,-1,-1"
 		    block_type		    "reinterpret"
@@ -7081,8 +7433,13 @@ Library {
 		    Block {
 		    BlockType		    Outport
 		    Name		    "dout"
+<<<<<<< HEAD
 		    SID			    1615
 		    Position		    [655, 215, 675, 235]
+=======
+		    SID			    1175
+		    Position		    [575, 215, 595, 235]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
@@ -7113,19 +7470,7 @@ Library {
 		    DstPort		    1
 		    }
 		    Line {
-		    SrcBlock		    "reinterp_din1"
-		    SrcPort		    1
-		    DstBlock		    "Convert"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "din1"
-		    SrcPort		    1
-		    DstBlock		    "reinterp_din1"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "reinterp_din2"
+		    SrcBlock		    "reinterp_ddin1"
 		    SrcPort		    1
 		    DstBlock		    "Convert2"
 		    DstPort		    1
@@ -7133,7 +7478,7 @@ Library {
 		    Line {
 		    SrcBlock		    "din2"
 		    SrcPort		    1
-		    DstBlock		    "reinterp_din2"
+		    DstBlock		    "reinterp_ddin1"
 		    DstPort		    1
 		    }
 		    Line {
@@ -7203,12 +7548,22 @@ Library {
 		    DstBlock		    "DSP48E"
 		    DstPort		    3
 		    }
+		    Line {
+		    SrcBlock		    "din1"
+		    SrcPort		    1
+		    DstBlock		    "Convert"
+		    DstPort		    1
+		    }
 		  }
 		}
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_x"
+<<<<<<< HEAD
 		  SID			  1606
+=======
+		  SID			  1176
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 197, 70, 223]
 		  LibraryVersion	  "1.2"
@@ -7244,7 +7599,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_z"
+<<<<<<< HEAD
 		  SID			  1607
+=======
+		  SID			  1177
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 97, 70, 123]
 		  LibraryVersion	  "1.2"
@@ -7280,7 +7639,11 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
+<<<<<<< HEAD
 		  SID			  1604
+=======
+		  SID			  1178
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [270, 80, 290, 100]
 		  IconDisplay		  "Port number"
 		}
@@ -7344,7 +7707,11 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "dout"
+<<<<<<< HEAD
 	      SID		      1599
+=======
+	      SID		      1179
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Position		      [155, 30, 175, 50]
 	      IconDisplay	      "Port number"
 	    }
@@ -7353,11 +7720,12 @@ Library {
 	      SrcPort		      1
 	      Points		      [0, 0]
 	      Branch {
-		Points			[10, 0; 0, -60]
+		Points			[10, 0; 0, -35]
 		DstBlock		"dout"
 		DstPort			1
 	      }
 	      Branch {
+		Points			[5, 0; 0, 25]
 		DstBlock		"acc_mem"
 		DstPort			1
 	      }
@@ -7365,19 +7733,21 @@ Library {
 	    Line {
 	      SrcBlock		      "acc_mem"
 	      SrcPort		      1
-	      Points		      [0, 45; -185, 0; 0, -45]
-	      DstBlock		      "adder_with_enable"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "acc_en"
-	      SrcPort		      1
+	      Points		      [0, 25; -150, 0]
 	      DstBlock		      "adder_with_enable"
 	      DstPort		      3
 	    }
 	    Line {
+	      SrcBlock		      "acc_en"
+	      SrcPort		      1
+	      Points		      [0, -15]
+	      DstBlock		      "adder_with_enable"
+	      DstPort		      2
+	    }
+	    Line {
 	      SrcBlock		      "din"
 	      SrcPort		      1
+	      Points		      [0, 10]
 	      DstBlock		      "adder_with_enable"
 	      DstPort		      1
 	    }
@@ -7386,7 +7756,11 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "vacc_core_3"
+<<<<<<< HEAD
 	  SID			  1633
+=======
+	  SID			  1180
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [2, 1]
 	  Position		  [440, 490, 490, 545]
 	  MinAlgLoopOccurrences	  off
@@ -7414,22 +7788,36 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "din"
+<<<<<<< HEAD
 	      SID		      1634
 	      Position		      [15, 65, 35, 85]
+=======
+	      SID		      1181
+	      Position		      [15, 30, 35, 50]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "acc_en"
+<<<<<<< HEAD
 	      SID		      1635
 	      Position		      [15, 115, 35, 135]
+=======
+	      SID		      1182
+	      Position		      [15, 80, 35, 100]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "acc_mem"
+<<<<<<< HEAD
 	      SID		      1664
+=======
+	      SID		      1183
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [1, 1]
 	      Position		      [140, 80, 190, 120]
 	      MinAlgLoopOccurrences   off
@@ -7457,14 +7845,22 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din"
+<<<<<<< HEAD
 		  SID			  1665
+=======
+		  SID			  1184
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [30, 120, 50, 140]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Reference
 		  Name			  "Constant2"
+<<<<<<< HEAD
 		  SID			  1667
+=======
+		  SID			  1185
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 167, 70, 193]
 		  LibraryVersion	  "1.2"
@@ -7500,7 +7896,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Counter"
+<<<<<<< HEAD
 		  SID			  1668
+=======
+		  SID			  1186
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 30, 75, 90]
 		  LibraryVersion	  "1.2"
@@ -7509,7 +7909,7 @@ Library {
 		  infoedit		  "Hardware notes: Free running counters are the least expensive in hardware.  A count limited counter i"
 		  "s implemented by combining a counter with a comparator."
 		  cnt_type		  "Count Limited"
-		  cnt_to		  "27"
+		  cnt_to		  "29"
 		  operation		  "Up"
 		  start_count		  "0"
 		  cnt_by_val		  "1"
@@ -7542,7 +7942,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Single Port RAM"
+<<<<<<< HEAD
 		  SID			  1669
+=======
+		  SID			  1187
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [3, 1]
 		  Position		  [100, 102, 160, 158]
 		  LibraryVersion	  "1.2"
@@ -7578,7 +7982,11 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
+<<<<<<< HEAD
 		  SID			  1666
+=======
+		  SID			  1188
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [190, 120, 210, 140]
 		  IconDisplay		  "Port number"
 		}
@@ -7614,9 +8022,13 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "adder_with_enable"
+<<<<<<< HEAD
 	      SID		      1637
+=======
+	      SID		      1189
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [3, 1]
-	      Position		      [60, 64, 110, 136]
+	      Position		      [60, 40, 110, 110]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
 	      RTWSystemCode	      "Auto"
@@ -7642,14 +8054,22 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din0"
+<<<<<<< HEAD
 		  SID			  1638
+=======
+		  SID			  1190
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [115, 30, 135, 50]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "din1"
+<<<<<<< HEAD
 		  SID			  1639
+=======
+		  SID			  1191
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [115, 80, 135, 100]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -7657,7 +8077,11 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "en"
+<<<<<<< HEAD
 		  SID			  1640
+=======
+		  SID			  1192
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [30, 150, 50, 170]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -7665,7 +8089,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Concat"
+<<<<<<< HEAD
 		  SID			  1642
+=======
+		  SID			  1193
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [4, 1]
 		  Position		  [95, 131, 155, 194]
 		  LibraryVersion	  "1.2"
@@ -7691,7 +8119,11 @@ Library {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "dynamic_adder"
+<<<<<<< HEAD
 		  SID			  1645
+=======
+		  SID			  1194
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [3, 1]
 		  Position		  [190, 55, 240, 125]
 		  MinAlgLoopOccurrences	  off
@@ -7719,32 +8151,50 @@ Library {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din1"
+<<<<<<< HEAD
 		    SID			    1646
+=======
+		    SID			    1195
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Position		    [15, 70, 35, 90]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din2"
+<<<<<<< HEAD
 		    SID			    1647
 		    Position		    [155, 160, 175, 180]
+=======
+		    SID			    1196
+		    Position		    [70, 160, 90, 180]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Port		    "2"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "opmode"
+<<<<<<< HEAD
 		    SID			    1648
 		    Position		    [325, 215, 345, 235]
+=======
+		    SID			    1197
+		    Position		    [245, 215, 265, 235]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Port		    "3"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert"
+<<<<<<< HEAD
 		    SID			    1653
+=======
+		    SID			    1198
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [140, 65, 185, 95]
+		    Position		    [60, 65, 105, 95]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Convert"
 		    SourceType		    "Xilinx Type Converter Block"
@@ -7775,9 +8225,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert2"
+<<<<<<< HEAD
 		    SID			    1654
+=======
+		    SID			    1199
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [315, 155, 360, 185]
+		    Position		    [235, 155, 280, 185]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Convert"
 		    SourceType		    "Xilinx Type Converter Block"
@@ -7808,9 +8262,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "DSP48E"
+<<<<<<< HEAD
 		    SID			    1655
+=======
+		    SID			    1200
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [7, 1]
-		    Position		    [395, 157, 470, 293]
+		    Position		    [315, 157, 390, 293]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/DSP48E"
 		    SourceType		    "Xilinx DSP48E Block"
@@ -7893,9 +8351,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "a"
+<<<<<<< HEAD
 		    SID			    1656
+=======
+		    SID			    1201
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [215, 34, 275, 66]
+		    Position		    [135, 34, 195, 66]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Slice"
 		    SourceType		    "Xilinx Bit Slice Extractor Block"
@@ -7925,9 +8387,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "alumode"
+<<<<<<< HEAD
 		    SID			    1649
+=======
+		    SID			    1202
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [0, 1]
-		    Position		    [310, 262, 365, 288]
+		    Position		    [230, 262, 285, 288]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Constant"
 		    SourceType		    "Xilinx Constant Block Block"
@@ -7961,9 +8427,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "b"
+<<<<<<< HEAD
 		    SID			    1657
+=======
+		    SID			    1203
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [215, 94, 275, 126]
+		    Position		    [135, 94, 195, 126]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Slice"
 		    SourceType		    "Xilinx Bit Slice Extractor Block"
@@ -7993,9 +8463,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryin"
+<<<<<<< HEAD
 		    SID			    1650
+=======
+		    SID			    1204
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [0, 1]
-		    Position		    [310, 317, 365, 343]
+		    Position		    [230, 317, 285, 343]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Constant"
 		    SourceType		    "Xilinx Constant Block Block"
@@ -8029,9 +8503,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryinsel"
+<<<<<<< HEAD
 		    SID			    1651
+=======
+		    SID			    1205
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [0, 1]
-		    Position		    [310, 372, 365, 398]
+		    Position		    [230, 372, 285, 398]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Constant"
 		    SourceType		    "Xilinx Constant Block Block"
@@ -8065,17 +8543,21 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "conv_dsp_out"
+<<<<<<< HEAD
 		    SID			    1658
+=======
+		    SID			    1206
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [580, 209, 625, 241]
+		    Position		    [500, 209, 545, 241]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Convert"
 		    SourceType		    "Xilinx Type Converter Block"
 		    infoedit		    "Hardware notes: rounding and saturating require hardware resources; truncating and wrapping do no"
 		    "t."
-		    arith_type		    "Signed  (2's comp)"
+		    arith_type		    "Unsigned"
 		    n_bits		    "32"
-		    bin_pt		    "17"
+		    bin_pt		    "0"
 		    quantization	    "Truncate"
 		    overflow		    "Wrap"
 		    latency		    "0"
@@ -8099,9 +8581,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_a"
+<<<<<<< HEAD
 		    SID			    1659
+=======
+		    SID			    1207
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [310, 29, 360, 61]
+		    Position		    [230, 29, 280, 61]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -8129,9 +8615,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_b"
+<<<<<<< HEAD
 		    SID			    1660
+=======
+		    SID			    1208
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [310, 94, 360, 126]
+		    Position		    [230, 94, 280, 126]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -8158,10 +8648,15 @@ Library {
 		    }
 		    Block {
 		    BlockType		    Reference
+<<<<<<< HEAD
 		    Name		    "reinterp_din1"
 		    SID			    1662
+=======
+		    Name		    "reinterp_ddin1"
+		    SID			    1209
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [60, 64, 110, 96]
+		    Position		    [140, 154, 190, 186]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -8188,6 +8683,7 @@ Library {
 		    }
 		    Block {
 		    BlockType		    Reference
+<<<<<<< HEAD
 		    Name		    "reinterp_din2"
 		    SID			    1661
 		    Ports		    [1, 1]
@@ -8221,8 +8717,12 @@ Library {
 		    BlockType		    Reference
 		    Name		    "reinterp_dsp_out"
 		    SID			    1663
+=======
+		    Name		    "reinterp_dsp_out"
+		    SID			    1210
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [500, 209, 550, 241]
+		    Position		    [420, 209, 470, 241]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -8233,8 +8733,8 @@ Library {
 		    " of 56 (111000 in binary)."
 		    force_arith_type	    on
 		    arith_type		    "Signed  (2's comp)"
-		    force_bin_pt	    on
-		    bin_pt		    "17"
+		    force_bin_pt	    off
+		    bin_pt		    "0"
 		    has_advanced_control    "0"
 		    sggui_pos		    "-1,-1,-1,-1"
 		    block_type		    "reinterpret"
@@ -8250,8 +8750,13 @@ Library {
 		    Block {
 		    BlockType		    Outport
 		    Name		    "dout"
+<<<<<<< HEAD
 		    SID			    1652
 		    Position		    [655, 215, 675, 235]
+=======
+		    SID			    1211
+		    Position		    [575, 215, 595, 235]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
@@ -8282,19 +8787,7 @@ Library {
 		    DstPort		    1
 		    }
 		    Line {
-		    SrcBlock		    "reinterp_din1"
-		    SrcPort		    1
-		    DstBlock		    "Convert"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "din1"
-		    SrcPort		    1
-		    DstBlock		    "reinterp_din1"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "reinterp_din2"
+		    SrcBlock		    "reinterp_ddin1"
 		    SrcPort		    1
 		    DstBlock		    "Convert2"
 		    DstPort		    1
@@ -8302,7 +8795,7 @@ Library {
 		    Line {
 		    SrcBlock		    "din2"
 		    SrcPort		    1
-		    DstBlock		    "reinterp_din2"
+		    DstBlock		    "reinterp_ddin1"
 		    DstPort		    1
 		    }
 		    Line {
@@ -8372,12 +8865,22 @@ Library {
 		    DstBlock		    "DSP48E"
 		    DstPort		    3
 		    }
+		    Line {
+		    SrcBlock		    "din1"
+		    SrcPort		    1
+		    DstBlock		    "Convert"
+		    DstPort		    1
+		    }
 		  }
 		}
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_x"
+<<<<<<< HEAD
 		  SID			  1643
+=======
+		  SID			  1212
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 197, 70, 223]
 		  LibraryVersion	  "1.2"
@@ -8413,7 +8916,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_z"
+<<<<<<< HEAD
 		  SID			  1644
+=======
+		  SID			  1213
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 97, 70, 123]
 		  LibraryVersion	  "1.2"
@@ -8449,7 +8956,11 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
+<<<<<<< HEAD
 		  SID			  1641
+=======
+		  SID			  1214
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [270, 80, 290, 100]
 		  IconDisplay		  "Port number"
 		}
@@ -8513,7 +9024,11 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "dout"
+<<<<<<< HEAD
 	      SID		      1636
+=======
+	      SID		      1215
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Position		      [155, 30, 175, 50]
 	      IconDisplay	      "Port number"
 	    }
@@ -8522,11 +9037,12 @@ Library {
 	      SrcPort		      1
 	      Points		      [0, 0]
 	      Branch {
-		Points			[10, 0; 0, -60]
+		Points			[10, 0; 0, -35]
 		DstBlock		"dout"
 		DstPort			1
 	      }
 	      Branch {
+		Points			[5, 0; 0, 25]
 		DstBlock		"acc_mem"
 		DstPort			1
 	      }
@@ -8534,19 +9050,21 @@ Library {
 	    Line {
 	      SrcBlock		      "acc_mem"
 	      SrcPort		      1
-	      Points		      [0, 45; -185, 0; 0, -45]
-	      DstBlock		      "adder_with_enable"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "acc_en"
-	      SrcPort		      1
+	      Points		      [0, 25; -150, 0]
 	      DstBlock		      "adder_with_enable"
 	      DstPort		      3
 	    }
 	    Line {
+	      SrcBlock		      "acc_en"
+	      SrcPort		      1
+	      Points		      [0, -15]
+	      DstBlock		      "adder_with_enable"
+	      DstPort		      2
+	    }
+	    Line {
 	      SrcBlock		      "din"
 	      SrcPort		      1
+	      Points		      [0, 10]
 	      DstBlock		      "adder_with_enable"
 	      DstPort		      1
 	    }
@@ -8555,7 +9073,11 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "vacc_core_4"
+<<<<<<< HEAD
 	  SID			  1670
+=======
+	  SID			  1216
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	  Ports			  [2, 1]
 	  Position		  [440, 585, 490, 640]
 	  MinAlgLoopOccurrences	  off
@@ -8583,22 +9105,36 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "din"
+<<<<<<< HEAD
 	      SID		      1671
 	      Position		      [15, 65, 35, 85]
+=======
+	      SID		      1217
+	      Position		      [15, 30, 35, 50]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "acc_en"
+<<<<<<< HEAD
 	      SID		      1672
 	      Position		      [15, 115, 35, 135]
+=======
+	      SID		      1218
+	      Position		      [15, 80, 35, 100]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "acc_mem"
+<<<<<<< HEAD
 	      SID		      1701
+=======
+	      SID		      1219
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [1, 1]
 	      Position		      [140, 80, 190, 120]
 	      MinAlgLoopOccurrences   off
@@ -8626,14 +9162,22 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din"
+<<<<<<< HEAD
 		  SID			  1702
+=======
+		  SID			  1220
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [30, 120, 50, 140]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Reference
 		  Name			  "Constant2"
+<<<<<<< HEAD
 		  SID			  1704
+=======
+		  SID			  1221
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 167, 70, 193]
 		  LibraryVersion	  "1.2"
@@ -8669,7 +9213,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Counter"
+<<<<<<< HEAD
 		  SID			  1705
+=======
+		  SID			  1222
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 30, 75, 90]
 		  LibraryVersion	  "1.2"
@@ -8678,7 +9226,7 @@ Library {
 		  infoedit		  "Hardware notes: Free running counters are the least expensive in hardware.  A count limited counter i"
 		  "s implemented by combining a counter with a comparator."
 		  cnt_type		  "Count Limited"
-		  cnt_to		  "27"
+		  cnt_to		  "29"
 		  operation		  "Up"
 		  start_count		  "0"
 		  cnt_by_val		  "1"
@@ -8711,7 +9259,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Single Port RAM"
+<<<<<<< HEAD
 		  SID			  1706
+=======
+		  SID			  1223
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [3, 1]
 		  Position		  [100, 102, 160, 158]
 		  LibraryVersion	  "1.2"
@@ -8747,7 +9299,11 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
+<<<<<<< HEAD
 		  SID			  1703
+=======
+		  SID			  1224
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [190, 120, 210, 140]
 		  IconDisplay		  "Port number"
 		}
@@ -8783,9 +9339,13 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "adder_with_enable"
+<<<<<<< HEAD
 	      SID		      1674
+=======
+	      SID		      1225
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Ports		      [3, 1]
-	      Position		      [60, 64, 110, 136]
+	      Position		      [60, 40, 110, 110]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
 	      RTWSystemCode	      "Auto"
@@ -8811,14 +9371,22 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din0"
+<<<<<<< HEAD
 		  SID			  1675
+=======
+		  SID			  1226
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [115, 30, 135, 50]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "din1"
+<<<<<<< HEAD
 		  SID			  1676
+=======
+		  SID			  1227
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [115, 80, 135, 100]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -8826,7 +9394,11 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "en"
+<<<<<<< HEAD
 		  SID			  1677
+=======
+		  SID			  1228
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [30, 150, 50, 170]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -8834,7 +9406,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Concat"
+<<<<<<< HEAD
 		  SID			  1679
+=======
+		  SID			  1229
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [4, 1]
 		  Position		  [95, 131, 155, 194]
 		  LibraryVersion	  "1.2"
@@ -8860,7 +9436,11 @@ Library {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "dynamic_adder"
+<<<<<<< HEAD
 		  SID			  1682
+=======
+		  SID			  1230
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [3, 1]
 		  Position		  [190, 55, 240, 125]
 		  MinAlgLoopOccurrences	  off
@@ -8888,32 +9468,50 @@ Library {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din1"
+<<<<<<< HEAD
 		    SID			    1683
+=======
+		    SID			    1231
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Position		    [15, 70, 35, 90]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "din2"
+<<<<<<< HEAD
 		    SID			    1684
 		    Position		    [155, 160, 175, 180]
+=======
+		    SID			    1232
+		    Position		    [70, 160, 90, 180]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Port		    "2"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "opmode"
+<<<<<<< HEAD
 		    SID			    1685
 		    Position		    [325, 215, 345, 235]
+=======
+		    SID			    1233
+		    Position		    [245, 215, 265, 235]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Port		    "3"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert"
+<<<<<<< HEAD
 		    SID			    1690
+=======
+		    SID			    1234
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [140, 65, 185, 95]
+		    Position		    [60, 65, 105, 95]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Convert"
 		    SourceType		    "Xilinx Type Converter Block"
@@ -8944,9 +9542,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Convert2"
+<<<<<<< HEAD
 		    SID			    1691
+=======
+		    SID			    1235
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [315, 155, 360, 185]
+		    Position		    [235, 155, 280, 185]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Convert"
 		    SourceType		    "Xilinx Type Converter Block"
@@ -8977,9 +9579,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "DSP48E"
+<<<<<<< HEAD
 		    SID			    1692
+=======
+		    SID			    1236
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [7, 1]
-		    Position		    [395, 157, 470, 293]
+		    Position		    [315, 157, 390, 293]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/DSP48E"
 		    SourceType		    "Xilinx DSP48E Block"
@@ -9062,9 +9668,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "a"
+<<<<<<< HEAD
 		    SID			    1693
+=======
+		    SID			    1237
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [215, 34, 275, 66]
+		    Position		    [135, 34, 195, 66]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Slice"
 		    SourceType		    "Xilinx Bit Slice Extractor Block"
@@ -9094,9 +9704,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "alumode"
+<<<<<<< HEAD
 		    SID			    1686
+=======
+		    SID			    1238
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [0, 1]
-		    Position		    [310, 262, 365, 288]
+		    Position		    [230, 262, 285, 288]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Constant"
 		    SourceType		    "Xilinx Constant Block Block"
@@ -9130,9 +9744,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "b"
+<<<<<<< HEAD
 		    SID			    1694
+=======
+		    SID			    1239
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [215, 94, 275, 126]
+		    Position		    [135, 94, 195, 126]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Slice"
 		    SourceType		    "Xilinx Bit Slice Extractor Block"
@@ -9162,9 +9780,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryin"
+<<<<<<< HEAD
 		    SID			    1687
+=======
+		    SID			    1240
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [0, 1]
-		    Position		    [310, 317, 365, 343]
+		    Position		    [230, 317, 285, 343]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Constant"
 		    SourceType		    "Xilinx Constant Block Block"
@@ -9198,9 +9820,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "carryinsel"
+<<<<<<< HEAD
 		    SID			    1688
+=======
+		    SID			    1241
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [0, 1]
-		    Position		    [310, 372, 365, 398]
+		    Position		    [230, 372, 285, 398]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Constant"
 		    SourceType		    "Xilinx Constant Block Block"
@@ -9234,17 +9860,21 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "conv_dsp_out"
+<<<<<<< HEAD
 		    SID			    1695
+=======
+		    SID			    1242
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [580, 209, 625, 241]
+		    Position		    [500, 209, 545, 241]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Convert"
 		    SourceType		    "Xilinx Type Converter Block"
 		    infoedit		    "Hardware notes: rounding and saturating require hardware resources; truncating and wrapping do no"
 		    "t."
-		    arith_type		    "Signed  (2's comp)"
+		    arith_type		    "Unsigned"
 		    n_bits		    "32"
-		    bin_pt		    "17"
+		    bin_pt		    "0"
 		    quantization	    "Truncate"
 		    overflow		    "Wrap"
 		    latency		    "0"
@@ -9268,9 +9898,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_a"
+<<<<<<< HEAD
 		    SID			    1696
+=======
+		    SID			    1243
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [310, 29, 360, 61]
+		    Position		    [230, 29, 280, 61]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -9298,9 +9932,13 @@ Library {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "reinterp_b"
+<<<<<<< HEAD
 		    SID			    1697
+=======
+		    SID			    1244
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [310, 94, 360, 126]
+		    Position		    [230, 94, 280, 126]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -9327,10 +9965,15 @@ Library {
 		    }
 		    Block {
 		    BlockType		    Reference
+<<<<<<< HEAD
 		    Name		    "reinterp_din1"
 		    SID			    1699
+=======
+		    Name		    "reinterp_ddin1"
+		    SID			    1245
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [60, 64, 110, 96]
+		    Position		    [140, 154, 190, 186]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -9357,6 +10000,7 @@ Library {
 		    }
 		    Block {
 		    BlockType		    Reference
+<<<<<<< HEAD
 		    Name		    "reinterp_din2"
 		    SID			    1698
 		    Ports		    [1, 1]
@@ -9390,8 +10034,12 @@ Library {
 		    BlockType		    Reference
 		    Name		    "reinterp_dsp_out"
 		    SID			    1700
+=======
+		    Name		    "reinterp_dsp_out"
+		    SID			    1246
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    Ports		    [1, 1]
-		    Position		    [500, 209, 550, 241]
+		    Position		    [420, 209, 470, 241]
 		    LibraryVersion	    "1.2"
 		    SourceBlock		    "xbsIndex_r4/Reinterpret"
 		    SourceType		    "Xilinx Type Reinterpreter Block"
@@ -9402,8 +10050,8 @@ Library {
 		    " of 56 (111000 in binary)."
 		    force_arith_type	    on
 		    arith_type		    "Signed  (2's comp)"
-		    force_bin_pt	    on
-		    bin_pt		    "17"
+		    force_bin_pt	    off
+		    bin_pt		    "0"
 		    has_advanced_control    "0"
 		    sggui_pos		    "-1,-1,-1,-1"
 		    block_type		    "reinterpret"
@@ -9419,8 +10067,13 @@ Library {
 		    Block {
 		    BlockType		    Outport
 		    Name		    "dout"
+<<<<<<< HEAD
 		    SID			    1689
 		    Position		    [655, 215, 675, 235]
+=======
+		    SID			    1247
+		    Position		    [575, 215, 595, 235]
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
@@ -9451,19 +10104,7 @@ Library {
 		    DstPort		    1
 		    }
 		    Line {
-		    SrcBlock		    "reinterp_din1"
-		    SrcPort		    1
-		    DstBlock		    "Convert"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "din1"
-		    SrcPort		    1
-		    DstBlock		    "reinterp_din1"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "reinterp_din2"
+		    SrcBlock		    "reinterp_ddin1"
 		    SrcPort		    1
 		    DstBlock		    "Convert2"
 		    DstPort		    1
@@ -9471,7 +10112,7 @@ Library {
 		    Line {
 		    SrcBlock		    "din2"
 		    SrcPort		    1
-		    DstBlock		    "reinterp_din2"
+		    DstBlock		    "reinterp_ddin1"
 		    DstPort		    1
 		    }
 		    Line {
@@ -9541,12 +10182,22 @@ Library {
 		    DstBlock		    "DSP48E"
 		    DstPort		    3
 		    }
+		    Line {
+		    SrcBlock		    "din1"
+		    SrcPort		    1
+		    DstBlock		    "Convert"
+		    DstPort		    1
+		    }
 		  }
 		}
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_x"
+<<<<<<< HEAD
 		  SID			  1680
+=======
+		  SID			  1248
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 197, 70, 223]
 		  LibraryVersion	  "1.2"
@@ -9582,7 +10233,11 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "opmode_z"
+<<<<<<< HEAD
 		  SID			  1681
+=======
+		  SID			  1249
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Ports			  [0, 1]
 		  Position		  [15, 97, 70, 123]
 		  LibraryVersion	  "1.2"
@@ -9618,7 +10273,11 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
+<<<<<<< HEAD
 		  SID			  1678
+=======
+		  SID			  1250
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 		  Position		  [270, 80, 290, 100]
 		  IconDisplay		  "Port number"
 		}
@@ -9682,7 +10341,11 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "dout"
+<<<<<<< HEAD
 	      SID		      1673
+=======
+	      SID		      1251
+>>>>>>> parent of bb94181... add a few simple blocks (parallelized accumulator, integrator, differentiator and downsampler)
 	      Position		      [155, 30, 175, 50]
 	      IconDisplay	      "Port number"
 	    }
@@ -9691,11 +10354,12 @@ Library {
 	      SrcPort		      1
 	      Points		      [0, 0]
 	      Branch {
-		Points			[10, 0; 0, -60]
+		Points			[10, 0; 0, -35]
 		DstBlock		"dout"
 		DstPort			1
 	      }
 	      Branch {
+		Points			[5, 0; 0, 25]
 		DstBlock		"acc_mem"
 		DstPort			1
 	      }
@@ -9703,19 +10367,21 @@ Library {
 	    Line {
 	      SrcBlock		      "acc_mem"
 	      SrcPort		      1
-	      Points		      [0, 45; -185, 0; 0, -45]
-	      DstBlock		      "adder_with_enable"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "acc_en"
-	      SrcPort		      1
+	      Points		      [0, 25; -150, 0]
 	      DstBlock		      "adder_with_enable"
 	      DstPort		      3
 	    }
 	    Line {
+	      SrcBlock		      "acc_en"
+	      SrcPort		      1
+	      Points		      [0, -15]
+	      DstBlock		      "adder_with_enable"
+	      DstPort		      2
+	    }
+	    Line {
 	      SrcBlock		      "din"
 	      SrcPort		      1
+	      Points		      [0, 10]
 	      DstBlock		      "adder_with_enable"
 	      DstPort		      1
 	    }
@@ -9975,9 +10641,9 @@ Library {
   }
 }
 MatData {
-  NumRecords		  2
+  NumRecords		  1
   DataRecord {
-    Tag			    DataTag1
+    Tag			    DataTag0
     Data		    "  %)30     .    L 0   8    (     @         %    \"     $    !     0         %  0 \"P    $    6    <W1A="
     "&4       !P87)A;65T97)S    #@   #     &    \"     T         !0    @    !     0    $         !@ $ /VR&0(.    ( 0   "
     "8    (     @         %    \"     $    !     0         %  0 #@    $   \"V    9&5F875L=',       !V96-L96X          &"
@@ -9993,11 +10659,5 @@ MatData {
     "   \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (             $ .  "
     "  .     8    (    !@         %    \"     $    !     0         )    \"             ! #@   #@    &    \"     8      "
     "   !0    @    !     0    $         \"0    @           #P/P"
-  }
-  DataRecord {
-    Tag			    DataTag0
-    Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    9C5D,C%F-3DU,6$X8S0S83"
-    "0W,&0X969A,#ED9&8V,F0"
   }
 }

@@ -56,9 +56,6 @@ if length(Coeffs) == 1,
     %constant blocks
     real_coeff = round(real(Coeffs(1)) * 2^(coeff_bit_width-2)) / 2^(coeff_bit_width-2);
     imag_coeff = round(imag(Coeffs(1)) * 2^(coeff_bit_width-2)) / 2^(coeff_bit_width-2);
-    Coeffs
-    real_coeff
-    imag_coeff
     
     % block: untitled/coeff_gen/Constant
     Constant_out1 = xSignal;
@@ -94,8 +91,8 @@ else
     else
         mem = 'Distributed memory';
     end
-    real_coeffs = round( real(Coeffs) * 2^(coeff_bit_width-2) ) / 2^(coeff_bit_width-2)
-    imag_coeffs = round( imag(Coeffs) * 2^(coeff_bit_width-2)  ) / 2^(coeff_bit_width-2)
+    real_coeffs = round( real(Coeffs) * 2^(coeff_bit_width-2) ) / 2^(coeff_bit_width-2);
+    imag_coeffs = round( imag(Coeffs) * 2^(coeff_bit_width-2)  ) / 2^(coeff_bit_width-2);
     
     % block: twiddles_collections/coeff_gen/Counter
     Counter_out1 = xSignal;
