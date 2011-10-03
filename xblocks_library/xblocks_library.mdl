@@ -1,6 +1,6 @@
 Library {
   Name			  "xblocks_library"
-  Version		  7.4
+  Version		  7.5
   MdlSubVersion		  0
   SavedCharacterEncoding  "windows-1252"
   PostLoadFcn		  "% Stub definitions for mask variables\ndelay_depth=16;\nn_bits=8;\nbin_pt=7;\n% Pre-load sublibrarie"
@@ -134,11 +134,11 @@ Library {
   Creator		  "mwagner"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "chenhong"
+  LastModifiedBy	  "Ryan"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Aug 10 08:43:41 2011"
-  RTWModifiedTimeStamp	  234866618
-  ModelVersionFormat	  "1.%<AutoIncrement:1282>"
+  LastModifiedDate	  "Mon Oct 03 02:31:11 2011"
+  RTWModifiedTimeStamp	  239509868
+  ModelVersionFormat	  "1.%<AutoIncrement:1283>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -166,6 +166,7 @@ Library {
   LinearizationMsg	  "none"
   Profile		  off
   ParamWorkspaceSource	  "MATLABWorkspace"
+  RecordCoverage	  off
   CovSaveName		  "covdata"
   CovMetricSettings	  "dw"
   CovNameIncrementing	  off
@@ -205,13 +206,13 @@ Library {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      1
-      Version		      "1.6.0"
+      Version		      "1.10.0"
       Array {
 	Type			"Handle"
 	Dimension		8
 	Simulink.SolverCC {
 	  $ObjectID		  2
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  StartTime		  "0.0"
 	  StopTime		  "10.0"
 	  AbsTol		  "auto"
@@ -231,6 +232,7 @@ Library {
 	  SolverMode		  "SingleTasking"
 	  Solver		  "ode45"
 	  SolverName		  "ode45"
+	  SolverJacobianMethodControl "auto"
 	  ShapePreserveControl	  "DisableAll"
 	  ZeroCrossControl	  "UseLocalSettings"
 	  ZeroCrossAlgorithm	  "Nonadaptive"
@@ -243,7 +245,7 @@ Library {
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  3
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -258,6 +260,7 @@ Library {
 	  SaveOutput		  on
 	  SaveState		  off
 	  SignalLogging		  on
+	  DSMLogging		  on
 	  InspectSignalLogs	  off
 	  SaveTime		  on
 	  ReturnWorkspaceOutputs  off
@@ -265,6 +268,7 @@ Library {
 	  TimeSaveName		  "tout"
 	  OutputSaveName	  "yout"
 	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
 	  OutputOption		  "RefineOutputTimes"
 	  OutputTimes		  "[]"
 	  ReturnWorkspaceOutputsName "out"
@@ -272,7 +276,7 @@ Library {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  4
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    7
@@ -298,6 +302,7 @@ Library {
 	  EnforceIntegerDowncast  on
 	  ExpressionFolding	  on
 	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
 	  EnableMemcpy		  on
 	  MemcpyThreshold	  64
 	  PassReuseOutputArgsAs	  "Structure reference"
@@ -317,13 +322,14 @@ Library {
 	  EfficientMapNaN2IntZero on
 	  OptimizeModelRefInitCode off
 	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  5
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -392,12 +398,14 @@ Library {
 	  StateNameClashWarn	  "warning"
 	  SimStateInterfaceChecksumMismatchMsg "warning"
 	  StrictBusMsg		  "Warning"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
 	  LoggingUnavailableSignals "error"
 	  BlockIODiagnostic	  "none"
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  6
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -424,16 +432,21 @@ Library {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  7
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceMATLABWorkerInit "None"
 	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
 	  ModelReferencePassRootInputsByReference on
 	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  8
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -447,7 +460,7 @@ Library {
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  9
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    6
@@ -490,12 +503,13 @@ Library {
 	  GenerateCodeInfo	  off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      10
-	      Version		      "1.6.0"
+	      Version		      "1.10.0"
 	      Array {
 		Type			"Cell"
 		Dimension		19
@@ -555,7 +569,7 @@ Library {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      11
-	      Version		      "1.6.0"
+	      Version		      "1.10.0"
 	      Array {
 		Type			"Cell"
 		Dimension		17
@@ -584,6 +598,7 @@ Library {
 	      TargetFunctionLibrary   "ANSI_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
+	      ERTCodeCoverageTool     "None"
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
@@ -694,7 +709,7 @@ Library {
   }
   System {
     Name		    "xblocks_library"
-    Location		    [412, 77, 924, 716]
+    Location		    [1059, 171, 1992, 1078]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    212
@@ -708,7 +723,7 @@ Library {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    13
+    SIDHighWatermark	    115
     Block {
       BlockType		      SubSystem
       Name		      "Accumulators"
@@ -959,6 +974,302 @@ Library {
     }
     Block {
       BlockType		      SubSystem
+      Name		      "Monroe_Library"
+      SID		      16
+      Ports		      []
+      Position		      [340, 480, 389, 529]
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Monroe_Library"
+	Location		[970, 82, 1910, 1114]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"125"
+	Block {
+	  BlockType		  Reference
+	  Name			  "FFT_Biplex_4x"
+	  SID			  15
+	  Ports			  [5, 5]
+	  Position		  [295, 32, 400, 148]
+	  LibraryVersion	  "1.161"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag0"
+	  SourceBlock		  "monroe_library/FFT_Biplex_4x"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  FFTSize		  "10"
+	  coeff_bit_width	  "18"
+	  input_bit_width	  "18"
+	  output_bit_width	  "18"
+	  inter_stage_bit_width	  "18"
+	  shift_arr		  "1"
+	  mux_latency_arr	  "0"
+	  max_distro_size_coeff	  "4"
+	  max_distro_size_delay	  "3"
+	  register_coeffs	  off
+	  stage_pre_delay	  off
+	  stage_mid_delay	  off
+	  stage_post_delay	  off
+	  bram_latency_fft	  off
+	  bram_latency_unscr	  off
+	  unscr_din_latency	  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "FFT_direct"
+	  SID			  14
+	  Ports			  [9, 9]
+	  Position		  [80, 25, 160, 215]
+	  LibraryVersion	  "1.161"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag1"
+	  SourceBlock		  "monroe_library/FFT_direct"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  FFTSize		  "3"
+	  larger_fft_size	  "9"
+	  input_bit_width	  "18"
+	  coeff_bit_width	  "18"
+	  inter_stage_bit_width	  "18"
+	  output_bit_width	  "18"
+	  register_coeffs	  on
+	  delay_input		  on
+	  delay_output		  off
+	  sync_tree_input	  off
+	  optional_delay_arr	  "1"
+	  coeff_group_arr_in	  "[]"
+	  coeff_stage_step_arr	  "0"
+	  shift_arr		  "1"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Misc"
+	  SID			  52
+	  Ports			  []
+	  Position		  [575, 25, 758, 179]
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Misc"
+	    Location		    [835, 444, 1907, 1127]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Reference
+	      Name		      "bit_reverse"
+	      SID		      48
+	      Ports		      [1, 1]
+	      Position		      [165, 242, 245, 278]
+	      LibraryVersion	      "1.161"
+	      UserDataPersistent      on
+	      UserData		      "DataTag2"
+	      SourceBlock	      "monroe_library/bit_reverse"
+	      SourceType	      ""
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData off
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      nBits		      "5"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "bulk_delay"
+	      SID		      50
+	      Ports		      [9, 9]
+	      Position		      [325, 229, 420, 411]
+	      LibraryVersion	      "1.161"
+	      UserDataPersistent      on
+	      UserData		      "DataTag3"
+	      SourceBlock	      "monroe_library/bulk_delay"
+	      SourceType	      ""
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData off
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      numInputs		      "9"
+	      delay_arr		      "5"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "counter_limited_fast"
+	      SID		      47
+	      Ports		      [0, 1]
+	      Position		      [145, 45, 185, 105]
+	      LibraryVersion	      "1.161"
+	      SourceBlock	      "monroe_library/counter_limited_fast"
+	      SourceType	      ""
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData off
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      bit_width		      "8"
+	      count_to		      "250"
+	      register_output	      "0"
+	      cheap_counter	      "0"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "delay_tree_z^-6_0"
+	      SID		      49
+	      Ports		      [1, 32]
+	      Position		      [535, 41, 615, 369]
+	      LibraryVersion	      "1.161"
+	      SourceBlock	      "monroe_library/delay_tree_z^-6_0"
+	      SourceType	      "SubSystem"
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData off
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "multi_delay_bram_fast"
+	      SID		      51
+	      Ports		      [4, 4]
+	      Position		      [300, 30, 420, 150]
+	      LibraryVersion	      "1.161"
+	      UserDataPersistent      on
+	      UserData		      "DataTag4"
+	      SourceBlock	      "monroe_library/multi_delay_bram_fast"
+	      SourceType	      ""
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData off
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      numSignals	      "4"
+	      delay_len		      "1024"
+	      bitWidth		      "18"
+	      binPt		      "17"
+	      signalType	      "Signed"
+	      bram_latency	      "2"
+	      register_counter	      "0"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "oneSync"
+	      SID		      46
+	      Ports		      [0, 1]
+	      Position		      [115, 167, 165, 203]
+	      LibraryVersion	      "1.161"
+	      SourceBlock	      "monroe_library/oneSync"
+	      SourceType	      "SubSystem"
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData off
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "pfb_fir_real"
+	  SID			  45
+	  Ports			  [17, 18]
+	  Position		  [255, 188, 370, 412]
+	  BackgroundColor	  "[0.501961, 0.501961, 0.501961]"
+	  LibraryVersion	  "1.161"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag5"
+	  SourceBlock		  "monroe_library/pfb_fir_real"
+	  SourceType		  "pfb_coeff_gen_dual"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  pfb_size		  "14"
+	  n_sim_inputs		  "4"
+	  n_taps		  "4"
+	  data_n_bits		  "18"
+	  coeff_n_bits		  "18"
+	  output_bit_width	  "18"
+	  window_fn		  "hamming"
+	  bin_width		  "1"
+	  end_scale_val		  "1"
+	  endDelay		  off
+	  cheap_sync		  off
+	  autoplace_mode	  "'Attached to ADC0'"
+	  autoplace_optimize	  off
+	  bram_latency_coeff	  off
+	  bram_latency_delay	  off
+	  register_counter	  off
+	  pack_delays		  on
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
       Name		      "Multipliers"
       SID		      9
       Ports		      []
@@ -1134,5 +1445,51 @@ Library {
       FontName		      "Lucida Console"
       FontSize		      9
     }
+  }
+}
+MatData {
+  NumRecords		  6
+  DataRecord {
+    Tag			    DataTag5
+    Data		    "  %)30     .    Z (   8    (     @         %    \"     $    !     0         %  0 \"P    $    A    <W1A="
+    "&4       !P87)A;65T97)S &AA<VA?8V]D90            X    P    !@    @    -          4    (     0    $    !          8"
+    " ! \"*<6,%#@   / !   &    \"     (         !0    @    !     0    $         !0 $  X    !    5    &1E9F%U;'1S       "
+    " 0FET5VED=&A);@    !#;V5F9D)I=%=I9'1H &UU;'1?;&%T96YC>0  =7-E7VAD;         !U<V5?96UB961D960        .    *     8  "
+    "  (     0         %    \"                0         .    .     8    (    !@         %    \"     $    !     0       "
+    "  )    \"            #) #@   #@    &    \"     8         !0    @    !     0    $         \"0    @            R0 X "
+    "   X    !@    @    &          4    (     0    $    !          D    (            \"$ .    ,     8    (    !        "
+    "  %    \"     $    \"     0         0  ( ;VX   X    P    !@    @    $          4    (     0    ,    !         !   "
+    "P!O9F8 #@   %     &    \"     0         !0    @    !    (     $         $    \"     Y9#0Q,F$P-69F-#%D9#8Q96(Y,3@Q8"
+    "S1C8F(Y8S8S,@"
+  }
+  DataRecord {
+    Tag			    DataTag4
+    Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    8C(P,SDP,C(R.&9C,S0P,#"
+    "1E,#<P938V9C=C9&(W9#,"
+  }
+  DataRecord {
+    Tag			    DataTag3
+    Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    8S4P9F9B-S=C-SDT-#)B-&"
+    "(S-68T,6,T.3AF-C5B,V8"
+  }
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    ,C)C9C8T8C,Q.34U-#EF-#"
+    "(U8V$T,3AF,V1B.&-D93D"
+  }
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    -V%A-C4S.3=F-C8P9&0X8F"
+    "1B.#(Y93,T8S<S,F-D-S "
+  }
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    8V9F834Y.3AC8S0V,3(T,F"
+    "4T-3!A-SDU.#EB,38R8SD"
   }
 }
