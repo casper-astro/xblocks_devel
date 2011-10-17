@@ -37,7 +37,7 @@ function coeff_vector = pfb_coeff_gen_calc_ml(PFBSize,TotalTaps,WindowType,n_inp
 % Set coefficient vector
 alltaps = TotalTaps*2^PFBSize;
 windowval = transpose(window(WindowType, alltaps));
-total_coeffs = windowval .* sinc(fwidth*([0:alltaps-1]/(2^PFBSize)-TotalTaps/2));
+total_coeffs = windowval .* sinc(fwidth*([0:alltaps-1]/(2^PFBSize)-TotalTaps/2 + 2^(-1*(PFBSize+1))));
 for i=1:alltaps/2^n_inputs,
     buf(i)=total_coeffs((i-1)*2^n_inputs + nput + 1);
 end

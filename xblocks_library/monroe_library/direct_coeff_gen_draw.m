@@ -206,15 +206,16 @@ for(stageNum = 1:FFTSize)
    else
        sTemp=sDelayIn_stripped;
    end
+   coeff_delay_thisStage = 0;
     if(coeff_delay_arr(stageNum) -1 < 0)
-        coeff_delay_arr(stageNum) = 0;
+        coeff_delay_thisStage  = 0;
     else
-        coeff_delay_arr(stageNum) = coeff_delay_arr(stageNum) -1;
+        coeff_delay_thisStage  = coeff_delay_arr(stageNum) -1;
     end
     blockName = strcat('bulk_delay_', num2str(stageNum), '_2');
     bBulkDelay = xBlock(struct('source',str2func('bulk_delay_draw'), ...
         'name', blockName), ...
-        {length(sDelayIn_stripped),coeff_delay_arr(stageNum)}, sTemp, sCoeffSyncStage_stripped);
+        {length(sDelayIn_stripped),coeff_delay_thisStage}, sTemp, sCoeffSyncStage_stripped);
     
     sCoeffSync{stageNum} = sCoeffSyncStage;
     sCoeffArr{stageNum} = sCoeffArrStage;
@@ -234,7 +235,7 @@ end
 
 
 oSync = xOutport('sync_out');
-total_fft_latency = sum(stage_delay_arr) + sum(coeff_delay_arr);
+total_fft_latency =sum(coeff_delay_arr);
 
 %here's our sync output.
 blockName = 'delay_sync_1';
