@@ -157,6 +157,7 @@ for a=1:FFTSize,
 
 	use_hdl = 'on';
 	use_embedded = 'off';
+    use_dsp48_mults = 0;
 	if strcmp(specify_mult, 'on'),
 		if (mult_spec(a) == 2),
 			use_hdl = 'on';
