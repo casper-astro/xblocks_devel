@@ -15,6 +15,7 @@ s,xblocks_library/Multipliers,xblocks_library_multipliers,g;
 s,xblocks_library/PFBs,xblocks_library_pfbs,g;
 s,xblocks_library/Reorder,xblocks_library_reorder,g;
 s,xblocks_library/Scopes,xblocks_library_scopes,g;
+s,xblocks_library/Filters,xblocks_library_filters,g;
 "
 
 REVERT="
@@ -32,6 +33,7 @@ s,xblocks_library_multipliers,xblocks_library/Multipliers,g;
 s,xblocks_library_pfbs,xblocks_library/PFBs,g;
 s,xblocks_library_reorder,xblocks_library/Reorder,g;
 s,xblocks_library_scopes,xblocks_library/Scopes,g;
+s,xblocks_library_filters,xblocks_library/Filters,g;
 "
 
 if [ "${1}" == "-r" ]
