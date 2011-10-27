@@ -77,7 +77,13 @@ cmult_sub = xBlock(struct('source', str2func('cmult_dsp48e_init_xblock'), 'name'
 
        
 % instantiate coefficient generator
+FFTSize
+Coeffs
+br_indices = bit_rev( Coeffs, FFTSize-1 );
+disp('hello');  
+br_indices = -2*pi*1j*br_indices/2^FFTSize;
+ActualCoeffs = exp(br_indices);
 coeff_gen_sub = xBlock(struct('source',str2func('coeff_gen_init_xblock'), 'name', 'coeff_gen'), ...
-                          {[], Coeffs, coeff_bit_width, StepPeriod, bram_latency, coeffs_bram}, {sync}, {w});
+                          {[], ActualCoeffs, coeff_bit_width, StepPeriod, bram_latency, coeffs_bram}, {sync}, {w});
                                  
 end
