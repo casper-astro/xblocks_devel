@@ -133,8 +133,8 @@ Counter = xBlock(struct('source', 'Counter', 'name', 'biplex_sel_counter'), ...
 
 Slice1 = xBlock(struct('source', 'Slice', 'name', 'Slice1'), ...
 	struct('bit1', -0), {Counter_out1}, {biplex_sel});	
-
-
+	
+stage_for_last_counter = 1;	
 stage_latencies = get_biplex_stage_latencies(varargin{:})
 
 % Create/Delete Stages
@@ -157,7 +157,6 @@ for a=1:FFTSize,
 
 	use_hdl = 'on';
 	use_embedded = 'off';
-    use_dsp48_mults = 0;
 	if strcmp(specify_mult, 'on'),
 		if (mult_spec(a) == 2),
 			use_hdl = 'on';
@@ -219,7 +218,12 @@ for a=1:FFTSize,
 	stage_inputs = stage_outports;
 	stage_inputs{5} = shift;
 	
-	if a < FFTSize
+	del_to_last_counter = sum( stage_latencies(stage_for_last_counter:a) );
+	counter_ffs = a;
+	del_ffs = ceil(del_to_last_counter/16);
+	
+	
+	if (a < FFTSize) && (del_ffs < counter_ffs)
 		biplex_sel = xSignal;	
 		counter_bit = xSignal;
 		xBlock(struct('source', 'Slice', 'name', sprintf('Slice%d', a+1)), ...
@@ -227,9 +231,20 @@ for a=1:FFTSize,
 		
 		sync_delay_config.source = 'Delay';
 		sync_delay_config.name = sprintf('del_stage_%d', a+1);
-		xBlock(sync_delay_config, {'latency', stage_latencies(a)}, {counter_bit}, ...
+		xBlock(sync_delay_config, {'latency', del_to_last_counter}, {counter_bit}, ...
 			{biplex_sel});
 		stage_inputs{6} = biplex_sel;
+	elseif a < FFTSize % instantiate counter
+		Counter_out1 = xSignal;
+		Counter = xBlock(struct('source', 'Counter', 'name', sprintf('stage_%d_cnt', a+1)), ...
+			struct('n_bits', FFTSize-a, 'rst', 'on', 'explicit_period', 'off', ...
+				'use_rpm', 'off'), {stage_sync_out}, {Counter_out1});
+		
+		biplex_sel = xSignal;	
+		xBlock(struct('source', 'Slice', 'name', sprintf('Slice%d', a+1)), ...
+			struct('bit1', -0), {Counter_out1}, {biplex_sel});
+
+		stage_inputs{6} = biplex_sel;	
 	end
     
     % for bit growth FFT
@@ -245,7 +260,7 @@ sync_out.bind( stage_inputs{4} );
 
 if ~isempty(blk) && ~strcmp(blk(1),'/')
     clean_blocks(blk);
-    fmtstr = sprintf('%d stages\nreduce %s\n%s\n%s', FFTSize, opt_target, arch,num2str(bit_growth_chart,'%d '));
+    fmtstr = sprintf('%d stages\nreduce %s\n%s', FFTSize, opt_target, arch);
     set_param(blk, 'AttributesFormatString', fmtstr);
 end
 
