@@ -57,7 +57,7 @@ FFTSize = get_var('FFTSize', 'defaults', defaults, varargin{:});
 n_inputs = get_var('n_inputs', 'defaults', defaults, varargin{:});
 input_bit_width = get_var('input_bit_width', 'defaults', defaults, varargin{:});
 coeff_bit_width = get_var('coeff_bit_width', 'defaults', defaults, varargin{:});
-add_latency = get_var('add_latency', 'defaults', defaults, varargin{:});
+add_latency = 2; %get_var('add_latency', 'defaults', defaults, varargin{:});
 mult_latency = get_var('mult_latency', 'defaults', defaults, varargin{:});
 bram_latency = get_var('bram_latency', 'defaults', defaults, varargin{:});
 conv_latency = get_var('conv_latency', 'defaults', defaults, varargin{:});
@@ -97,7 +97,14 @@ end
 % split up multiplier specification
 mults_biplex = 2.*ones(1, FFTSize-n_inputs);
 mults_direct = 2.*ones(1, n_inputs);
+
+
 if strcmp(specify_mult, 'on'),
+    if(length(mult_spec) ~= FFTSize)
+        display('fft size must equal length of "specify multipliers"!');
+        errordlg('fft size must equal length of "specify multipliers"!');
+        error('fft size must equal length of "specify multipliers"!');
+    end
     mults_biplex(1:FFTSize-n_inputs) = mult_spec(1: FFTSize-n_inputs);
     mults_direct = mult_spec(FFTSize-n_inputs+1:FFTSize);
 end

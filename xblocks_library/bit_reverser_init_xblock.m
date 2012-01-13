@@ -19,7 +19,12 @@ for k=1:n_bits
     slice_outs{k} = slice_out;
 end
 
-xBlock(struct('source', 'Concat', 'name', 'rev_concat'), ...
+if(n_bits==1)
+    dout.bind(din);
+else
+    xBlock(struct('source', 'Concat', 'name', 'rev_concat'), ...
     struct('num_inputs', n_bits), slice_outs, {dout});
+end
+
 
 end

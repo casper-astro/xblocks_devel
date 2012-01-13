@@ -89,13 +89,13 @@ negate_latency = get_var('negate_latency', 'defaults', defaults, varargin{:});
 negate_dsp48e = get_var('negate_dsp48e', 'defaults', defaults, varargin{:});
 
 if FFTSize < 2,
-    errordlg('biplex_core_init.m: Biplex FFT must have length of at least 2^2, forcing size to 2.');
+    errordlg('fft_biplex_core_init_xblock.m: Biplex FFT must have length of at least 2^2, forcing size to 2.');
     FFTSize = 2;
 end
 
 if( strcmp(specify_mult, 'on') && (length(mult_spec) ~= FFTSize)),
-    disp('biplex_core_init.m: Multiplier use specification for stages does not match FFT size');
-    error('biplex_core_init.m: Multiplier use specification for stages does not match FFT size');
+    disp('fft_biplex_core_init_xblock.m: Multiplier use specification for stages does not match FFT size');
+    error('fft_biplex_core_init_xblock.m: Multiplier use specification for stages does not match FFT size');
     return
 end
 
@@ -167,11 +167,15 @@ for a=1:FFTSize,
 			use_embedded = 'on';
 			use_dsp48_mults = 1;			
 		else
-			use_hdl = 'on';
-			use_embedded = 'off';
-			use_dsp48_mults = 0;			
-		end
-	end
+            use_hdl = 'on';
+            use_embedded = 'off';
+            use_dsp48_mults = 0;
+        end
+    else
+        use_hdl = 'on';
+        use_embedded = 'off';
+        use_dsp48_mults = 0;
+    end
 
 	if (strcmp(hardcode_shifts, 'on') && (shift_schedule(a) == 1)),
 		downshift = 'on';

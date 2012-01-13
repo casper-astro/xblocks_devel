@@ -30,10 +30,10 @@ function fft_callback_dsp48_adders(cursys)
 
   dsp48_adders = get_param(cursys, 'dsp48_adders');
   if strcmp(dsp48_adders, 'on'),
-      set_param(cursys, 'add_latency', '2');
-      set_param_state(cursys, 'add_latency', 'off');
+%      set_param(cursys, 'add_latency', '2');
+      %set_param_state(cursys, 'add_latency', 'off');
   else
-      set_param_state(cursys, 'add_latency', 'on');
+     % set_param_state(cursys, 'add_latency', 'on');
   end
 
 end
