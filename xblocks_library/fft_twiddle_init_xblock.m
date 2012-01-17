@@ -134,7 +134,8 @@ if strcmp(twiddle_type, 'twiddle_pass_through') || strcmp(twiddle_type, 'twiddle
 		a_im_del = a_im;
 		b_re_del = b_re;
 		b_im_del = b_im;
-		sync_del = sync;	
+		sync_del = sync;
+    end
 end
 
 switch twiddle_type
