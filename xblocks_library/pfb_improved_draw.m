@@ -1,5 +1,6 @@
 function pfb_improved_draw(pfb_size, n_sim_inputs,  n_taps , data_n_bits, coeff_n_bits, output_bit_width, window_fn, bram_latency_coeff, bram_latency_delay, bin_width, end_scale_val, endDelay, cheap_sync, register_delay_counter, multi_delay_bram_share,  autoplace_mode, autoplace_optimize)
-
+%%%%%%%%%%%%%%%%%%THIS CODE IS HACKED UP,  NOT TRUSTWORTHY FOR GENERAL
+%%%%%%%%%%%%%%%%%%DEVELOPMENT
 
 %pfb_fir_real drawer
 
@@ -34,6 +35,7 @@ function pfb_improved_draw(pfb_size, n_sim_inputs,  n_taps , data_n_bits, coeff_
 pathToBlock = 'path:pfb';
 
 
+register_delay_counter = 1;
 %check that everything is an ingeger:
 if((~isInt([pfb_size, n_sim_inputs, n_taps, data_n_bits,coeff_n_bits, output_bit_width,bram_latency_coeff,bram_latency_delay,end_scale_val,endDelay,cheap_sync,register_delay_counter])))
     strError = 'The following parameters must be integers: pfb_size, n_sim_inputs, n_taps, data_n_bits, data_bin_pt, coeff_n_bits, coeff_bin_pt, output_bit_width, bram_latency_coeff, bram_latency_delay, end_scale_val, endDelay, cheap_sync, register_delay_counter';
@@ -113,12 +115,12 @@ for(i= 1:2^n_sim_inputs)
     oTapOut{i} = blockTemp;
 end
 
-bSyncTree = xBlock(struct('source', 'monroe_library/delay_tree_z^-6_0'),{}, {iSync}, ...
-    {xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal, ...
-    xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal, ...
-    xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal, ...
-    xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal});
-sSyncTree = bSyncTree.getOutSignals();
+% bSyncTree = xBlock(struct('source', 'monroe_library/delay_tree_z^-6_0'),{}, {iSync}, ...
+%     {xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal, ...
+%     xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal, ...
+%     xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal, ...
+%     xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal,xSignal});
+% sSyncTree = bSyncTree.getOutSignals();
 
 %procedure for making filter pairs:
 %1. make coefficient generator
@@ -183,11 +185,12 @@ for filterPairNum=1:(2^(n_sim_inputs-1))
     %     drawing_parameters.bram_latency=bram_latency;
     %     drawing_parameters.bin_width=bin_width;
     %
+    sCoeffSyncIn = xDelay(iSync,1);
     
     blockName = strcat('coeff_gen_',num2str(filterPairNum-1), '_', num2str(2^n_sim_inputs-filterPairNum));
     blockTemp = xBlock(struct('source', str2func('pfb_coeff_gen_dual_draw'), 'name', blockName), ...
         {pfb_size,n_sim_inputs,n_taps,filterPairNum-1,coeff_n_bits,window_fn, 'Block RAM',bram_latency_coeff,bin_width});
-    blockTemp.bindPort({sSyncTree{filterPairNum}},{sGenSync,sGenCoeff,sGenCoeffRev});
+    blockTemp.bindPort({sCoeffSyncIn},{sGenSync,sGenCoeff,sGenCoeffRev});
     
     
     if(filterPairNum == 1)
@@ -417,17 +420,17 @@ end
 
 oSyncOut1 = xOutport('sync_out1');
 
-if( cheap_sync == 1)
-    %this line for a cheaper sync delay.  OK if all your hardware elements run
-    %with periods at subdivisions of your vector length (they probably do)
-    sSyncOut0 = xDelay(iSync, endDelay + n_taps + 2, 'sync_delay_end0');
-    sSyncOut1 = xDelay(iSync, endDelay + n_taps + 2, 'sync_delay_end1');
-    oSyncOut.bind(sSyncOut0);
-    oSyncOut1.bind(sSyncOut1);
-else
+% if( cheap_sync == 1)
+%     %this line for a cheaper sync delay.  OK if all your hardware elements run
+%     %with periods at subdivisions of your vector length (they probably do)
+%     sSyncOut0 = xDelay(iSync, endDelay + n_taps + 2+1, 'sync_delay_end0');
+%     sSyncOut1 = xDelay(iSync, endDelay + n_taps + 2+1, 'sync_delay_end1');
+%     oSyncOut.bind(sSyncOut0);
+%     oSyncOut1.bind(sSyncOut1);
+% else
     %this line for an "honest" sync delay.  More hardware expensive
-    bSyncDelay = xBlock('monroe_library/sync_delay_fast', struct('delay_len', endDelay + (n_taps +2) + ((2^vector_len)*(n_taps-1))  -8), {sCoeff0SyncOut}, {oSyncOut});
-    bSyncDelay = xBlock('monroe_library/sync_delay_fast', struct('delay_len', endDelay + (n_taps +2) + ((2^vector_len)*(n_taps-1))  -8), {sGenSync}, {oSyncOut1});
-end
+    bSyncDelay = xBlock('monroe_library/sync_delay_fast', struct('delay_len', endDelay + (n_taps +2) + ((2^vector_len)*(n_taps-1))  -8+9), {sCoeff0SyncOut}, {oSyncOut});
+    bSyncDelay = xBlock('monroe_library/sync_delay_fast', struct('delay_len', endDelay + (n_taps +2) + ((2^vector_len)*(n_taps-1))  -8+9), {sGenSync}, {oSyncOut1});
+% end
 
 
