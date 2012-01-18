@@ -42,8 +42,13 @@ for i =1:n_inputs
 end
 
 
-
-if mod(dec_rate, n_inputs) ==0
+if dec_rate == 1
+    for i =1:n_inputs
+        outports{i}.bind(inports{i});
+    end
+    sync_out.bind(sync_in);
+    
+elseif mod(dec_rate, n_inputs) ==0
     % if dec_rate is a multiple of n_inputs
     reduced_dec_rate = dec_rate/n_inputs;
     for i =2:n_inputs
