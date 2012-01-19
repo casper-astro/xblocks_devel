@@ -23,10 +23,12 @@ function parallel_scope_init_xblock(blk, varargin)
 
 defaults = {...
     'n_inputs',8, ...
-    'sample_period',1};
+    'sample_period',1,...
+    'explicit_period', 0};
 
 n_inputs = get_var('n_inputs', 'defaults', defaults, varargin{:});
 sample_period = get_var('sample_period', 'defaults', defaults, varargin{:});
+explicit_period = get_var('explicit_period', 'defaults', defaults, varargin{:});
 
 
 inports = cell(1,n_inputs);
@@ -49,7 +51,11 @@ sel = xBlock(struct('source','simulink/Sources/Counter Limited', 'name','sel'), 
                           {sel_out});
                       
 
-
+if explicit_period 
+    switcher_period = sample_period/n_inputs;
+else
+    switcher_period = -1;
+end
 gateways = cell(1,n_inputs);                    
 for i=1:n_inputs
     gateways{i} = xBlock(struct('source','xbsTypes_r4/Gateway Out','name',['gateway_out',num2str(i)]), ...
@@ -59,7 +65,8 @@ for i=1:n_inputs
 end
 switcher = xBlock(struct('source', 'simulink/Signal Routing/Multiport Switch', 'name','switch'), ...
                     struct('Inputs', n_inputs, ...
-                            'zeroidx', 'on'), ...
+                            'zeroidx', 'on', ...
+                            'SampleTime',switcher_period), ...
                             [{sel_out},switcher_in], ...
                             {outport});
                         
