@@ -1,7 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                             %
 %   Center for Astronomy Signal Processing and Electronics Research           %
-%   http://casper.berkeley.edu                                                %      
+%   http://casper.berkeley.edu
+%   %      
 %   Copyright (C) 2011 Suraj Gowda, Hong Chen                                 %
 %                                                                             %
 %   This program is free software; you can redistribute it and/or modify      %
@@ -20,9 +21,12 @@
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function simd_add_dsp48e_init_xblock(blk, mode, n_bits_a, bin_pt_a, n_bits_b, bin_pt_b, full_precision, ...
-	n_bits_c, bin_pt_c, quantization, overflow, cast_latency)
+	n_bits_c, bin_pt_c, quantization, overflow, cast_latency, accept_pcin)
 % no depends
 
+if(~exist('accept_pcin'))
+    accept_pcin=0;
+end
 
 % Determine addition or subtraction mode
 if strcmp(mode, 'Addition'),
@@ -69,7 +73,7 @@ a_re = xInport('a_re');
 a_im = xInport('a_im');
 b_re = xInport('b_re');
 b_im = xInport('b_im');
-
+pcin = xInport('pcin');
 %% outports
 c_re = xOutport('c_re');
 c_im = xOutport('c_im');
@@ -122,13 +126,21 @@ if (n_bits_out > 24),
   return
 end
 
-
-DSP48E = xBlock(struct('source', 'DSP48E', 'name', 'DSP48E'), ...
+if(accept_pcin == 0)
+    DSP48E = xBlock(struct('source', 'DSP48E', 'name', 'DSP48E'), ...
                        struct('use_creg', 'on', ...
                               'addsub_mode', 'TWO24'), ...
                        {Reinterpret_A_out1, Reinterpret_B_out1, Reinterpret_C_out1, opmode_out1, alumode_out1, carryin_out1, carryinsel_out1}, ...
                        {DSP48E_out1});
-
+else
+    
+    DSP48E = xBlock(struct('source', 'DSP48E', 'name', 'DSP48E'), ...
+                       struct('use_creg', 'on', ...
+                              'use_pcin', 'on', ...
+                              'addsub_mode', 'TWO24'), ...
+                       {Reinterpret_A_out1, Reinterpret_B_out1, Reinterpret_C_out1, pcin, opmode_out1, alumode_out1, carryin_out1, carryinsel_out1}, ...
+                       {DSP48E_out1});
+end
 % block: dsp48e_pfb_test3/caddsub_dsp48e/Reinterpret_A
 Reinterpret_A = xBlock(struct('source', 'Reinterpret', 'name', 'Reinterpret_A'), ...
                               struct('force_arith_type', 'on', ...
