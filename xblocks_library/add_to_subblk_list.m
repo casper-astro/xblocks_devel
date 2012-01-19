@@ -45,6 +45,7 @@ else
     new_subblk_list = sub_blks;
 end
 
+disp('hello');
 disp(new_subblk_list);
 
 eval([[main_blk,'_subblk_list'] '=new_subblk_list;']);
