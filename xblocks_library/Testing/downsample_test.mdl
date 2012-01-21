@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.29"
+    ComputedModelVersion    "1.31"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -25,9 +25,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "hong"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jan 18 13:41:35 2012"
-  RTWModifiedTimeStamp	  248794888
-  ModelVersionFormat	  "1.%<AutoIncrement:29>"
+  LastModifiedDate	  "Fri Jan 20 12:14:21 2012"
+  RTWModifiedTimeStamp	  248962459
+  ModelVersionFormat	  "1.%<AutoIncrement:31>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -669,7 +669,7 @@ Model {
   }
   System {
     Name		    "downsample_test"
-    Location		    [318, 95, 1193, 608]
+    Location		    [308, 47, 1183, 560]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -770,14 +770,14 @@ Model {
       sggui_pos		      "16,-66,419,748"
       block_type	      "counter"
       block_version	      "11.4"
-      sg_icon_stat	      "45,26,0,1,white,blue,0,2b614a30,right,"
+      sg_icon_stat	      "45,26,0,1,white,blue,0,335d209d,right,"
       sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]"
       ");\npatch([0.333333 0.244444 0.377778 0.244444 0.333333 0.488889 0.533333 0.577778 0.733333 0.6 0.466667 0.37777"
       "8 0.511111 0.377778 0.466667 0.6 0.733333 0.577778 0.533333 0.488889 0.333333 ],[0.115385 0.269231 0.5 0.730769 "
       "0.884615 0.884615 0.807692 0.884615 0.884615 0.653846 0.884615 0.730769 0.5 0.269231 0.115385 0.346154 0.115385 "
       "0.115385 0.192308 0.115385 0.115385 ],[0.98 0.96 0.92]);\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT:"
-      " end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'\\fontsize"
-      "{11pt}\\bf5','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+      " end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'out');\nfp"
+      "rintf('','COMMENT: end icon text');\n"
     }
     Block {
       BlockType		      SubSystem
@@ -800,26 +800,26 @@ Model {
       MaskHideContents	      off
       MaskType		      "Down Sample"
       MaskDescription	      "Down Sample by using a periodically enabled register"
-      MaskPromptString	      "Rate Change|Input Clock Rate"
-      MaskStyleString	      "edit,edit"
-      MaskTunableValueString  "on,on"
-      MaskCallbackString      "|"
-      MaskEnableString	      "on,on"
-      MaskVisibilityString    "on,on"
-      MaskToolTipString	      "on,on"
-      MaskVariables	      "dec_rate=@1;input_clk_rate=@2;"
+      MaskPromptString	      "Rate Change|Input Clock Rate|Use Xilinx Down Sample?"
+      MaskStyleString	      "edit,edit,edit"
+      MaskTunableValueString  "on,on,on"
+      MaskCallbackString      "||"
+      MaskEnableString	      "on,on,on"
+      MaskVisibilityString    "on,on,on"
+      MaskToolTipString	      "on,on,on"
+      MaskVariables	      "dec_rate=@1;input_clk_rate=@2;xilinx=@3;"
       MaskInitialization      "config.source=str2func('downsample_init_xblock');\nconfig.depend=get_dependlist('downsa"
       "mple');\nconfig.toplevel=gcb;\nset_param(gcb,'LinkStatus','inactive');\nxBlock(config, {config.toplevel,...\n   "
-      " 'dec_rate', dec_rate, ...\n    'input_clk_rate', input_clk_rate});"
+      " 'dec_rate', dec_rate, ...\n    'input_clk_rate', input_clk_rate, ...\n    'xilinx', xilinx});"
       MaskIconFrame	      on
       MaskIconOpaque	      on
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "7|5"
+      MaskValueString	      "2|5|0"
       System {
 	Name			"Down Sample"
-	Location		[267, 121, 1003, 566]
+	Location		[252, 49, 988, 494]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -832,7 +832,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	945
+	SIDHighWatermark	959
 	SIDPrevWatermark	895
 	Block {
 	  BlockType		  Inport
@@ -844,7 +844,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Constant"
-	  SID			  942
+	  SID			  956
 	  Ports			  [0, 1]
 	  Position		  [15, 132, 70, 158]
 	  LibraryVersion	  "1.2"
@@ -855,7 +855,7 @@ Model {
 	  n_bits		  "16"
 	  bin_pt		  "14"
 	  explicit_period	  on
-	  period		  "35"
+	  period		  "5"
 	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	  equ			  "P=C"
 	  opselect		  "C"
@@ -880,7 +880,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Counter1"
-	  SID			  943
+	  SID			  957
 	  Ports			  [0, 1]
 	  Position		  [15, 40, 75, 100]
 	  LibraryVersion	  "1.2"
@@ -889,10 +889,10 @@ Model {
 	  infoedit		  "Hardware notes: Free running counters are the least expensive in hardware.  A count limited counter is"
 	  " implemented by combining a counter with a comparator."
 	  cnt_type		  "Count Limited"
-	  cnt_to		  "34"
-	  operation		  "Up"
-	  start_count		  "0"
-	  cnt_by_val		  "34"
+	  cnt_to		  "0"
+	  operation		  "Down"
+	  start_count		  "1"
+	  cnt_by_val		  "1"
 	  arith_type		  "Unsigned"
 	  n_bits		  "18"
 	  bin_pt		  "0"
@@ -900,7 +900,7 @@ Model {
 	  rst			  off
 	  en			  off
 	  explicit_period	  "on"
-	  period		  "35"
+	  period		  "5"
 	  dbl_ovrd		  off
 	  use_behavioral_HDL	  off
 	  implementation	  "Fabric"
@@ -921,7 +921,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Register"
-	  SID			  944
+	  SID			  958
 	  Ports			  [2, 1]
 	  Position		  [185, 47, 245, 103]
 	  LibraryVersion	  "1.2"
@@ -949,7 +949,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Relational"
-	  SID			  945
+	  SID			  959
 	  Ports			  [2, 1]
 	  Position		  [100, 82, 155, 138]
 	  LibraryVersion	  "1.2"
@@ -1040,14 +1040,13 @@ Model {
       sggui_pos		      "-1,-1,-1,-1"
       block_type	      "gatewayout"
       block_version	      "11.4"
-      sg_icon_stat	      "60,20,1,1,white,yellow,0,0a686d19,right,"
+      sg_icon_stat	      "60,20,1,1,white,yellow,0,cc31b7ac,right,"
       sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.95 0.93 0.65]"
       ");\npatch([0.4 0.35 0.433333 0.35 0.4 0.483333 0.5 0.516667 0.616667 0.55 0.483333 0.433333 0.516667 0.433333 0."
       "483333 0.55 0.616667 0.516667 0.5 0.483333 0.4 ],[0.1 0.25 0.5 0.75 0.9 0.9 0.85 0.9 0.9 0.7 0.9 0.75 0.5 0.25 0"
       ".1 0.3 0.1 0.1 0.15 0.1 0.1 ],[0.98 0.96 0.92]);\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end ico"
-      "n graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'\\fontsize{11pt}\\b"
-      "f5','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize{11pt}\\bf5','texmode','on');\nfprintf('',"
-      "'COMMENT: end icon text');\n"
+      "n graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,' ');\ncolor('black'"
+      ");port_label('output',1,'\\fontsize{11pt}\\bf Out ','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
     }
     Block {
       BlockType		      Reference
@@ -1071,14 +1070,13 @@ Model {
       sggui_pos		      "-1,-1,-1,-1"
       block_type	      "gatewayout"
       block_version	      "11.4"
-      sg_icon_stat	      "60,20,1,1,white,yellow,0,0a686d19,right,"
+      sg_icon_stat	      "60,20,1,1,white,yellow,0,cc31b7ac,right,"
       sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.95 0.93 0.65]"
       ");\npatch([0.4 0.35 0.433333 0.35 0.4 0.483333 0.5 0.516667 0.616667 0.55 0.483333 0.433333 0.516667 0.433333 0."
       "483333 0.55 0.616667 0.516667 0.5 0.483333 0.4 ],[0.1 0.25 0.5 0.75 0.9 0.9 0.85 0.9 0.9 0.7 0.9 0.75 0.5 0.25 0"
       ".1 0.3 0.1 0.1 0.15 0.1 0.1 ],[0.98 0.96 0.92]);\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end ico"
-      "n graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'\\fontsize{11pt}\\b"
-      "f5','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize{11pt}\\bf5','texmode','on');\nfprintf('',"
-      "'COMMENT: end icon text');\n"
+      "n graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,' ');\ncolor('black'"
+      ");port_label('output',1,'\\fontsize{11pt}\\bf Out ','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
     }
     Block {
       BlockType		      Reference
@@ -1172,8 +1170,8 @@ MatData {
   DataRecord {
     Tag			    DataTag1
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    8F0P-3$X,S$Q96-C9#,X,V"
-    "$W-31B-# P,#,T935C838"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    .3ED,#DW,S4P.#,Q.&%F.#"
+    " P9#4Q.6%F83ED9F8Q,64"
   }
   DataRecord {
     Tag			    DataTag0
