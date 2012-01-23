@@ -62,7 +62,7 @@ function twiddle_stage_2_draw_init_xblock(a_re, a_im, b_re, b_im, sync, ...
 							struct('n_bits', FFTSize - 1 , 'rst', 'on', 'use_behavioral_HDL', 'on','start_count', 1), {counter_rst}, {count});
 	% slice to extract mux select from counter 
 	slice = xBlock(struct('source', 'Slice', 'name', 'slice'), [], {count}, {sel});
-	sel=xDelay(sel,1,'sel_delay');
+
 	
 	% delay a_re by total delay 
 	a_re_del = xBlock(struct('source', 'Delay', 'name', 'a_re_del'), ...
@@ -122,7 +122,7 @@ function twiddle_stage_2_draw_init_xblock(a_re, a_im, b_re, b_im, sync, ...
 						   
 	% bw_re = sel ? Real(b*-j) : Real(b) 
 	mux0 = xBlock(struct('source', 'Mux', 'name', 'mux0'), ...
-						 struct('latency', mult_latency+conv_latency+add_latency), {sel, b_re_bram_del, b_im_bram_del}, {bw_re_out});
+						 struct('latency', mult_latency+conv_latency+add_latency), {xDelay(sel,1,'sel_delay'), b_re_bram_del, b_im_bram_del}, {bw_re_out});
 						 
 		 
 end
