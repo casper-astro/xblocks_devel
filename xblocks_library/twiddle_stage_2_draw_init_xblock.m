@@ -16,7 +16,8 @@
 %   GNU General Public License for more details.                              %
 %                                                                             %
 %   You should have received a copy of the GNU General Public License along   %
-%   with this program; if not, write to the Free Software Foundation, Inc.,   %
+%   with this program; if not, write to the Free Software Foundation, Inc.,
+%   %
 %   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.               %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -58,10 +59,10 @@ function twiddle_stage_2_draw_init_xblock(a_re, a_im, b_re, b_im, sync, ...
 	
 	% Counter for select signal 
 	counter = xBlock(struct('source', 'Counter', 'name', 'counter'), ...
-							struct('n_bits', FFTSize - 1 , 'rst', 'on', 'use_behavioral_HDL', 'on'), {counter_rst}, {count});
+							struct('n_bits', FFTSize - 1 , 'rst', 'on', 'use_behavioral_HDL', 'on','start_count', 1), {counter_rst}, {count});
 	% slice to extract mux select from counter 
 	slice = xBlock(struct('source', 'Slice', 'name', 'slice'), [], {count}, {sel});
-	
+	sel=xDelay(sel,1,'sel_delay');
 	
 	% delay a_re by total delay 
 	a_re_del = xBlock(struct('source', 'Delay', 'name', 'a_re_del'), ...
@@ -103,6 +104,8 @@ function twiddle_stage_2_draw_init_xblock(a_re, a_im, b_re, b_im, sync, ...
 		% bw_im = sel ? Imag(b*-j) : Imag(b) 
 		mux1 = xBlock(struct('source', 'Mux', 'name', 'mux1'), ...
 							 struct('latency', 1), {im_sel, delay3_out1, delay4_out1}, {bw_im_out});
+                         
+                         bw_im_out = xDelay(bw_im_out,4,'bw_im_out_delay');
 		
 		% negate bw_re to multiply by -j
 		negate = xBlock(struct('source', 'Negate', 'name', 'negate'), ...
