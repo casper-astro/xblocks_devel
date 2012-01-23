@@ -15,9 +15,9 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "hong"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jan 18 11:58:07 2012"
-  RTWModifiedTimeStamp	  248788685
-  ModelVersionFormat	  "1.%<AutoIncrement:17>"
+  LastModifiedDate	  "Fri Jan 20 09:19:32 2012"
+  RTWModifiedTimeStamp	  248951967
+  ModelVersionFormat	  "1.%<AutoIncrement:18>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -620,7 +620,7 @@ Library {
   }
   System {
     Name		    "xblocks_library_downconverter"
-    Location		    [132, 72, 1067, 532]
+    Location		    [132, 77, 1067, 537]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -634,11 +634,11 @@ Library {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    897
+    SIDHighWatermark	    910
     Block {
       BlockType		      SubSystem
       Name		      "Down Sample"
-      SID		      876
+      SID		      904
       Ports		      [1, 1]
       Position		      [235, 229, 285, 291]
       BackgroundColor	      "lightBlue"
@@ -654,26 +654,26 @@ Library {
       MaskHideContents	      off
       MaskType		      "Down Sample"
       MaskDescription	      "Down Sample by using a periodically enabled register"
-      MaskPromptString	      "Rate Change|Input Clock Rate"
-      MaskStyleString	      "edit,edit"
-      MaskTunableValueString  "on,on"
-      MaskCallbackString      "|"
-      MaskEnableString	      "on,on"
-      MaskVisibilityString    "on,on"
-      MaskToolTipString	      "on,on"
-      MaskVariables	      "dec_rate=@1;input_clk_rate=@2;"
+      MaskPromptString	      "Rate Change|Input Clock Rate|Use Xilinx Down Sample?"
+      MaskStyleString	      "edit,edit,edit"
+      MaskTunableValueString  "on,on,on"
+      MaskCallbackString      "||"
+      MaskEnableString	      "on,on,on"
+      MaskVisibilityString    "on,on,on"
+      MaskToolTipString	      "on,on,on"
+      MaskVariables	      "dec_rate=@1;input_clk_rate=@2;xilinx=@3;"
       MaskInitialization      "config.source=str2func('downsample_init_xblock');\nconfig.depend=get_dependlist('downsa"
       "mple');\nconfig.toplevel=gcb;\nset_param(gcb,'LinkStatus','inactive');\nxBlock(config, {config.toplevel,...\n   "
-      " 'dec_rate', dec_rate, ...\n    'input_clk_rate', input_clk_rate});"
+      " 'dec_rate', dec_rate, ...\n    'input_clk_rate', input_clk_rate, ...\n    'xilinx', xilinx});"
       MaskIconFrame	      on
       MaskIconOpaque	      on
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "7|0"
+      MaskValueString	      "7|5|0"
       System {
 	Name			"Down Sample"
-	Location		[55, 128, 791, 573]
+	Location		[252, 49, 988, 494]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -689,25 +689,25 @@ Library {
 	Block {
 	  BlockType		  Inport
 	  Name			  "In"
-	  SID			  877
+	  SID			  905
 	  Position		  [115, 30, 135, 50]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Constant"
-	  SID			  892
+	  SID			  906
 	  Ports			  [0, 1]
 	  Position		  [15, 132, 70, 158]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
 	  arith_type		  "Signed (2's comp)"
-	  const			  "1"
+	  const			  "0"
 	  n_bits		  "16"
 	  bin_pt		  "14"
-	  explicit_period	  "off"
-	  period		  "1"
+	  explicit_period	  on
+	  period		  "5"
 	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	  equ			  "P=C"
 	  opselect		  "C"
@@ -715,24 +715,24 @@ Library {
 	  opr			  "+"
 	  inp1			  "P"
 	  carry			  "CIN"
-	  dbl_ovrd		  "off"
+	  dbl_ovrd		  off
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
 	  block_version		  "11.4"
-	  sg_icon_stat		  "55,26,0,1,white,blue,0,1c72b5be,right,"
+	  sg_icon_stat		  "55,26,0,1,white,blue,0,bf4ddd8b,right,"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
 	  "ch([0.363636 0.290909 0.4 0.290909 0.363636 0.490909 0.527273 0.563636 0.690909 0.581818 0.472727 0.4 0.509091 0.4 "
 	  "0.472727 0.581818 0.690909 0.563636 0.527273 0.490909 0.363636 ],[0.115385 0.269231 0.5 0.730769 0.884615 0.884615 "
 	  "0.807692 0.884615 0.884615 0.653846 0.884615 0.730769 0.5 0.269231 0.115385 0.346154 0.115385 0.115385 0.192308 0.1"
 	  "15385 0.115385 ],[0.98 0.96 0.92]);\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nf"
-	  "printf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'1');\nfprintf('','COMMENT: end icon t"
+	  "printf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'0');\nfprintf('','COMMENT: end icon t"
 	  "ext');\n"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Counter1"
-	  SID			  893
+	  SID			  907
 	  Ports			  [0, 1]
 	  Position		  [15, 40, 75, 100]
 	  LibraryVersion	  "1.2"
@@ -742,21 +742,21 @@ Library {
 	  " implemented by combining a counter with a comparator."
 	  cnt_type		  "Count Limited"
 	  cnt_to		  "0"
-	  operation		  "Up"
-	  start_count		  "1"
+	  operation		  "Down"
+	  start_count		  "6"
 	  cnt_by_val		  "1"
 	  arith_type		  "Unsigned"
 	  n_bits		  "18"
 	  bin_pt		  "0"
-	  load_pin		  "off"
-	  rst			  "off"
-	  en			  "off"
+	  load_pin		  off
+	  rst			  off
+	  en			  off
 	  explicit_period	  "on"
-	  period		  "1"
-	  dbl_ovrd		  "off"
-	  use_behavioral_HDL	  "off"
+	  period		  "5"
+	  dbl_ovrd		  off
+	  use_behavioral_HDL	  off
 	  implementation	  "Fabric"
-	  xl_use_area		  "off"
+	  xl_use_area		  off
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -773,17 +773,17 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Register"
-	  SID			  894
+	  SID			  908
 	  Ports			  [2, 1]
 	  Position		  [185, 47, 245, 103]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
 	  init			  "0"
-	  rst			  "off"
-	  en			  "on"
-	  dbl_ovrd		  "off"
-	  xl_use_area		  "off"
+	  rst			  off
+	  en			  on
+	  dbl_ovrd		  off
+	  xl_use_area		  off
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -801,17 +801,17 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Relational"
-	  SID			  895
+	  SID			  909
 	  Ports			  [2, 1]
 	  Position		  [100, 82, 155, 138]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/Relational"
 	  SourceType		  "Xilinx Arithmetic Relational Operator Block"
 	  mode			  "a=b"
-	  en			  "off"
+	  en			  off
 	  latency		  "1"
-	  dbl_ovrd		  "off"
-	  xl_use_area		  "off"
+	  dbl_ovrd		  off
+	  xl_use_area		  off
 	  xl_area		  "[0,0,0,0,0,0,0]"
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
@@ -830,7 +830,7 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "Out"
-	  SID			  882
+	  SID			  910
 	  Position		  [275, 65, 295, 85]
 	  IconDisplay		  "Port number"
 	}
@@ -962,9 +962,53 @@ Library {
 	  IconDisplay		  "Port number"
 	}
 	Block {
+	  BlockType		  SubSystem
+	  Name			  "Down_sample1"
+	  SID			  899
+	  Ports			  [1, 1]
+	  Position		  [15, 15, 35, 35]
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Down_sample1"
+	    Location		    [70, 200, 650, 460]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In"
+	      SID		      900
+	      Position		      [15, 15, 35, 35]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out"
+	      SID		      901
+	      Position		      [15, 15, 35, 35]
+	      IconDisplay	      "Port number"
+	    }
+	  }
+	}
+	Block {
 	  BlockType		  Reference
 	  Name			  "delay1"
-	  SID			  897
+	  SID			  898
 	  Ports			  [1, 1]
 	  Position		  [590, 1677, 650, 1733]
 	  LibraryVersion	  "1.2"
@@ -9309,7 +9353,7 @@ MatData {
   DataRecord {
     Tag			    DataTag0
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    9CEE860R-S W8S=C,&0Q9&"
-    "1C-#4R-C P,S$X93EB-6,"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    ,S4S,6(X9&4R9&0R9#%D-&"
+    ",P.34W9&-F,&9F.6(Q,3("
   }
 }

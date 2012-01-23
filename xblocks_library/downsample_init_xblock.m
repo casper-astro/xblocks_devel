@@ -1,10 +1,12 @@
 function downsample_init_xblock(blk, varargin)
 
 defaults = {'dec_rate', 3, ...
-    'input_clk_rate', 1};
+    'input_clk_rate', 1, ...
+    'xilinx',0};   % default: 0, don't use the xilinx cic, this is just for the convenience of testing
 
 dec_rate = get_var('dec_rate', 'defaults', defaults, varargin{:});
 input_clk_rate = get_var('input_clk_rate', 'defaults', defaults, varargin{:});
+xilinx = get_var('xilinx', 'defaults', defaults, varargin{:});
 
 
 %% inports
@@ -14,6 +16,16 @@ inport = xInport('In');
 outport = xOutport('Out');
 
 %% diagram
+
+
+if xilinx
+    downsample = xBlock(struct('source','xbsIndex/Down Sample', 'name', 'xDownSample'), ...
+                        struct('sample_ratio', dec_rate, ...
+                        'sample_phase', 'Last Value of Frame  (most efficient)'), ...
+                        {inport}, ...
+                        {outport});
+    return 
+end
 
 % block: Constant
 Constant_out = xSignal;
