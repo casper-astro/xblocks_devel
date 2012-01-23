@@ -106,7 +106,7 @@ b_im_delay = xBlock(struct('source', 'Delay', 'name', 'b_im_delay'), ...
 
 % convert 'w' to real/imag 
 c_to_ri_w = xBlock(struct('source', str2func('c_to_ri_init_xblock'), 'name', 'c_to_ri_w'), ...
-                               {[blk, '/c_to_ri_w'],coeff_bit_width, coeff_bit_width-1}, {w}, {w_re, w_im});
+                               {[blk, '/c_to_ri_w'],coeff_bit_width, coeff_bit_width-2}, {w}, {w_re, w_im});
 
 pcout_cmacc = xSignal;                           
                            
