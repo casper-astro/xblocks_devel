@@ -185,7 +185,7 @@ for filterPairNum=1:(2^(n_sim_inputs-1))
     %     drawing_parameters.bram_latency=bram_latency;
     %     drawing_parameters.bin_width=bin_width;
     %
-    sCoeffSyncIn = xDelay(iSync,1);
+    sCoeffSyncIn = xDelay(iSync,6);
     
     blockName = strcat('coeff_gen_',num2str(filterPairNum-1), '_', num2str(2^n_sim_inputs-filterPairNum));
     blockTemp = xBlock(struct('source', str2func('pfb_coeff_gen_dual_draw'), 'name', blockName), ...
@@ -429,8 +429,8 @@ oSyncOut1 = xOutport('sync_out1');
 %     oSyncOut1.bind(sSyncOut1);
 % else
     %this line for an "honest" sync delay.  More hardware expensive
-    bSyncDelay = xBlock('monroe_library/sync_delay_fast', struct('delay_len', endDelay + (n_taps +2) + ((2^vector_len)*(n_taps-1))  -8+9), {sCoeff0SyncOut}, {oSyncOut});
-    bSyncDelay = xBlock('monroe_library/sync_delay_fast', struct('delay_len', endDelay + (n_taps +2) + ((2^vector_len)*(n_taps-1))  -8+9), {sGenSync}, {oSyncOut1});
+    bSyncDelay = xBlock('monroe_library/sync_delay_fast', struct('delay_len', endDelay + (n_taps +2) + ((2^vector_len)*(n_taps-1))  -8+2), {sCoeff0SyncOut}, {oSyncOut});
+    bSyncDelay = xBlock('monroe_library/sync_delay_fast', struct('delay_len', endDelay + (n_taps +2) + ((2^vector_len)*(n_taps-1))  -8+2), {sGenSync}, {oSyncOut1});
 % end
 
 
