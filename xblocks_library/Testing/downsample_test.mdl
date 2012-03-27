@@ -1,12 +1,12 @@
 Model {
   Name			  "downsample_test"
-  Version		  7.4
+  Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.31"
+    ComputedModelVersion    "1.45"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -16,6 +16,7 @@ Model {
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
   DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
   MaxMDLFileLineLength	  120
@@ -23,11 +24,11 @@ Model {
   Creator		  "hong"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "hong"
+  LastModifiedBy	  "chenhong"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jan 20 12:14:21 2012"
-  RTWModifiedTimeStamp	  248962459
-  ModelVersionFormat	  "1.%<AutoIncrement:31>"
+  LastModifiedDate	  "Wed Mar 21 03:04:15 2012"
+  RTWModifiedTimeStamp	  254199658
+  ModelVersionFormat	  "1.%<AutoIncrement:45>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -102,15 +103,15 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      1
-      Version		      "1.6.0"
+      Version		      "1.10.0"
       Array {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  2
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  StartTime		  "0.0"
-	  StopTime		  "100"
+	  StopTime		  "10000"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -126,8 +127,10 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  SolverMode		  "Auto"
+	  ConcurrentTasks	  off
 	  Solver		  "ode45"
 	  SolverName		  "ode45"
+	  SolverJacobianMethodControl "auto"
 	  ShapePreserveControl	  "DisableAll"
 	  ZeroCrossControl	  "UseLocalSettings"
 	  ZeroCrossAlgorithm	  "Nonadaptive"
@@ -140,7 +143,7 @@ Model {
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  3
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -155,6 +158,7 @@ Model {
 	  SaveOutput		  on
 	  SaveState		  off
 	  SignalLogging		  on
+	  DSMLogging		  on
 	  InspectSignalLogs	  off
 	  SaveTime		  on
 	  ReturnWorkspaceOutputs  off
@@ -162,6 +166,7 @@ Model {
 	  TimeSaveName		  "tout"
 	  OutputSaveName	  "yout"
 	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
 	  OutputOption		  "RefineOutputTimes"
 	  OutputTimes		  "[]"
 	  ReturnWorkspaceOutputsName "out"
@@ -169,7 +174,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  4
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    7
@@ -187,14 +192,15 @@ Model {
 	  ConditionallyExecuteInputs on
 	  InlineParams		  off
 	  UseIntDivNetSlope	  off
+	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
 	  BufferReuse		  on
 	  EnhancedBackFolding	  off
 	  StrengthReduction	  off
-	  EnforceIntegerDowncast  on
 	  ExpressionFolding	  on
 	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
 	  EnableMemcpy		  on
 	  MemcpyThreshold	  64
 	  PassReuseOutputArgsAs	  "Structure reference"
@@ -214,13 +220,14 @@ Model {
 	  EfficientMapNaN2IntZero on
 	  OptimizeModelRefInitCode off
 	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  5
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -243,6 +250,8 @@ Model {
 	  MinStepSizeMsg	  "warning"
 	  TimeAdjustmentMsg	  "none"
 	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
 	  SolverPrmCheckMsg	  "warning"
 	  InheritedTsInSrcMsg	  "warning"
 	  DiscreteInheritContinuousMsg "warning"
@@ -279,6 +288,7 @@ Model {
 	  AssertControl		  "UseLocalSettings"
 	  EnableOverflowDetection off
 	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
 	  ModelReferenceVersionMismatchMessage "none"
 	  ModelReferenceIOMismatchMessage "none"
 	  ModelReferenceCSMismatchMessage "none"
@@ -288,17 +298,30 @@ Model {
 	  ModelReferenceExtraNoncontSigs "error"
 	  StateNameClashWarn	  "warning"
 	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "Warning"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
 	  LoggingUnavailableSignals "error"
 	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  6
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
 	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
 	  ProdIntDivRoundTo	  "Undefined"
 	  ProdEndianess		  "Unspecified"
 	  ProdWordSize		  32
@@ -308,6 +331,11 @@ Model {
 	  TargetBitPerShort	  16
 	  TargetBitPerInt	  32
 	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
 	  TargetShiftRightIntArith on
 	  TargetIntDivRoundTo	  "Undefined"
 	  TargetEndianess	  "Unspecified"
@@ -321,16 +349,22 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  7
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
 	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
 	  ModelReferencePassRootInputsByReference on
 	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  8
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -339,12 +373,13 @@ Model {
 	  SimExtrinsic		  on
 	  SimIntegrity		  on
 	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
 	  SimBuildMode		  "sf_incremental_build"
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  9
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    6
@@ -385,14 +420,16 @@ Model {
 	  GenerateTraceReportSf	  off
 	  GenerateTraceReportEml  off
 	  GenerateCodeInfo	  off
+	  GenerateSLWebview	  off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      10
-	      Version		      "1.6.0"
+	      Version		      "1.10.0"
 	      Array {
 		Type			"Cell"
 		Dimension		19
@@ -429,6 +466,7 @@ Model {
 	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
 	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
@@ -443,7 +481,9 @@ Model {
 	      ParamNamingRule	      "None"
 	      SignalNamingRule	      "None"
 	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
 	      EnableCustomComments    off
 	      InlinedPrmAccess	      "Literals"
 	      ReqsInCode	      off
@@ -452,10 +492,10 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      11
-	      Version		      "1.6.0"
+	      Version		      "1.10.0"
 	      Array {
 		Type			"Cell"
-		Dimension		17
+		Dimension		16
 		Cell			"GeneratePreprocessorConditionals"
 		Cell			"IncludeMdlTerminateFcn"
 		Cell			"CombineOutputUpdateFcns"
@@ -467,12 +507,11 @@ Model {
 		Cell			"CPPClassGenCompliant"
 		Cell			"MultiInstanceERTCode"
 		Cell			"PurelyIntegerCode"
-		Cell			"SupportNonFinite"
+		Cell			"PortableWordSizes"
 		Cell			"SupportComplex"
 		Cell			"SupportAbsoluteTime"
 		Cell			"SupportContinuousTime"
 		Cell			"SupportNonInlinedSFcns"
-		Cell			"PortableWordSizes"
 		PropName		"DisabledProps"
 	      }
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
@@ -481,6 +520,7 @@ Model {
 	      TargetFunctionLibrary   "ANSI_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
+	      ERTCodeCoverageTool     "None"
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
@@ -493,6 +533,7 @@ Model {
 	      IncludeMdlTerminateFcn  on
 	      GeneratePreprocessorConditionals "Disable all"
 	      CombineOutputUpdateFcns off
+	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
 	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
@@ -531,22 +572,15 @@ Model {
 	}
 	hdlcoderui.hdlcc {
 	  $ObjectID		  12
-	  Version		  "1.6.0"
+	  Version		  "1.10.0"
 	  Description		  "HDL Coder custom configuration component"
 	  Name			  "HDL Coder"
-	  Array {
-	    Type		    "Cell"
-	    Dimension		    1
-	    Cell		    ""
-	    PropName		    "HDLConfigFile"
-	  }
-	  HDLCActiveTab		  "0"
 	}
 	PropName		"Components"
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 204, 75, 1094, 734 ] "
+      ConfigPrmDlgPosition    " [ 199, 51, 1099, 737 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -587,43 +621,46 @@ Model {
   }
   BlockParameterDefaults {
     Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
       BlockType		      Inport
       Port		      "1"
-      UseBusObject	      off
-      BusObject		      "BusObject"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
       BusOutputAsStruct	      off
       PortDimensions	      "-1"
       VarSizeSig	      "Inherit"
       SampleTime	      "-1"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      DataType		      "auto"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
-      OutDataTypeStr	      "Inherit: auto"
-      LockScale		      off
       SignalType	      "auto"
       SamplingMode	      "auto"
       LatchByDelayingOutsideSignal off
-      LatchByCopyingInsideSignal off
+      LatchInputForFeedbackSignals off
       Interpolate	      on
     }
     Block {
       BlockType		      Outport
       Port		      "1"
-      UseBusObject	      off
-      BusObject		      "BusObject"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
       BusOutputAsStruct	      off
       PortDimensions	      "-1"
       VarSizeSig	      "Inherit"
       SampleTime	      "-1"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      DataType		      "auto"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
-      OutDataTypeStr	      "Inherit: auto"
-      LockScale		      off
       SignalType	      "auto"
       SamplingMode	      "auto"
       SourceOfInitialOutputValue "Dialog"
@@ -664,12 +701,15 @@ Model {
       RTWMemSecDataParameters "Inherit from model"
       SimViewingDevice	      off
       DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
       MinMaxOverflowLogging   "UseLocalSettings"
+      Variant		      off
+      GeneratePreprocessorConditionals off
     }
   }
   System {
     Name		    "downsample_test"
-    Location		    [308, 47, 1183, 560]
+    Location		    [80, 213, 955, 726]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -683,11 +723,11 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    85
+    SIDHighWatermark	    "87"
     Block {
       BlockType		      Reference
       Name		      " System Generator"
-      SID		      1
+      SID		      "1"
       Tag		      "genX"
       Ports		      []
       Position		      [424, 29, 475, 79]
@@ -706,6 +746,7 @@ Model {
       RTWMemSecDataConstants  "Inherit from model"
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
+      GeneratePreprocessorConditionals off
       infoedit		      " System Generator"
       xilinxfamily	      "virtex6"
       part		      "xc6vsx315t"
@@ -714,6 +755,9 @@ Model {
       synthesis_tool	      "XST"
       clock_wrapper	      "Clock Enables"
       directory		      "./netlist"
+      proj_type		      "Project Navigator"
+      Synth_file	      "XST Defaults"
+      Impl_file		      "ISE Defaults"
       testbench		      off
       simulink_period	      "1"
       sysclk_period	      "10"
@@ -729,18 +773,19 @@ Model {
       sggui_pos		      "-1,-1,-1,-1"
       block_type	      "sysgen"
       block_version	      "11.4"
-      sg_icon_stat	      "51,50,-1,-1,red,beige,0,07734,right,"
-      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.93 0.92 0.86]"
-      ");\npatch([0.235294 0.0784314 0.313725 0.0784314 0.235294 0.490196 0.568627 0.647059 0.921569 0.705882 0.490196 "
-      "0.333333 0.568627 0.333333 0.490196 0.705882 0.921569 0.647059 0.568627 0.490196 0.235294 ],[0.1 0.26 0.5 0.74 0"
-      ".9 0.9 0.82 0.9 0.9 0.68 0.9 0.74 0.5 0.26 0.1 0.32 0.1 0.1 0.18 0.1 0.1 ],[0.6 0.2 0.25]);\nplot([0 1 1 0 0 ],["
-      "0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\nfprintf('','C"
-      "OMMENT: end icon text');\n"
+      sg_icon_stat	      "51,50,0,0,token,white,0,58c5b5770fe5f7c311f53dbc6e73f0f6,right,,[ ],[ ]"
+      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 51 51 0 0 ],[0 0 50 50 0 ],[1 1 1 ]"
+      ");\npatch([1.6375 16.81 27.31 37.81 48.31 27.31 12.1375 1.6375 ],[36.655 36.655 47.155 36.655 47.155 47.155 47.1"
+      "55 36.655 ],[0.933333 0.203922 0.141176 ]);\npatch([12.1375 27.31 16.81 1.6375 12.1375 ],[26.155 26.155 36.655 3"
+      "6.655 26.155 ],[0.698039 0.0313725 0.219608 ]);\npatch([1.6375 16.81 27.31 12.1375 1.6375 ],[15.655 15.655 26.15"
+      "5 26.155 15.655 ],[0.933333 0.203922 0.141176 ]);\npatch([12.1375 48.31 37.81 27.31 16.81 1.6375 12.1375 ],[5.15"
+      "5 5.155 15.655 5.155 15.655 15.655 5.155 ],[0.698039 0.0313725 0.219608 ]);\nfprintf('','COMMENT: end icon graph"
+      "ics');\nfprintf('','COMMENT: begin icon text');\nfprintf('','COMMENT: end icon text');"
     }
     Block {
       BlockType		      Reference
       Name		      "Counter"
-      SID		      14
+      SID		      "14"
       Ports		      [0, 1]
       Position		      [30, 57, 75, 83]
       LibraryVersion	      "1.2"
@@ -760,30 +805,30 @@ Model {
       rst		      off
       en		      off
       explicit_period	      "on"
-      period		      "5"
+      period		      "1"
       dbl_ovrd		      off
       use_behavioral_HDL      off
       implementation	      "Fabric"
       xl_use_area	      off
       xl_area		      "[0,0,0,0,0,0,0]"
       has_advanced_control    "0"
-      sggui_pos		      "16,-66,419,748"
+      sggui_pos		      "28,-74,436,765"
       block_type	      "counter"
       block_version	      "11.4"
-      sg_icon_stat	      "45,26,0,1,white,blue,0,335d209d,right,"
-      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]"
-      ");\npatch([0.333333 0.244444 0.377778 0.244444 0.333333 0.488889 0.533333 0.577778 0.733333 0.6 0.466667 0.37777"
-      "8 0.511111 0.377778 0.466667 0.6 0.733333 0.577778 0.533333 0.488889 0.333333 ],[0.115385 0.269231 0.5 0.730769 "
-      "0.884615 0.884615 0.807692 0.884615 0.884615 0.653846 0.884615 0.730769 0.5 0.269231 0.115385 0.346154 0.115385 "
-      "0.115385 0.192308 0.115385 0.115385 ],[0.98 0.96 0.92]);\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT:"
-      " end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'out');\nfp"
-      "rintf('','COMMENT: end icon text');\n"
+      sg_icon_stat	      "45,26,0,1,white,blue,0,7ac47ef5,right,,[ ],[ ]"
+      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 45 45 0 0 ],[0 0 26 26 0 ],[0.77 0."
+      "82 0.91 ]);\nplot([0 45 45 0 0 ],[0 0 26 26 0 ]);\npatch([15.325 19.66 22.66 25.66 28.66 22.66 18.325 15.325 ],["
+      "16.33 16.33 19.33 16.33 19.33 19.33 19.33 16.33 ],[1 1 1 ]);\npatch([18.325 22.66 19.66 15.325 18.325 ],[13.33 1"
+      "3.33 16.33 16.33 13.33 ],[0.931 0.946 0.973 ]);\npatch([15.325 19.66 22.66 18.325 15.325 ],[10.33 10.33 13.33 13"
+      ".33 10.33 ],[1 1 1 ]);\npatch([18.325 28.66 25.66 22.66 19.66 15.325 18.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 "
+      "7.33 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text')"
+      ";\n\ncolor('black');disp('{\\fontsize{14}\\bf++}','texmode','on');\nfprintf('','COMMENT: end icon text');"
     }
     Block {
       BlockType		      SubSystem
       Name		      "Down Sample"
-      SID		      85
-      Ports		      [1, 1]
+      SID		      "85"
+      Ports		      [2, 2]
       Position		      [235, 274, 285, 336]
       BackgroundColor	      "lightBlue"
       AttributesFormatString  "Rate Change = %<dec_rate>"
@@ -802,12 +847,12 @@ Model {
       MaskDescription	      "Down Sample by using a periodically enabled register"
       MaskPromptString	      "Rate Change|Input Clock Rate|Use Xilinx Down Sample?"
       MaskStyleString	      "edit,edit,edit"
+      MaskVariables	      "dec_rate=@1;input_clk_rate=@2;xilinx=@3;"
       MaskTunableValueString  "on,on,on"
       MaskCallbackString      "||"
       MaskEnableString	      "on,on,on"
       MaskVisibilityString    "on,on,on"
       MaskToolTipString	      "on,on,on"
-      MaskVariables	      "dec_rate=@1;input_clk_rate=@2;xilinx=@3;"
       MaskInitialization      "config.source=str2func('downsample_init_xblock');\nconfig.depend=get_dependlist('downsa"
       "mple');\nconfig.toplevel=gcb;\nset_param(gcb,'LinkStatus','inactive');\nxBlock(config, {config.toplevel,...\n   "
       " 'dec_rate', dec_rate, ...\n    'input_clk_rate', input_clk_rate, ...\n    'xilinx', xilinx});"
@@ -816,10 +861,10 @@ Model {
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "2|5|0"
+      MaskValueString	      "5|1|0"
       System {
 	Name			"Down Sample"
-	Location		[252, 49, 988, 494]
+	Location		[247, 77, 983, 522]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -832,30 +877,42 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	959
-	SIDPrevWatermark	895
+	SIDHighWatermark	"991"
+	SIDPrevWatermark	"895"
 	Block {
 	  BlockType		  Inport
 	  Name			  "In"
-	  SID			  877
-	  Position		  [115, 30, 135, 50]
+	  SID			  "85:877"
+	  Position		  [170, 30, 190, 50]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "sync_in"
+	  SID			  "85:960"
+	  Position		  [15, 135, 35, 155]
+	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Constant"
-	  SID			  956
+	  SID			  "85:987"
 	  Ports			  [0, 1]
-	  Position		  [15, 132, 70, 158]
+	  Position		  [65, 132, 115, 158]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  arith_type		  "Signed (2's comp)"
 	  const			  "0"
+	  gui_display_data_type	  "Fixed-point"
+	  arith_type		  "Signed (2's comp)"
 	  n_bits		  "16"
 	  bin_pt		  "14"
-	  explicit_period	  on
-	  period		  "5"
+	  preci_type		  "Single"
+	  exp_width		  "8"
+	  frac_width		  "24"
+	  explicit_period	  off
+	  period		  "1"
 	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	  equ			  "P=C"
 	  opselect		  "C"
@@ -867,22 +924,21 @@ Model {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
-	  block_version		  "11.4"
-	  sg_icon_stat		  "55,26,0,1,white,blue,0,bf4ddd8b,right,"
-	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
-	  "ch([0.363636 0.290909 0.4 0.290909 0.363636 0.490909 0.527273 0.563636 0.690909 0.581818 0.472727 0.4 0.509091 0.4 "
-	  "0.472727 0.581818 0.690909 0.563636 0.527273 0.490909 0.363636 ],[0.115385 0.269231 0.5 0.730769 0.884615 0.884615 "
-	  "0.807692 0.884615 0.884615 0.653846 0.884615 0.730769 0.5 0.269231 0.115385 0.346154 0.115385 0.115385 0.192308 0.1"
-	  "15385 0.115385 ],[0.98 0.96 0.92]);\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nf"
-	  "printf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'0');\nfprintf('','COMMENT: end icon t"
-	  "ext');\n"
+	  sg_icon_stat		  "50,26,0,1,white,blue,0,1e24c1db,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 26 26 0 ]);\npatch([18.325 22.66 25.66 28.66 31.66 25.66 21.325 18.325 ],[16.33 16.3"
+	  "3 19.33 16.33 19.33 19.33 19.33 16.33 ],[1 1 1 ]);\npatch([21.325 25.66 22.66 18.325 21.325 ],[13.33 13.33 16.33 16"
+	  ".33 13.33 ],[0.931 0.946 0.973 ]);\npatch([18.325 22.66 25.66 21.325 18.325 ],[10.33 10.33 13.33 13.33 10.33 ],[1 1"
+	  " 1 ]);\npatch([21.325 31.66 28.66 25.66 22.66 18.325 21.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
+	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
+	  "_label('output',1,'\\fontsize{14pt}\\infty','texmode','on');\nfprintf('','COMMENT: end icon text');"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Counter1"
-	  SID			  957
-	  Ports			  [0, 1]
-	  Position		  [15, 40, 75, 100]
+	  SID			  "85:988"
+	  Ports			  [1, 1]
+	  Position		  [60, 40, 120, 100]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/Counter"
 	  SourceType		  "Xilinx Counter Block"
@@ -891,16 +947,16 @@ Model {
 	  cnt_type		  "Count Limited"
 	  cnt_to		  "0"
 	  operation		  "Down"
-	  start_count		  "1"
+	  start_count		  "4"
 	  cnt_by_val		  "1"
 	  arith_type		  "Unsigned"
 	  n_bits		  "18"
 	  bin_pt		  "0"
 	  load_pin		  off
-	  rst			  off
+	  rst			  on
 	  en			  off
 	  explicit_period	  "on"
-	  period		  "5"
+	  period		  "1"
 	  dbl_ovrd		  off
 	  use_behavioral_HDL	  off
 	  implementation	  "Fabric"
@@ -909,21 +965,22 @@ Model {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "counter"
-	  block_version		  "11.4"
-	  sg_icon_stat		  "60,60,0,1,white,blue,0,335d209d,right,"
-	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
-	  "ch([0.233333 0.0666667 0.3 0.0666667 0.233333 0.5 0.566667 0.633333 0.916667 0.7 0.483333 0.333333 0.583333 0.33333"
-	  "3 0.483333 0.7 0.916667 0.633333 0.566667 0.5 0.233333 ],[0.1 0.266667 0.5 0.733333 0.9 0.9 0.833333 0.9 0.9 0.6833"
-	  "33 0.9 0.75 0.5 0.25 0.1 0.316667 0.1 0.1 0.166667 0.1 0.1 ],[0.98 0.96 0.92]);\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\n"
-	  "fprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('outp"
-	  "ut',1,'out');\nfprintf('','COMMENT: end icon text');\n"
+	  sg_icon_stat		  "60,60,1,1,white,blue,0,1f31137e,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 60 60 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 60 60 0 0 ],[0 0 60 60 0 ]);\npatch([12.2 23.76 31.76 39.76 47.76 31.76 20.2 12.2 ],[38.88 38.88 46.8"
+	  "8 38.88 46.88 46.88 46.88 38.88 ],[1 1 1 ]);\npatch([20.2 31.76 23.76 12.2 20.2 ],[30.88 30.88 38.88 38.88 30.88 ],"
+	  "[0.931 0.946 0.973 ]);\npatch([12.2 23.76 31.76 20.2 12.2 ],[22.88 22.88 30.88 30.88 22.88 ],[1 1 1 ]);\npatch([20."
+	  "2 47.76 39.76 31.76 23.76 12.2 20.2 ],[14.88 14.88 22.88 14.88 22.88 22.88 14.88 ],[0.931 0.946 0.973 ]);\nfprintf("
+	  "'','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'\\"
+	  "fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize{11pt}\\bf1','texmode','on')"
+	  ";\nfprintf('','COMMENT: end icon text');"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Register"
-	  SID			  958
+	  SID			  "85:989"
 	  Ports			  [2, 1]
-	  Position		  [185, 47, 245, 103]
+	  Position		  [240, 47, 300, 103]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
@@ -936,22 +993,23 @@ Model {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "register"
-	  block_version		  "11.4"
-	  sg_icon_stat		  "60,56,2,1,white,blue,0,01f465d5,right,"
-	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
-	  "ch([0.25 0.1 0.316667 0.1 0.25 0.5 0.566667 0.633333 0.9 0.683333 0.483333 0.333333 0.533333 0.333333 0.483333 0.68"
-	  "3333 0.9 0.633333 0.566667 0.5 0.25 ],[0.107143 0.267857 0.5 0.732143 0.892857 0.892857 0.821429 0.892857 0.892857 "
-	  "0.660714 0.875 0.714286 0.5 0.285714 0.125 0.339286 0.107143 0.107143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]"
-	  ");\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon te"
-	  "xt');\ncolor('black');port_label('input',1,'d');\ncolor('black');port_label('input',2,'en');\ncolor('black');port_l"
-	  "abel('output',1,'q');\ncolor('black');disp('\\bf{z^{-1}}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+	  sg_icon_stat		  "60,56,2,1,white,blue,0,e14ba6a1,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 56 56 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 60 60 0 0 ],[0 0 56 56 0 ]);\npatch([12.2 23.76 31.76 39.76 47.76 31.76 20.2 12.2 ],[36.88 36.88 44.8"
+	  "8 36.88 44.88 44.88 44.88 36.88 ],[1 1 1 ]);\npatch([20.2 31.76 23.76 12.2 20.2 ],[28.88 28.88 36.88 36.88 28.88 ],"
+	  "[0.931 0.946 0.973 ]);\npatch([12.2 23.76 31.76 20.2 12.2 ],[20.88 20.88 28.88 28.88 20.88 ],[1 1 1 ]);\npatch([20."
+	  "2 47.76 39.76 31.76 23.76 12.2 20.2 ],[12.88 12.88 20.88 12.88 20.88 20.88 12.88 ],[0.931 0.946 0.973 ]);\nfprintf("
+	  "'','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'\\"
+	  "fontsize{11pt}\\bf3','texmode','on');\ncolor('red');port_label('input',2,'\\fontsize{11pt}\\bf1 (!)  ','texmode','o"
+	  "n');\ncolor('black');port_label('output',1,'\\fontsize{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon "
+	  "text');"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Relational"
-	  SID			  959
+	  SID			  "85:990"
 	  Ports			  [2, 1]
-	  Position		  [100, 82, 155, 138]
+	  Position		  [150, 77, 205, 133]
 	  LibraryVersion	  "1.2"
 	  SourceBlock		  "xbsIndex_r4/Relational"
 	  SourceType		  "Xilinx Arithmetic Relational Operator Block"
@@ -964,42 +1022,102 @@ Model {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "relational"
-	  block_version		  "11.4"
-	  sg_icon_stat		  "55,56,2,1,white,blue,0,2d4703fd,right,"
-	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.77 0.82 0.91]);\npat"
-	  "ch([0.236364 0.0727273 0.309091 0.0727273 0.236364 0.509091 0.581818 0.654545 0.945455 0.727273 0.509091 0.345455 0"
-	  ".581818 0.345455 0.509091 0.727273 0.945455 0.654545 0.581818 0.509091 0.236364 ],[0.107143 0.267857 0.5 0.732143 0"
-	  ".892857 0.892857 0.821429 0.892857 0.892857 0.678571 0.892857 0.732143 0.5 0.267857 0.107143 0.321429 0.107143 0.10"
-	  "7143 0.178571 0.107143 0.107143 ],[0.98 0.96 0.92]);\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end ic"
-	  "on graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'a');\ncolor('black');"
-	  "port_label('input',2,'b');\ncolor('black');disp('\\newline\\bf{a=b}\\newlinez^{-1}','texmode','on');\nfprintf('','C"
-	  "OMMENT: end icon text');\n"
+	  sg_icon_stat		  "55,56,2,1,white,blue,0,4e5c9710,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 56 56 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 55 55 0 0 ],[0 0 56 56 0 ]);\npatch([11.425 21.54 28.54 35.54 42.54 28.54 18.425 11.425 ],[35.77 35.7"
+	  "7 42.77 35.77 42.77 42.77 42.77 35.77 ],[1 1 1 ]);\npatch([18.425 28.54 21.54 11.425 18.425 ],[28.77 28.77 35.77 35"
+	  ".77 28.77 ],[0.931 0.946 0.973 ]);\npatch([11.425 21.54 28.54 18.425 11.425 ],[21.77 21.77 28.77 28.77 21.77 ],[1 1"
+	  " 1 ]);\npatch([18.425 42.54 35.54 28.54 21.54 11.425 18.425 ],[14.77 14.77 21.77 14.77 21.77 21.77 14.77 ],[0.931 0"
+	  ".946 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');"
+	  "port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('input',2,'\\fontsize{14pt"
+	  "}\\infty','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize{11pt}\\bf1','texmode','on');\nfprintf("
+	  "'','COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "sync_delay"
+	  SID			  "85:991"
+	  Ports			  [1, 1]
+	  Position		  [60, 187, 120, 243]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Delay"
+	  SourceType		  "Xilinx Delay Block"
+	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
+	  rst			  off
+	  infoeditControl	  "Selection of Reset will increase slice count due to use of real FFs and instead of SRLs"
+	  en			  off
+	  latency		  "1"
+	  dbl_ovrd		  off
+	  reg_retiming		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "delay"
+	  sg_icon_stat		  "60,56,1,1,white,blue,0,1f31137e,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 56 56 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 60 60 0 0 ],[0 0 56 56 0 ]);\npatch([12.2 23.76 31.76 39.76 47.76 31.76 20.2 12.2 ],[36.88 36.88 44.8"
+	  "8 36.88 44.88 44.88 44.88 36.88 ],[1 1 1 ]);\npatch([20.2 31.76 23.76 12.2 20.2 ],[28.88 28.88 36.88 36.88 28.88 ],"
+	  "[0.931 0.946 0.973 ]);\npatch([12.2 23.76 31.76 20.2 12.2 ],[20.88 20.88 28.88 28.88 20.88 ],[1 1 1 ]);\npatch([20."
+	  "2 47.76 39.76 31.76 23.76 12.2 20.2 ],[12.88 12.88 20.88 12.88 20.88 20.88 12.88 ],[0.931 0.946 0.973 ]);\nfprintf("
+	  "'','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'\\"
+	  "fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize{11pt}\\bf1','texmode','on')"
+	  ";\nfprintf('','COMMENT: end icon text');"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "Out"
-	  SID			  882
-	  Position		  [275, 65, 295, 85]
+	  SID			  "85:882"
+	  Position		  [330, 65, 350, 85]
 	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "sync_out"
+	  SID			  "85:961"
+	  Position		  [170, 205, 190, 225]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "sync_in"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  Branch {
+	    Points		    [0, 70]
+	    DstBlock		    "sync_delay"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -75]
+	    DstBlock		    "Counter1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "sync_delay"
+	  SrcPort		  1
+	  DstBlock		  "sync_out"
+	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Relational"
 	  SrcPort		  1
-	  Points		  [5, 0; 0, -20]
+	  Points		  [5, 0; 0, -15]
 	  DstBlock		  "Register"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "Constant"
 	  SrcPort		  1
-	  Points		  [5, 0; 0, -20]
+	  Points		  [5, 0; 0, -25]
 	  DstBlock		  "Relational"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "Counter1"
 	  SrcPort		  1
-	  Points		  [0, 25]
+	  Points		  [5, 0; 0, 20]
 	  DstBlock		  "Relational"
 	  DstPort		  1
 	}
@@ -1021,7 +1139,7 @@ Model {
     Block {
       BlockType		      Reference
       Name		      "Gateway Out"
-      SID		      7
+      SID		      "7"
       Ports		      [1, 1]
       Position		      [410, 125, 470, 145]
       LibraryVersion	      "1.2"
@@ -1040,18 +1158,20 @@ Model {
       sggui_pos		      "-1,-1,-1,-1"
       block_type	      "gatewayout"
       block_version	      "11.4"
-      sg_icon_stat	      "60,20,1,1,white,yellow,0,cc31b7ac,right,"
-      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.95 0.93 0.65]"
-      ");\npatch([0.4 0.35 0.433333 0.35 0.4 0.483333 0.5 0.516667 0.616667 0.55 0.483333 0.433333 0.516667 0.433333 0."
-      "483333 0.55 0.616667 0.516667 0.5 0.483333 0.4 ],[0.1 0.25 0.5 0.75 0.9 0.9 0.85 0.9 0.9 0.7 0.9 0.75 0.5 0.25 0"
-      ".1 0.3 0.1 0.1 0.15 0.1 0.1 ],[0.98 0.96 0.92]);\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end ico"
-      "n graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,' ');\ncolor('black'"
-      ");port_label('output',1,'\\fontsize{11pt}\\bf Out ','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+      sg_icon_stat	      "60,20,1,1,white,yellow,0,9e7cb6f2,right,,[ ],[ ]"
+      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 20 20 0 ],[0.95 0."
+      "93 0.65 ]);\nplot([0 60 60 0 0 ],[0 0 20 20 0 ]);\npatch([25.55 28.44 30.44 32.44 34.44 30.44 27.55 25.55 ],[12."
+      "22 12.22 14.22 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([27.55 30.44 28.44 25.55 27.55 ],[10.22 10.22 1"
+      "2.22 12.22 10.22 ],[0.985 0.979 0.895 ]);\npatch([25.55 28.44 30.44 27.55 25.55 ],[8.22 8.22 10.22 10.22 8.22 ],"
+      "[1 1 1 ]);\npatch([27.55 34.44 32.44 30.44 28.44 25.55 27.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.985 0.97"
+      "9 0.895 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');"
+      "port_label('input',1,'\\fontsize{11pt}\\bf3','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize{"
+      "11pt}\\bf3','texmode','on');\nfprintf('','COMMENT: end icon text');"
     }
     Block {
       BlockType		      Reference
       Name		      "Gateway Out1"
-      SID		      8
+      SID		      "8"
       Ports		      [1, 1]
       Position		      [410, 175, 470, 195]
       LibraryVersion	      "1.2"
@@ -1070,22 +1190,56 @@ Model {
       sggui_pos		      "-1,-1,-1,-1"
       block_type	      "gatewayout"
       block_version	      "11.4"
-      sg_icon_stat	      "60,20,1,1,white,yellow,0,cc31b7ac,right,"
-      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 1 1 0 ],[0 0 1 1 ],[0.95 0.93 0.65]"
-      ");\npatch([0.4 0.35 0.433333 0.35 0.4 0.483333 0.5 0.516667 0.616667 0.55 0.483333 0.433333 0.516667 0.433333 0."
-      "483333 0.55 0.616667 0.516667 0.5 0.483333 0.4 ],[0.1 0.25 0.5 0.75 0.9 0.9 0.85 0.9 0.9 0.7 0.9 0.75 0.5 0.25 0"
-      ".1 0.3 0.1 0.1 0.15 0.1 0.1 ],[0.98 0.96 0.92]);\nplot([0 1 1 0 0 ],[0 0 1 1 0 ]);\nfprintf('','COMMENT: end ico"
-      "n graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,' ');\ncolor('black'"
-      ");port_label('output',1,'\\fontsize{11pt}\\bf Out ','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+      sg_icon_stat	      "60,20,1,1,white,yellow,0,9ddd57e7,right,,[ ],[ ]"
+      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 20 20 0 ],[0.95 0."
+      "93 0.65 ]);\nplot([0 60 60 0 0 ],[0 0 20 20 0 ]);\npatch([25.55 28.44 30.44 32.44 34.44 30.44 27.55 25.55 ],[12."
+      "22 12.22 14.22 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([27.55 30.44 28.44 25.55 27.55 ],[10.22 10.22 1"
+      "2.22 12.22 10.22 ],[0.985 0.979 0.895 ]);\npatch([25.55 28.44 30.44 27.55 25.55 ],[8.22 8.22 10.22 10.22 8.22 ],"
+      "[1 1 1 ]);\npatch([27.55 34.44 32.44 30.44 28.44 25.55 27.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.985 0.97"
+      "9 0.895 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');"
+      "port_label('input',1,'\\fontsize{11pt}\\bf-1','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize"
+      "{11pt}\\bf-1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Gateway Out2"
+      SID		      "87"
+      Ports		      [1, 1]
+      Position		      [415, 235, 475, 255]
+      LibraryVersion	      "1.2"
+      SourceBlock	      "xbsIndex_r4/Gateway Out"
+      SourceType	      "Xilinx Gateway Out Block"
+      infoedit		      "Gateway out block.  Converts Xilinx fixed point inputs into ouputs of type Simulink integer, do"
+      "uble, or fixed point.<br><br>Hardware notes:  In hardware these blocks become top level output ports or are disc"
+      "arded, depending on how they are configured."
+      hdl_port		      on
+      timing_constraint	      "None"
+      locs_specified	      off
+      LOCs		      "{}"
+      xl_use_area	      off
+      xl_area		      "[0,0,0,0,0,0,0]"
+      has_advanced_control    "0"
+      sggui_pos		      "-1,-1,-1,-1"
+      block_type	      "gatewayout"
+      block_version	      "11.4"
+      sg_icon_stat	      "60,20,1,1,white,yellow,0,1f31137e,right,,[ ],[ ]"
+      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 20 20 0 ],[0.95 0."
+      "93 0.65 ]);\nplot([0 60 60 0 0 ],[0 0 20 20 0 ]);\npatch([25.55 28.44 30.44 32.44 34.44 30.44 27.55 25.55 ],[12."
+      "22 12.22 14.22 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([27.55 30.44 28.44 25.55 27.55 ],[10.22 10.22 1"
+      "2.22 12.22 10.22 ],[0.985 0.979 0.895 ]);\npatch([25.55 28.44 30.44 27.55 25.55 ],[8.22 8.22 10.22 10.22 8.22 ],"
+      "[1 1 1 ]);\npatch([27.55 34.44 32.44 30.44 28.44 25.55 27.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.985 0.97"
+      "9 0.895 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');"
+      "port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize{"
+      "11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon text');"
     }
     Block {
       BlockType		      Reference
       Name		      "Model Info"
-      SID		      80
+      SID		      "80"
       Ports		      []
       Position		      [30, 419, 744, 560]
       ShowName		      off
-      LibraryVersion	      "1.762"
+      LibraryVersion	      "1.225"
       FontName		      "Arial"
       SourceBlock	      "simulink/Model-Wide\nUtilities/Model Info"
       SourceType	      "CMBlock"
@@ -1097,13 +1251,16 @@ Model {
       RTWMemSecDataConstants  "Inherit from model"
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
+      GeneratePreprocessorConditionals off
       InitialBlockCM	      "None"
       BlockCM		      "None"
       Frame		      "on"
-      DisplayStringWithTags   "January 18, 2012\n\nTest passed. \n\nAttempt to make another version of Down Sampling b"
-      "lock as the xilinx one doesn't synthesize correctly in Casper toolflow."
-      MaskDisplayString	      "January 18, 2012\\n\\nTest passed. \\n\\nAttempt to make another version of Down Sampli"
-      "ng block as the xilinx one doesn't synthesize correctly in Casper toolflow."
+      DisplayStringWithTags   "March 19, 2012\nTest passed.\nAdded sync port.\n-----------------\nJanuary 18, 2012\n\n"
+      "Test passed. \n\nAttempt to make another version of Down Sampling block as the xilinx one doesn't synthesize cor"
+      "rectly in Casper toolflow."
+      MaskDisplayString	      "March 19, 2012\\nTest passed.\\nAdded sync port.\\n-----------------\\nJanuary 18, 2012"
+      "\\n\\nTest passed. \\n\\nAttempt to make another version of Down Sampling block as the xilinx one doesn't synthe"
+      "size correctly in Casper toolflow."
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "downsample_test"
@@ -1112,27 +1269,824 @@ Model {
     Block {
       BlockType		      Scope
       Name		      "Scope"
-      SID		      9
-      Ports		      [2]
-      Position		      [590, 161, 620, 194]
+      SID		      "9"
+      Ports		      [3]
+      Position		      [595, 125, 640, 245]
       Floating		      off
       Location		      [6, 78, 1276, 705]
       Open		      off
-      NumInputPorts	      "2"
+      NumInputPorts	      "3"
       List {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
 	axes2			"%<SignalLabel>"
+	axes3			"%<SignalLabel>"
       }
-      YMin		      "-5~-5"
-      YMax		      "5~5"
+      YMin		      "-5~-5~-5"
+      YMax		      "5~5~5"
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "sync_gen"
+      SID		      "86"
+      Ports		      [0, 1]
+      Position		      [125, 308, 175, 332]
+      AttributesFormatString  "sim_sync_period=480 "
+      AncestorBlock	      "casper_library_misc/sync_gen"
+      LibraryVersion	      "*1.14"
+      UserDataPersistent      on
+      UserData		      "DataTag2"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "sync_gen"
+      MaskDescription	      "This block computes the sync period based on system parameters as\ndescribed in Casper me"
+      "mo.  Detailed descritions of the block's \nvariables can be found in the 'Block Documentation' section of\nthe C"
+      "ASPER wiki."
+      MaskHelp		      "\nSyncPeriod=LCM(reorder_vec)*(acc_num)*(pfb_fir_len)*(fft_size/fft_simult_inputs)\n\nSee CASPE"
+      "R sync pulse memo for more details.\n"
+      MaskPromptString	      "Simulation Accumulation Length|FFT Size|Simultaneous Inputs (FFT)|Taps in pfb_fir (use 1"
+      " if no pfb_fir)|Reorder Orders (e.g. [2 2 2])|Scale"
+      MaskStyleString	      "edit,edit,edit,edit,edit,edit"
+      MaskVariables	      "sim_acc_len=@1;fft_size=@2;fft_simult_inputs=@3;pfb_fir_taps=@4;reorder_vec=@5;scale=@6;"
+      MaskTunableValueString  "on,on,on,on,on,on"
+      MaskCallbackString      "|||||"
+      MaskEnableString	      "on,on,on,on,on,on"
+      MaskVisibilityString    "on,on,on,on,on,on"
+      MaskToolTipString	      "on,on,on,on,on,on"
+      MaskInitialization      "sync_gen_init(gcb, ...\n    'sim_acc_len', sim_acc_len, ...\n    'fft_size', fft_size, "
+      "...\n    'fft_simult_inputs', fft_simult_inputs,...\n    'pfb_fir_taps', pfb_fir_taps, ...\n    'reorder_vec', r"
+      "eorder_vec, ...\n    'scale', scale);"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "3|16|4|4|getfield( getfield( get_param( gcb,'UserData' ), 'parameters'),'reorder_vec')|1"
+      System {
+	Name			"sync_gen"
+	Location		[130, 111, 1165, 564]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"321"
+	SIDPrevWatermark	"321"
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "86:303"
+	  Position		  [125, 310, 155, 340]
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "86:304"
+	  Position		  [220, 55, 250, 85]
+	  Value			  "0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  SID			  "86:305"
+	  Position		  [350, 130, 380, 160]
+	  Value			  "0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Counter3"
+	  SID			  "86:170"
+	  Ports			  [1, 1]
+	  Position		  [555, 200, 605, 250]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Counter"
+	  SourceType		  "Xilinx Counter Block"
+	  infoedit		  "Hardware notes: Free running counters are the least expensive in hardware.  A count limited counter is"
+	  " implemented by combining a counter with a comparator."
+	  cnt_type		  "Free Running"
+	  cnt_to		  "Inf"
+	  operation		  "Up"
+	  start_count		  "0"
+	  cnt_by_val		  "1"
+	  arith_type		  "Unsigned"
+	  n_bits		  "32"
+	  bin_pt		  "0"
+	  load_pin		  off
+	  rst			  on
+	  en			  off
+	  explicit_period	  "off"
+	  period		  "1"
+	  dbl_ovrd		  off
+	  use_behavioral_HDL	  off
+	  implementation	  "Fabric"
+	  xl_use_area		  off
+	  xl_area		  "[0, 0, 0, 0, 0, 0, 0]"
+	  use_rpm		  "on"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "20,20,348,619"
+	  block_type		  "counter"
+	  block_version		  "10.1.3"
+	  sg_icon_stat		  "50,50,1,1,white,blue,0,1f31137e,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 50 50 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 50 50 0 ]);\npatch([9.425 19.54 26.54 33.54 40.54 26.54 16.425 9.425 ],[32.77 32.77 "
+	  "39.77 32.77 39.77 39.77 39.77 32.77 ],[1 1 1 ]);\npatch([16.425 26.54 19.54 9.425 16.425 ],[25.77 25.77 32.77 32.77"
+	  " 25.77 ],[0.931 0.946 0.973 ]);\npatch([9.425 19.54 26.54 16.425 9.425 ],[18.77 18.77 25.77 25.77 18.77 ],[1 1 1 ])"
+	  ";\npatch([16.425 40.54 33.54 26.54 19.54 9.425 16.425 ],[11.77 11.77 18.77 11.77 18.77 18.77 11.77 ],[0.931 0.946 0"
+	  ".973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_l"
+	  "abel('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize{11pt}\\bf"
+	  "1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Logical"
+	  SID			  "86:171"
+	  Ports			  [2, 1]
+	  Position		  [740, 253, 785, 297]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Logical"
+	  SourceType		  "Xilinx Logical Block Block"
+	  logical_function	  "OR"
+	  inputs		  "2"
+	  en			  off
+	  latency		  "0"
+	  precision		  "Full"
+	  arith_type		  "Unsigned"
+	  n_bits		  "8"
+	  bin_pt		  "2"
+	  align_bp		  on
+	  dbl_ovrd		  off
+	  xl_use_area		  off
+	  xl_area		  "[0, 0, 0, 0, 0, 0, 0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "logical"
+	  block_version		  "10.1.3"
+	  sg_icon_stat		  "45,44,2,1,white,blue,0,0433a373,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 45 45 0 0 ],[0 0 44 44 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 45 45 0 0 ],[0 0 44 44 0 ]);\npatch([8.65 17.32 23.32 29.32 35.32 23.32 14.65 8.65 ],[28.66 28.66 34."
+	  "66 28.66 34.66 34.66 34.66 28.66 ],[1 1 1 ]);\npatch([14.65 23.32 17.32 8.65 14.65 ],[22.66 22.66 28.66 28.66 22.66"
+	  " ],[0.931 0.946 0.973 ]);\npatch([8.65 17.32 23.32 14.65 8.65 ],[16.66 16.66 22.66 22.66 16.66 ],[1 1 1 ]);\npatch("
+	  "[14.65 35.32 29.32 23.32 17.32 8.65 14.65 ],[10.66 10.66 16.66 10.66 16.66 16.66 10.66 ],[0.931 0.946 0.973 ]);\nfp"
+	  "rintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input'"
+	  ",1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('input',2,'\\fontsize{11pt}\\bf1','texmode',"
+	  "'on');\ncolor('black');port_label('output',1,'\\fontsize{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end ico"
+	  "n text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Logical1"
+	  SID			  "86:172"
+	  Ports			  [2, 1]
+	  Position		  [470, 246, 500, 279]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Logical"
+	  SourceType		  "Xilinx Logical Block Block"
+	  logical_function	  "OR"
+	  inputs		  "2"
+	  en			  off
+	  latency		  "0"
+	  precision		  "Full"
+	  arith_type		  "Unsigned"
+	  n_bits		  "8"
+	  bin_pt		  "2"
+	  align_bp		  on
+	  dbl_ovrd		  off
+	  xl_use_area		  off
+	  xl_area		  "[0, 0, 0, 0, 0, 0, 0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "logical"
+	  block_version		  "10.1.3"
+	  sg_icon_stat		  "30,33,2,1,white,blue,0,0433a373,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 30 30 0 0 ],[0 0 33 33 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 30 30 0 0 ],[0 0 33 33 0 ]);\npatch([6.1 11.88 15.88 19.88 23.88 15.88 10.1 6.1 ],[20.44 20.44 24.44 "
+	  "20.44 24.44 24.44 24.44 20.44 ],[1 1 1 ]);\npatch([10.1 15.88 11.88 6.1 10.1 ],[16.44 16.44 20.44 20.44 16.44 ],[0."
+	  "931 0.946 0.973 ]);\npatch([6.1 11.88 15.88 10.1 6.1 ],[12.44 12.44 16.44 16.44 12.44 ],[1 1 1 ]);\npatch([10.1 23."
+	  "88 19.88 15.88 11.88 6.1 10.1 ],[8.44 8.44 12.44 8.44 12.44 12.44 8.44 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMEN"
+	  "T: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'\\fontsize{1"
+	  "1pt}\\bf1','texmode','on');\ncolor('black');port_label('input',2,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('b"
+	  "lack');port_label('output',1,'\\fontsize{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Mux"
+	  SID			  "86:173"
+	  Ports			  [3, 1]
+	  Position		  [545, 69, 570, 141]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Mux"
+	  SourceType		  "Xilinx Bus Multiplexer Block"
+	  inputs		  "2"
+	  en			  off
+	  latency		  "0"
+	  precision		  "Full"
+	  arith_type		  "Unsigned"
+	  n_bits		  "16"
+	  bin_pt		  "14"
+	  quantization		  "Truncate"
+	  overflow		  "Wrap"
+	  dbl_ovrd		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "mux"
+	  block_version		  "10.1.3"
+	  sg_icon_stat		  "25,72,3,1,white,blue,3,7fc86cae,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 25 25 0 0 ],[0 10.2857 61.7143 72 0 ],[0.7"
+	  "7 0.82 0.91 ]);\nplot([0 25 25 0 0 ],[0 10.2857 61.7143 72 0 ]);\npatch([5.325 9.66 12.66 15.66 18.66 12.66 8.325 5"
+	  ".325 ],[39.33 39.33 42.33 39.33 42.33 42.33 42.33 39.33 ],[1 1 1 ]);\npatch([8.325 12.66 9.66 5.325 8.325 ],[36.33 "
+	  "36.33 39.33 39.33 36.33 ],[0.931 0.946 0.973 ]);\npatch([5.325 9.66 12.66 8.325 5.325 ],[33.33 33.33 36.33 36.33 33"
+	  ".33 ],[1 1 1 ]);\npatch([8.325 18.66 15.66 12.66 9.66 5.325 8.325 ],[30.33 30.33 33.33 30.33 33.33 33.33 30.33 ],[0"
+	  ".931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('bl"
+	  "ack');port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('input',2,'\\fontsiz"
+	  "e{14pt}\\infty','texmode','on');\ncolor('black');port_label('input',3,'\\fontsize{11pt}\\bf1','texmode','on');\ncol"
+	  "or('black');port_label('output',1,'\\fontsize{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Relational"
+	  SID			  "86:174"
+	  Ports			  [2, 1]
+	  Position		  [650, 193, 695, 237]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Relational"
+	  SourceType		  "Xilinx Arithmetic Relational Operator Block"
+	  mode			  "a=b"
+	  en			  off
+	  latency		  "1"
+	  dbl_ovrd		  off
+	  xl_use_area		  off
+	  xl_area		  "[0, 0, 0, 0, 0, 0, 0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "relational"
+	  block_version		  "10.1.3"
+	  sg_icon_stat		  "45,44,2,1,white,blue,0,0433a373,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 45 45 0 0 ],[0 0 44 44 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 45 45 0 0 ],[0 0 44 44 0 ]);\npatch([8.65 17.32 23.32 29.32 35.32 23.32 14.65 8.65 ],[28.66 28.66 34."
+	  "66 28.66 34.66 34.66 34.66 28.66 ],[1 1 1 ]);\npatch([14.65 23.32 17.32 8.65 14.65 ],[22.66 22.66 28.66 28.66 22.66"
+	  " ],[0.931 0.946 0.973 ]);\npatch([8.65 17.32 23.32 14.65 8.65 ],[16.66 16.66 22.66 22.66 16.66 ],[1 1 1 ]);\npatch("
+	  "[14.65 35.32 29.32 23.32 17.32 8.65 14.65 ],[10.66 10.66 16.66 10.66 16.66 16.66 10.66 ],[0.931 0.946 0.973 ]);\nfp"
+	  "rintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input'"
+	  ",1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('input',2,'\\fontsize{11pt}\\bf1','texmode',"
+	  "'on');\ncolor('black');port_label('output',1,'\\fontsize{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end ico"
+	  "n text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Slice1"
+	  SID			  "86:175"
+	  Ports			  [1, 1]
+	  Position		  [475, 56, 520, 84]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Slice"
+	  SourceType		  "Xilinx Bit Slice Extractor Block"
+	  infoedit		  "Extracts a given range of bits from each input sample and presents it at the output.  The output type "
+	  "is ordinarily unsigned with binary point at zero, but can be Boolean when the slice is one bit wide.<P><P>Hardware "
+	  "notes: In hardware this block costs nothing."
+	  nbits			  "1"
+	  boolean_output	  on
+	  mode			  "Lower Bit Location + Width"
+	  bit1			  "0"
+	  base1			  "MSB of Input"
+	  bit0			  "0"
+	  base0			  "LSB of Input"
+	  dbl_ovrd		  off
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "slice"
+	  block_version		  "10.1.3"
+	  sg_icon_stat		  "45,28,1,1,white,blue,0,1f31137e,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 45 45 0 0 ],[0 0 28 28 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 45 45 0 0 ],[0 0 28 28 0 ]);\npatch([13.1 18.88 22.88 26.88 30.88 22.88 17.1 13.1 ],[18.44 18.44 22.4"
+	  "4 18.44 22.44 22.44 22.44 18.44 ],[1 1 1 ]);\npatch([17.1 22.88 18.88 13.1 17.1 ],[14.44 14.44 18.44 18.44 14.44 ],"
+	  "[0.931 0.946 0.973 ]);\npatch([13.1 18.88 22.88 17.1 13.1 ],[10.44 10.44 14.44 14.44 10.44 ],[1 1 1 ]);\npatch([17."
+	  "1 30.88 26.88 22.88 18.88 13.1 17.1 ],[6.44 6.44 10.44 6.44 10.44 10.44 6.44 ],[0.931 0.946 0.973 ]);\nfprintf('','"
+	  "COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'\\font"
+	  "size{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize{11pt}\\bf1','texmode','on');\nf"
+	  "printf('','COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Slice2"
+	  SID			  "86:176"
+	  Ports			  [1, 1]
+	  Position		  [380, 311, 425, 339]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Slice"
+	  SourceType		  "Xilinx Bit Slice Extractor Block"
+	  infoedit		  "Extracts a given range of bits from each input sample and presents it at the output.  The output type "
+	  "is ordinarily unsigned with binary point at zero, but can be Boolean when the slice is one bit wide.<P><P>Hardware "
+	  "notes: In hardware this block costs nothing."
+	  nbits			  "1"
+	  boolean_output	  on
+	  mode			  "Lower Bit Location + Width"
+	  bit1			  "0"
+	  base1			  "MSB of Input"
+	  bit0			  "0"
+	  base0			  "LSB of Input"
+	  dbl_ovrd		  off
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "slice"
+	  block_version		  "10.1.3"
+	  sg_icon_stat		  "45,28,1,1,white,blue,0,1f31137e,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 45 45 0 0 ],[0 0 28 28 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 45 45 0 0 ],[0 0 28 28 0 ]);\npatch([13.1 18.88 22.88 26.88 30.88 22.88 17.1 13.1 ],[18.44 18.44 22.4"
+	  "4 18.44 22.44 22.44 22.44 18.44 ],[1 1 1 ]);\npatch([17.1 22.88 18.88 13.1 17.1 ],[14.44 14.44 18.44 18.44 14.44 ],"
+	  "[0.931 0.946 0.973 ]);\npatch([13.1 18.88 22.88 17.1 13.1 ],[10.44 10.44 14.44 14.44 10.44 ],[1 1 1 ]);\npatch([17."
+	  "1 30.88 26.88 22.88 18.88 13.1 17.1 ],[6.44 6.44 10.44 6.44 10.44 10.44 6.44 ],[0.931 0.946 0.973 ]);\nfprintf('','"
+	  "COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'\\font"
+	  "size{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize{11pt}\\bf1','texmode','on');\nf"
+	  "printf('','COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "posedge1"
+	  SID			  "86:177"
+	  Tag			  "Rising Edge Detector"
+	  Ports			  [1, 1]
+	  Position		  [810, 266, 845, 284]
+	  LibraryVersion	  "1.14"
+	  LinkData {
+	    BlockName		    "Delay"
+	    DialogParameters {
+	      sg_icon_stat	      "45,46,1,1,white,blue,0,1f31137e,right,,[ ],[ ]"
+	      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 45 45 0 0 ],[0 0 46 46 0 ],[0.77 0"
+	      ".82 0.91 ]);\nplot([0 45 45 0 0 ],[0 0 46 46 0 ]);\npatch([8.65 17.32 23.32 29.32 35.32 23.32 14.65 8.65 ],[29."
+	      "66 29.66 35.66 29.66 35.66 35.66 35.66 29.66 ],[1 1 1 ]);\npatch([14.65 23.32 17.32 8.65 14.65 ],[23.66 23.66 2"
+	      "9.66 29.66 23.66 ],[0.931 0.946 0.973 ]);\npatch([8.65 17.32 23.32 14.65 8.65 ],[17.66 17.66 23.66 23.66 17.66 "
+	      "],[1 1 1 ]);\npatch([14.65 35.32 29.32 23.32 17.32 8.65 14.65 ],[11.66 11.66 17.66 11.66 17.66 17.66 11.66 ],[0"
+	      ".931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor"
+	      "('black');port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'"
+	      "\\fontsize{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	    }
+	    BlockName		    "Inverter"
+	    DialogParameters {
+	      sg_icon_stat	      "50,34,1,1,white,blue,0,1f31137e,right,,[ ],[ ]"
+	      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 34 34 0 ],[0.77 0"
+	      ".82 0.91 ]);\nplot([0 50 50 0 0 ],[0 0 34 34 0 ]);\npatch([16.1 21.88 25.88 29.88 33.88 25.88 20.1 16.1 ],[21.4"
+	      "4 21.44 25.44 21.44 25.44 25.44 25.44 21.44 ],[1 1 1 ]);\npatch([20.1 25.88 21.88 16.1 20.1 ],[17.44 17.44 21.4"
+	      "4 21.44 17.44 ],[0.931 0.946 0.973 ]);\npatch([16.1 21.88 25.88 20.1 16.1 ],[13.44 13.44 17.44 17.44 13.44 ],[1"
+	      " 1 1 ]);\npatch([20.1 33.88 29.88 25.88 21.88 16.1 20.1 ],[9.44 9.44 13.44 9.44 13.44 13.44 9.44 ],[0.931 0.946"
+	      " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');"
+	      "port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize"
+	      "{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	    }
+	    BlockName		    "Logical"
+	    DialogParameters {
+	      sg_icon_stat	      "60,87,2,1,white,blue,0,0433a373,right,,[ ],[ ]"
+	      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 87 87 0 ],[0.77 0"
+	      ".82 0.91 ]);\nplot([0 60 60 0 0 ],[0 0 87 87 0 ]);\npatch([12.2 23.76 31.76 39.76 47.76 31.76 20.2 12.2 ],[51.8"
+	      "8 51.88 59.88 51.88 59.88 59.88 59.88 51.88 ],[1 1 1 ]);\npatch([20.2 31.76 23.76 12.2 20.2 ],[43.88 43.88 51.8"
+	      "8 51.88 43.88 ],[0.931 0.946 0.973 ]);\npatch([12.2 23.76 31.76 20.2 12.2 ],[35.88 35.88 43.88 43.88 35.88 ],[1"
+	      " 1 1 ]);\npatch([20.2 47.76 39.76 31.76 23.76 12.2 20.2 ],[27.88 27.88 35.88 27.88 35.88 35.88 27.88 ],[0.931 0"
+	      ".946 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('blac"
+	      "k');port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('input',2,'\\fonts"
+	      "ize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize{11pt}\\bf1','texmode','on');"
+	      "\nfprintf('','COMMENT: end icon text');"
+	    }
+	  }
+	  SourceBlock		  "casper_library_misc/posedge"
+	  SourceType		  "posedge"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  GeneratePreprocessorConditionals off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "posedge3"
+	  SID			  "86:178"
+	  Tag			  "Rising Edge Detector"
+	  Ports			  [1, 1]
+	  Position		  [320, 316, 355, 334]
+	  LibraryVersion	  "1.14"
+	  LinkData {
+	    BlockName		    "Delay"
+	    DialogParameters {
+	      sg_icon_stat	      "45,46,1,1,white,blue,0,1f31137e,right,,[ ],[ ]"
+	      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 45 45 0 0 ],[0 0 46 46 0 ],[0.77 0"
+	      ".82 0.91 ]);\nplot([0 45 45 0 0 ],[0 0 46 46 0 ]);\npatch([8.65 17.32 23.32 29.32 35.32 23.32 14.65 8.65 ],[29."
+	      "66 29.66 35.66 29.66 35.66 35.66 35.66 29.66 ],[1 1 1 ]);\npatch([14.65 23.32 17.32 8.65 14.65 ],[23.66 23.66 2"
+	      "9.66 29.66 23.66 ],[0.931 0.946 0.973 ]);\npatch([8.65 17.32 23.32 14.65 8.65 ],[17.66 17.66 23.66 23.66 17.66 "
+	      "],[1 1 1 ]);\npatch([14.65 35.32 29.32 23.32 17.32 8.65 14.65 ],[11.66 11.66 17.66 11.66 17.66 17.66 11.66 ],[0"
+	      ".931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor"
+	      "('black');port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'"
+	      "\\fontsize{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	    }
+	    BlockName		    "Inverter"
+	    DialogParameters {
+	      sg_icon_stat	      "50,34,1,1,white,blue,0,1f31137e,right,,[ ],[ ]"
+	      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 34 34 0 ],[0.77 0"
+	      ".82 0.91 ]);\nplot([0 50 50 0 0 ],[0 0 34 34 0 ]);\npatch([16.1 21.88 25.88 29.88 33.88 25.88 20.1 16.1 ],[21.4"
+	      "4 21.44 25.44 21.44 25.44 25.44 25.44 21.44 ],[1 1 1 ]);\npatch([20.1 25.88 21.88 16.1 20.1 ],[17.44 17.44 21.4"
+	      "4 21.44 17.44 ],[0.931 0.946 0.973 ]);\npatch([16.1 21.88 25.88 20.1 16.1 ],[13.44 13.44 17.44 17.44 13.44 ],[1"
+	      " 1 1 ]);\npatch([20.1 33.88 29.88 25.88 21.88 16.1 20.1 ],[9.44 9.44 13.44 9.44 13.44 13.44 9.44 ],[0.931 0.946"
+	      " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');"
+	      "port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize"
+	      "{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	    }
+	    BlockName		    "Logical"
+	    DialogParameters {
+	      sg_icon_stat	      "60,87,2,1,white,blue,0,0433a373,right,,[ ],[ ]"
+	      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 87 87 0 ],[0.77 0"
+	      ".82 0.91 ]);\nplot([0 60 60 0 0 ],[0 0 87 87 0 ]);\npatch([12.2 23.76 31.76 39.76 47.76 31.76 20.2 12.2 ],[51.8"
+	      "8 51.88 59.88 51.88 59.88 59.88 59.88 51.88 ],[1 1 1 ]);\npatch([20.2 31.76 23.76 12.2 20.2 ],[43.88 43.88 51.8"
+	      "8 51.88 43.88 ],[0.931 0.946 0.973 ]);\npatch([12.2 23.76 31.76 20.2 12.2 ],[35.88 35.88 43.88 43.88 35.88 ],[1"
+	      " 1 1 ]);\npatch([20.2 47.76 39.76 31.76 23.76 12.2 20.2 ],[27.88 27.88 35.88 27.88 35.88 35.88 27.88 ],[0.931 0"
+	      ".946 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('blac"
+	      "k');port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('input',2,'\\fonts"
+	      "ize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fontsize{11pt}\\bf1','texmode','on');"
+	      "\nfprintf('','COMMENT: end icon text');"
+	    }
+	  }
+	  SourceBlock		  "casper_library_misc/posedge"
+	  SourceType		  "posedge"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  GeneratePreprocessorConditionals off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "sync"
+	  SID			  "86:179"
+	  Tag			  "xps:sw_reg"
+	  Ports			  [1, 1]
+	  Position		  [185, 309, 285, 341]
+	  BackgroundColor	  "[1.000000, 1.000000, 0.000000]"
+	  LibraryVersion	  "1.436"
+	  LinkData {
+	    BlockName		    "downsample_test_sync_gen_sync_user_data_out"
+	    DialogParameters {
+	      arith_type	      "Unsigned"
+	      n_bits		      "32"
+	      bin_pt		      "0"
+	      period		      "1"
+	      sg_icon_stat	      "60,20,1,1,white,yellow,0,1f31137e,right,,[ ],[ ]"
+	      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 20 20 0 ],[0.95 0"
+	      ".93 0.65 ]);\nplot([0 60 60 0 0 ],[0 0 20 20 0 ]);\npatch([25.55 28.44 30.44 32.44 34.44 30.44 27.55 25.55 ],[1"
+	      "2.22 12.22 14.22 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([27.55 30.44 28.44 25.55 27.55 ],[10.22 10.2"
+	      "2 12.22 12.22 10.22 ],[0.985 0.979 0.895 ]);\npatch([25.55 28.44 30.44 27.55 25.55 ],[8.22 8.22 10.22 10.22 8.2"
+	      "2 ],[1 1 1 ]);\npatch([27.55 34.44 32.44 30.44 28.44 25.55 27.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.985"
+	      " 0.979 0.895 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('bl"
+	      "ack');port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fo"
+	      "ntsize{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	    }
+	    BlockName		    "parallel_downconverter_test_sync_gen_sync_user_data_out"
+	    DialogParameters {
+	      arith_type	      "Unsigned"
+	      n_bits		      "32"
+	      bin_pt		      "0"
+	      period		      "1"
+	      sg_icon_stat	      "60,20,1,1,white,yellow,0,1f31137e,right,,[ ],[ ]"
+	      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 20 20 0 ],[0.95 0"
+	      ".93 0.65 ]);\nplot([0 60 60 0 0 ],[0 0 20 20 0 ]);\npatch([25.55 28.44 30.44 32.44 34.44 30.44 27.55 25.55 ],[1"
+	      "2.22 12.22 14.22 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([27.55 30.44 28.44 25.55 27.55 ],[10.22 10.2"
+	      "2 12.22 12.22 10.22 ],[0.985 0.979 0.895 ]);\npatch([25.55 28.44 30.44 27.55 25.55 ],[8.22 8.22 10.22 10.22 8.2"
+	      "2 ],[1 1 1 ]);\npatch([27.55 34.44 32.44 30.44 28.44 25.55 27.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.985"
+	      " 0.979 0.895 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('bl"
+	      "ack');port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fo"
+	      "ntsize{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	    }
+	  }
+	  SourceBlock		  "xps_library/software register"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  GeneratePreprocessorConditionals off
+	  io_dir		  "From Processor"
+	  arith_type		  "Unsigned"
+	  bitwidth		  "32"
+	  bin_pt		  "0"
+	  sample_period		  "1"
+	  gw_name		  "downsample_test_sync_gen_sync_user_data_out"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "sync_period_const"
+	  SID			  "86:180"
+	  Ports			  [0, 1]
+	  Position		  [445, 98, 495, 112]
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Constant"
+	  SourceType		  "Xilinx Constant Block Block"
+	  const			  "480"
+	  gui_display_data_type	  "Fixed-point"
+	  arith_type		  "Signed (2's comp)"
+	  n_bits		  "32"
+	  bin_pt		  "0"
+	  preci_type		  "Single"
+	  exp_width		  "8"
+	  frac_width		  "24"
+	  explicit_period	  off
+	  period		  "1"
+	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
+	  equ			  "P=C"
+	  opselect		  "C"
+	  inp2			  "PCIN>>17"
+	  opr			  "+"
+	  inp1			  "P"
+	  carry			  "CIN"
+	  dbl_ovrd		  off
+	  has_advanced_control	  "0"
+	  sggui_pos		  "20,20,400,346"
+	  block_type		  "constant"
+	  block_version		  "10.1.1"
+	  sg_icon_stat		  "50,14,0,1,white,blue,0,1e24c1db,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 14 14 0 ]);\npatch([20.55 23.44 25.44 27.44 29.44 25.44 22.55 20.55 ],[9.22 9.22 11."
+	  "22 9.22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([22.55 25.44 23.44 20.55 22.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0."
+	  "931 0.946 0.973 ]);\npatch([20.55 23.44 25.44 22.55 20.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([22.55 29"
+	  ".44 27.44 25.44 23.44 20.55 22.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMME"
+	  "NT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'\\fontsize"
+	  "{14pt}\\infty','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "sync_period_sel"
+	  SID			  "86:181"
+	  Tag			  "xps:sw_reg"
+	  Ports			  [1, 1]
+	  Position		  [280, 54, 380, 86]
+	  BackgroundColor	  "[1.000000, 1.000000, 0.000000]"
+	  LibraryVersion	  "1.436"
+	  LinkData {
+	    BlockName		    "downsample_test_sync_gen_sync_period_sel_user_data_out"
+	    DialogParameters {
+	      arith_type	      "Unsigned"
+	      n_bits		      "32"
+	      bin_pt		      "0"
+	      period		      "1"
+	      sg_icon_stat	      "60,20,1,1,white,yellow,0,1f31137e,right,,[ ],[ ]"
+	      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 20 20 0 ],[0.95 0"
+	      ".93 0.65 ]);\nplot([0 60 60 0 0 ],[0 0 20 20 0 ]);\npatch([25.55 28.44 30.44 32.44 34.44 30.44 27.55 25.55 ],[1"
+	      "2.22 12.22 14.22 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([27.55 30.44 28.44 25.55 27.55 ],[10.22 10.2"
+	      "2 12.22 12.22 10.22 ],[0.985 0.979 0.895 ]);\npatch([25.55 28.44 30.44 27.55 25.55 ],[8.22 8.22 10.22 10.22 8.2"
+	      "2 ],[1 1 1 ]);\npatch([27.55 34.44 32.44 30.44 28.44 25.55 27.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.985"
+	      " 0.979 0.895 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('bl"
+	      "ack');port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fo"
+	      "ntsize{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	    }
+	    BlockName		    "parallel_downconverter_test_sync_gen_sync_period_sel_user_data_out"
+	    DialogParameters {
+	      arith_type	      "Unsigned"
+	      n_bits		      "32"
+	      bin_pt		      "0"
+	      period		      "1"
+	      sg_icon_stat	      "60,20,1,1,white,yellow,0,1f31137e,right,,[ ],[ ]"
+	      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 20 20 0 ],[0.95 0"
+	      ".93 0.65 ]);\nplot([0 60 60 0 0 ],[0 0 20 20 0 ]);\npatch([25.55 28.44 30.44 32.44 34.44 30.44 27.55 25.55 ],[1"
+	      "2.22 12.22 14.22 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([27.55 30.44 28.44 25.55 27.55 ],[10.22 10.2"
+	      "2 12.22 12.22 10.22 ],[0.985 0.979 0.895 ]);\npatch([25.55 28.44 30.44 27.55 25.55 ],[8.22 8.22 10.22 10.22 8.2"
+	      "2 ],[1 1 1 ]);\npatch([27.55 34.44 32.44 30.44 28.44 25.55 27.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.985"
+	      " 0.979 0.895 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('bl"
+	      "ack');port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fo"
+	      "ntsize{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	    }
+	  }
+	  SourceBlock		  "xps_library/software register"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  GeneratePreprocessorConditionals off
+	  io_dir		  "From Processor"
+	  arith_type		  "Unsigned"
+	  bitwidth		  "32"
+	  bin_pt		  "0"
+	  sample_period		  "1"
+	  gw_name		  "downsample_test_sync_gen_sync_period_sel_user_data_out"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "sync_period_var"
+	  SID			  "86:182"
+	  Tag			  "xps:sw_reg"
+	  Ports			  [1, 1]
+	  Position		  [415, 129, 515, 161]
+	  BackgroundColor	  "[1.000000, 1.000000, 0.000000]"
+	  LibraryVersion	  "1.436"
+	  LinkData {
+	    BlockName		    "downsample_test_sync_gen_sync_period_var_user_data_out"
+	    DialogParameters {
+	      arith_type	      "Unsigned"
+	      n_bits		      "32"
+	      bin_pt		      "0"
+	      period		      "1"
+	      sg_icon_stat	      "60,20,1,1,white,yellow,0,1f31137e,right,,[ ],[ ]"
+	      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 20 20 0 ],[0.95 0"
+	      ".93 0.65 ]);\nplot([0 60 60 0 0 ],[0 0 20 20 0 ]);\npatch([25.55 28.44 30.44 32.44 34.44 30.44 27.55 25.55 ],[1"
+	      "2.22 12.22 14.22 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([27.55 30.44 28.44 25.55 27.55 ],[10.22 10.2"
+	      "2 12.22 12.22 10.22 ],[0.985 0.979 0.895 ]);\npatch([25.55 28.44 30.44 27.55 25.55 ],[8.22 8.22 10.22 10.22 8.2"
+	      "2 ],[1 1 1 ]);\npatch([27.55 34.44 32.44 30.44 28.44 25.55 27.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.985"
+	      " 0.979 0.895 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('bl"
+	      "ack');port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fo"
+	      "ntsize{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	    }
+	    BlockName		    "parallel_downconverter_test_sync_gen_sync_period_var_user_data_out"
+	    DialogParameters {
+	      arith_type	      "Unsigned"
+	      n_bits		      "32"
+	      bin_pt		      "0"
+	      period		      "1"
+	      sg_icon_stat	      "60,20,1,1,white,yellow,0,1f31137e,right,,[ ],[ ]"
+	      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 20 20 0 ],[0.95 0"
+	      ".93 0.65 ]);\nplot([0 60 60 0 0 ],[0 0 20 20 0 ]);\npatch([25.55 28.44 30.44 32.44 34.44 30.44 27.55 25.55 ],[1"
+	      "2.22 12.22 14.22 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([27.55 30.44 28.44 25.55 27.55 ],[10.22 10.2"
+	      "2 12.22 12.22 10.22 ],[0.985 0.979 0.895 ]);\npatch([25.55 28.44 30.44 27.55 25.55 ],[8.22 8.22 10.22 10.22 8.2"
+	      "2 ],[1 1 1 ]);\npatch([27.55 34.44 32.44 30.44 28.44 25.55 27.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.985"
+	      " 0.979 0.895 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('bl"
+	      "ack');port_label('input',1,'\\fontsize{11pt}\\bf1','texmode','on');\ncolor('black');port_label('output',1,'\\fo"
+	      "ntsize{11pt}\\bf1','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	    }
+	  }
+	  SourceBlock		  "xps_library/software register"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  GeneratePreprocessorConditionals off
+	  io_dir		  "From Processor"
+	  arith_type		  "Unsigned"
+	  bitwidth		  "32"
+	  bin_pt		  "0"
+	  sample_period		  "1"
+	  gw_name		  "downsample_test_sync_gen_sync_period_var_user_data_out"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "sync_out"
+	  SID			  "86:319"
+	  Position		  [905, 247, 935, 263]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  DstBlock		  "sync_period_var"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "sync_period_var"
+	  SrcPort		  1
+	  Points		  [0, -15]
+	  DstBlock		  "Mux"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "sync_period_const"
+	  SrcPort		  1
+	  DstBlock		  "Mux"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Slice1"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Mux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "sync_period_sel"
+	  SrcPort		  1
+	  DstBlock		  "Slice1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "sync_period_sel"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Mux"
+	  SrcPort		  1
+	  Points		  [60, 0]
+	  DstBlock		  "Relational"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "posedge1"
+	  SrcPort		  1
+	  DstBlock		  "sync_out"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Logical"
+	  SrcPort		  1
+	  DstBlock		  "posedge1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Relational"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  Branch {
+	    Points		    [0, -30; -265, 0; 0, 70]
+	    DstBlock		    "Logical1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 0; 0, 50]
+	    DstBlock		    "Logical"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Counter3"
+	  SrcPort		  1
+	  DstBlock		  "Relational"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Logical1"
+	  SrcPort		  1
+	  Points		  [20, 0; 0, -40]
+	  DstBlock		  "Counter3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Slice2"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  Branch {
+	    Points		    [145, 0; 0, -40]
+	    DstBlock		    "Logical"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [15, 0; 0, -55]
+	    DstBlock		    "Logical1"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "posedge3"
+	  SrcPort		  1
+	  DstBlock		  "Slice2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "sync"
+	  SrcPort		  1
+	  DstBlock		  "posedge3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "sync"
+	  DstPort		  1
+	}
+      }
     }
     Line {
       SrcBlock		      "Gateway Out"
       SrcPort		      1
-      Points		      [50, 0; 0, 35]
+      Points		      [50, 0; 0, 10]
       DstBlock		      "Scope"
       DstPort		      1
     }
@@ -1151,7 +2105,7 @@ Model {
 	DstPort			1
       }
       Branch {
-	Points			[0, 180]
+	Points			[5, 0; 0, 155]
 	DstBlock		"Down Sample"
 	DstPort			1
       }
@@ -1159,19 +2113,52 @@ Model {
     Line {
       SrcBlock		      "Down Sample"
       SrcPort		      1
-      Points		      [70, 0; 0, -120]
+      Points		      [70, 0; 0, -105]
       DstBlock		      "Gateway Out1"
       DstPort		      1
+    }
+    Line {
+      SrcBlock		      "sync_gen"
+      SrcPort		      1
+      DstBlock		      "Down Sample"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Down Sample"
+      SrcPort		      2
+      Points		      [110, 0]
+      DstBlock		      "Gateway Out2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Gateway Out2"
+      SrcPort		      1
+      Points		      [50, 0; 0, -20]
+      DstBlock		      "Scope"
+      DstPort		      3
     }
   }
 }
 MatData {
-  NumRecords		  2
+  NumRecords		  3
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    $ ,   8    (     @         %    \"     $    !     0         %  0 \"P    $    6    <W1A="
+    "&4       !P87)A;65T97)S    #@   #     &    \"     T         !0    @    !     0    $         !@ $ #&FI 0.    @ (   "
+    "8    (     @         %    \"     $    !     0         %  0 $@    $   !^    9&5F875L=',             <VEM7V%C8U]L96X"
+    "         9F9T7W-I>F4             9F9T7W-I;75L=%]I;G!U=', <&9B7V9I<E]T87!S        <F5O<F1E<E]V96,         <V-A;&4  "
+    "                  .    *     8    (     0         %    \"                0         .    .     8    (    !@        "
+    " %    \"     $    !     0         )    \"             A #@   #@    &    \"     8         !0    @    !     0    $  "
+    "       \"0    @            P0 X    X    !@    @    &          4    (     0    $    !          D    (            $$"
+    " .    .     8    (    !@         %    \"     $    !     0         )    \"            !! #@   %     &    \"     8  "
+    "       !0    @    !    !     $         \"0   \"             40         !          $          0 X    X    !@    @  "
+    "  &          4    (     0    $    !          D    (            \\#\\"
+  }
   DataRecord {
     Tag			    DataTag1
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    .3ED,#DW,S4P.#,Q.&%F.#"
-    " P9#4Q.6%F83ED9F8Q,64"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    ,3<V-#4W-#,V,3(P86$X,&"
+    "0W.35C9# Y8F)B,3(P,68"
   }
   DataRecord {
     Tag			    DataTag0
