@@ -15,9 +15,9 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "chenhong"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Mar 21 00:14:07 2012"
-  RTWModifiedTimeStamp	  254189637
-  ModelVersionFormat	  "1.%<AutoIncrement:19>"
+  LastModifiedDate	  "Wed May 16 15:04:59 2012"
+  RTWModifiedTimeStamp	  259081471
+  ModelVersionFormat	  "1.%<AutoIncrement:22>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -668,13 +668,13 @@ Library {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "1069"
+    SIDHighWatermark	    "1236"
     Block {
       BlockType		      SubSystem
       Name		      "Down Sample"
-      SID		      "904"
+      SID		      "1221"
       Ports		      [2, 2]
-      Position		      [235, 229, 285, 291]
+      Position		      [240, 230, 290, 290]
       BackgroundColor	      "lightBlue"
       AttributesFormatString  "Rate Change = %<dec_rate>"
       UserDataPersistent      on
@@ -689,7 +689,7 @@ Library {
       MaskType		      "Down Sample"
       MaskDescription	      "Down Sample by using a periodically enabled register"
       MaskPromptString	      "Rate Change|Input Clock Rate|Use Xilinx Down Sample?"
-      MaskStyleString	      "edit,edit,edit"
+      MaskStyleString	      "edit,edit,checkbox"
       MaskVariables	      "dec_rate=@1;input_clk_rate=@2;xilinx=@3;"
       MaskTunableValueString  "on,on,on"
       MaskCallbackString      "||"
@@ -704,10 +704,10 @@ Library {
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "7|5|0"
+      MaskValueString	      "7|5|off"
       System {
 	Name			"Down Sample"
-	Location		[252, 77, 988, 522]
+	Location		[247, 77, 983, 522]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -723,14 +723,14 @@ Library {
 	Block {
 	  BlockType		  Inport
 	  Name			  "In"
-	  SID			  "905"
+	  SID			  "1222"
 	  Position		  [170, 30, 190, 50]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "sync_in"
-	  SID			  "1058"
+	  SID			  "1223"
 	  Position		  [15, 135, 35, 155]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -738,7 +738,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Constant"
-	  SID			  "1065"
+	  SID			  "1232"
 	  Ports			  [0, 1]
 	  Position		  [65, 132, 115, 158]
 	  LibraryVersion	  "1.2"
@@ -752,8 +752,8 @@ Library {
 	  preci_type		  "Single"
 	  exp_width		  "8"
 	  frac_width		  "24"
-	  explicit_period	  on
-	  period		  "5"
+	  explicit_period	  off
+	  period		  "1"
 	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
 	  equ			  "P=C"
 	  opselect		  "C"
@@ -777,7 +777,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Counter1"
-	  SID			  "1066"
+	  SID			  "1233"
 	  Ports			  [1, 1]
 	  Position		  [60, 40, 120, 100]
 	  LibraryVersion	  "1.2"
@@ -791,7 +791,7 @@ Library {
 	  start_count		  "6"
 	  cnt_by_val		  "1"
 	  arith_type		  "Unsigned"
-	  n_bits		  "18"
+	  n_bits		  "3"
 	  bin_pt		  "0"
 	  load_pin		  off
 	  rst			  on
@@ -819,7 +819,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Register"
-	  SID			  "1067"
+	  SID			  "1234"
 	  Ports			  [2, 1]
 	  Position		  [240, 47, 300, 103]
 	  LibraryVersion	  "1.2"
@@ -847,7 +847,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Relational"
-	  SID			  "1068"
+	  SID			  "1235"
 	  Ports			  [2, 1]
 	  Position		  [150, 77, 205, 133]
 	  LibraryVersion	  "1.2"
@@ -876,7 +876,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "sync_delay"
-	  SID			  "1069"
+	  SID			  "1236"
 	  Ports			  [1, 1]
 	  Position		  [60, 187, 120, 243]
 	  LibraryVersion	  "1.2"
@@ -906,14 +906,14 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "Out"
-	  SID			  "910"
+	  SID			  "1229"
 	  Position		  [330, 65, 350, 85]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "sync_out"
-	  SID			  "1059"
+	  SID			  "1230"
 	  Position		  [170, 205, 190, 225]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -1029,17 +1029,9 @@ Library {
 	ZoomFactor		"100"
 	Block {
 	  BlockType		  Inport
-	  Name			  "sync_in"
-	  SID			  "661"
-	  Position		  [15, 395, 35, 415]
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
 	  Name			  "In1"
 	  SID			  "662"
 	  Position		  [15, 310, 35, 330]
-	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
@@ -1047,7 +1039,7 @@ Library {
 	  Name			  "In2"
 	  SID			  "663"
 	  Position		  [15, 220, 35, 240]
-	  Port			  "3"
+	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
@@ -1055,7 +1047,7 @@ Library {
 	  Name			  "In3"
 	  SID			  "664"
 	  Position		  [15, 135, 35, 155]
-	  Port			  "4"
+	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Block {
@@ -1063,14 +1055,22 @@ Library {
 	  Name			  "In4"
 	  SID			  "665"
 	  Position		  [15, 50, 35, 70]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "sync_in"
+	  SID			  "661"
+	  Position		  [15, 395, 35, 415]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Down_sample1"
-	  SID			  "1050"
-	  Ports			  [1, 1]
+	  SID			  "1209"
+	  Ports			  [2, 2]
 	  Position		  [15, 15, 35, 35]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
@@ -1097,15 +1097,70 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "In"
-	      SID		      "1051"
+	      SID		      "1210"
+	      Position		      [15, 15, 35, 35]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "sync_in"
+	      SID		      "1211"
+	      Position		      [15, 15, 35, 35]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Constant"
+	      SID		      "1214"
+	      Ports		      [0, 1]
+	      Position		      [500, 5097, 555, 5123]
+	      LibraryVersion	      "1.2"
+	      SourceBlock	      "xbsIndex_r4/Constant"
+	      SourceType	      "Xilinx Constant Block Block"
+	      const		      "0"
+	      gui_display_data_type   "Fixed-point"
+	      arith_type	      "Signed (2's comp)"
+	      n_bits		      "16"
+	      bin_pt		      "14"
+	      preci_type	      "Single"
+	      exp_width		      "8"
+	      frac_width	      "24"
+	      explicit_period	      off
+	      period		      "1"
+	      dsp48_infoedit	      "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
+	      equ		      "P=C"
+	      opselect		      "C"
+	      inp2		      "PCIN>>17"
+	      opr		      "+"
+	      inp1		      "P"
+	      carry		      "CIN"
+	      dbl_ovrd		      off
+	      has_advanced_control    "0"
+	      sggui_pos		      "-1,-1,-1,-1"
+	      block_type	      "constant"
+	      sg_icon_stat	      "55,26,0,1,white,blue,0,bf4ddd8b,right,,[ ],[ ]"
+	      sg_mask_display	      "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0"
+	      ".82 0.91 ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ]"
+	      ",[16.33 16.33 19.33 16.33 19.33 19.33 19.33 16.33 ],[1 1 1 ]);\npatch([23.325 27.66 24.66 20.325 23.325 ],[13.3"
+	      "3 13.33 16.33 16.33 13.33 ],[0.931 0.946 0.973 ]);\npatch([20.325 24.66 27.66 23.325 20.325 ],[10.33 10.33 13.3"
+	      "3 13.33 10.33 ],[1 1 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 1"
+	      "0.33 7.33 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon "
+	      "text');\ncolor('black');port_label('output',1,'0');\nfprintf('','COMMENT: end icon text');"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Out"
+	      SID		      "1212"
 	      Position		      [15, 15, 35, 35]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "Out"
-	      SID		      "1052"
+	      Name		      "sync_out"
+	      SID		      "1213"
 	      Position		      [15, 15, 35, 35]
+	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	  }
@@ -1113,7 +1168,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay1"
-	  SID			  "1049"
+	  SID			  "1208"
 	  Ports			  [1, 1]
 	  Position		  [150, 9712, 210, 9768]
 	  LibraryVersion	  "1.2"
@@ -1142,17 +1197,9 @@ Library {
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "sync_out"
-	  SID			  "677"
-	  Position		  [170, 395, 190, 415]
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
 	  Name			  "Out1"
 	  SID			  "678"
 	  Position		  [245, 310, 265, 330]
-	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
@@ -1160,7 +1207,7 @@ Library {
 	  Name			  "Out2"
 	  SID			  "679"
 	  Position		  [245, 50, 265, 70]
-	  Port			  "3"
+	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
@@ -1168,7 +1215,7 @@ Library {
 	  Name			  "Out3"
 	  SID			  "680"
 	  Position		  [245, 135, 265, 155]
-	  Port			  "4"
+	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Block {
@@ -1176,6 +1223,14 @@ Library {
 	  Name			  "Out4"
 	  SID			  "681"
 	  Position		  [245, 220, 265, 240]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "sync_out"
+	  SID			  "677"
+	  Position		  [170, 395, 190, 415]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
 	}
@@ -1300,7 +1355,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "convert1"
-	  SID			  "1038"
+	  SID			  "1197"
 	  Ports			  [1, 1]
 	  Position		  [405, 160, 450, 190]
 	  LibraryVersion	  "1.2"
@@ -1338,7 +1393,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "convert2"
-	  SID			  "1039"
+	  SID			  "1198"
 	  Ports			  [1, 1]
 	  Position		  [405, 229, 450, 261]
 	  LibraryVersion	  "1.2"
@@ -1376,7 +1431,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay"
-	  SID			  "911"
+	  SID			  "1070"
 	  Ports			  [1, 1]
 	  Position		  [140, 32, 200, 88]
 	  LibraryVersion	  "1.2"
@@ -1406,7 +1461,7 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "fir_col1"
-	  SID			  "912"
+	  SID			  "1071"
 	  Ports			  [4, 6]
 	  Position		  [60, 147, 110, 263]
 	  MinAlgLoopOccurrences	  off
@@ -1470,14 +1525,14 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "real1"
-	      SID		      "913"
+	      SID		      "1072"
 	      Position		      [15, 65, 35, 85]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "imag1"
-	      SID		      "914"
+	      SID		      "1073"
 	      Position		      [15, 115, 35, 135]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1485,7 +1540,7 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "real2"
-	      SID		      "915"
+	      SID		      "1074"
 	      Position		      [15, 315, 35, 335]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -1493,7 +1548,7 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "imag2"
-	      SID		      "916"
+	      SID		      "1075"
 	      Position		      [15, 365, 35, 385]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -1501,7 +1556,7 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Constant1"
-	      SID		      "947"
+	      SID		      "1106"
 	      Ports		      [0, 1]
 	      Position		      [60, 172, 115, 198]
 	      LibraryVersion	      "1.2"
@@ -1546,7 +1601,7 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Constant2"
-	      SID		      "948"
+	      SID		      "1107"
 	      Ports		      [0, 1]
 	      Position		      [60, 227, 115, 253]
 	      LibraryVersion	      "1.2"
@@ -1591,19 +1646,19 @@ Library {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      "Terminator"
-	      SID		      "965"
+	      SID		      "1124"
 	      Position		      [225, 130, 245, 150]
 	    }
 	    Block {
 	      BlockType		      Terminator
 	      Name		      "Terminator1"
-	      SID		      "966"
+	      SID		      "1125"
 	      Position		      [225, 230, 245, 250]
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "adder_tree1"
-	      SID		      "949"
+	      SID		      "1108"
 	      Ports		      [3, 2]
 	      Position		      [145, 129, 195, 201]
 	      AttributesFormatString  "latency 2"
@@ -1638,14 +1693,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "sync"
-		  SID			  "950"
+		  SID			  "1109"
 		  Position		  [15, 140, 35, 160]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "din1"
-		  SID			  "952"
+		  SID			  "1111"
 		  Position		  [15, 30, 35, 50]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -1653,7 +1708,7 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din2"
-		  SID			  "953"
+		  SID			  "1112"
 		  Position		  [15, 80, 35, 100]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -1661,7 +1716,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "addr1"
-		  SID			  "956"
+		  SID			  "1115"
 		  Ports			  [2, 1]
 		  Position		  [60, 36, 120, 94]
 		  LibraryVersion	  "1.2"
@@ -1708,7 +1763,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "sync_delay"
-		  SID			  "955"
+		  SID			  "1114"
 		  Ports			  [1, 1]
 		  Position		  [60, 122, 120, 178]
 		  LibraryVersion	  "1.2"
@@ -1738,14 +1793,14 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "sync_out"
-		  SID			  "951"
+		  SID			  "1110"
 		  Position		  [150, 140, 170, 160]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
-		  SID			  "954"
+		  SID			  "1113"
 		  Position		  [150, 55, 170, 75]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -1789,7 +1844,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "adder_tree2"
-	      SID		      "957"
+	      SID		      "1116"
 	      Ports		      [3, 2]
 	      Position		      [145, 229, 195, 301]
 	      AttributesFormatString  "latency 2"
@@ -1824,14 +1879,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "sync"
-		  SID			  "958"
+		  SID			  "1117"
 		  Position		  [15, 140, 35, 160]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "din1"
-		  SID			  "960"
+		  SID			  "1119"
 		  Position		  [15, 30, 35, 50]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -1839,7 +1894,7 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din2"
-		  SID			  "961"
+		  SID			  "1120"
 		  Position		  [15, 80, 35, 100]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -1847,7 +1902,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "addr1"
-		  SID			  "964"
+		  SID			  "1123"
 		  Ports			  [2, 1]
 		  Position		  [60, 36, 120, 94]
 		  LibraryVersion	  "1.2"
@@ -1894,7 +1949,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "sync_delay"
-		  SID			  "963"
+		  SID			  "1122"
 		  Ports			  [1, 1]
 		  Position		  [60, 122, 120, 178]
 		  LibraryVersion	  "1.2"
@@ -1924,14 +1979,14 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "sync_out"
-		  SID			  "959"
+		  SID			  "1118"
 		  Position		  [150, 140, 170, 160]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
-		  SID			  "962"
+		  SID			  "1121"
 		  Position		  [150, 55, 170, 75]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -1975,7 +2030,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "fir_tap1"
-	      SID		      "923"
+	      SID		      "1082"
 	      Ports		      [2, 4]
 	      Position		      [65, 57, 110, 143]
 	      MinAlgLoopOccurrences   off
@@ -2015,14 +2070,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "a"
-		  SID			  "924"
+		  SID			  "1083"
 		  Position		  [30, 100, 50, 120]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "b"
-		  SID			  "925"
+		  SID			  "1084"
 		  Position		  [30, 255, 50, 275]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2030,7 +2085,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Constant"
-		  SID			  "930"
+		  SID			  "1089"
 		  Ports			  [0, 1]
 		  Position		  [15, 177, 70, 203]
 		  LibraryVersion	  "1.2"
@@ -2069,7 +2124,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Mult"
-		  SID			  "931"
+		  SID			  "1090"
 		  Ports			  [2, 1]
 		  Position		  [100, 200, 155, 255]
 		  LibraryVersion	  "1.2"
@@ -2114,7 +2169,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Mult1"
-		  SID			  "932"
+		  SID			  "1091"
 		  Ports			  [2, 1]
 		  Position		  [100, 115, 155, 170]
 		  LibraryVersion	  "1.2"
@@ -2159,7 +2214,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Register"
-		  SID			  "933"
+		  SID			  "1092"
 		  Ports			  [1, 1]
 		  Position		  [95, 32, 155, 88]
 		  LibraryVersion	  "1.2"
@@ -2187,7 +2242,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Register1"
-		  SID			  "934"
+		  SID			  "1093"
 		  Ports			  [1, 1]
 		  Position		  [95, 287, 155, 343]
 		  LibraryVersion	  "1.2"
@@ -2215,14 +2270,14 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "a_out"
-		  SID			  "926"
+		  SID			  "1085"
 		  Position		  [190, 50, 210, 70]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "b_out"
-		  SID			  "927"
+		  SID			  "1086"
 		  Position		  [190, 305, 210, 325]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2230,7 +2285,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "real"
-		  SID			  "928"
+		  SID			  "1087"
 		  Position		  [190, 135, 210, 155]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2238,7 +2293,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "imag"
-		  SID			  "929"
+		  SID			  "1088"
 		  Position		  [190, 220, 210, 240]
 		  Port			  "4"
 		  IconDisplay		  "Port number"
@@ -2318,7 +2373,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "fir_tap2"
-	      SID		      "935"
+	      SID		      "1094"
 	      Ports		      [2, 4]
 	      Position		      [65, 307, 110, 393]
 	      MinAlgLoopOccurrences   off
@@ -2358,14 +2413,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "a"
-		  SID			  "936"
+		  SID			  "1095"
 		  Position		  [30, 100, 50, 120]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "b"
-		  SID			  "937"
+		  SID			  "1096"
 		  Position		  [30, 255, 50, 275]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2373,7 +2428,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Constant"
-		  SID			  "942"
+		  SID			  "1101"
 		  Ports			  [0, 1]
 		  Position		  [15, 177, 70, 203]
 		  LibraryVersion	  "1.2"
@@ -2412,7 +2467,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Mult"
-		  SID			  "943"
+		  SID			  "1102"
 		  Ports			  [2, 1]
 		  Position		  [100, 200, 155, 255]
 		  LibraryVersion	  "1.2"
@@ -2457,7 +2512,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Mult1"
-		  SID			  "944"
+		  SID			  "1103"
 		  Ports			  [2, 1]
 		  Position		  [100, 115, 155, 170]
 		  LibraryVersion	  "1.2"
@@ -2502,7 +2557,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Register"
-		  SID			  "945"
+		  SID			  "1104"
 		  Ports			  [1, 1]
 		  Position		  [95, 32, 155, 88]
 		  LibraryVersion	  "1.2"
@@ -2530,7 +2585,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Register1"
-		  SID			  "946"
+		  SID			  "1105"
 		  Ports			  [1, 1]
 		  Position		  [95, 287, 155, 343]
 		  LibraryVersion	  "1.2"
@@ -2558,14 +2613,14 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "a_out"
-		  SID			  "938"
+		  SID			  "1097"
 		  Position		  [190, 50, 210, 70]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "b_out"
-		  SID			  "939"
+		  SID			  "1098"
 		  Position		  [190, 305, 210, 325]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2573,7 +2628,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "real"
-		  SID			  "940"
+		  SID			  "1099"
 		  Position		  [190, 135, 210, 155]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2581,7 +2636,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "imag"
-		  SID			  "941"
+		  SID			  "1100"
 		  Position		  [190, 220, 210, 240]
 		  Port			  "4"
 		  IconDisplay		  "Port number"
@@ -2661,14 +2716,14 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "real_out1"
-	      SID		      "917"
+	      SID		      "1076"
 	      Position		      [160, 30, 180, 50]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "imag_out1"
-	      SID		      "918"
+	      SID		      "1077"
 	      Position		      [160, 80, 180, 100]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2676,7 +2731,7 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "real_out2"
-	      SID		      "919"
+	      SID		      "1078"
 	      Position		      [160, 330, 180, 350]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2684,7 +2739,7 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "imag_out2"
-	      SID		      "920"
+	      SID		      "1079"
 	      Position		      [160, 380, 180, 400]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -2692,7 +2747,7 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "real_sum"
-	      SID		      "921"
+	      SID		      "1080"
 	      Position		      [225, 180, 245, 200]
 	      Port		      "5"
 	      IconDisplay	      "Port number"
@@ -2700,7 +2755,7 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "imag_sum"
-	      SID		      "922"
+	      SID		      "1081"
 	      Position		      [225, 280, 245, 300]
 	      Port		      "6"
 	      IconDisplay	      "Port number"
@@ -2849,7 +2904,7 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "fir_col2"
-	  SID			  "967"
+	  SID			  "1126"
 	  Ports			  [4, 6]
 	  Position		  [145, 117, 195, 233]
 	  MinAlgLoopOccurrences	  off
@@ -2889,14 +2944,14 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "real1"
-	      SID		      "968"
+	      SID		      "1127"
 	      Position		      [15, 65, 35, 85]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "imag1"
-	      SID		      "969"
+	      SID		      "1128"
 	      Position		      [15, 115, 35, 135]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2904,7 +2959,7 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "real2"
-	      SID		      "970"
+	      SID		      "1129"
 	      Position		      [15, 315, 35, 335]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2912,7 +2967,7 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "imag2"
-	      SID		      "971"
+	      SID		      "1130"
 	      Position		      [15, 365, 35, 385]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -2920,7 +2975,7 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Constant1"
-	      SID		      "1002"
+	      SID		      "1161"
 	      Ports		      [0, 1]
 	      Position		      [60, 172, 115, 198]
 	      LibraryVersion	      "1.2"
@@ -2965,7 +3020,7 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Constant2"
-	      SID		      "1003"
+	      SID		      "1162"
 	      Ports		      [0, 1]
 	      Position		      [60, 227, 115, 253]
 	      LibraryVersion	      "1.2"
@@ -3010,19 +3065,19 @@ Library {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      "Terminator2"
-	      SID		      "1020"
+	      SID		      "1179"
 	      Position		      [225, 130, 245, 150]
 	    }
 	    Block {
 	      BlockType		      Terminator
 	      Name		      "Terminator3"
-	      SID		      "1021"
+	      SID		      "1180"
 	      Position		      [225, 230, 245, 250]
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "adder_tree1"
-	      SID		      "1004"
+	      SID		      "1163"
 	      Ports		      [3, 2]
 	      Position		      [145, 129, 195, 201]
 	      AttributesFormatString  "latency 2"
@@ -3057,14 +3112,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "sync"
-		  SID			  "1005"
+		  SID			  "1164"
 		  Position		  [15, 140, 35, 160]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "din1"
-		  SID			  "1007"
+		  SID			  "1166"
 		  Position		  [15, 30, 35, 50]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -3072,7 +3127,7 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din2"
-		  SID			  "1008"
+		  SID			  "1167"
 		  Position		  [15, 80, 35, 100]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -3080,7 +3135,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "addr1"
-		  SID			  "1011"
+		  SID			  "1170"
 		  Ports			  [2, 1]
 		  Position		  [60, 36, 120, 94]
 		  LibraryVersion	  "1.2"
@@ -3127,7 +3182,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "sync_delay"
-		  SID			  "1010"
+		  SID			  "1169"
 		  Ports			  [1, 1]
 		  Position		  [60, 122, 120, 178]
 		  LibraryVersion	  "1.2"
@@ -3157,14 +3212,14 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "sync_out"
-		  SID			  "1006"
+		  SID			  "1165"
 		  Position		  [150, 140, 170, 160]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
-		  SID			  "1009"
+		  SID			  "1168"
 		  Position		  [150, 55, 170, 75]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -3208,7 +3263,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "adder_tree2"
-	      SID		      "1012"
+	      SID		      "1171"
 	      Ports		      [3, 2]
 	      Position		      [145, 229, 195, 301]
 	      AttributesFormatString  "latency 2"
@@ -3243,14 +3298,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "sync"
-		  SID			  "1013"
+		  SID			  "1172"
 		  Position		  [15, 140, 35, 160]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "din1"
-		  SID			  "1015"
+		  SID			  "1174"
 		  Position		  [15, 30, 35, 50]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -3258,7 +3313,7 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "din2"
-		  SID			  "1016"
+		  SID			  "1175"
 		  Position		  [15, 80, 35, 100]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -3266,7 +3321,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "addr1"
-		  SID			  "1019"
+		  SID			  "1178"
 		  Ports			  [2, 1]
 		  Position		  [60, 36, 120, 94]
 		  LibraryVersion	  "1.2"
@@ -3313,7 +3368,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "sync_delay"
-		  SID			  "1018"
+		  SID			  "1177"
 		  Ports			  [1, 1]
 		  Position		  [60, 122, 120, 178]
 		  LibraryVersion	  "1.2"
@@ -3343,14 +3398,14 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "sync_out"
-		  SID			  "1014"
+		  SID			  "1173"
 		  Position		  [150, 140, 170, 160]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "dout"
-		  SID			  "1017"
+		  SID			  "1176"
 		  Position		  [150, 55, 170, 75]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -3394,7 +3449,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "fir_tap1"
-	      SID		      "978"
+	      SID		      "1137"
 	      Ports		      [2, 4]
 	      Position		      [65, 57, 110, 143]
 	      MinAlgLoopOccurrences   off
@@ -3434,14 +3489,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "a"
-		  SID			  "979"
+		  SID			  "1138"
 		  Position		  [30, 100, 50, 120]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "b"
-		  SID			  "980"
+		  SID			  "1139"
 		  Position		  [30, 255, 50, 275]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -3449,7 +3504,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Constant"
-		  SID			  "985"
+		  SID			  "1144"
 		  Ports			  [0, 1]
 		  Position		  [15, 177, 70, 203]
 		  LibraryVersion	  "1.2"
@@ -3488,7 +3543,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Mult"
-		  SID			  "986"
+		  SID			  "1145"
 		  Ports			  [2, 1]
 		  Position		  [100, 200, 155, 255]
 		  LibraryVersion	  "1.2"
@@ -3533,7 +3588,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Mult1"
-		  SID			  "987"
+		  SID			  "1146"
 		  Ports			  [2, 1]
 		  Position		  [100, 115, 155, 170]
 		  LibraryVersion	  "1.2"
@@ -3578,7 +3633,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Register"
-		  SID			  "988"
+		  SID			  "1147"
 		  Ports			  [1, 1]
 		  Position		  [95, 32, 155, 88]
 		  LibraryVersion	  "1.2"
@@ -3606,7 +3661,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Register1"
-		  SID			  "989"
+		  SID			  "1148"
 		  Ports			  [1, 1]
 		  Position		  [95, 287, 155, 343]
 		  LibraryVersion	  "1.2"
@@ -3634,14 +3689,14 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "a_out"
-		  SID			  "981"
+		  SID			  "1140"
 		  Position		  [190, 50, 210, 70]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "b_out"
-		  SID			  "982"
+		  SID			  "1141"
 		  Position		  [190, 305, 210, 325]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -3649,7 +3704,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "real"
-		  SID			  "983"
+		  SID			  "1142"
 		  Position		  [190, 135, 210, 155]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -3657,7 +3712,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "imag"
-		  SID			  "984"
+		  SID			  "1143"
 		  Position		  [190, 220, 210, 240]
 		  Port			  "4"
 		  IconDisplay		  "Port number"
@@ -3737,7 +3792,7 @@ Library {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "fir_tap2"
-	      SID		      "990"
+	      SID		      "1149"
 	      Ports		      [2, 4]
 	      Position		      [65, 307, 110, 393]
 	      MinAlgLoopOccurrences   off
@@ -3777,14 +3832,14 @@ Library {
 		Block {
 		  BlockType		  Inport
 		  Name			  "a"
-		  SID			  "991"
+		  SID			  "1150"
 		  Position		  [30, 100, 50, 120]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "b"
-		  SID			  "992"
+		  SID			  "1151"
 		  Position		  [30, 255, 50, 275]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -3792,7 +3847,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Constant"
-		  SID			  "997"
+		  SID			  "1156"
 		  Ports			  [0, 1]
 		  Position		  [15, 177, 70, 203]
 		  LibraryVersion	  "1.2"
@@ -3831,7 +3886,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Mult"
-		  SID			  "998"
+		  SID			  "1157"
 		  Ports			  [2, 1]
 		  Position		  [100, 200, 155, 255]
 		  LibraryVersion	  "1.2"
@@ -3876,7 +3931,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Mult1"
-		  SID			  "999"
+		  SID			  "1158"
 		  Ports			  [2, 1]
 		  Position		  [100, 115, 155, 170]
 		  LibraryVersion	  "1.2"
@@ -3921,7 +3976,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Register"
-		  SID			  "1000"
+		  SID			  "1159"
 		  Ports			  [1, 1]
 		  Position		  [95, 32, 155, 88]
 		  LibraryVersion	  "1.2"
@@ -3949,7 +4004,7 @@ Library {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Register1"
-		  SID			  "1001"
+		  SID			  "1160"
 		  Ports			  [1, 1]
 		  Position		  [95, 287, 155, 343]
 		  LibraryVersion	  "1.2"
@@ -3977,14 +4032,14 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "a_out"
-		  SID			  "993"
+		  SID			  "1152"
 		  Position		  [190, 50, 210, 70]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "b_out"
-		  SID			  "994"
+		  SID			  "1153"
 		  Position		  [190, 305, 210, 325]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -3992,7 +4047,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "real"
-		  SID			  "995"
+		  SID			  "1154"
 		  Position		  [190, 135, 210, 155]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -4000,7 +4055,7 @@ Library {
 		Block {
 		  BlockType		  Outport
 		  Name			  "imag"
-		  SID			  "996"
+		  SID			  "1155"
 		  Position		  [190, 220, 210, 240]
 		  Port			  "4"
 		  IconDisplay		  "Port number"
@@ -4080,14 +4135,14 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "real_out1"
-	      SID		      "972"
+	      SID		      "1131"
 	      Position		      [160, 30, 180, 50]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "imag_out1"
-	      SID		      "973"
+	      SID		      "1132"
 	      Position		      [160, 80, 180, 100]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -4095,7 +4150,7 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "real_out2"
-	      SID		      "974"
+	      SID		      "1133"
 	      Position		      [160, 330, 180, 350]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -4103,7 +4158,7 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "imag_out2"
-	      SID		      "975"
+	      SID		      "1134"
 	      Position		      [160, 380, 180, 400]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -4111,7 +4166,7 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "real_sum"
-	      SID		      "976"
+	      SID		      "1135"
 	      Position		      [225, 180, 245, 200]
 	      Port		      "5"
 	      IconDisplay	      "Port number"
@@ -4119,7 +4174,7 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "imag_sum"
-	      SID		      "977"
+	      SID		      "1136"
 	      Position		      [225, 280, 245, 300]
 	      Port		      "6"
 	      IconDisplay	      "Port number"
@@ -4268,7 +4323,7 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "imag_sum"
-	  SID			  "1022"
+	  SID			  "1181"
 	  Ports			  [3, 2]
 	  Position		  [235, 204, 285, 276]
 	  AttributesFormatString  "latency 1"
@@ -4297,14 +4352,14 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "sync"
-	      SID		      "1023"
+	      SID		      "1182"
 	      Position		      [15, 140, 35, 160]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "din1"
-	      SID		      "1025"
+	      SID		      "1184"
 	      Position		      [15, 30, 35, 50]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -4312,7 +4367,7 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "din2"
-	      SID		      "1026"
+	      SID		      "1185"
 	      Position		      [15, 80, 35, 100]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -4320,7 +4375,7 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "addr1"
-	      SID		      "1029"
+	      SID		      "1188"
 	      Ports		      [2, 1]
 	      Position		      [60, 36, 120, 94]
 	      LibraryVersion	      "1.2"
@@ -4367,7 +4422,7 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "sync_delay"
-	      SID		      "1028"
+	      SID		      "1187"
 	      Ports		      [1, 1]
 	      Position		      [60, 122, 120, 178]
 	      LibraryVersion	      "1.2"
@@ -4398,14 +4453,14 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "sync_out"
-	      SID		      "1024"
+	      SID		      "1183"
 	      Position		      [150, 140, 170, 160]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "dout"
-	      SID		      "1027"
+	      SID		      "1186"
 	      Position		      [150, 55, 170, 75]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -4449,7 +4504,7 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "real_sum"
-	  SID			  "1030"
+	  SID			  "1189"
 	  Ports			  [3, 2]
 	  Position		  [235, 104, 285, 176]
 	  AttributesFormatString  "latency 1"
@@ -4478,14 +4533,14 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "sync"
-	      SID		      "1031"
+	      SID		      "1190"
 	      Position		      [15, 140, 35, 160]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "din1"
-	      SID		      "1033"
+	      SID		      "1192"
 	      Position		      [15, 30, 35, 50]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -4493,7 +4548,7 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "din2"
-	      SID		      "1034"
+	      SID		      "1193"
 	      Position		      [15, 80, 35, 100]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -4501,7 +4556,7 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "addr1"
-	      SID		      "1037"
+	      SID		      "1196"
 	      Ports		      [2, 1]
 	      Position		      [60, 36, 120, 94]
 	      LibraryVersion	      "1.2"
@@ -4548,7 +4603,7 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "sync_delay"
-	      SID		      "1036"
+	      SID		      "1195"
 	      Ports		      [1, 1]
 	      Position		      [60, 122, 120, 178]
 	      LibraryVersion	      "1.2"
@@ -4579,14 +4634,14 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "sync_out"
-	      SID		      "1032"
+	      SID		      "1191"
 	      Position		      [150, 140, 170, 160]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "dout"
-	      SID		      "1035"
+	      SID		      "1194"
 	      Position		      [150, 55, 170, 75]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -4630,7 +4685,7 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "ri_to_c"
-	  SID			  "1040"
+	  SID			  "1199"
 	  Ports			  [2, 1]
 	  Position		  [485, 180, 530, 235]
 	  MinAlgLoopOccurrences	  off
@@ -4658,14 +4713,14 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "re"
-	      SID		      "1041"
+	      SID		      "1200"
 	      Position		      [15, 35, 35, 55]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "im"
-	      SID		      "1042"
+	      SID		      "1201"
 	      Position		      [15, 100, 35, 120]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -4673,7 +4728,7 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "concat"
-	      SID		      "1044"
+	      SID		      "1203"
 	      Ports		      [2, 1]
 	      Position		      [140, 45, 200, 105]
 	      LibraryVersion	      "1.2"
@@ -4699,7 +4754,7 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "force_im"
-	      SID		      "1045"
+	      SID		      "1204"
 	      Ports		      [1, 1]
 	      Position		      [60, 94, 110, 126]
 	      LibraryVersion	      "1.2"
@@ -4729,7 +4784,7 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "force_re"
-	      SID		      "1046"
+	      SID		      "1205"
 	      Ports		      [1, 1]
 	      Position		      [60, 29, 110, 61]
 	      LibraryVersion	      "1.2"
@@ -4759,7 +4814,7 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "c"
-	      SID		      "1043"
+	      SID		      "1202"
 	      Position		      [230, 65, 250, 85]
 	      IconDisplay	      "Port number"
 	    }
@@ -4800,7 +4855,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "shift1"
-	  SID			  "1047"
+	  SID			  "1206"
 	  Ports			  [1, 1]
 	  Position		  [315, 142, 375, 198]
 	  LibraryVersion	  "1.2"
@@ -4835,7 +4890,7 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "shift2"
-	  SID			  "1048"
+	  SID			  "1207"
 	  Ports			  [1, 1]
 	  Position		  [315, 227, 375, 283]
 	  LibraryVersion	  "1.2"
@@ -9465,8 +9520,8 @@ MatData {
   DataRecord {
     Tag			    DataTag2
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    .6)F9#,U.#1F-&(V83<V-6"
-    "1E86,X,3AD9C,Q-C<R93<"
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    830Y8V)F.#4S96)B9F0P-&"
+    "4Y,V)D,C(V-#<W-C@P83$"
   }
   DataRecord {
     Tag			    DataTag1
@@ -9477,7 +9532,7 @@ MatData {
   DataRecord {
     Tag			    DataTag0
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    968Y9F0V-C8T.6)D,6(Q9#"
-    "AE,C5A,64V.&(R.6(R8V("
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    -S4P8C4X.#8T,#4S9C W,F"
+    "%A93=D-CAD,F1D9&$X-S0"
   }
 }
