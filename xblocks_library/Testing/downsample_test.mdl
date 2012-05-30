@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.47"
+    ComputedModelVersion    "1.49"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "chenhong"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed May 16 15:14:20 2012"
-  RTWModifiedTimeStamp	  259081931
-  ModelVersionFormat	  "1.%<AutoIncrement:47>"
+  LastModifiedDate	  "Tue May 22 15:03:08 2012"
+  RTWModifiedTimeStamp	  259599709
+  ModelVersionFormat	  "1.%<AutoIncrement:49>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -869,7 +869,7 @@ Model {
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "8|1|0"
+      MaskValueString	      "4|1|0"
       System {
 	Name			"Down Sample"
 	Location		[237, 77, 973, 522]
@@ -885,7 +885,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"1001"
+	SIDHighWatermark	"1006"
 	SIDPrevWatermark	"895"
 	Block {
 	  BlockType		  Inport
@@ -905,7 +905,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Constant"
-	  SID			  "85:997"
+	  SID			  "85:1002"
 	  Ports			  [0, 1]
 	  Position		  [65, 132, 115, 158]
 	  LibraryVersion	  "1.2"
@@ -944,7 +944,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Counter1"
-	  SID			  "85:998"
+	  SID			  "85:1003"
 	  Ports			  [1, 1]
 	  Position		  [60, 40, 120, 100]
 	  LibraryVersion	  "1.2"
@@ -955,10 +955,10 @@ Model {
 	  cnt_type		  "Count Limited"
 	  cnt_to		  "0"
 	  operation		  "Down"
-	  start_count		  "7"
+	  start_count		  "3"
 	  cnt_by_val		  "1"
 	  arith_type		  "Unsigned"
-	  n_bits		  "3"
+	  n_bits		  "2"
 	  bin_pt		  "0"
 	  load_pin		  off
 	  rst			  on
@@ -986,7 +986,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Register"
-	  SID			  "85:999"
+	  SID			  "85:1004"
 	  Ports			  [2, 1]
 	  Position		  [240, 47, 300, 103]
 	  LibraryVersion	  "1.2"
@@ -1015,7 +1015,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Relational"
-	  SID			  "85:1000"
+	  SID			  "85:1005"
 	  Ports			  [2, 1]
 	  Position		  [150, 77, 205, 133]
 	  LibraryVersion	  "1.2"
@@ -1044,7 +1044,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "sync_delay"
-	  SID			  "85:1001"
+	  SID			  "85:1006"
 	  Ports			  [1, 1]
 	  Position		  [60, 187, 120, 243]
 	  LibraryVersion	  "1.2"
@@ -1286,15 +1286,16 @@ Model {
       Location		      [6, 78, 1276, 705]
       Open		      off
       NumInputPorts	      "3"
-      ZoomMode		      "yonly"
+      ZoomMode		      "xonly"
       List {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
 	axes2			"%<SignalLabel>"
 	axes3			"%<SignalLabel>"
       }
-      YMin		      "-5~-5~-5"
-      YMax		      "5~5~5"
+      TimeRange		      "91.03072628991504"
+      YMin		      "224.6987059470773~176.6998932004272~0"
+      YMax		      "244.0779250339745~259.7662276017563~1"
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
     }
@@ -2168,8 +2169,8 @@ MatData {
   DataRecord {
     Tag			    DataTag1
     Data		    "  %)30     .    H     8    (     @         %    \"     $    !     0         %  0 \"@    $    *    :&%S:"
-    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    93,W93<X.60S.3EF93EA,&"
-    ",P,#DW,V9B-&8U,#-D-S "
+    "%]C;V1E          X   !0    !@    @    $          4    (     0   \"     !         !     @    9F8U9F,R8F1B.#@V-C=B,C"
+    "!F830Q,C,V.68U.&5F,3("
   }
   DataRecord {
     Tag			    DataTag0

@@ -1,14 +1,48 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                             %
+%   Center for Astronomy Signal Processing and Electronics Research           %
+%   http://casper.berkeley.edu                                                %      
+%   Copyright (C) 2012    Hong Chen                                           %
+%                                                                             %
+%   This program is free software; you can redistribute it and/or modify      %
+%   it under the terms of the GNU General Public License as published by      %
+%   the Free Software Foundation; either version 2 of the License, or         %
+%   (at your option) any later version.                                       %
+%                                                                             %
+%   This program is distributed in the hope that it will be useful,           %
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of            %
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             %
+%   GNU General Public License for more details.                              %
+%                                                                             %
+%   You should have received a copy of the GNU General Public License along   %
+%   with this program; if not, write to the Free Software Foundation, Inc.,   %
+%   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.               %
+%                                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dec_rate: effective rate change
+% explicit_clk_rate: whether to use explicit clk rate in the counter
+% input_clk_period: the actual sampling period of the input signal
+% input_period: the supposed sampling period of the input signal
+%            has to be a multiple of input_clk_period
+% xilinx: whether to use xilinx downsample block (multirate system)
 function downsample_init_xblock(blk, varargin)
 
 defaults = {'dec_rate', 3, ...
     'explicit_clk_rate', 'on', ...
-    'input_clk_rate', 1, ...
+    'input_clk_period', 1, ...
+    'input_period', 1, ...
     'xilinx',0};   % default: 0, don't use the xilinx cic, this is just for the convenience of testing
 
 dec_rate = get_var('dec_rate', 'defaults', defaults, varargin{:});
-explicit_clk_rate = get_var('explicit_clk_rate', 'defaults', defaults, varargin{:}); % when this is off, infer clock rate from input, then input_clk_rate is pratically disabled
-input_clk_rate = get_var('input_clk_rate', 'defaults', defaults, varargin{:});
+explicit_clk_rate = get_var('explicit_clk_rate', 'defaults', defaults, varargin{:}); % when this is off, infer clock rate from input, then input_clk_period is pratically disabled
+input_clk_period = get_var('input_clk_period', 'defaults', defaults, varargin{:});
+input_period = get_var('input_period', 'defaults', defaults, varargin{:});
 xilinx = get_var('xilinx', 'defaults', defaults, varargin{:});
+
+if mod(input_period/input_clk_period,1)
+    disp('input_period must be a multiple of input_clk_period');
+    return;
+end
 
 
 %% inports
@@ -20,6 +54,7 @@ outport = xOutport('Out');
 sync_out = xOutport('sync_out');
 
 %% diagram
+
 
 
 if xilinx
@@ -49,12 +84,12 @@ if strcmp(explicit_clk_rate, 'on')
                                     'cnt_to', 0, ...
                                     'cnt_by_val', 1, ...
                                     'operation', 'Down', ...
-                                    'n_bits', nextpow2(dec_rate), ...
+                                    'n_bits', nextpow2(dec_rate*(input_period/input_clk_period)), ...
                                     'bin_pt', 0, ...
                                     'rst','on',... % provide reset port tied to sync pulse
-                                    'start_count', dec_rate-1,...
+                                    'start_count', dec_rate*(input_period/input_clk_period)-1,...
                                     'explicit_period', 'on', ...
-                                    'period', input_clk_rate), ...
+                                    'period', input_clk_period), ...
                              {sync_in}, ...
                              {Counter_out});
 else
@@ -63,10 +98,10 @@ else
                                     'cnt_to', 0, ...
                                     'cnt_by_val', 1, ...
                                     'operation', 'Down', ...
-                                    'n_bits', 18, ...
+                                    'n_bits', newxtpow2(dec_rate*(input_period/input_clk_period)), ...
                                     'bin_pt', 0, ...
                                     'rst','on',... % provide reset port tied to sync pulse
-                                    'start_count', dec_rate-1,...
+                                    'start_count', dec_rate*(input_period/input_clk_period)-1,...
                                     'explicit_period', 'off'), ...
                              {sync_in}, ...
                              {Counter_out});
@@ -96,6 +131,8 @@ Sync_delay = xBlock(struct('source', 'Delay', 'name', 'sync_delay'), ...
 
 if ~isempty(blk) && ~strcmp(blk(1),'/')
     clean_blocks(blk);
+    fmtstr=sprintf('Rate change: %d\nclock(actualy/effective): %d/%d',dec_rate, input_clk_period, input_period);
+    set_param(blk,'AttributesFormatString',fmtstr);
 end
 end
 
