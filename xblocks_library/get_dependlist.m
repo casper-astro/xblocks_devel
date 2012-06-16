@@ -20,15 +20,32 @@
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function dependlist = get_dependlist(blk_name,varargin)
-%% Running with blk_name only:
-%  get all subblocks of the target block (down to any level)
-%  return a cell array of the _init_xblock.m files of those blocks
-%% Running with extra parameter '-super'
-%  get all blocks that directly depend on the target block
-%  return a cell array of the _init_xblock.m files of those blocks
+
+if ismember('-verbose', varargin)
+    if ismember('-recursive', varargin)
+        disp(' ');
+        disp('Recursively searching for sub-blocks...');
+        disp(['current block: ', blk_name]);
+        disp(' ');
+    else
+        disp('***********************************************************************');
+        disp('get_depndlist():');
+        disp('---- Running with blk_name only:');
+        disp('     get all subblocks of the target block (down to any level)');
+        disp('     return a cell array of the _init_xblock.m files of those blocks');
+        disp('---- Running with extra parameter ''-super'': ');
+        disp('     get all blocks that directly depend on the target block');
+        disp('     return a cell array of the _init_xblock.m files of those blocks');
+        disp(' ');
+        disp('See also: add_to_subblk_list(), rm_from_subblk_list()');
+        disp(' ');
+        disp('Block hierarchy information stored in file subblk_list.mat');
+        disp('***********************************************************************');
+    end
+end
 
 
-if isempty(varargin)
+if isempty(varargin) || ~ismember('-super', varargin)
     subblk_list = load('subblk_list',[blk_name,'_subblk_list']);
 
     if ~isempty(fieldnames(subblk_list))
@@ -39,7 +56,11 @@ if isempty(varargin)
 
     dependlist = {strcat(blk_name,'_init_xblock')};
     for i = 1:length(subblocks)
-        temp_list = get_dependlist(subblocks{i});
+        if ismember('-verbose', varargin)
+            temp_list = get_dependlist(subblocks{i}, '-verbose', '-recursive');
+        else
+            temp_list = get_dependlist(subblocks{i}, '-recursive');
+        end
         dependlist = [dependlist, temp_list{:}];
         dependlist = unique(dependlist);
     end

@@ -21,6 +21,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function rm_from_subblk_list(varargin)
 
+disp('************************************************');
+disp('rm_from_subblk_list:');
+disp('Syntax: ');
+disp('rm_from_subblk_list(''main_blk'',''*name_of_main_blk*'',''sub_blks'',{*sub blocks*})');
+disp(' ');
+disp('See also: add_to_subblk_list(), get_dependlist()');
+disp(' ');
+disp('Block hierarchy information stored in file subblk_list.mat');
+disp('************************************************');
+
 defaults = {};
 
 main_blk = get_var('main_blk', 'defaults', defaults, varargin{:});
@@ -49,4 +59,16 @@ eval([[main_blk,'_subblk_list'] '=new_subblk_list;']);
 
 
 save('subblk_list',[main_blk,'_subblk_list'],'-append');
+
+
+disp(' ');
+disp('************************************************');
+disp('Sub block list updated!');
+disp(' ');
+disp(['Main block: ', main_blk]);
+disp('Depend list: ');
+dl = get_dependlist(main_blk);
+dl{:}
+disp('************************************************');
+
 end
