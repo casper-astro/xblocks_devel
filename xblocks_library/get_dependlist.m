@@ -34,10 +34,10 @@ if ismember('-verbose', varargin)
         disp('     get all subblocks of the target block (down to any level)');
         disp('     return a cell array of the _init_xblock.m files of those blocks');
         disp('---- Running with extra parameter ''-super'': ');
-        disp('     get all blocks that directly depend on the target block');
+        disp('     get all blocks that *directly* depend on the target block');
         disp('     return a cell array of the _init_xblock.m files of those blocks');
         disp(' ');
-        disp('See also: add_to_subblk_list(), rm_from_subblk_list()');
+        disp('See also: add_to_subblk_list(), rm_from_subblk_list(), rename_blk()');
         disp(' ');
         disp('Block hierarchy information stored in file subblk_list.mat');
         disp('***********************************************************************');
@@ -73,6 +73,7 @@ elseif strcmp(varargin{1},'-super')
     
     for i=1:length(recorded_subblk_names)
         recorded_subblk_lists{i} = load('subblk_list',recorded_subblk_names{i});
+        
         if ismember(blk_name,recorded_subblk_lists{i}.(recorded_subblk_names{i}))
             super_blk_name_idx = findstr(recorded_subblk_names{i},'_subblk_list');
             super_blk_name = recorded_subblk_names{i}(1:super_blk_name_idx-1);

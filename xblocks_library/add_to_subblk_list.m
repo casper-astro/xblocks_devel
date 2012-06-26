@@ -21,20 +21,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function add_to_subblk_list(varargin)
 
-disp('************************************************');
-disp('add_to_subblk_list:');
-disp('Syntax: ');
-disp('rm_from_subblk_list(''main_blk'',''*name_of_main_blk*'',''sub_blks'',{*sub blocks*})');
-disp(' ');
-disp('See also: rm_from_subblk_list, get_dependlist()');
-disp(' ');
-disp('Block hierarchy information stored in file subblk_list.mat');
-disp('************************************************');
+if isempty(varargin)
+    disp('************************************************');
+    disp('add_to_subblk_list:');
+    disp('Syntax: ');
+    disp('add_to_subblk_list(''main_blk'',''*name_of_main_blk*'',''sub_blks'',{*sub blocks*})');
+    disp(' ');
+    disp('See also: rename_blk(), rm_from_subblk_list(), get_dependlist()');
+    disp(' ');
+    disp('Block hierarchy information stored in file subblk_list.mat');
+    disp('************************************************');
+    return;
+end
 
-defaults = {};
+
+defaults = {'verbose', 'on'};
 
 main_blk = get_var('main_blk', 'defaults', defaults, varargin{:});
 sub_blks = get_var('sub_blks', 'defaults', defaults, varargin{:});
+verbose = get_var('verbose', 'defaults', defaults, varargin{:});
 
 
 if ~iscell(sub_blks)
@@ -46,8 +51,10 @@ sub_blks_trim = strcmp(sub_blks,'')==1;
 sub_blks(sub_blks_trim) = [];
 
 subblk_list = load('subblk_list',[main_blk,'_subblk_list']);
-disp(subblk_list);
-disp(fieldnames(subblk_list));
+if strcmp(verbose, 'on')
+    disp(subblk_list);
+    disp(fieldnames(subblk_list));
+end
 if ~isempty(fieldnames(subblk_list))
     new_subblk_list = [subblk_list.([main_blk,'_subblk_list']),sub_blks];
     new_subblk_list = unique(new_subblk_list);
@@ -56,7 +63,9 @@ else
 end
 
 %disp('hello');
-disp(new_subblk_list);
+if strcmp(verbose, 'on')
+    disp(new_subblk_list);
+end
 
 eval([[main_blk,'_subblk_list'] '=new_subblk_list;']);
 
@@ -64,14 +73,16 @@ eval([[main_blk,'_subblk_list'] '=new_subblk_list;']);
 save('subblk_list',[main_blk,'_subblk_list'],'-append');
 %save('subblk_list.txt',[main_blk,'_subblk_list'],'-append','-ascii');
 
-disp(' ');
-disp('************************************************');
-disp('Sub block list updated!');
-disp(' ');
-disp(['Main block: ', main_blk]);
-disp('Depend list: ');
-dl = get_dependlist(main_blk);
-dl{:}
-disp('************************************************');
+if strcmp(verbose, 'on')
+    disp(' ');
+    disp('************************************************');
+    disp('Sub block list updated!');
+    disp(' ');
+    disp(['Main block: ', main_blk]);
+    disp('Depend list: ');
+    dl = get_dependlist(main_blk);
+    dl{:}
+    disp('************************************************');
+end
     
 end
