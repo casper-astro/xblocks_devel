@@ -61,11 +61,11 @@ slice_re = xBlock(struct('source', 'Slice', 'name', 'slice_re'), ...
                          struct('nbits', n_bits), ...
                          {c}, ...
                          {slice_re_out1});
-
+                     
 
 if ~isempty(blk) && ~strcmp(blk(1),'/')
     annotation=sprintf('%d_%d r/i',n_bits,bin_pt);
-    set_param(gcb,'AttributesFormatString',annotation);
+    set_param(blk,'AttributesFormatString',annotation);
 end
 end
 
