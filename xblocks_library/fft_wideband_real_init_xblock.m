@@ -104,7 +104,7 @@ if strcmp(specify_mult, 'on'),
         estr = sprintf('Please check! (Under the Implmentation tab) When ''Specify multipliers use'' is on, the fft size must equal length of "Multiplier Specification"!');
         display(estr);
         errordlg(estr);
-        %error(estr);
+        error(estr);
     end
     mults_biplex(1:FFTSize-n_inputs) = mult_spec(1: FFTSize-n_inputs);
     mults_direct = mult_spec(FFTSize-n_inputs+1:FFTSize);
