@@ -143,7 +143,7 @@ a_re = xSignal;
 a_im = xSignal;
 bw_re = xSignal;
 bw_im = xSignal;
-twiddle_sync_out = xSignal;
+twiddle_sync_out = xSignal('twiddle_sync_out');
 apbw_re = xSignal;
 apbw_im = xSignal;
 ambw_re = xSignal;
@@ -209,7 +209,7 @@ if five_dsp_butterfly
 else 
 	sync_latency = add_latency + conv_latency; 
 	twiddle = xBlock(struct('source', str2func('fft_twiddle_init_xblock'), 'name', 'twiddle'), ...
-									[{[blk,'/twiddle']}, varargin,{'ActualCoeffs',ActualCoeffs}], ...
+									{[blk,'/twiddle'], {varargin{:},'ActualCoeffs',ActualCoeffs}}, ...
 									{a, b, sync}, ...
 									{a_re, a_im, bw_re, bw_im, twiddle_sync_out});
 	if dsp48_adders
@@ -346,6 +346,7 @@ xBlock(struct('source', str2func('ri_to_c_init_xblock'), 'name', 'ri_to_c23'), .
 if ~strcmp(hardcode_shifts, 'on') 
 	sync_latency = sync_latency + 1;
 end
+
 sync_delay = xBlock(struct('source', 'Delay', 'name', 'sync_delay'), ...
                            struct('latency', sync_latency, 'reg_retiming', 'on'), {twiddle_sync_out}, {sync_out});
 

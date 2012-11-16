@@ -102,10 +102,11 @@ function twiddle_stage_2_draw_init_xblock(a_re, a_im, b_re, b_im, sync, ...
 					struct('latency', bram_latency+mult_latency+add_latency-2, 'reg_retiming', 'on'), {convert_out1}, {delay4_out1});
 				
 		% bw_im = sel ? Imag(b*-j) : Imag(b) 
+        bw_im = xSignal('bw_im');
 		mux1 = xBlock(struct('source', 'Mux', 'name', 'mux1'), ...
-							 struct('latency', 1), {im_sel, delay3_out1, delay4_out1}, {bw_im_out});
+							 struct('latency', 1), {im_sel, delay3_out1, delay4_out1}, {bw_im});
                          
-                         bw_im_out = xDelay(bw_im_out,4,'bw_im_out_delay');
+        bw_im_out = xDelay(bw_im,4,'bw_im_out_delay');
 		
 		% negate bw_re to multiply by -j
 		negate = xBlock(struct('source', 'Negate', 'name', 'negate'), ...
