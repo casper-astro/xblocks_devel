@@ -101,7 +101,7 @@ mults_direct = 2.*ones(1, n_inputs);
 
 if strcmp(specify_mult, 'on'),
     if(length(mult_spec) ~= FFTSize)
-        estr = sprintf('Please check! (Under the Implmentation tab) When ''Specify multipliers use'' is on, the fft size must equal length of "Multiplier Specification"!');
+        estr = sprintf('Please check! (Under the Implmentation tab) When ''Specify multipliers use'' is on, the fft size %d must equal length of "Multiplier Specification" (%d)!', FFTSize, length(shift_schedule));
         display(estr);
         errordlg(estr);
         error(estr);
