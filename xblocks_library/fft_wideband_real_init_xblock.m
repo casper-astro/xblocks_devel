@@ -114,8 +114,8 @@ end
 shifts_biplex = ones(1, FFTSize-n_inputs);
 shifts_direct = ones(1, n_inputs);
 if strcmp(hardcode_shifts, 'on'),
-    if ~isequal(size(shifts_biplex), size(shift_schedule))
-        estr = sprintf('Please check! (Under the Implmentation tab) When ''Hardcode Shift Schedule'' is on, the fft size must equal length of "Shift schedule"!');
+    if (length(shift_schedule) ~= FFTSize)
+        estr = sprintf('Please check! (Under the Implmentation tab) When ''Hardcode Shift Schedule'' is on, the fft size %d must equal length of "Shift schedule" (%d)!',FFTSize,length(shift_schedule));
         display(estr);
         errordlg(estr);
         error(estr);
