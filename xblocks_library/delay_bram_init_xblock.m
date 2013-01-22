@@ -113,7 +113,7 @@ end
         bram_config.source = 'Single Port RAM';
         bram_config.name = ['bram', num2str(k)];
         bram_params = struct('depth', 2^bit_width, 'initVector', 0, 'write_mode', 'Read Before Write', ...
-            'latency', bram_latency, 'use_rpm', 'off');
+            'latency', bram_latency);
         single_port_bram = xBlock(bram_config, bram_params, {addr, din{k,1}, we}, {dout{k,1}});
     end                            
 
