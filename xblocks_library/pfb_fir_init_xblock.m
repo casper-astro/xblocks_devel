@@ -59,6 +59,14 @@ input_type = get_var('input_type', 'defaults', defaults, varargin{:});
 oversample_factor = get_var('oversample_factor','defaults',defaults,varargin{:});
 oversample_index = get_var('oversample_index','defaults',defaults,varargin{:});
 
+if oversample_factor < 1,
+    errordlg('Oversampling factor must be at least 1')
+end
+    
+if (oversample_index >= oversample_factor) | (oversample_index < 0),
+    errordlg(['Oversampling index must be between 0 and (Oversampling factor - 1) = ', num2str(oversample_factor-1)])
+end    
+
 %% inports & outports
 
 sync_in = xInport('sync');
