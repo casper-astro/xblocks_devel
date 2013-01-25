@@ -20,14 +20,7 @@
 %   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.               %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function pfb_coeff_gen_init_xblock(blk, PFBSize, CoeffBitWidth, TotalTaps, CoeffDistMem, WindowType, bram_latency, n_inputs, nput, fwidth)
-
-alltaps = TotalTaps*2^PFBSize;
-windowval = transpose(window(WindowType, alltaps));
-total_coeffs = windowval .* sinc(fwidth*([0:alltaps-1]/(2^PFBSize)-TotalTaps/2));
-for i=1:alltaps/2^n_inputs,
-    buf(i)=total_coeffs((i-1)*2^n_inputs + nput + 1);
-end
+function pfb_coeff_gen_init_xblock(blk, PFBSize, CoeffBitWidth, TotalTaps, CoeffDistMem, WindowType, bram_latency, n_inputs, nput, fwidth, oversample_factor, oversample_index)
 
 %% inports
 xlsub3_din = xInport('din');
@@ -71,7 +64,7 @@ for k=TotalTaps:-1:1,
     xlsub3_ROM1_out1 = xSignal;
     xlsub3_ROM1 = xBlock(struct('source', 'ROM', 'name', ['ROM', num2str(k)]), ...
                          struct('depth', 2^(PFBSize-n_inputs), ...
-                                'initVector', pfb_coeff_gen_calc(PFBSize,TotalTaps,WindowType,n_inputs,nput,fwidth, k), ...
+                                'initVector', pfb_coeff_gen_calc_xblock(PFBSize,TotalTaps,WindowType,n_inputs,nput,fwidth, k,oversample_factor,oversample_index), ...
                                 'latency', bram_latency, ...
                                 'n_bits', CoeffBitWidth, ...
                                 'bin_pt', CoeffBitWidth-1, ...

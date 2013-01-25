@@ -45,7 +45,9 @@ defaults = {'nput', 0, ...
     'biplex_inputs', 1, ...
     'use_hdl', 'on', ...
     'use_embedded', 'off', ...
-    'conv_latency', 1};    
+    'conv_latency', 1,...
+    'oversample_factor', 1,...
+    'oversample_index', 0};    
 
 nput = get_var('nput', 'defaults', defaults, varargin{:});
 PFBSize = get_var('PFBSize', 'defaults', defaults, varargin{:});
@@ -74,6 +76,8 @@ use_hdl = get_var('use_hdl', 'defaults', defaults, varargin{:});
 use_embedded = get_var('use_embedded', 'defaults', defaults, varargin{:});
 conv_latency = get_var('conv_latency', 'defaults', defaults, varargin{:});
 
+oversample_factor = get_var('oversample_factor','defaults',defaults,varargin{:});
+oversample_index = get_var('oversample_index','defaults',defaults,varargin{:});
 
 MakeBiplex
 
@@ -136,7 +140,7 @@ coeff_gen_config.name = 'pfb_coeff_gen';
 pfb_coeff_gen_sub = xBlock(coeff_gen_config, ...
     {[blk,'/',coeff_gen_config.name],PFBSize, CoeffBitWidth, TotalTaps, ...
     CoeffDistMem, WindowType, bram_latency, n_inputs, ...
-    nput, fwidth});
+    nput, fwidth,oversample_factor, oversample_index});
 pfb_coeff_gen_sub.bindPort({coeff_gen_din, sync}, coeff_gen_outports);
 
 %% Mult sync delay
@@ -162,7 +166,7 @@ for k = 2:TotalTaps,
     delay_k_out = xSignal;
     bram1_config.source = str2func('delay_bram_init_xblock');
     bram1_config.name = ['delay_bram', num2str(k)];
-    delay1 = xBlock(bram1_config, {[blk,'/',bram1_config.name], 2^(PFBSize-n_inputs)*1, bram_latency, 'on'});
+    delay1 = xBlock(bram1_config, {[blk,'/',bram1_config.name],'n_inputs', 1,'latency', 2^(PFBSize-n_inputs)*1,'bram_latency', bram_latency});
     delay1.bindPort({delay_out_sigs{k-1}}, {delay_k_out});
     delay_out_sigs{k} = delay_k_out;
 end
